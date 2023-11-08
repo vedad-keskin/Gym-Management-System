@@ -12,32 +12,23 @@ namespace GMS.Configuration
                 new Clanarina
                 {
                     ID = 1,
-                    Naziv = "Basic",
-                    Cijena = 50
+                    Naziv = "Fit Plus",
+                    Cijena = 50,
+                    Opis = "Teretane predstavljaju oazu zdravlja pružajući nam prostor gdje možemo ojačati svoje tijelo i smanjiti stres. Članstvo u teretani nije samo ulaganje u tjelesno zdravlje već i putovanje prema boljoj verziji sebe."
                 },
                 new Clanarina
                 {
                     ID = 2,
-                    Naziv = "Studentska",
-                    Cijena = 40
+                    Naziv = "Student Fit Plus",
+                    Cijena = 40,
+                    Opis = "Studentska članarina u teretani nije samo investicija u tjelesno zdravlje, već i u opću dobrobit studenata. Zahvaljujući ovim povlasticama, teretane postaju pristupačne za studente svih financijskih mogućnosti, čime se stvara zdraviji i sretniji studentski život. Zbog toga mi nudimo popust od čak 20% za sve studente!"
                 },
                 new Clanarina
                 {
                     ID = 3,
-                    Naziv = "Parovi",
-                    Cijena = 30
-                },
-                new Clanarina
-                {
-                    ID = 4,
-                    Naziv = "Djeca",
-                    Cijena = 25
-                },
-                new Clanarina
-                {
-                    ID = 5,
-                    Naziv = "Penzioneri",
-                    Cijena = 25
+                    Naziv = "Partner Fit Duo",
+                    Cijena = 25,
+                    Opis = "Teretane nude posebne članarine za parove koje omogućuju partnerima da zajedno uživaju u prednostima vježbanja. Podijelite iznos jedne članarine i uživajte u jačanju tijela i uma!"
                 });
                 
         }

@@ -21,7 +21,8 @@ namespace GMS.Entities.Controllers
             var novaClanarina = new Clanarina
             {
                 Naziv = x.Naziv,
-                Cijena = x.Cijena
+                Cijena = x.Cijena,
+                Opis = x.Opis
             };
 
             db.Clanarina.Add(novaClanarina);
@@ -38,7 +39,8 @@ namespace GMS.Entities.Controllers
                 .Select(x => new
                 {
                     Naziv = x.Naziv,
-                    Cijena = x.Cijena
+                    Cijena = x.Cijena,
+                    Opis = x.Opis
                 }
                 ).ToList();
 

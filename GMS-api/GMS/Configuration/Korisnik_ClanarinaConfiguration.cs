@@ -41,7 +41,7 @@ namespace GMS.Configuration
                 new Korisnik_Clanarina
                 {
                     KorisnikID = 3,
-                    ClanarinaID = 4,
+                    ClanarinaID = 1,
                     DatumUplate = new DateTime(2023, 10, 01, 7, 15, 0),
                     DatumIsteka = new DateTime(2023, 11, 01, 7, 15, 0)
                 },

@@ -42,6 +42,7 @@ namespace GMS.Data
             modelBuilder.ApplyConfiguration(new NutricionistConfiguration());
             modelBuilder.ApplyConfiguration(new Nutricionst_SeminarConfiguration());
             modelBuilder.ApplyConfiguration(new Trener_SeminarConfiguration());
+            modelBuilder.ApplyConfiguration(new FAQConfiguration());
         }
         public DbSet<Grad> Grad { get; set; }
         public DbSet<Spol> Spol { get; set; }

@@ -4,5 +4,6 @@
     {
         public string Naziv { get; set; }
         public float  Cijena { get; set; }
+        public string  Opis { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231103130244_DodavanjeKonfiguracija")]
-    partial class DodavanjeKonfiguracija
+    [Migration("20231108120456_dbtest-data")]
+    partial class dbtestdata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,6 +74,10 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Opis")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Clanarina");
@@ -83,31 +87,22 @@ namespace GMS.Migrations
                         {
                             ID = 1,
                             Cijena = 50f,
-                            Naziv = "Basic"
+                            Naziv = "Fit Plus",
+                            Opis = "Teretane predstavljaju oazu zdravlja pružajući nam prostor gdje možemo ojačati svoje tijelo i smanjiti stres. Članstvo u teretani nije samo ulaganje u tjelesno zdravlje već i putovanje prema boljoj verziji sebe."
                         },
                         new
                         {
                             ID = 2,
                             Cijena = 40f,
-                            Naziv = "Studentska"
+                            Naziv = "Student Fit Plus",
+                            Opis = "Studentska članarina u teretani nije samo investicija u tjelesno zdravlje, već i u opću dobrobit studenata. Zahvaljujući ovim povlasticama, teretane postaju pristupačne za studente svih financijskih mogućnosti, čime se stvara zdraviji i sretniji studentski život. Zbog toga mi nudimo popust od čak 20% za sve studente!"
                         },
                         new
                         {
                             ID = 3,
-                            Cijena = 30f,
-                            Naziv = "Parovi"
-                        },
-                        new
-                        {
-                            ID = 4,
                             Cijena = 25f,
-                            Naziv = "Djeca"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Cijena = 25f,
-                            Naziv = "Penzioneri"
+                            Naziv = "Partner Fit Duo",
+                            Opis = "Teretane nude posebne članarine za parove koje omogućuju partnerima da zajedno uživaju u prednostima vježbanja. Podijelite iznos jedne članarine i uživajte u jačanju tijela i uma!"
                         });
                 });
 
@@ -194,6 +189,32 @@ namespace GMS.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("FAQ");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Odgovor = "Cijene mjesečnih članarina variraju ovisno o paketu koji odaberete. Imamo različite opcije  prilagođene različitim potrebama i budžetima. Detaljne informacije o cijenama možete pronaći na homepage pod sekcijom 'cjenovnik članarina'.",
+                            Pitanje = "Koliko košta članarina u vašoj teretani?"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Odgovor = "Da, imamo stručne trenere koji vam mogu pomoći u postizanju vaših fitness ciljeva. Oni će raditi s vama kako bi razvili personalizirani plan vježbanja. Pored njih, imamo i naš tim nutricionista.",
+                            Pitanje = "Da li u sklopu teretane imate personalne trenere?"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Odgovor = "Vrlo jednostavno! Posjetite našu recepciju, odaberite željeni paket i dobit ćete svoju člansku karticu!",
+                            Pitanje = "Kako da postanem član vaše teretane?"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Odgovor = "Tačnu lokaciju naše teretane možete pogledati na homepage pod rubrikom 'kako do nas?'.",
+                            Pitanje = "Gdje se nalazi vaša teretana?"
+                        });
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Grad", b =>
@@ -495,6 +516,48 @@ namespace GMS.Migrations
                             Tezina = 57f,
                             Username = "dzejlap",
                             Visina = 164f
+                        },
+                        new
+                        {
+                            ID = 3,
+                            BrojTelefona = "0644065144",
+                            GradID = 18,
+                            Ime = "Said",
+                            Password = "fit2023",
+                            Prezime = "Keskin",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 62f,
+                            Username = "saidke",
+                            Visina = 180f
+                        },
+                        new
+                        {
+                            ID = 4,
+                            BrojTelefona = "061000000",
+                            GradID = 5,
+                            Ime = "Denis",
+                            Password = "user",
+                            Prezime = "Mušić",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 79f,
+                            Username = "denism",
+                            Visina = 186f
+                        },
+                        new
+                        {
+                            ID = 5,
+                            BrojTelefona = "062000000",
+                            GradID = 7,
+                            Ime = "Adil",
+                            Password = "user",
+                            Prezime = "Joldić",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 75f,
+                            Username = "adilj",
+                            Visina = 184f
                         });
                 });
 
@@ -546,6 +609,41 @@ namespace GMS.Migrations
                             KorisnikID = 2,
                             DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 1,
+                            KorisnikID = 3,
+                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 1,
+                            KorisnikID = 4,
+                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 1,
+                            KorisnikID = 5,
+                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 2,
+                            KorisnikID = 1,
+                            DatumUplate = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 12, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 2,
+                            KorisnikID = 2,
+                            DatumUplate = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 12, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
