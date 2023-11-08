@@ -27,6 +27,7 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
                     Cijena = x.Cijena,
                     Gramaža = x.Gramaza,
                     Opis = x.Opis,
+                    Slika = x.Slika,
                     NazivDobavljaca = x.Dobavljac.Naziv,
                     NazivKategorija = x.Kategorija.Naziv
                 }).ToListAsync();

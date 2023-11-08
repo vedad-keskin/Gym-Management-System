@@ -9,7 +9,7 @@ namespace GMS.Entities.Models
         public float Cijena { get; set; }
         public float Gramaza { get; set; }
         public string Opis { get; set; }
-        //public IFormFile Slika { get; set; }
+        public string? Slika { get; set; }
 
         [ForeignKey(nameof(Dobavljac))]
         public int DobavljacID { get; set; }

@@ -13,6 +13,8 @@
         public float Cijena { get; set; }
         public float Gramaža { get; set; }
         public string Opis { get; set; }
+        public string Slika { get; set; }
+
         public string NazivDobavljaca { get; set; }
         public string NazivKategorija { get; set; }
     }
