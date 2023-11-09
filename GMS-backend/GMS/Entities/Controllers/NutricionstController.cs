@@ -23,7 +23,8 @@ namespace GMS.Entities.Controllers
             {
                 Ime = x.Ime,
                 Prezime = x.Prezime,
-                BrojTelefona = x.BrojTelefona
+                BrojTelefona = x.BrojTelefona,
+                Slika = x.Slika
 
             };
 
@@ -42,7 +43,8 @@ namespace GMS.Entities.Controllers
                     ID = x.ID,
                     Ime = x.Ime,
                     Prezime = x.Prezime,
-                    BrojTelefona = x.BrojTelefona
+                    BrojTelefona = x.BrojTelefona,
+                    Slika = x.Slika
                 }
                 ).ToList();
 

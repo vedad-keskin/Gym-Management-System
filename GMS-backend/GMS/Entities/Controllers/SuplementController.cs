@@ -71,7 +71,6 @@ namespace GMS.Entities.Controllers
                     Cijena = x.Cijena,
                     Gramaza = x.Gramaza,
                     Opis = x.Opis,
-                    Slika = x.Slika,
                     Dobavljac = x.Dobavljac,
                     Kategorija = x.Kategorija
                 }
@@ -92,7 +91,6 @@ namespace GMS.Entities.Controllers
                     Cijena = x.Cijena,
                     Gramaza = x.Gramaza,
                     Opis = x.Opis,
-                    Slika = x.Slika,
                     Dobavljac = x.Dobavljac,
                     Kategorija = x.Kategorija
                 }

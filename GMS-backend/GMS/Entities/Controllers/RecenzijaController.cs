@@ -24,7 +24,8 @@ namespace GMS.Entities.Controllers
                 Ime = x.Ime,
                 Prezime = x.Prezime,
                 Zanimanje = x.Zanimanje,
-                Tekst = x.Tekst
+                Tekst = x.Tekst,
+                Slika = x.Slika
                 
             };
 
@@ -44,7 +45,8 @@ namespace GMS.Entities.Controllers
                     Ime = x.Ime,
                     Prezime = x.Prezime,
                     Zanimanje = x.Zanimanje,
-                    Tekst = x.Tekst
+                    Tekst = x.Tekst,
+                    Slika = x.Slika
                 }
                 ).ToList();
             return sviZapisi;

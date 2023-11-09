@@ -460,6 +460,9 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SpolID")
                         .HasColumnType("int");
 
@@ -495,6 +498,7 @@ namespace GMS.Migrations
                             Ime = "Vedad",
                             Password = "bayern123",
                             Prezime = "Keskin",
+                            Slika = "assets/1kor.png",
                             SpolID = 1,
                             TeretanaID = 2,
                             Tezina = 80f,
@@ -509,6 +513,7 @@ namespace GMS.Migrations
                             Ime = "Džejla",
                             Password = "fit2023",
                             Prezime = "Palalić",
+                            Slika = "assets/2kor.jpg",
                             SpolID = 2,
                             TeretanaID = 2,
                             Tezina = 57f,
@@ -523,6 +528,7 @@ namespace GMS.Migrations
                             Ime = "Said",
                             Password = "fit2023",
                             Prezime = "Keskin",
+                            Slika = "assets/3kor.jpg",
                             SpolID = 1,
                             TeretanaID = 2,
                             Tezina = 62f,
@@ -537,6 +543,7 @@ namespace GMS.Migrations
                             Ime = "Denis",
                             Password = "user",
                             Prezime = "Mušić",
+                            Slika = "assets/4kor.jpg",
                             SpolID = 1,
                             TeretanaID = 2,
                             Tezina = 79f,
@@ -551,6 +558,7 @@ namespace GMS.Migrations
                             Ime = "Adil",
                             Password = "user",
                             Prezime = "Joldić",
+                            Slika = "assets/5kor.jpg",
                             SpolID = 1,
                             TeretanaID = 2,
                             Tezina = 75f,
@@ -725,6 +733,9 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Nutricionist");
@@ -735,14 +746,16 @@ namespace GMS.Migrations
                             ID = 1,
                             BrojTelefona = "062709689",
                             Ime = "Marijana",
-                            Prezime = "Zubac"
+                            Prezime = "Zubac",
+                            Slika = "assets/1nut.jpg"
                         },
                         new
                         {
                             ID = 2,
                             BrojTelefona = "062709689",
                             Ime = "Amela",
-                            Prezime = "Ivković"
+                            Prezime = "Ivković",
+                            Slika = "assets/2nut.jpg"
                         });
                 });
 
@@ -799,6 +812,9 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Tekst")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -817,6 +833,7 @@ namespace GMS.Migrations
                             ID = 1,
                             Ime = "Edin",
                             Prezime = "Džeko",
+                            Slika = "assets/1rec.jpg",
                             Tekst = "Toplo preporučujem svima koji traže vrhunsku dvoranu za fitness. Osoblje je ljubazno i obrazovano, oprema je u izvrsnom stanju, a atmosfera jako motivirajuća. To je mjesto gdje možete postići svoje fitness ciljeve i pritom se osjećati sjajno. Pridruživanje ovoj teretani bila je jedna od najboljih odluka koje sam donio za svoje zdravlje i dobrobit.",
                             Zanimanje = "Fudbaler"
                         },
@@ -825,6 +842,7 @@ namespace GMS.Migrations
                             ID = 2,
                             Ime = "Jusuf",
                             Prezime = "Nurkić",
+                            Slika = "assets/2rec.jpg",
                             Tekst = "Ako ste u potrazi za izvrsnom teretanom, ne tražite dalje. Član sam već dvije godine i bilo je to nevjerojatno putovanje u svijet fitnesa. Treneri su izvrsni, raznolikost opreme je impresivna, a sveukupno okruženje tako gostoljubivo. Vidio sam stvarne rezultate i osjećam se energičnije i sigurnije. Pridruživanje ovoj teretani bio je fantastičan izbor i ne mogu ga dovoljno preporučiti!",
                             Zanimanje = "Košarkaš"
                         },
@@ -833,6 +851,7 @@ namespace GMS.Migrations
                             ID = 3,
                             Ime = "Lana",
                             Prezime = "Pudar",
+                            Slika = "assets/3rec.jpg",
                             Tekst = "Svim srcem podržavam rad ovog postrojenja kao ultimativno odredište za trening. Od najsavremenije opreme do ljubaznog osoblja koje vam pruža podršku, ova teretana ima sve što vam je potrebno za postizanje vaših fitness ciljeva. Pozitivna i motivirajuća atmosfera tjera me da se vraćam i značajno sam napredovala u svom zdravlju i kondiciji otkako sam se pridružila. Nemojte se ustručavati postati dio ove fantastične zajednice – nećete požaliti!",
                             Zanimanje = "Plivačica"
                         },
@@ -841,6 +860,7 @@ namespace GMS.Migrations
                             ID = 4,
                             Ime = "Amel",
                             Prezime = "Tuka",
+                            Slika = "assets/4rec.jpg",
                             Tekst = "Za uistinu izvanredno fitness iskustvo, ne mogu dovoljno preporučiti ovo mjesto. Ova teretana ima sve: dobro održavane sprave, stručne trenere i fantastičnu atmosferu. Vidio sam izvanredna poboljšanja u svojoj snazi i općem zdravlju otkako sam postao član. Ako tražite teretanu koja nadahnjuje i podržava vaše putovanje u fitness, onda je ovo pravo mjesto za vas. Pridruživanje je bila jedna od najboljih odluka koje sam donio za svoje zdravlje.",
                             Zanimanje = "Atletičar"
                         });
@@ -991,7 +1011,8 @@ namespace GMS.Migrations
                             Gramaza = 2500f,
                             KategorijaID = 1,
                             Naziv = "100% Isolate Whey Protein",
-                            Opis = "Muscle Freak 100% Isolate Whey Protein je visokokvalitetni izolat proteina sirutke, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend."
+                            Opis = "Muscle Freak 100% Isolate Whey Protein je visokokvalitetni izolat proteina sirutke, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend.",
+                            Slika = "assets/1sup.webp"
                         },
                         new
                         {
@@ -1001,7 +1022,8 @@ namespace GMS.Migrations
                             Gramaza = 809f,
                             KategorijaID = 1,
                             Naziv = "Gold Standard 100% Casein",
-                            Opis = "Korištenjem samo vrhunskog kazeina kao izvora proteina u svom 100% Gold Standard Casein-u, Optimum Nutrition je stvorio formulu koja postavlja standard za sve sporootpuštajuće proteine."
+                            Opis = "Korištenjem samo vrhunskog kazeina kao izvora proteina u svom 100% Gold Standard Casein-u, Optimum Nutrition je stvorio formulu koja postavlja standard za sve sporootpuštajuće proteine.",
+                            Slika = "assets/2sup.webp"
                         },
                         new
                         {
@@ -1011,7 +1033,8 @@ namespace GMS.Migrations
                             Gramaza = 900f,
                             KategorijaID = 1,
                             Naziv = "Nitro-Tech Ripped",
-                            Opis = "NITRO-TECH RIPPED™ je najnovija inovacija iz MuscleTech-a, branda koji oduševljava svojim proizvodima više od 20 godina. Ova napredna formula kombinuje proteinske peptide najviše kvalitete i izolat sa naučno testiranim sastojcima za gubitak težine. Ova 7 u 1 formula također sadrži CLA, trigliceride srednjeg lanca (MCT), L-carnitine L-tartrate, ekstrakt zelenog čaja, ekstrakt šipka i prah algi. MuscleTech® je napravio ovu jedinstvenu formula s ciljem objedinjavanja ultra-čistog proteina i gubitka težine - ovakvo nešto niste nikad prije vidjeli. Za razliku od konkurencije, svaka mjerica NITRO-TECH RIPPED™ sadrži naučno proučavanu dozu ključnih sastojaka za gubitak težine, C. canephora robusta, koja je potvrđena od strane dvije naučne studije i u čije rezultate ne morate sumnjati! Također, nevjerovatnog je okusa koji će Vas oduševiti!"
+                            Opis = "NITRO-TECH RIPPED™ je najnovija inovacija iz MuscleTech-a, branda koji oduševljava svojim proizvodima više od 20 godina. Ova napredna formula kombinuje proteinske peptide najviše kvalitete i izolat sa naučno testiranim sastojcima za gubitak težine. Ova 7 u 1 formula također sadrži CLA, trigliceride srednjeg lanca (MCT), L-carnitine L-tartrate, ekstrakt zelenog čaja, ekstrakt šipka i prah algi. MuscleTech® je napravio ovu jedinstvenu formula s ciljem objedinjavanja ultra-čistog proteina i gubitka težine - ovakvo nešto niste nikad prije vidjeli. Za razliku od konkurencije, svaka mjerica NITRO-TECH RIPPED™ sadrži naučno proučavanu dozu ključnih sastojaka za gubitak težine, C. canephora robusta, koja je potvrđena od strane dvije naučne studije i u čije rezultate ne morate sumnjati! Također, nevjerovatnog je okusa koji će Vas oduševiti!",
+                            Slika = "assets/3sup.webp"
                         },
                         new
                         {
@@ -1021,7 +1044,8 @@ namespace GMS.Migrations
                             Gramaza = 1800f,
                             KategorijaID = 1,
                             Naziv = "Nitro-Tech Whey Protein",
-                            Opis = "NITRO-TECH® je naučno istražena, pojačana proteinska formula kreirana za sve sportiste koji žele veću mišićnu masu, više snage i bolje performanse. NITRO-TECH® sadrži protein čiji primarni izvor su peptidi i izolat sirutke – dva najčistija i najkvalitetnija dostupna izvora proteina, za razliku od ostalih proteinskih suplemenata koji možda sadrže tek par gama ovih lako probavljivih i visoke biološke vrijednosti proteina. NITRO-TECH® je takođe poboljšan i sa 3g kreatin monohidrata, najistraženijim oblikom kreatina, namjenjenim za još veću mišićnu masu i snagu."
+                            Opis = "NITRO-TECH® je naučno istražena, pojačana proteinska formula kreirana za sve sportiste koji žele veću mišićnu masu, više snage i bolje performanse. NITRO-TECH® sadrži protein čiji primarni izvor su peptidi i izolat sirutke – dva najčistija i najkvalitetnija dostupna izvora proteina, za razliku od ostalih proteinskih suplemenata koji možda sadrže tek par gama ovih lako probavljivih i visoke biološke vrijednosti proteina. NITRO-TECH® je takođe poboljšan i sa 3g kreatin monohidrata, najistraženijim oblikom kreatina, namjenjenim za još veću mišićnu masu i snagu.",
+                            Slika = "assets/4sup.webp"
                         },
                         new
                         {
@@ -1031,7 +1055,8 @@ namespace GMS.Migrations
                             Gramaza = 908f,
                             KategorijaID = 1,
                             Naziv = "Nitro-Tech 100% Whey Gold",
-                            Opis = "Preko 20 godina NITRO-TECH® je vodeći proteinski brend, izgrađen na temelju naučnih istraživanja i korištenja najmodernije tehnologija. Sada je isti istraživački i razvojni tim stvorio novu formulu whey proteina baziranu na superiornim izvorima proteina, kvaliteti i tehnici proizvodnje. Predstavljamo vam NITRO-TECH® 100% WHEY GOLD – čistu proteinsku formulu koja sadrži peptide i izolat sirutke."
+                            Opis = "Preko 20 godina NITRO-TECH® je vodeći proteinski brend, izgrađen na temelju naučnih istraživanja i korištenja najmodernije tehnologija. Sada je isti istraživački i razvojni tim stvorio novu formulu whey proteina baziranu na superiornim izvorima proteina, kvaliteti i tehnici proizvodnje. Predstavljamo vam NITRO-TECH® 100% WHEY GOLD – čistu proteinsku formulu koja sadrži peptide i izolat sirutke.",
+                            Slika = "assets/5sup.webp"
                         },
                         new
                         {
@@ -1041,7 +1066,8 @@ namespace GMS.Migrations
                             Gramaza = 2000f,
                             KategorijaID = 1,
                             Naziv = "Platinum 8 - hour Protein",
-                            Opis = "Vrhunska proteinska mješavina za sve namjene u bilo koje vrijeme posebno formulirana za sportiste koji žele biti na vrhuncu svoje igre. Dizajniran s visokokvalitetnom, višefaznom mješavinom proteina, može se uzimati kad god je potrebno - nakon treninga, između obroka ili prije spavanja."
+                            Opis = "Vrhunska proteinska mješavina za sve namjene u bilo koje vrijeme posebno formulirana za sportiste koji žele biti na vrhuncu svoje igre. Dizajniran s visokokvalitetnom, višefaznom mješavinom proteina, može se uzimati kad god je potrebno - nakon treninga, između obroka ili prije spavanja.",
+                            Slika = "assets/6sup.webp"
                         },
                         new
                         {
@@ -1051,7 +1077,8 @@ namespace GMS.Migrations
                             Gramaza = 250f,
                             KategorijaID = 2,
                             Naziv = "BCAA 2:1:1",
-                            Opis = "Vrhunski ukusan spoj esencijalnih aminokiselina. Ovaj proizvod ne samo da pruža izvanredan ukus, već je i obogaćen esencijalnim hranjivim sastojcima poput vitamina C i vitamina B6. BCAA je kritičan faktor koji vam može pomoći da postignete najbolje iz svojih treninga."
+                            Opis = "Vrhunski ukusan spoj esencijalnih aminokiselina. Ovaj proizvod ne samo da pruža izvanredan ukus, već je i obogaćen esencijalnim hranjivim sastojcima poput vitamina C i vitamina B6. BCAA je kritičan faktor koji vam može pomoći da postignete najbolje iz svojih treninga.",
+                            Slika = "assets/7sup.webp"
                         },
                         new
                         {
@@ -1061,7 +1088,8 @@ namespace GMS.Migrations
                             Gramaza = 900f,
                             KategorijaID = 2,
                             Naziv = "HMB",
-                            Opis = "Self Omninutrition HMB (beta-hidroksi-beta-metilbutirat) je metabolit leucina koji sprečava razgradnju proteina i promoviše hipertrofiju mišića (povećanje ćelija koje grade tkivo); također smanjuje moguće povrede mišića nakon treninga visokog intenziteta, čime se smanjuje postotak masnoće u tijelu. Nedavna istraživanja su također pokazala da uzimanje HMB povećava mišićnu snagu, smanjuje simptome prekomjernog treninga te pozitivno utiče na VO2max (maksimalna potrošnja kiseonika). Neki stručnjaci smatraju da je VO2max ključni faktor u sportskim takmičenjima sportista. HMB je vrijedan dodatak ishrani za snagu, performanse i izdržljivost."
+                            Opis = "Self Omninutrition HMB (beta-hidroksi-beta-metilbutirat) je metabolit leucina koji sprečava razgradnju proteina i promoviše hipertrofiju mišića (povećanje ćelija koje grade tkivo); također smanjuje moguće povrede mišića nakon treninga visokog intenziteta, čime se smanjuje postotak masnoće u tijelu. Nedavna istraživanja su također pokazala da uzimanje HMB povećava mišićnu snagu, smanjuje simptome prekomjernog treninga te pozitivno utiče na VO2max (maksimalna potrošnja kiseonika). Neki stručnjaci smatraju da je VO2max ključni faktor u sportskim takmičenjima sportista. HMB je vrijedan dodatak ishrani za snagu, performanse i izdržljivost.",
+                            Slika = "assets/8sup.webp"
                         },
                         new
                         {
@@ -1071,7 +1099,8 @@ namespace GMS.Migrations
                             Gramaza = 400f,
                             KategorijaID = 2,
                             Naziv = "Amino Build Performance",
-                            Opis = "Napunjene sa gradivnim elementima kako bi podržale brz oporavak. Imajući u vidu da su BCAA kao osnova u sastavu, ubrzat će period oporavka poslije treninga."
+                            Opis = "Napunjene sa gradivnim elementima kako bi podržale brz oporavak. Imajući u vidu da su BCAA kao osnova u sastavu, ubrzat će period oporavka poslije treninga.",
+                            Slika = "assets/9sup.webp"
                         },
                         new
                         {
@@ -1081,7 +1110,8 @@ namespace GMS.Migrations
                             Gramaza = 594f,
                             KategorijaID = 2,
                             Naziv = "Cell Tech Elite",
-                            Opis = "Cell Tech Elite je visoko potentna formula koja pruža vrhunsku dozu od 5 g kreatinske matrice, koja uključuje kreatin monohidrat i kreatin hidroklorid. Osim toga, ova formula sadrži klinički dokazanu dozu od 400 mg Peak ATP-a, koji omogućava povećanje snage i veći broj ponavljanja u treningu. U kliničkoj studiji je dokazano da su ispitanici koji su koristili Peak ATP izgradili 90% više mišića u poređenju sa placebom, postižući impresivne rezultate u roku od 12 sedmica intenzivnog treninga."
+                            Opis = "Cell Tech Elite je visoko potentna formula koja pruža vrhunsku dozu od 5 g kreatinske matrice, koja uključuje kreatin monohidrat i kreatin hidroklorid. Osim toga, ova formula sadrži klinički dokazanu dozu od 400 mg Peak ATP-a, koji omogućava povećanje snage i veći broj ponavljanja u treningu. U kliničkoj studiji je dokazano da su ispitanici koji su koristili Peak ATP izgradili 90% više mišića u poređenju sa placebom, postižući impresivne rezultate u roku od 12 sedmica intenzivnog treninga.",
+                            Slika = "assets/10sup.webp"
                         },
                         new
                         {
@@ -1091,7 +1121,8 @@ namespace GMS.Migrations
                             Gramaza = 480f,
                             KategorijaID = 2,
                             Naziv = "CW Intra Surgence",
-                            Opis = "CW Intra Surgence je naučno formuliran Intra-Workout dodatak koji pruža visoko doziranu mješavinu punog spektra esencijalnih aminokiselina (EAA) i razgranatih lanaca aminokiselina (BCAA), zajedno s najnovijim hidratacijskim sastojcima i patentiranim dodacima za povećanje energije."
+                            Opis = "CW Intra Surgence je naučno formuliran Intra-Workout dodatak koji pruža visoko doziranu mješavinu punog spektra esencijalnih aminokiselina (EAA) i razgranatih lanaca aminokiselina (BCAA), zajedno s najnovijim hidratacijskim sastojcima i patentiranim dodacima za povećanje energije.",
+                            Slika = "assets/11sup.webp"
                         },
                         new
                         {
@@ -1101,7 +1132,8 @@ namespace GMS.Migrations
                             Gramaza = 433f,
                             KategorijaID = 2,
                             Naziv = "Amino X",
-                            Opis = "Amino X je specijalna aminokiselinska formula dizajnirana da pomogne tijelu u povećanju izdržljivosti tokom treninga i mišićnom oporavku nakon treninga. Sadrži kvalitetnu anaboličku mješavinu, koja spriječava katabolizam (propadanje mišićnih vlakna) te se brine za obnovu i rast mišića."
+                            Opis = "Amino X je specijalna aminokiselinska formula dizajnirana da pomogne tijelu u povećanju izdržljivosti tokom treninga i mišićnom oporavku nakon treninga. Sadrži kvalitetnu anaboličku mješavinu, koja spriječava katabolizam (propadanje mišićnih vlakna) te se brine za obnovu i rast mišića.",
+                            Slika = "assets/12sup.webp"
                         },
                         new
                         {
@@ -1111,7 +1143,8 @@ namespace GMS.Migrations
                             Gramaza = 300f,
                             KategorijaID = 3,
                             Naziv = "Power Reactor",
-                            Opis = "Muscle Freak Power Reactor je visokokvalitetni pre-workout, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend."
+                            Opis = "Muscle Freak Power Reactor je visokokvalitetni pre-workout, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend.",
+                            Slika = "assets/13sup.webp"
                         },
                         new
                         {
@@ -1121,7 +1154,8 @@ namespace GMS.Migrations
                             Gramaza = 266f,
                             KategorijaID = 3,
                             Naziv = "Vapor X5 Next Gen",
-                            Opis = "VaporX5™ Next Gen je najkompletniji pre-workout dostupan na tržištu. Ovaj proizvod će vam pružiti nevjerovatnu energiju, ekstremni mišićni pump, nadrealno čulno iskustvo, poboljšati performanse i obezbijediti sastojke neophodne za izgradnju mišića. Ova intenzivna formula sadrži sve što želite u jednom pre-workoutu i ništa što ne želite, s klinički doziranim sastojcima i bez jeftinih filera."
+                            Opis = "VaporX5™ Next Gen je najkompletniji pre-workout dostupan na tržištu. Ovaj proizvod će vam pružiti nevjerovatnu energiju, ekstremni mišićni pump, nadrealno čulno iskustvo, poboljšati performanse i obezbijediti sastojke neophodne za izgradnju mišića. Ova intenzivna formula sadrži sve što želite u jednom pre-workoutu i ništa što ne želite, s klinički doziranim sastojcima i bez jeftinih filera.",
+                            Slika = "assets/14sup.webp"
                         },
                         new
                         {
@@ -1131,7 +1165,8 @@ namespace GMS.Migrations
                             Gramaza = 410f,
                             KategorijaID = 3,
                             Naziv = "C4 Ultimate",
-                            Opis = "Cellucor C4 Ultimate je dugi niz godina usavršavao pre-workoute, mnogo prije nego neki drugi brendovi u industriji sportskih suplemenata. Gotovo desetljeće brend C4® bio je prvi u kategoriji pre-workouta sa učinkom i eksplozivnom energijom, najboljim okusima, klinički proučenim sastojcima i vrhunskim formulama."
+                            Opis = "Cellucor C4 Ultimate je dugi niz godina usavršavao pre-workoute, mnogo prije nego neki drugi brendovi u industriji sportskih suplemenata. Gotovo desetljeće brend C4® bio je prvi u kategoriji pre-workouta sa učinkom i eksplozivnom energijom, najboljim okusima, klinički proučenim sastojcima i vrhunskim formulama.",
+                            Slika = "assets/15sup.webp"
                         },
                         new
                         {
@@ -1141,7 +1176,8 @@ namespace GMS.Migrations
                             Gramaza = 180f,
                             KategorijaID = 3,
                             Naziv = "C4 Ripped",
-                            Opis = "C4 Ripped sadrži sličnu energetsku mješavinu kao i klasični C4, s ključnim sastojcima za energiju koji će vam pomoći da prođete kroz najteže vježbe."
+                            Opis = "C4 Ripped sadrži sličnu energetsku mješavinu kao i klasični C4, s ključnim sastojcima za energiju koji će vam pomoći da prođete kroz najteže vježbe.",
+                            Slika = "assets/16sup.webp"
                         },
                         new
                         {
@@ -1151,7 +1187,8 @@ namespace GMS.Migrations
                             Gramaza = 390f,
                             KategorijaID = 3,
                             Naziv = "N.O.-Xplode",
-                            Opis = "N.O.-XPLODE pomaže u održavanju mentalne budnosti i mišićne snage, donosi energiju i izdržljivost te pomaže sportistima poboljšati kapacitet na svim razinama."
+                            Opis = "N.O.-XPLODE pomaže u održavanju mentalne budnosti i mišićne snage, donosi energiju i izdržljivost te pomaže sportistima poboljšati kapacitet na svim razinama.",
+                            Slika = "assets/17sup.webp"
                         },
                         new
                         {
@@ -1161,7 +1198,8 @@ namespace GMS.Migrations
                             Gramaza = 363f,
                             KategorijaID = 3,
                             Naziv = "Shatter",
-                            Opis = "MuscleTech Shatter™ je iznimno snažan i naučno osmišljen pre-workout suplement koji će Vam doslovno razderati majicu i poboljšati vaše performanse snage i izdržljivosti. Ova vrhunska formula pruža i snažnu energiju i kompleks koji će Vas potaknuti kroz svaki trening."
+                            Opis = "MuscleTech Shatter™ je iznimno snažan i naučno osmišljen pre-workout suplement koji će Vam doslovno razderati majicu i poboljšati vaše performanse snage i izdržljivosti. Ova vrhunska formula pruža i snažnu energiju i kompleks koji će Vas potaknuti kroz svaki trening.",
+                            Slika = "assets/18sup.webp"
                         },
                         new
                         {
@@ -1171,7 +1209,8 @@ namespace GMS.Migrations
                             Gramaza = 1200f,
                             KategorijaID = 4,
                             Naziv = "Mega Mass",
-                            Opis = "Muscle Freak Mega Mass je visokokvalitetni gainer, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend."
+                            Opis = "Muscle Freak Mega Mass je visokokvalitetni gainer, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend.",
+                            Slika = "assets/19sup.webp"
                         },
                         new
                         {
@@ -1181,7 +1220,8 @@ namespace GMS.Migrations
                             Gramaza = 3200f,
                             KategorijaID = 4,
                             Naziv = "Mass Tech ELITE",
-                            Opis = "Mass-Tech Elite je napredni mass gainer za one koji imaju problemasa povećanjem veličine ili žele da probiju svoje platoe snage..."
+                            Opis = "Mass-Tech Elite je napredni mass gainer za one koji imaju problemasa povećanjem veličine ili žele da probiju svoje platoe snage...",
+                            Slika = "assets/20sup.webp"
                         },
                         new
                         {
@@ -1191,7 +1231,8 @@ namespace GMS.Migrations
                             Gramaza = 2300f,
                             KategorijaID = 4,
                             Naziv = "100% Mass Gainer",
-                            Opis = "Iz najbolje američke kompanije za prodaju suplemenata, MuscleTech predstavlja Vam 100% Mass Gainer - visokoproteinski suplement za povećanje mišične mase. Ovaj dodatak, obogaćen prirodnim i umjetnim aromama, pruža Vam sve što je potrebno da unaprijedite mišiće, snagu i performanse, uz brži oporavak mišića."
+                            Opis = "Iz najbolje američke kompanije za prodaju suplemenata, MuscleTech predstavlja Vam 100% Mass Gainer - visokoproteinski suplement za povećanje mišične mase. Ovaj dodatak, obogaćen prirodnim i umjetnim aromama, pruža Vam sve što je potrebno da unaprijedite mišiće, snagu i performanse, uz brži oporavak mišića.",
+                            Slika = "assets/21sup.webp"
                         },
                         new
                         {
@@ -1201,7 +1242,8 @@ namespace GMS.Migrations
                             Gramaza = 2700f,
                             KategorijaID = 4,
                             Naziv = "Serious Mass",
-                            Opis = "Vrh u formulama za povećanje tjelesne mase. Serious Mass vas opskrbljuje sa alatom neophodnim da napakujete kilograme i razvijete tijelo kakvo ste uvijek željeli."
+                            Opis = "Vrh u formulama za povećanje tjelesne mase. Serious Mass vas opskrbljuje sa alatom neophodnim da napakujete kilograme i razvijete tijelo kakvo ste uvijek željeli.",
+                            Slika = "assets/22sup.webp"
                         },
                         new
                         {
@@ -1211,7 +1253,8 @@ namespace GMS.Migrations
                             Gramaza = 1000f,
                             KategorijaID = 4,
                             Naziv = "IsoGainz",
-                            Opis = "Evolite IsoGainz je ugljikohidratno-proteinski suplement visoke kvalitete namijenjen prvenstveno aktivnim osobama koji se sastoji od: odabrani ugljikohidrati (maltodextrin sa jako malim sadržajem šećera) proteina (izolat I koncentrat koji ne sadrže laktozu) .Proizvod se može koristiti kao dodatak svakodnevnoj prehrani. Idealno prikladan za korištenje nakon treninga kako bi se nadoknadile zalihe energije u mišićima. Protein doprinosi rastu mišične mase I pomaže u njenom održavanju."
+                            Opis = "Evolite IsoGainz je ugljikohidratno-proteinski suplement visoke kvalitete namijenjen prvenstveno aktivnim osobama koji se sastoji od: odabrani ugljikohidrati (maltodextrin sa jako malim sadržajem šećera) proteina (izolat I koncentrat koji ne sadrže laktozu) .Proizvod se može koristiti kao dodatak svakodnevnoj prehrani. Idealno prikladan za korištenje nakon treninga kako bi se nadoknadile zalihe energije u mišićima. Protein doprinosi rastu mišične mase I pomaže u njenom održavanju.",
+                            Slika = "assets/23sup.webp"
                         },
                         new
                         {
@@ -1221,7 +1264,8 @@ namespace GMS.Migrations
                             Gramaza = 8000f,
                             KategorijaID = 4,
                             Naziv = "Hyper Mass",
-                            Opis = "Hyper Mass Professional je izuzetno moćan suplement s bogatim vitaminskim kompleksom, namijenjen da vam pomogne postići vaše ciljeve u izgradnji mišića! Ovaj preparat Hyper Mass, sa svojom vrhunskom kombinacijom sastojaka, idealan je izbor za sve koji žele dodati mišićnu masu, povećati snagu i izdržljivost tokom treninga."
+                            Opis = "Hyper Mass Professional je izuzetno moćan suplement s bogatim vitaminskim kompleksom, namijenjen da vam pomogne postići vaše ciljeve u izgradnji mišića! Ovaj preparat Hyper Mass, sa svojom vrhunskom kombinacijom sastojaka, idealan je izbor za sve koji žele dodati mišićnu masu, povećati snagu i izdržljivost tokom treninga.",
+                            Slika = "assets/24sup.webp"
                         });
                 });
 
@@ -1322,6 +1366,9 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Trener");
@@ -1332,14 +1379,16 @@ namespace GMS.Migrations
                             ID = 1,
                             BrojTelefona = "0644076290",
                             Ime = "Kadir",
-                            Prezime = "Keskin"
+                            Prezime = "Keskin",
+                            Slika = "assets/1tre.jpg"
                         },
                         new
                         {
                             ID = 2,
                             BrojTelefona = "0644076290",
                             Ime = "Azur",
-                            Prezime = "Kahriman"
+                            Prezime = "Kahriman",
+                            Slika = "assets/2tre.jpg"
                         });
                 });
 

@@ -14,14 +14,16 @@ namespace GMS.Configuration
                     ID = 1,
                     Ime = "Kadir",
                     Prezime = "Keskin",
-                    BrojTelefona = "0644076290"
+                    BrojTelefona = "0644076290",
+                    Slika = "assets/1tre.jpg"
                 },
                 new Trener
                 {
                     ID = 2,
                     Ime = "Azur",
                     Prezime = "Kahriman",
-                    BrojTelefona = "0644076290"
+                    BrojTelefona = "0644076290",
+                    Slika = "assets/2tre.jpg"
                 });
                 
         }

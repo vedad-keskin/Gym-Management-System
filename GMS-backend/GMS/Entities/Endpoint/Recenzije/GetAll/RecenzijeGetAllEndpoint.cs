@@ -27,7 +27,8 @@ namespace GMS.Endpoint.Recenzije.GetAll
                      Ime = x.Ime,
                      Prezime = x.Prezime,
                      Zanimanje = x.Zanimanje,
-                     Tekst = x.Tekst
+                     Tekst = x.Tekst,
+                     Slika = x.Slika
                  }).ToListAsync();
 
             return new RecenzijeGetAllResponse

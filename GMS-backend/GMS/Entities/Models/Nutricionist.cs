@@ -10,6 +10,6 @@ namespace GMS.Entities.Models
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string BrojTelefona { get; set; }
-        // public IFileInfo Slika { get; set; }
+        public string? Slika { get; set; }
     }
 }

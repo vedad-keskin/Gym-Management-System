@@ -21,7 +21,8 @@ namespace GMS.Configuration
                     Tezina = 80,
                     SpolID = 1,
                     GradID = 18,
-                    TeretanaID = 2
+                    TeretanaID = 2,
+                    Slika = "assets/1kor.png"
                 },
                 new Korisnik
                 {
@@ -35,7 +36,8 @@ namespace GMS.Configuration
                     Tezina = 57,
                     SpolID = 2,
                     GradID = 26,
-                    TeretanaID = 2
+                    TeretanaID = 2,
+                    Slika = "assets/2kor.jpg"
                 }
                 ,
                 new Korisnik
@@ -50,7 +52,8 @@ namespace GMS.Configuration
                     Tezina = 62,
                     SpolID = 1,
                     GradID = 18,
-                    TeretanaID = 2
+                    TeretanaID = 2,
+                    Slika = "assets/3kor.jpg"
                 },
                 new Korisnik
                 {
@@ -64,7 +67,8 @@ namespace GMS.Configuration
                     Tezina = 79,
                     SpolID = 1,
                     GradID = 5,
-                    TeretanaID = 2
+                    TeretanaID = 2,
+                    Slika = "assets/4kor.jpg"
                 }
                 ,
                 new Korisnik
@@ -79,7 +83,8 @@ namespace GMS.Configuration
                     Tezina = 75,
                     SpolID = 1,
                     GradID = 7,
-                    TeretanaID = 2
+                    TeretanaID = 2,
+                    Slika = "assets/5kor.jpg"
                 });
                 
         }

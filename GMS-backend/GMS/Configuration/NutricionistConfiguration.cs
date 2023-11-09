@@ -14,14 +14,16 @@ namespace GMS.Configuration
                     ID = 1,
                     Ime = "Marijana",
                     Prezime = "Zubac",
-                    BrojTelefona = "062709689"
+                    BrojTelefona = "062709689",
+                    Slika = "assets/1nut.jpg"
                 },
                 new Nutricionist
                 {
                     ID = 2,
                     Ime = "Amela",
                     Prezime = "Ivković",
-                    BrojTelefona = "062709689"
+                    BrojTelefona = "062709689",
+                    Slika = "assets/2nut.jpg"
                 });
                 
         }

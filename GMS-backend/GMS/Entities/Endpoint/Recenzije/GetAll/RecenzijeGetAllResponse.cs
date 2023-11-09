@@ -14,5 +14,6 @@ namespace GMS.Endpoint.Recenzije.GetAll
         public string Prezime { get; set; }
         public string Zanimanje { get; set; }
         public string Tekst { get; set; }
+        public string? Slika { get; set; }
     }
 }
