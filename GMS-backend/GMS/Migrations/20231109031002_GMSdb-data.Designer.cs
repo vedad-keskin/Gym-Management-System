@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231109001244_GMStest-data")]
-    partial class GMStestdata
+    [Migration("20231109031002_GMSdb-data")]
+    partial class GMSdbdata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -214,6 +214,12 @@ namespace GMS.Migrations
                             ID = 4,
                             Odgovor = "Tačnu lokaciju naše teretane možete pogledati na homepage pod rubrikom 'kako do nas?'.",
                             Pitanje = "Gdje se nalazi vaša teretana?"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Odgovor = "Kupovinu suplemenata izvršavate putem sekcije suplementi, pomoću koje rezervišete vas proizvod koji nakon toga trebate preuzeti u našoj poslovnici te platiti po uzeću.",
+                            Pitanje = "Kako izvršiti kupovinu suplemenata?"
                         });
                 });
 

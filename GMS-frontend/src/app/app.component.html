@@ -1,14 +1,19 @@
+
+
+
 <!-- Navigacija -->
 <nav class="navbar navbar-expand-md navbar-light m-1">
   <div class="container-xxl">
 
     <!-- Logo i brand tekst -->
-    <a id="logo" class="mx-3" href="#intro">
-      <img src="/assets/GMS.png" class="img-fluid sm" alt="logo">
+    <a id="logo" class="mx-3" >
+      <img src="/assets/GMS.png" class="img-fluid sm" alt="logo" (click)="isVidljivoFAQ = false"
+           (click)="isVidljivoHome = true">
     </a>
 
-    <a class="navbar-brand" href="#intro">
-        <span class="text-secondary fw-bold">
+    <a class="navbar-brand" >
+        <span class="text-secondary fw-bold" (click)="isVidljivoFAQ = false"
+              (click)="isVidljivoHome = true">
           Gym Management System
         </span>
     </a>
@@ -28,7 +33,8 @@
           <a class="nav-link" href="#suplementi">Suplementi</a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link" href="#faq">FAQ</a>
+          <a class="nav-link" (click)="isVidljivoFAQ = true"
+             (click)="isVidljivoHome = false">FAQ</a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="#prijava">Prijavi se</a>
@@ -38,6 +44,10 @@
     </div>
   </div>
 </nav>
+
+
+<div id="Content-HomePage" *ngIf="isVidljivoHome">
+
 
 <!-- Suplement prodaja -->
 <section id="intro">
@@ -110,3 +120,11 @@
   </div><!-- kraj sekcije za clanarine -->
 </section>
 
+
+
+
+</div>
+
+<div *ngIf="isVidljivoFAQ">
+  <app-faq-page></app-faq-page>
+</div>

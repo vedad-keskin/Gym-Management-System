@@ -4,10 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import {HttpClientModule} from "@angular/common/http";
+import { FaqPageComponent } from './faq-page/faq-page.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FaqPageComponent,
   ],
   imports: [
     BrowserModule,

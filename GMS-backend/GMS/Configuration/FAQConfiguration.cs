@@ -32,6 +32,12 @@ namespace GMS.Configuration
                     ID = 4,
                     Pitanje = "Gdje se nalazi vaša teretana?",
                     Odgovor = "Tačnu lokaciju naše teretane možete pogledati na homepage pod rubrikom 'kako do nas?'."
+                },
+                new FAQ
+                {
+                    ID = 5,
+                    Pitanje = "Kako izvršiti kupovinu suplemenata?",
+                    Odgovor = "Kupovinu suplemenata izvršavate putem sekcije suplementi, pomoću koje rezervišete vas proizvod koji nakon toga trebate preuzeti u našoj poslovnici te platiti po uzeću."
                 });
                 
         }

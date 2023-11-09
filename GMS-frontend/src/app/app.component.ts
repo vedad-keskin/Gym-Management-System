@@ -11,6 +11,8 @@ import {ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina} from "./Clana
 })
 export class AppComponent implements OnInit{
 
+  isVidljivoFAQ: boolean = false;
+  isVidljivoHome: boolean = true;
   constructor(public httpclient : HttpClient) {
 
   }
