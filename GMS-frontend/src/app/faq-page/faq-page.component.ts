@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina} from "../ClanarinaGetAllResponse";
 import {Config} from "../config";
 import {FAQGetAllResponse, FAQGetAllResponseFAQ} from "./FAQGetAllResponse";
 

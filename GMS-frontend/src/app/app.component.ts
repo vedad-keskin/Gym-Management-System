@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
 
   isVidljivoFAQ: boolean = false;
   isVidljivoHome: boolean = true;
+  isVidljivoOsoblje: boolean = false;
   constructor(public httpclient : HttpClient) {
 
   }
