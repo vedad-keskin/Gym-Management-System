@@ -3,21 +3,21 @@ using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GMS.Entities.Endpoint.Treneri.GetAll
+namespace GMS.Entities.Endpoint.Trener.GetAll
 {
-    [Route("Treneri-GetAll")]
+    [Route("Trener-GetAll")]
 
-    public class TreneriGetAllEndpoint : MyBaseEndpoint<TreneriGetAllRequest, TreneriGetAllResponse>
+    public class TrenerGetAllEndpoint : MyBaseEndpoint<TrenerGetAllRequest, TrenerGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public TreneriGetAllEndpoint(ApplicationDbContext db)
+        public TrenerGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
 
         [HttpGet]
-        public override async Task<TreneriGetAllResponse> Handle([FromQuery]TreneriGetAllRequest request)
+        public override async Task<TrenerGetAllResponse> Handle([FromQuery]TrenerGetAllRequest request)
         {
             var treneri = await db.Trener
                 .Select(x => new TreneriGetAllResponseRow
@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Treneri.GetAll
                     Slika=x.Slika
                 }).ToListAsync();
 
-            return new TreneriGetAllResponse
+            return new TrenerGetAllResponse
             {
                 Treneri = treneri
             };

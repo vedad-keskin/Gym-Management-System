@@ -1,11 +1,11 @@
-﻿namespace GMS.Entities.Endpoint.Nutricionisti.GetAll
+﻿namespace GMS.Entities.Endpoint.Trener.GetAll
 {
-    public class NutricionistiGetAllResponse
+    public class TrenerGetAllResponse
     {
-        public List<NutricionistiGetAllResponseRow> Nutricionisti { get; set; }
+        public List<TreneriGetAllResponseRow> Treneri { get; set; }
     }
 
-    public class NutricionistiGetAllResponseRow
+    public class TreneriGetAllResponseRow
     {
         public int ID { get; set; }
         public string Ime { get; set; }

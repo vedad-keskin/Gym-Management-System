@@ -1,24 +1,24 @@
 ﻿using GMS.Data;
-using GMS.Entities.Endpoint.Recenzije.GetAll;
+using GMS.Entities.Endpoint.Recenzija.GetAll;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GMS.Endpoint.Recenzije.GetAll
+namespace GMS.Endpoint.Recenzija.GetAll
 {
-    [Route("Recenzije-GetAll")]
+    [Route("Recenzija-GetAll")]
 
-    public class RecenzijeGetAllEndpoint : MyBaseEndpoint<RecenzijeGetAllRequest, RecenzijeGetAllResponse>
+    public class RecenzijaGetAllEndpoint : MyBaseEndpoint<RecenzijaGetAllRequest, RecenzijaGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public RecenzijeGetAllEndpoint(ApplicationDbContext db)
+        public RecenzijaGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
 
         [HttpGet]
-        public override async Task<RecenzijeGetAllResponse> Handle([FromQuery] RecenzijeGetAllRequest request)
+        public override async Task<RecenzijaGetAllResponse> Handle([FromQuery] RecenzijaGetAllRequest request)
         {
             var recenzija = await db.Recenzija
                  .Select(x => new RecenzijeGetAllResponseRow
@@ -31,7 +31,7 @@ namespace GMS.Endpoint.Recenzije.GetAll
                      Slika = x.Slika
                  }).ToListAsync();
 
-            return new RecenzijeGetAllResponse
+            return new RecenzijaGetAllResponse
             {
                 Recenzije = recenzija
             };

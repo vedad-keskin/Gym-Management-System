@@ -3,21 +3,21 @@ using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GMS.Entities.Endpoint.Nutricionisti.GetAll
+namespace GMS.Entities.Endpoint.Nutricionist.GetAll
 {
-    [Route("Nutricionisti-GetAll")]
+    [Route("Nutricionist-GetAll")]
 
-    public class NutricionistiGetAllEndpoint : MyBaseEndpoint<NutricionistiGetAllRequest, NutricionistiGetAllResponse>
+    public class NutricionistGetAllEndpoint : MyBaseEndpoint<NutricionistGetAllRequest, NutricionistGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public NutricionistiGetAllEndpoint(ApplicationDbContext db)
+        public NutricionistGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
 
         [HttpGet]
-        public override async Task<NutricionistiGetAllResponse> Handle([FromQuery]NutricionistiGetAllRequest request)
+        public override async Task<NutricionistGetAllResponse> Handle([FromQuery]NutricionistGetAllRequest request)
         {
             var nutricionisti = await db.Nutricionist
                 .Select(x => new NutricionistiGetAllResponseRow
@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Nutricionisti.GetAll
                     Slika=x.Slika
                 }).ToListAsync();
 
-            return new NutricionistiGetAllResponse
+            return new NutricionistGetAllResponse
             {
                 Nutricionisti = nutricionisti
             };

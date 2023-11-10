@@ -1,8 +1,6 @@
-﻿using GMS.Entities.Endpoint.Administrator.GetAll;
-
-namespace GMS.Endpoint.Recenzije.GetAll
+﻿namespace GMS.Endpoint.Recenzija.GetAll
 {
-    public class RecenzijeGetAllResponse
+    public class RecenzijaGetAllResponse
     {
         public List<RecenzijeGetAllResponseRow> Recenzije { get; set; }
     }
