@@ -25,7 +25,8 @@ namespace GMS.Entities.Endpoint.Nutricionisti.GetAll
                     ID = x.ID,
                     Ime = x.Ime,
                     Prezime = x.Prezime,
-                    BrojTelefona = x.BrojTelefona
+                    BrojTelefona = x.BrojTelefona,
+                    Slika=x.Slika
                 }).ToListAsync();
 
             return new NutricionistiGetAllResponse
