@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class GMSdbdata : Migration
+    public partial class dbGMStestdata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -530,10 +530,10 @@ namespace GMS.Migrations
                 columns: new[] { "ID", "Ime", "Prezime", "Slika", "Tekst", "Zanimanje" },
                 values: new object[,]
                 {
-                    { 1, "Edin", "Džeko", "assets/1rec.jpg", "Toplo preporučujem svima koji traže vrhunsku dvoranu za fitness. Osoblje je ljubazno i obrazovano, oprema je u izvrsnom stanju, a atmosfera jako motivirajuća. To je mjesto gdje možete postići svoje fitness ciljeve i pritom se osjećati sjajno. Pridruživanje ovoj teretani bila je jedna od najboljih odluka koje sam donio za svoje zdravlje i dobrobit.", "Fudbaler" },
-                    { 2, "Jusuf", "Nurkić", "assets/2rec.jpg", "Ako ste u potrazi za izvrsnom teretanom, ne tražite dalje. Član sam već dvije godine i bilo je to nevjerojatno putovanje u svijet fitnesa. Treneri su izvrsni, raznolikost opreme je impresivna, a sveukupno okruženje tako gostoljubivo. Vidio sam stvarne rezultate i osjećam se energičnije i sigurnije. Pridruživanje ovoj teretani bio je fantastičan izbor i ne mogu ga dovoljno preporučiti!", "Košarkaš" },
-                    { 3, "Lana", "Pudar", "assets/3rec.jpg", "Svim srcem podržavam rad ovog postrojenja kao ultimativno odredište za trening. Od najsavremenije opreme do ljubaznog osoblja koje vam pruža podršku, ova teretana ima sve što vam je potrebno za postizanje vaših fitness ciljeva. Pozitivna i motivirajuća atmosfera tjera me da se vraćam i značajno sam napredovala u svom zdravlju i kondiciji otkako sam se pridružila. Nemojte se ustručavati postati dio ove fantastične zajednice – nećete požaliti!", "Plivačica" },
-                    { 4, "Amel", "Tuka", "assets/4rec.jpg", "Za uistinu izvanredno fitness iskustvo, ne mogu dovoljno preporučiti ovo mjesto. Ova teretana ima sve: dobro održavane sprave, stručne trenere i fantastičnu atmosferu. Vidio sam izvanredna poboljšanja u svojoj snazi i općem zdravlju otkako sam postao član. Ako tražite teretanu koja nadahnjuje i podržava vaše putovanje u fitness, onda je ovo pravo mjesto za vas. Pridruživanje je bila jedna od najboljih odluka koje sam donio za svoje zdravlje.", "Atletičar" }
+                    { 1, "Jusuf", "Nurkić", "assets/1rec.jpg", "Toplo preporučujem svima koji traže vrhunsku dvoranu za fitness. Osoblje je ljubazno i obrazovano, oprema i tereni su u izvrsnom stanju, a atmosfera jako motivirajuća. To je mjesto gdje možete postići svoje fitness ciljeve i pritom se osjećati sjajno. Pridruživanje ovoj teretani bila je jedna od najboljih odluka koje sam donio za svoje zdravlje i dobrobit.", "Košarkaš" },
+                    { 2, "Miralem", "Pjanić", "assets/2rec.jpg", "Ako ste u potrazi za izvrsnom teretanom, ne tražite dalje. Dio sam ove porodice više od dvije godine i jako sam zadovoljan. Treneri su izvrsni, raznovrsnost opreme je impresivna, a sveukupno okruženje jako gostoljubivo. Vidio sam stvarne rezultate i osjećam se energičnije i sigurnije. Pridruživanje ovoj teretani bio je fantastičan izbor i ne mogu ga dovoljno preporučiti!", "Fudbaler" },
+                    { 3, "Luka", "Modrić", "assets/3rec.jpg", "Svim srcem podržavam rad ovog postrojenja kao ultimativno odredište za trening. Od najsavremenije opreme do ljubaznog osoblja koje vam pruža podršku, ova teretana ima sve što vam je potrebno za postizanje vaših fitness ciljeva. Pozitivna i motivirajuća atmosfera tjera me da se vraćam i značajno sam napredovao u svom zdravlju i kondiciji otkako sam se pridružio. Nemojte se ustručavati postati dio ove fantastične zajednice – nećete požaliti!", "Fudbaler" },
+                    { 4, "Luka", "Dončić", "assets/4rec.jpg", "Za uistinu izvanredno fitness iskustvo, ne mogu dovoljno preporučiti ovo mjesto. Ova teretana ima sve: dobro održavane sprave, stručne trenere i fantastičnu atmosferu. Vidio sam izvanredna poboljšanja u svojoj snazi i općem zdravlju otkako sam postao član. Ako tražite teretanu koja nadahnjuje i podržava vaše putovanje u fitness, onda je ovo pravo mjesto za vas. Pridruživanje je bila jedna od najboljih odluka koje sam donio za svoje zdravlje.", "Košarkaš" }
                 });
 
             migrationBuilder.InsertData(
