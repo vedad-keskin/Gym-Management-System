@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Config} from "./config";
 import {ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina} from "./ClanarinaGetAllResponse";
+import {RecenzijaGetAllResponse, RecenzijaGetAllResponseRecenzija} from "./RecenzijaGetAllResponse";
 
 
 @Component({
@@ -19,14 +20,19 @@ export class AppComponent implements OnInit{
   }
 
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
+  recenzije: RecenzijaGetAllResponseRecenzija[] = [];
 
   ngOnInit():void {
 
 
-    let url = Config.adresa + 'Clanarina-GetAll';
+    let url1 = Config.adresa + 'Clanarina-GetAll';
+    let url2 = Config.adresa + 'Recenzija-GetAll';
 
-    this.httpclient.get<ClanarinaGetAllResponse>(url).subscribe((x:ClanarinaGetAllResponse )=>{
+    this.httpclient.get<ClanarinaGetAllResponse>(url1).subscribe((x:ClanarinaGetAllResponse )=>{
       this.clanarine = x.clanarine;
+    })
+    this.httpclient.get<RecenzijaGetAllResponse>(url2).subscribe((x:RecenzijaGetAllResponse )=>{
+      this.recenzije = x.recenzije;
     })
 
 
