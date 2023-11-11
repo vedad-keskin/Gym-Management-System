@@ -13,7 +13,7 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 1,
-                    Naziv = "100% Isolate Whey Protein",
+                    Naziv = "100% Whey Protein",
                     Gramaza = 2500,
                     Cijena = 139,
                     Opis = "Muscle Freak 100% Isolate Whey Protein je visokokvalitetni izolat proteina sirutke, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend.",
@@ -25,7 +25,7 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 2,
-                    Naziv = "Gold Standard 100% Casein",
+                    Naziv = "Gold 100% Casein",
                     Gramaza = 809,
                     Cijena = 99,
                     Opis = "Korištenjem samo vrhunskog kazeina kao izvora proteina u svom 100% Gold Standard Casein-u, Optimum Nutrition je stvorio formulu koja postavlja standard za sve sporootpuštajuće proteine.",
@@ -61,7 +61,7 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 5,
-                    Naziv = "Nitro-Tech 100% Whey Gold",
+                    Naziv = "Nitro-Tech 100% Whey",
                     Gramaza = 908,
                     Cijena = 89,
                     Opis = "Preko 20 godina NITRO-TECH® je vodeći proteinski brend, izgrađen na temelju naučnih istraživanja i korištenja najmodernije tehnologija. Sada je isti istraživački i razvojni tim stvorio novu formulu whey proteina baziranu na superiornim izvorima proteina, kvaliteti i tehnici proizvodnje. Predstavljamo vam NITRO-TECH® 100% WHEY GOLD – čistu proteinsku formulu koja sadrži peptide i izolat sirutke.",
@@ -73,7 +73,7 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 6,
-                    Naziv = "Platinum 8 - hour Protein",
+                    Naziv = "Platinum 8",
                     Gramaza = 2000,
                     Cijena = 119,
                     Opis = "Vrhunska proteinska mješavina za sve namjene u bilo koje vrijeme posebno formulirana za sportiste koji žele biti na vrhuncu svoje igre. Dizajniran s visokokvalitetnom, višefaznom mješavinom proteina, može se uzimati kad god je potrebno - nakon treninga, između obroka ili prije spavanja.",
@@ -109,7 +109,7 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 9,
-                    Naziv = "Amino Build Performance",
+                    Naziv = "Amino Build",
                     Gramaza = 400,
                     Cijena = 75,
                     Opis = "Napunjene sa gradivnim elementima kako bi podržale brz oporavak. Imajući u vidu da su BCAA kao osnova u sastavu, ubrzat će period oporavka poslije treninga.",
@@ -169,10 +169,10 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 14,
-                    Naziv = "Vapor X5 Next Gen",
-                    Gramaza = 266,
-                    Cijena = 69,
-                    Opis = "VaporX5™ Next Gen je najkompletniji pre-workout dostupan na tržištu. Ovaj proizvod će vam pružiti nevjerovatnu energiju, ekstremni mišićni pump, nadrealno čulno iskustvo, poboljšati performanse i obezbijediti sastojke neophodne za izgradnju mišića. Ova intenzivna formula sadrži sve što želite u jednom pre-workoutu i ništa što ne želite, s klinički doziranim sastojcima i bez jeftinih filera.",
+                    Naziv = "N.O.-Xplode Vaso",
+                    Gramaza = 420,
+                    Cijena = 85,
+                    Opis = "Izgradnja mišića zahtijeva pravilnu ishranu i treninge. Mnogi suplementi prije treninga mogu pružiti energiju i fokus, ali rijetko isporučuju onu pravu \"pumpu\" koju tražite. Ali sada je vaša potraga gotova zahvaljujući N.O.-XPLODE VASO!",
                     KategorijaID = 3,
                     DobavljacID = 2,
                     Slika = "assets/14sup.webp"
@@ -265,12 +265,12 @@ namespace GMS.Configuration
                 new Suplement
                 {
                     ID = 22,
-                    Naziv = "Serious Mass",
-                    Gramaza = 2700,
-                    Cijena = 99,
-                    Opis = "Vrh u formulama za povećanje tjelesne mase. Serious Mass vas opskrbljuje sa alatom neophodnim da napakujete kilograme i razvijete tijelo kakvo ste uvijek željeli.",
+                    Naziv = "Mass Super Charger",
+                    Gramaza = 2270,
+                    Cijena = 75,
+                    Opis = "Tesla Mass Super Charger može pomoći vašim mišićima da rastu, zahvaljujući  ugljikohidratima iz više izvora, visokom sadržaju proteina i dodatku aminokiselina u optimalnom omjeru 2:1:1 za pomoć u iskorištavanju proteina. Kreatin je također dodat kako bi pomogao da se mišići napune vodom i potakne daljnji rast, zajedno s pažljivo odabranim vitaminskim kompleksom koji podržava sposobnost vašeg tijela da koristi proteine ​​i ugljikohidrate za energiju i čistu mišićnu masu.",
                     KategorijaID = 4,
-                    DobavljacID = 3,
+                    DobavljacID = 10,
                     Slika = "assets/22sup.webp"
 
                 },
@@ -283,7 +283,7 @@ namespace GMS.Configuration
                     Opis = "Evolite IsoGainz je ugljikohidratno-proteinski suplement visoke kvalitete namijenjen prvenstveno aktivnim osobama koji se sastoji od: odabrani ugljikohidrati (maltodextrin sa jako malim sadržajem šećera) proteina (izolat I koncentrat koji ne sadrže laktozu) .Proizvod se može koristiti kao dodatak svakodnevnoj prehrani. Idealno prikladan za korištenje nakon treninga kako bi se nadoknadile zalihe energije u mišićima. Protein doprinosi rastu mišične mase I pomaže u njenom održavanju.",
                     KategorijaID = 4,
                     DobavljacID = 8,
-                    Slika = "assets/23sup.webp"
+                    Slika = "assets/23sup.png"
 
                 },
                 new Suplement

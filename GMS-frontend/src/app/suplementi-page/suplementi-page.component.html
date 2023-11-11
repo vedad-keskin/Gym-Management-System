@@ -1,0 +1,28 @@
+<section id="suplementi" class="container-md">
+
+
+  <br>
+  <h3>Unesite naziv</h3>
+  <input [(ngModel)]="PretragaNaziv">
+
+
+    <div class="row justify-content">
+      <div class="card" *ngFor="let x of suplementi" style="width: 18rem;">
+        <img id="slike" src="{{x.slika}}" class="card-img-top"  />
+        <div class="card-body">
+          <h5 class="card-title">{{x.naziv}}</h5>
+          <p class="card-text">{{x.nazivDobavljaca}}</p>
+          <button type="button" class="btn btn-danger">Rezerviši suplement</button>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+

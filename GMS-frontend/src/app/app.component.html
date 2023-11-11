@@ -9,13 +9,15 @@
     <a id="logo" class="mx-3" >
       <img src="/assets/GMS.png" class="img-fluid sm" alt="logo" (click)="isVidljivoFAQ = false"
            (click)="isVidljivoHome = true"
-           (click)="isVidljivoOsoblje = false">
+           (click)="isVidljivoOsoblje = false"
+           (click)="isVidljivoSuplememti = false">
     </a>
 
     <a class="navbar-brand" >
         <span class="text-secondary fw-bold" (click)="isVidljivoFAQ = false"
               (click)="isVidljivoHome = true"
-              (click)="isVidljivoOsoblje = false">
+              (click)="isVidljivoOsoblje = false"
+              (click)="isVidljivoSuplememti = false">
           Gym Management System
         </span>
     </a>
@@ -31,15 +33,20 @@
         <li class="nav-item mx-2">
           <a class="nav-link" (click)="isVidljivoFAQ = false"
              (click)="isVidljivoHome = false"
-             (click)="isVidljivoOsoblje = true">Osoblje</a>
+             (click)="isVidljivoOsoblje = true"
+             (click)="isVidljivoSuplememti = false">Osoblje</a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link" href="#suplementi">Suplementi</a>
+          <a class="nav-link"  (click)="isVidljivoFAQ = false"
+             (click)="isVidljivoHome = false"
+             (click)="isVidljivoOsoblje = false"
+             (click)="isVidljivoSuplememti = true">Suplementi</a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" (click)="isVidljivoFAQ = true"
              (click)="isVidljivoHome = false"
-             (click)="isVidljivoOsoblje = false">FAQ</a>
+             (click)="isVidljivoOsoblje = false"
+             (click)="isVidljivoSuplememti = false">FAQ</a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="#prijava">Prijavi se</a>
@@ -65,7 +72,9 @@
           <div class="display-6 text-muted">Preworkout - Muscle Freak</div>
         </h1>
         <p class="lead my-4 text-muted">Muscle Freak Power Reactor je visokokvalitetni pre-workout, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača.</p>
-        <a href="#pricing" class="btn btn-danger btn-lg">Kupite sada</a>
+        <a  class="btn btn-danger btn-lg"
+            (click)="isVidljivoSuplememti = true" (click)="isVidljivoHome = false"
+        >Kupite sada</a>
       </div>
 
       <!-- Slika -->
@@ -235,6 +244,10 @@
 
 <div *ngIf="isVidljivoOsoblje">
   <app-osoblje-page></app-osoblje-page>
+</div>
+
+<div *ngIf="isVidljivoSuplememti">
+  <app-suplementi-page></app-suplementi-page>
 </div>
 
 

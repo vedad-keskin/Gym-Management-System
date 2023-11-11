@@ -12,9 +12,10 @@ import {RecenzijaGetAllResponse, RecenzijaGetAllResponseRecenzija} from "./Recen
 })
 export class AppComponent implements OnInit{
 
-  isVidljivoFAQ: boolean = false;
   isVidljivoHome: boolean = true;
+  isVidljivoFAQ: boolean = false;
   isVidljivoOsoblje: boolean = false;
+  isVidljivoSuplememti: boolean = false;
   constructor(public httpclient : HttpClient) {
 
   }

@@ -53,6 +53,11 @@ namespace GMS.Configuration
                 {
                     ID = 9,
                     Naziv = "SUPERIOR",
+                },
+                new Dobavljac
+                {
+                    ID = 10,
+                    Naziv = "TESLA",
                 });
                 
         }

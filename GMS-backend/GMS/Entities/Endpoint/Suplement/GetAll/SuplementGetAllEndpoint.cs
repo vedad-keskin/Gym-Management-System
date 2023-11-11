@@ -25,7 +25,7 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
                     ID = x.ID,
                     Naziv = x.Naziv,
                     Cijena = x.Cijena,
-                    Gramaža = x.Gramaza,
+                    Gramaza = x.Gramaza,
                     Opis = x.Opis,
                     Slika = x.Slika,
                     NazivDobavljaca = x.Dobavljac.Naziv,

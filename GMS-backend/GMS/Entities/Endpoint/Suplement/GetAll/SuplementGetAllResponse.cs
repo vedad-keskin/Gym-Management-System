@@ -11,7 +11,7 @@
         public int ID { get; set; }
         public string Naziv { get; set; }
         public float Cijena { get; set; }
-        public float Gramaža { get; set; }
+        public float Gramaza { get; set; }
         public string Opis { get; set; }
         public string? Slika { get; set; }
         public string NazivDobavljaca { get; set; }

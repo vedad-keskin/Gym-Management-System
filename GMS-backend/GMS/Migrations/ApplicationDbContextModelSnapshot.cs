@@ -165,6 +165,11 @@ namespace GMS.Migrations
                         {
                             ID = 9,
                             Naziv = "SUPERIOR"
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Naziv = "TESLA"
                         });
                 });
 
@@ -1016,7 +1021,7 @@ namespace GMS.Migrations
                             DobavljacID = 1,
                             Gramaza = 2500f,
                             KategorijaID = 1,
-                            Naziv = "100% Isolate Whey Protein",
+                            Naziv = "100% Whey Protein",
                             Opis = "Muscle Freak 100% Isolate Whey Protein je visokokvalitetni izolat proteina sirutke, koji smo kreirali kako bi zadovoljili potrebe i najzahtjevnijih vježbača. Nakon godina uspješnog rada i distribucije najvećih brendova na tržištu, mi u Muscle Freaku smo odlučili da je vrijeme da i naša linija proizvoda ugleda svjetlo dana i da vam u skladu s našom tradicijom ponudimo najbolje i najkvalitetnije proizvode s predznakom bosanski brend.",
                             Slika = "assets/1sup.webp"
                         },
@@ -1027,7 +1032,7 @@ namespace GMS.Migrations
                             DobavljacID = 3,
                             Gramaza = 809f,
                             KategorijaID = 1,
-                            Naziv = "Gold Standard 100% Casein",
+                            Naziv = "Gold 100% Casein",
                             Opis = "Korištenjem samo vrhunskog kazeina kao izvora proteina u svom 100% Gold Standard Casein-u, Optimum Nutrition je stvorio formulu koja postavlja standard za sve sporootpuštajuće proteine.",
                             Slika = "assets/2sup.webp"
                         },
@@ -1060,7 +1065,7 @@ namespace GMS.Migrations
                             DobavljacID = 2,
                             Gramaza = 908f,
                             KategorijaID = 1,
-                            Naziv = "Nitro-Tech 100% Whey Gold",
+                            Naziv = "Nitro-Tech 100% Whey",
                             Opis = "Preko 20 godina NITRO-TECH® je vodeći proteinski brend, izgrađen na temelju naučnih istraživanja i korištenja najmodernije tehnologija. Sada je isti istraživački i razvojni tim stvorio novu formulu whey proteina baziranu na superiornim izvorima proteina, kvaliteti i tehnici proizvodnje. Predstavljamo vam NITRO-TECH® 100% WHEY GOLD – čistu proteinsku formulu koja sadrži peptide i izolat sirutke.",
                             Slika = "assets/5sup.webp"
                         },
@@ -1071,7 +1076,7 @@ namespace GMS.Migrations
                             DobavljacID = 2,
                             Gramaza = 2000f,
                             KategorijaID = 1,
-                            Naziv = "Platinum 8 - hour Protein",
+                            Naziv = "Platinum 8",
                             Opis = "Vrhunska proteinska mješavina za sve namjene u bilo koje vrijeme posebno formulirana za sportiste koji žele biti na vrhuncu svoje igre. Dizajniran s visokokvalitetnom, višefaznom mješavinom proteina, može se uzimati kad god je potrebno - nakon treninga, između obroka ili prije spavanja.",
                             Slika = "assets/6sup.webp"
                         },
@@ -1104,7 +1109,7 @@ namespace GMS.Migrations
                             DobavljacID = 2,
                             Gramaza = 400f,
                             KategorijaID = 2,
-                            Naziv = "Amino Build Performance",
+                            Naziv = "Amino Build",
                             Opis = "Napunjene sa gradivnim elementima kako bi podržale brz oporavak. Imajući u vidu da su BCAA kao osnova u sastavu, ubrzat će period oporavka poslije treninga.",
                             Slika = "assets/9sup.webp"
                         },
@@ -1155,12 +1160,12 @@ namespace GMS.Migrations
                         new
                         {
                             ID = 14,
-                            Cijena = 69f,
+                            Cijena = 85f,
                             DobavljacID = 2,
-                            Gramaza = 266f,
+                            Gramaza = 420f,
                             KategorijaID = 3,
-                            Naziv = "Vapor X5 Next Gen",
-                            Opis = "VaporX5™ Next Gen je najkompletniji pre-workout dostupan na tržištu. Ovaj proizvod će vam pružiti nevjerovatnu energiju, ekstremni mišićni pump, nadrealno čulno iskustvo, poboljšati performanse i obezbijediti sastojke neophodne za izgradnju mišića. Ova intenzivna formula sadrži sve što želite u jednom pre-workoutu i ništa što ne želite, s klinički doziranim sastojcima i bez jeftinih filera.",
+                            Naziv = "N.O.-Xplode Vaso",
+                            Opis = "Izgradnja mišića zahtijeva pravilnu ishranu i treninge. Mnogi suplementi prije treninga mogu pružiti energiju i fokus, ali rijetko isporučuju onu pravu \"pumpu\" koju tražite. Ali sada je vaša potraga gotova zahvaljujući N.O.-XPLODE VASO!",
                             Slika = "assets/14sup.webp"
                         },
                         new
@@ -1243,12 +1248,12 @@ namespace GMS.Migrations
                         new
                         {
                             ID = 22,
-                            Cijena = 99f,
-                            DobavljacID = 3,
-                            Gramaza = 2700f,
+                            Cijena = 75f,
+                            DobavljacID = 10,
+                            Gramaza = 2270f,
                             KategorijaID = 4,
-                            Naziv = "Serious Mass",
-                            Opis = "Vrh u formulama za povećanje tjelesne mase. Serious Mass vas opskrbljuje sa alatom neophodnim da napakujete kilograme i razvijete tijelo kakvo ste uvijek željeli.",
+                            Naziv = "Mass Super Charger",
+                            Opis = "Tesla Mass Super Charger može pomoći vašim mišićima da rastu, zahvaljujući  ugljikohidratima iz više izvora, visokom sadržaju proteina i dodatku aminokiselina u optimalnom omjeru 2:1:1 za pomoć u iskorištavanju proteina. Kreatin je također dodat kako bi pomogao da se mišići napune vodom i potakne daljnji rast, zajedno s pažljivo odabranim vitaminskim kompleksom koji podržava sposobnost vašeg tijela da koristi proteine ​​i ugljikohidrate za energiju i čistu mišićnu masu.",
                             Slika = "assets/22sup.webp"
                         },
                         new
@@ -1260,7 +1265,7 @@ namespace GMS.Migrations
                             KategorijaID = 4,
                             Naziv = "IsoGainz",
                             Opis = "Evolite IsoGainz je ugljikohidratno-proteinski suplement visoke kvalitete namijenjen prvenstveno aktivnim osobama koji se sastoji od: odabrani ugljikohidrati (maltodextrin sa jako malim sadržajem šećera) proteina (izolat I koncentrat koji ne sadrže laktozu) .Proizvod se može koristiti kao dodatak svakodnevnoj prehrani. Idealno prikladan za korištenje nakon treninga kako bi se nadoknadile zalihe energije u mišićima. Protein doprinosi rastu mišične mase I pomaže u njenom održavanju.",
-                            Slika = "assets/23sup.webp"
+                            Slika = "assets/23sup.png"
                         },
                         new
                         {
