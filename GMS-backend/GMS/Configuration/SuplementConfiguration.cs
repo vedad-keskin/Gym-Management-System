@@ -297,8 +297,8 @@ namespace GMS.Configuration
                     DobavljacID = 9,
                     Slika = "assets/24sup.webp"
 
-                }) ;
-                
+                });
+
         }
     }
 }

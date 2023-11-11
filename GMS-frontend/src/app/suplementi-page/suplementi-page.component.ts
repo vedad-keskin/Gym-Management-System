@@ -26,5 +26,8 @@ export class SuplementiPageComponent implements OnInit{
     })
 
   }
+  GetFiltiraniSuplementi() {
+    return this.suplementi.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
+  }
 
 }

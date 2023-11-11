@@ -1,13 +1,19 @@
 <section id="suplementi" class="container-md">
 
 
-  <br>
-  <h3>Unesite naziv</h3>
-  <input [(ngModel)]="PretragaNaziv">
+  <!-- Input za naziv -->
 
+  <div class="row my-5">
+    <div class="col-5">
+      <input type="text" spellcheck="false" placeholder="Unesite naziv" class="form-control secondary" [(ngModel)]="PretragaNaziv">
+    </div>
+  </div>
+
+
+  <!-- Ispis suplemenata -->
 
     <div class="row justify-content">
-      <div class="card" *ngFor="let x of suplementi" style="width: 18rem;">
+      <div class="card" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
         <img id="slike" src="{{x.slika}}" class="card-img-top"  />
         <div class="card-body">
           <h5 class="card-title">{{x.naziv}}</h5>
