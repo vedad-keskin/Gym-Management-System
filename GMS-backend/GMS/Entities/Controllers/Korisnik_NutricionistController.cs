@@ -23,8 +23,9 @@ namespace GMS.Entities.Controllers
             {
                 KorisnikID = x.KorisnikID,
                 NutricionistID = x.NutricionistID,
-                DatumTermina = x.DatumTermina
-
+                DatumTermina = x.DatumTermina,
+                OdrzanoSati=x.OdrzanoSati
+   
             };
 
             db.Add(noviZapis);
@@ -41,7 +42,9 @@ namespace GMS.Entities.Controllers
                 {
                     Korisnik = x.Korisnik,
                     Nutricionist = x.Nutricionist,
-                    DatumTermina = x.DatumTermina
+                    DatumTermina = x.DatumTermina,
+                    OdrzanoSati=x.OdrzanoSati
+                   
                 }
                 ).ToList();
 

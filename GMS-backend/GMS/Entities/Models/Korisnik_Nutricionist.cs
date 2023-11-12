@@ -7,5 +7,6 @@
         public int NutricionistID { get; set; }
         public Nutricionist Nutricionist { get; set; }
         public DateTime DatumTermina { get; set; }
+        public DateTime OdrzanoSati { get; set; }
     }
 }
