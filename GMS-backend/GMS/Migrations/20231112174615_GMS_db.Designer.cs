@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231111031811_dbGMS-data")]
-    partial class dbGMSdata
+    [Migration("20231112174615_GMS_db")]
+    partial class GMS_db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -675,6 +675,9 @@ namespace GMS.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DatumTermina")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("OdrzanoSati")
                         .HasColumnType("datetime2");
 
                     b.HasKey("KorisnikID", "NutricionistID", "DatumTermina");

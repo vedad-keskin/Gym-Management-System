@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class dbGMSdata : Migration
+    public partial class GMS_db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -341,7 +341,8 @@ namespace GMS.Migrations
                 {
                     KorisnikID = table.Column<int>(type: "int", nullable: false),
                     NutricionistID = table.Column<int>(type: "int", nullable: false),
-                    DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OdrzanoSati = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
