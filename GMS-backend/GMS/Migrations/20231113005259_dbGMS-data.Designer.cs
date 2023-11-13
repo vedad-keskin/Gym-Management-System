@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231112174615_GMS_db")]
-    partial class GMS_db
+    [Migration("20231113005259_dbGMS-data")]
+    partial class dbGMSdata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1450,19 +1450,19 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Grad", "Grad")
                         .WithMany()
                         .HasForeignKey("GradID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Spol", "Spol")
                         .WithMany()
                         .HasForeignKey("SpolID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Teretana", "Teretana")
                         .WithMany()
                         .HasForeignKey("TeretanaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Grad");
@@ -1477,13 +1477,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Clanarina", "Clanarina")
                         .WithMany()
                         .HasForeignKey("ClanarinaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Clanarina");
@@ -1496,13 +1496,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Nutricionist", "Nutricionist")
                         .WithMany()
                         .HasForeignKey("NutricionistID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -1515,13 +1515,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Suplement", "Suplement")
                         .WithMany()
                         .HasForeignKey("SuplementID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -1534,13 +1534,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Trener", "Trener")
                         .WithMany()
                         .HasForeignKey("TrenerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -1553,13 +1553,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Nutricionist", "Nutricionist")
                         .WithMany()
                         .HasForeignKey("NutricionistID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Seminar", "Seminar")
                         .WithMany()
                         .HasForeignKey("SeminarID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Nutricionist");
@@ -1572,13 +1572,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Dobavljac", "Dobavljac")
                         .WithMany()
                         .HasForeignKey("DobavljacID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Kategorija", "Kategorija")
                         .WithMany()
                         .HasForeignKey("KategorijaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Dobavljac");
@@ -1591,7 +1591,7 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Grad", "Grad")
                         .WithMany()
                         .HasForeignKey("GradID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Grad");
@@ -1602,13 +1602,13 @@ namespace GMS.Migrations
                     b.HasOne("GMS.Entities.Models.Seminar", "Seminar")
                         .WithMany()
                         .HasForeignKey("SeminarID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Trener", "Trener")
                         .WithMany()
                         .HasForeignKey("TrenerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Seminar");

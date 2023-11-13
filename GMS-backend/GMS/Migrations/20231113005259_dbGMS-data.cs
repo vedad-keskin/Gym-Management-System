@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class GMS_db : Migration
+    public partial class dbGMSdata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -185,8 +185,7 @@ namespace GMS.Migrations
                         name: "FK_Teretana_Grad_GradID",
                         column: x => x.GradID,
                         principalTable: "Grad",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -210,14 +209,12 @@ namespace GMS.Migrations
                         name: "FK_Suplement_Dobavljac_DobavljacID",
                         column: x => x.DobavljacID,
                         principalTable: "Dobavljac",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Suplement_Kategorija_KategorijaID",
                         column: x => x.KategorijaID,
                         principalTable: "Kategorija",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -234,14 +231,12 @@ namespace GMS.Migrations
                         name: "FK_Nutricionist_Seminar_Nutricionist_NutricionistID",
                         column: x => x.NutricionistID,
                         principalTable: "Nutricionist",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Nutricionist_Seminar_Seminar_SeminarID",
                         column: x => x.SeminarID,
                         principalTable: "Seminar",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -258,14 +253,12 @@ namespace GMS.Migrations
                         name: "FK_Trener_Seminar_Seminar_SeminarID",
                         column: x => x.SeminarID,
                         principalTable: "Seminar",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Trener_Seminar_Trener_TrenerID",
                         column: x => x.TrenerID,
                         principalTable: "Trener",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -293,20 +286,17 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_Grad_GradID",
                         column: x => x.GradID,
                         principalTable: "Grad",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Spol_SpolID",
                         column: x => x.SpolID,
                         principalTable: "Spol",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Teretana_TeretanaID",
                         column: x => x.TeretanaID,
                         principalTable: "Teretana",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -325,14 +315,12 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_Clanarina_Clanarina_ClanarinaID",
                         column: x => x.ClanarinaID,
                         principalTable: "Clanarina",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Clanarina_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
                         principalTable: "Korisnik",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -351,14 +339,12 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_Nutricionst_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
                         principalTable: "Korisnik",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Nutricionst_Nutricionist_NutricionistID",
                         column: x => x.NutricionistID,
                         principalTable: "Nutricionist",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -377,14 +363,12 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_Suplement_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
                         principalTable: "Korisnik",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Suplement_Suplement_SuplementID",
                         column: x => x.SuplementID,
                         principalTable: "Suplement",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -403,14 +387,12 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_Trener_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
                         principalTable: "Korisnik",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Trener_Trener_TrenerID",
                         column: x => x.TrenerID,
                         principalTable: "Trener",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.InsertData(

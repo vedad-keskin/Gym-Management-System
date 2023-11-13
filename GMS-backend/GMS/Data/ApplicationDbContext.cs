@@ -9,6 +9,13 @@ namespace GMS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.NoAction;
+            }
+
             modelBuilder.Entity<Korisnik_Clanarina>().HasKey(x => new { x.ClanarinaID, x.KorisnikID, x.DatumUplate });
 
             modelBuilder.Entity<Korisnik_Trener>().HasKey(x => new { x.KorisnikID, x.TrenerID, x.DatumTermina });
