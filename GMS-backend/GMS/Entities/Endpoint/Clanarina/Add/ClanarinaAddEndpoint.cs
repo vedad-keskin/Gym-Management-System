@@ -15,7 +15,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Add
             this.db = db;
         }
 
-        [HttpGet]
+        [HttpPost]
         public override async Task<ClanarinaAddResponse> Handle([FromBody]ClanarinaAddRequest request)
         {
             var novi = new Entities.Models.Clanarina
@@ -30,7 +30,12 @@ namespace GMS.Entities.Endpoint.Clanarina.Add
 
             return new ClanarinaAddResponse
             {
-                ID = novi.ID
+                ID=novi.ID,
+                Naziv=novi.Naziv,
+                Cijena=novi.Cijena,
+                Opis=novi.Opis
+              
+               
             };
         }
     }

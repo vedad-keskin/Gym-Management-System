@@ -4,9 +4,10 @@ using GMS.Entities.Models;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GMS.Endpoint.Grad.Add
+namespace GMS.Entities.Endpoint.Grad.Add
 {
     [Route("Grad-Add")]
+
     public class GradAddEndpoint : MyBaseEndpoint<GradAddRequest, GradAddResponse>
     {
         private readonly ApplicationDbContext db;
