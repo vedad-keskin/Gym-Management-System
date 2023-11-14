@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {SuplementGetAllResponse, SuplementGetAllResponseSuplement} from "./SuplementGetAllResponse";
 import {Config} from "../config";
-import {FAQGetAllResponse} from "../faq-page/FAQGetAllResponse";
 
 @Component({
   selector: 'app-suplementi-page',

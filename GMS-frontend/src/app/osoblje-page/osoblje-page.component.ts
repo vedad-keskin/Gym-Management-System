@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Config} from "../config";
 import {HttpClient} from "@angular/common/http";
 import {TrenerGetAllResponse, TrenerGetAllResponseTrener} from "./TrenerGetAllResponse";
 import {NutricionstGetAllResponse, NutricionstGetAllResponseNutricionst} from "./NutricionstGetAllResponse";
+import {Config} from "../config";
 
 @Component({
   selector: 'app-osoblje-page',
