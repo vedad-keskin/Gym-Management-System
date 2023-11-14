@@ -28,7 +28,9 @@ namespace GMS.Endpoint.Grad.Add
             await db.SaveChangesAsync();
 
             return new GradAddResponse {
-                ID = novi.ID
+                ID = novi.ID,
+                Naziv=novi.Naziv
+                
             };
         }
 
