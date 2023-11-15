@@ -18,7 +18,7 @@ namespace GMS.Endpoint.Recenzija.GetAll
         }
 
         [HttpGet]
-        public override async Task<RecenzijaGetAllResponse> Handle([FromQuery] RecenzijaGetAllRequest request)
+        public override async Task<RecenzijaGetAllResponse> Handle([FromQuery] RecenzijaGetAllRequest request, CancellationToken cancellationToken)
         {
             var recenzija = await db.Recenzija
                  .Select(x => new RecenzijeGetAllResponseRow
@@ -29,7 +29,7 @@ namespace GMS.Endpoint.Recenzija.GetAll
                      Zanimanje = x.Zanimanje,
                      Tekst = x.Tekst,
                      Slika = x.Slika
-                 }).ToListAsync();
+                 }).ToListAsync(cancellationToken: cancellationToken);
 
             return new RecenzijaGetAllResponse
             {

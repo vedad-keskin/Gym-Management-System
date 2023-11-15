@@ -18,7 +18,7 @@ namespace GMS.Entities.Endpoint.Clanarina.GetAll
         }
 
         [HttpGet]
-        public override async Task<ClanarinaGetAllResponse> Handle([FromQuery] ClanarinaGetAllRequest request)
+        public override async Task<ClanarinaGetAllResponse> Handle([FromQuery] ClanarinaGetAllRequest request, CancellationToken cancellationToken)
         {
             var clanarine = await db.Clanarina
                 .Select(x => new ClanarinaGetAllResponseRow
@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Clanarina.GetAll
                     Opis = x.Opis
 
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new ClanarinaGetAllResponse
             {

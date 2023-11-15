@@ -18,7 +18,7 @@ namespace GMS.Entities.Endpoint.Grad.Add
         }
 
         [HttpPost]
-        public override async Task<GradAddResponse> Handle([FromBody] GradAddRequest request)
+        public override async Task<GradAddResponse> Handle([FromBody] GradAddRequest request, CancellationToken cancellationToken)
         {
             var novi = new Entities.Models.Grad
             {
@@ -26,7 +26,7 @@ namespace GMS.Entities.Endpoint.Grad.Add
             };
 
             db.Grad.Add(novi);
-            await db.SaveChangesAsync();
+            await db.SaveChangesAsync(cancellationToken : cancellationToken);
 
             return new GradAddResponse {
                 ID = novi.ID,

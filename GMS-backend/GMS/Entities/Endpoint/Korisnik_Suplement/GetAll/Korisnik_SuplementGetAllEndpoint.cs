@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.KorisnikSuplement.GetAll
         }
 
         [HttpGet]
-        public override async Task<Korisnik_SuplementGetAllResponse> Handle([FromQuery]Korisnik_SuplementGetAllRequest request)
+        public override async Task<Korisnik_SuplementGetAllResponse> Handle([FromQuery]Korisnik_SuplementGetAllRequest request, CancellationToken cancellationToken)
         {
             var korisniksuplement = await db.Korisnik_Suplement
                 .Select(x => new KorisnikSuplementGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.KorisnikSuplement.GetAll
                     DatumVrijemeNarudzbe=x.DatumVrijemeNarudzbe,
                     Kolicina=x.Kolicina,
                   
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new Korisnik_SuplementGetAllResponse
             {

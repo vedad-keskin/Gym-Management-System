@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Seminar.GetAll
         }
 
         [HttpGet]
-        public override async Task<SeminarGetAllResponse> Handle([FromQuery]SeminarGetAllRequest request)
+        public override async Task<SeminarGetAllResponse> Handle([FromQuery]SeminarGetAllRequest request, CancellationToken cancellationToken)
         {
             var seminar = await db.Seminar
                  .Select(x => new SeminarGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Seminar.GetAll
                      Datum=x.Datum,
                      Tema=x.Tema
                   
-                 }).ToListAsync();
+                 }).ToListAsync(cancellationToken: cancellationToken);
 
             return new SeminarGetAllResponse
             {

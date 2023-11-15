@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
         }
 
         [HttpGet]
-        public override async Task<Korisnik_NutricionistGetAllResponse> Handle([FromQuery]Korisnik_NutricionistGetAllRequest request)
+        public override async Task<Korisnik_NutricionistGetAllResponse> Handle([FromQuery]Korisnik_NutricionistGetAllRequest request, CancellationToken cancellationToken)
         {
             var korisniknutricionist = await db.Korisnik_Nutricionst
                 .Select(x => new KorisnikNutricionistGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
                    DatumTermina=x.DatumTermina,
                    OdrzanoSati=x.OdrzanoSati
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new Korisnik_NutricionistGetAllResponse
             {

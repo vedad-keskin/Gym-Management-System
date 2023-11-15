@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Administrator.GetAll
         }
 
         [HttpGet]
-        public override async Task<AdministratorGetAllResponse> Handle([FromQuery]AdministratorGetAllRequest request)
+        public override async Task<AdministratorGetAllResponse> Handle([FromQuery]AdministratorGetAllRequest request, CancellationToken cancellationToken)
         {
             var administrator = await db.Administrator
                 .Select(x => new AdministratorGetAllResponseRow
@@ -26,7 +26,7 @@ namespace GMS.Entities.Endpoint.Administrator.GetAll
                     Username=x.Username,
                     Password=x.Password
                     
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new AdministratorGetAllResponse
             {

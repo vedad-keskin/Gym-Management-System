@@ -16,7 +16,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Add
         }
 
         [HttpPost]
-        public override async Task<ClanarinaAddResponse> Handle([FromBody]ClanarinaAddRequest request)
+        public override async Task<ClanarinaAddResponse> Handle([FromBody]ClanarinaAddRequest request, CancellationToken cancellationToken)
         {
             var novi = new Entities.Models.Clanarina
             {
@@ -26,7 +26,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Add
             };
 
             db.Clanarina.Add(novi);
-            await db.SaveChangesAsync();
+            await db.SaveChangesAsync(cancellationToken: cancellationToken);
 
             return new ClanarinaAddResponse
             {

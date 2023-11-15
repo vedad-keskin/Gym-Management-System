@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Korisnik.GetAll
         }
 
         [HttpGet]
-        public override async Task<KorisnikGetAllResponse> Handle([FromQuery] KorisnikGetAllRequest request)
+        public override async Task<KorisnikGetAllResponse> Handle([FromQuery] KorisnikGetAllRequest request, CancellationToken cancellationToken)
         {
             var korisnici = await db.Korisnik
                 .Select(x => new KorisnikGetAllResponseRow
@@ -35,7 +35,7 @@ namespace GMS.Entities.Endpoint.Korisnik.GetAll
                    Tezina = x.Tezina,
                    Visina = x.Visina
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new KorisnikGetAllResponse
             {

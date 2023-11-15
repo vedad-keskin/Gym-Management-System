@@ -14,7 +14,7 @@ namespace GMS.Endpoint.Grad.Delete
         }
 
         [HttpDelete]
-        public override async Task<GradDeleteResponse> Handle([FromQuery]GradDeleteRequest request)
+        public override async Task<GradDeleteResponse> Handle([FromQuery]GradDeleteRequest request, CancellationToken cancellationToken)
         {
             var zapis = db.Grad.Where(x => x.Naziv.ToLower() == request.Naziv.ToLower()).FirstOrDefault();
             // jer nam treba jedan a ne lista ovo uzima prvi ili null ako ga nema 
@@ -24,7 +24,7 @@ namespace GMS.Endpoint.Grad.Delete
                 throw new Exception("Nije pronadjen zapis sa nazivom "+request.Naziv);
             }
             db.Remove(zapis);
-            await db.SaveChangesAsync();
+            await db.SaveChangesAsync(cancellationToken : cancellationToken);
 
             return new GradDeleteResponse
             {

@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
         }
 
         [HttpGet]
-        public override async Task<Korisnik_TrenerGetAllResponse> Handle([FromQuery] Korisnik_TrenerGetAllRequest request)
+        public override async Task<Korisnik_TrenerGetAllResponse> Handle([FromQuery] Korisnik_TrenerGetAllRequest request, CancellationToken cancellationToken)
         {
             var korisnici_treneri = await db.Korisnik_Trener
                 .Select(x => new KorisnikTrenerGetAllResponseRow
@@ -28,7 +28,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
                     OdrzanoSati = x.OdrzanoSati
 
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new Korisnik_TrenerGetAllResponse
             {

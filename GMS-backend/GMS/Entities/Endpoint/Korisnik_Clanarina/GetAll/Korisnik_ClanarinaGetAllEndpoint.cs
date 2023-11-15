@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.GetAll
         }
 
         [HttpGet]
-        public override async Task<Korisnik_ClanarinaGetAllResponse> Handle([FromQuery]Korisnik_ClanarinaGetAllRequest request)
+        public override async Task<Korisnik_ClanarinaGetAllResponse> Handle([FromQuery]Korisnik_ClanarinaGetAllRequest request, CancellationToken cancellationToken)
         {
             var korisnikclanarina = await db.Korisnik_Clanarina
                 .Select(x => new KorisnikClanarinaGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.GetAll
                   DatumUplate=x.DatumUplate,
                   DatumIsteka=x.DatumIsteka
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new Korisnik_ClanarinaGetAllResponse
             {

@@ -18,7 +18,7 @@ namespace GMS.Entities.Endpoint.FAQ.GetAll
         }
 
         [HttpGet]
-        public override async Task<FAQGetAllResponse> Handle([FromQuery] FAQGetAllRequest request)
+        public override async Task<FAQGetAllResponse> Handle([FromQuery] FAQGetAllRequest request, CancellationToken cancellationToken)
         {
             var faq = await db.FAQ
                 .Select(x => new FAQGetAllResponseRow
@@ -28,7 +28,7 @@ namespace GMS.Entities.Endpoint.FAQ.GetAll
                     Odgovor = x.Odgovor
 
 
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new FAQGetAllResponse
             {

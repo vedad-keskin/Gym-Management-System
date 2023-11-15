@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
         }
 
         [HttpPost]
-        public override async Task<DobavljacAddResponse> Handle([FromBody]DobavljacAddRequest request)
+        public override async Task<DobavljacAddResponse> Handle([FromBody]DobavljacAddRequest request, CancellationToken cancellationToken)
         {
             var novi = new Entities.Models.Dobavljac
             {
@@ -25,7 +25,7 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
             };
 
             db.Dobavljac.Add(novi);
-            await db.SaveChangesAsync();
+            await db.SaveChangesAsync(cancellationToken: cancellationToken);
 
             return new DobavljacAddResponse
             {

@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
         }
 
         [HttpGet]
-        public override async Task<SuplementGetAllResponse> Handle([FromQuery] SuplementGetAllRequest request)
+        public override async Task<SuplementGetAllResponse> Handle([FromQuery] SuplementGetAllRequest request, CancellationToken cancellationToken)
         {
             var suplementi = await db.Suplement
                 .Select(x => new SuplementGetAllResponseRow
@@ -30,7 +30,7 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
                     Slika = x.Slika,
                     NazivDobavljaca = x.Dobavljac.Naziv,
                     NazivKategorija = x.Kategorija.Naziv
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new SuplementGetAllResponse
             {

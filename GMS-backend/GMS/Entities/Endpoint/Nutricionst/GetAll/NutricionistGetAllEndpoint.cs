@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.GetAll
         }
 
         [HttpGet]
-        public override async Task<NutricionistGetAllResponse> Handle([FromQuery]NutricionistGetAllRequest request)
+        public override async Task<NutricionistGetAllResponse> Handle([FromQuery]NutricionistGetAllRequest request, CancellationToken cancellationToken)
         {
             var nutricionisti = await db.Nutricionist
                 .Select(x => new NutricionistiGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.GetAll
                     Prezime = x.Prezime,
                     BrojTelefona = x.BrojTelefona,
                     Slika=x.Slika
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new NutricionistGetAllResponse
             {

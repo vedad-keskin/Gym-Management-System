@@ -18,7 +18,7 @@ namespace GMS.Endpoint.Grad.Update
         }
 
         [HttpPatch]
-        public override async Task<GradUpdateResponse> Handle([FromBody] GradUpdateRequest request)
+        public override async Task<GradUpdateResponse> Handle([FromBody] GradUpdateRequest request, CancellationToken cancellationToken)
         {
             var grad = db.Grad.Where(x => x.ID == request.ID).FirstOrDefault();
 
@@ -32,7 +32,7 @@ namespace GMS.Endpoint.Grad.Update
            
 
             db.Entry(grad).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            await db.SaveChangesAsync();
+            await db.SaveChangesAsync(cancellationToken: cancellationToken);
 
             return new GradUpdateResponse
             {

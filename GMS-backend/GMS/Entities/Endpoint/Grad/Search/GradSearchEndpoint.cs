@@ -19,14 +19,14 @@ namespace GMS.Controllers
     }
 
     [HttpGet]
-        public override async Task<GradSearchResponse> Handle([FromQuery] GradSearchRequest request)
+        public override async Task<GradSearchResponse> Handle([FromQuery] GradSearchRequest request, CancellationToken cancellationToken)
         {
             var gradovi = await db.Grad.Where(x=> request.Naziv == null 
             || x.Naziv.ToLower().StartsWith(request.Naziv.ToLower())).Select(x=> new GradSearchResponseDodatak
                 {
                   ID = x.ID,
                   Naziv = x.Naziv
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new GradSearchResponse
             {

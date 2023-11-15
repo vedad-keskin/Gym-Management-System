@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Trener.GetAll
         }
 
         [HttpGet]
-        public override async Task<TrenerGetAllResponse> Handle([FromQuery]TrenerGetAllRequest request)
+        public override async Task<TrenerGetAllResponse> Handle([FromQuery]TrenerGetAllRequest request, CancellationToken cancellationToken)
         {
             var treneri = await db.Trener
                 .Select(x => new TreneriGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Trener.GetAll
                     Prezime=x.Prezime,
                     BrojTelefona=x.BrojTelefona,
                     Slika=x.Slika
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new TrenerGetAllResponse
             {
