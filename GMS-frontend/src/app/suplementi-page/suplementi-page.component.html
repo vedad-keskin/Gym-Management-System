@@ -1,4 +1,4 @@
-<section id="suplementi" class="container-md">
+<section id="suplementi" >
 
 
   <!-- Input za naziv -->
@@ -13,12 +13,12 @@
   <!-- Ispis suplemenata -->
 
     <div class="row d-flex justify-content-center" >
-      <div class="card" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
+      <div class="card m-1" id="suplement" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
         <img id="slike" src="{{x.slika}}" class="card-img-top"  />
         <div class="card-body">
-          <h5 class="card-title">{{x.naziv}}</h5>
-          <p class="card-text">{{x.nazivDobavljaca}}</p>
-          <button type="button" class="btn btn-danger">Rezerviši suplement</button>
+          <h5 class="card-title text-center">{{x.naziv}}</h5>
+          <p class="card-text text-center" style="font-size: 14px;">{{x.nazivDobavljaca}}</p>
+          <button type="button" class="btn btn-danger w-100">Rezerviši suplement</button>
         </div>
       </div>
     </div>
