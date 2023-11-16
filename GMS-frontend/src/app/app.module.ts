@@ -10,6 +10,7 @@ import {SuplementiPageComponent} from "./suplementi-page/suplementi-page.compone
 import {HomePageComponent} from "./home-page/home-page.component";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 
@@ -19,7 +20,8 @@ import {RouterModule} from "@angular/router";
         FaqPageComponent,
         OsobljePageComponent,
         SuplementiPageComponent,
-        HomePageComponent
+        HomePageComponent,
+        LoginPageComponent
     ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import {RouterModule} from "@angular/router";
       {path:'HomePage', component: HomePageComponent },
       {path:'FAQPage', component: FaqPageComponent },
       {path:'OsobljePage', component: OsobljePageComponent },
-      {path:'SuplementiPage', component: SuplementiPageComponent }
+      {path:'SuplementiPage', component: SuplementiPageComponent },
+      {path:'LoginPage', component: LoginPageComponent }
     ])
   ],
   providers: [],
