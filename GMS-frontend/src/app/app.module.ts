@@ -28,6 +28,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: '/HomePage', pathMatch: 'full' },
       {path:'HomePage', component: HomePageComponent },
       {path:'FAQPage', component: FaqPageComponent },
       {path:'OsobljePage', component: OsobljePageComponent },

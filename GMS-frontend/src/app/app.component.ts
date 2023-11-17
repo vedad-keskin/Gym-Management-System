@@ -12,11 +12,12 @@ import { Router} from "@angular/router";
 export class AppComponent implements OnInit{
 
   constructor(public router:Router) {
+    // this.router.navigate(['/HomePage']);
 
   }
 
   ngOnInit():void {
-    this.router.navigate(['/HomePage']);
+
   }
 
 }
