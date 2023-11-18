@@ -1,44 +1,22 @@
 <section id="osoblje">
 
-<div id="teams" class="py-1">
-  <div class="container-fluid">
+  <div class="py-1">
+    <div class="container-fluid">
 
-    <div class="row gy-4 services my-1">
-      <div class="col-lg-3 col-sm-6">
-        <div class="card">
-          <img src="{{treneri[0].slika}}" class="card-img-top"  />
-          <div class="card-body">
-            <h5 class="card-title text-center">{{treneri[0].ime}} {{treneri[0].prezime}}</h5>
-            <p class="card-text  text-center" style="font-size: 14px;">Trener</p>
-            <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
-          </div>
-        </div>
+  <div class="row d-flex gy-4 services justify-content-center" >
+    <div class="card m-2 p-0" *ngFor="let x of treneri" style="width: 19rem;">
+      <img src="{{x.slika}}" class="card-img-top"  />
+      <div class="card-body">
+        <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
+        <p class="card-text text-center" style="font-size: 14px;">Trener</p>
+        <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
       </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="card">
-          <img src="{{treneri[1].slika}}" class="card-img-top"  />
+    </div>
+
+        <div class="card m-2 p-0" *ngFor="let x of nutricionsti" style="width: 19rem;">
+          <img src="{{x.slika}}" class="card-img-top"  />
           <div class="card-body">
-            <h5 class="card-title text-center">{{treneri[1].ime}} {{treneri[1].prezime}}</h5>
-            <p class="card-text text-center" style="font-size: 14px;">Trener</p>
-            <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="card">
-          <img src="{{nutricionsti[0].slika}}" class="card-img-top"  />
-          <div class="card-body">
-            <h5 class="card-title text-center">{{nutricionsti[0].ime}} {{nutricionsti[0].prezime}}</h5>
-            <p class="card-text text-center" style="font-size: 14px;">Nutricionista</p>
-            <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="card">
-          <img src="{{nutricionsti[1].slika}}" class="card-img-top"  />
-          <div class="card-body">
-            <h5 class="card-title text-center">{{nutricionsti[1].ime}} {{nutricionsti[1].prezime}}</h5>
+            <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
             <p class="card-text text-center" style="font-size: 14px;">Nutricionista</p>
             <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
           </div>
@@ -46,6 +24,6 @@
       </div>
     </div>
   </div>
-</div>
+
 
 </section>
