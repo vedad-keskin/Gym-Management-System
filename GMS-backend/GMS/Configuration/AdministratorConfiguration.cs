@@ -12,12 +12,16 @@ namespace GMS.Configuration
                 new Administrator
                 {
                     ID = 1,
+                    Ime = "Vedad",
+                    Prezime = "Keskin",
                     Username = "admin",
                     Password = "admin"
                 },
                 new Administrator
                 {
                     ID = 2,
+                    Ime = "Džejla",
+                    Prezime = "Palalić",
                     Username = "host",
                     Password = "host"
                 });

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231113005259_dbGMS-data")]
-    partial class dbGMSdata
+    [Migration("20231118024412_KorisnickiNalozi")]
+    partial class KorisnickiNalozi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,39 +24,32 @@ namespace GMS.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GMS.Entities.Models.Administrator", b =>
+            modelBuilder.Entity("GMS.Entities.Models.AutentifikacijaToken", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<string>("Password")
+                    b.Property<int>("KorisnickiNalogId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ipAdresa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("vrijednost")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("vrijemeEvidentiranja")
+                        .HasColumnType("datetime2");
 
-                    b.HasKey("ID");
+                    b.HasKey("id");
 
-                    b.ToTable("Administrator");
+                    b.HasIndex("KorisnickiNalogId");
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Password = "admin",
-                            Username = "admin"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Password = "host",
-                            Username = "host"
-                        });
+                    b.ToTable("AutentifikacijaToken");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Clanarina", b =>
@@ -446,7 +439,7 @@ namespace GMS.Migrations
                         });
                 });
 
-            modelBuilder.Entity("GMS.Entities.Models.Korisnik", b =>
+            modelBuilder.Entity("GMS.Entities.Models.KorisnickiNalog", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -454,14 +447,7 @@ namespace GMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("BrojTelefona")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GradID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Ime")
+                    b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -469,115 +455,15 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Prezime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Slika")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SpolID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeretanaID")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Tezina")
-                        .HasColumnType("real");
-
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Visina")
-                        .HasColumnType("real");
-
                     b.HasKey("ID");
 
-                    b.HasIndex("GradID");
+                    b.ToTable("KorisnickiNalog");
 
-                    b.HasIndex("SpolID");
-
-                    b.HasIndex("TeretanaID");
-
-                    b.ToTable("Korisnik");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            BrojTelefona = "0644076290",
-                            GradID = 18,
-                            Ime = "Vedad",
-                            Password = "bayern123",
-                            Prezime = "Keskin",
-                            Slika = "assets/1kor.png",
-                            SpolID = 1,
-                            TeretanaID = 2,
-                            Tezina = 80f,
-                            Username = "vedadke",
-                            Visina = 170f
-                        },
-                        new
-                        {
-                            ID = 2,
-                            BrojTelefona = "062709689",
-                            GradID = 26,
-                            Ime = "Džejla",
-                            Password = "fit2023",
-                            Prezime = "Palalić",
-                            Slika = "assets/2kor.jpg",
-                            SpolID = 2,
-                            TeretanaID = 2,
-                            Tezina = 57f,
-                            Username = "dzejlap",
-                            Visina = 164f
-                        },
-                        new
-                        {
-                            ID = 3,
-                            BrojTelefona = "0644065144",
-                            GradID = 18,
-                            Ime = "Said",
-                            Password = "fit2023",
-                            Prezime = "Keskin",
-                            Slika = "assets/3kor.jpg",
-                            SpolID = 1,
-                            TeretanaID = 2,
-                            Tezina = 62f,
-                            Username = "saidke",
-                            Visina = 180f
-                        },
-                        new
-                        {
-                            ID = 4,
-                            BrojTelefona = "061000000",
-                            GradID = 5,
-                            Ime = "Denis",
-                            Password = "user",
-                            Prezime = "Mušić",
-                            Slika = "assets/4kor.jpg",
-                            SpolID = 1,
-                            TeretanaID = 2,
-                            Tezina = 79f,
-                            Username = "denism",
-                            Visina = 186f
-                        },
-                        new
-                        {
-                            ID = 5,
-                            BrojTelefona = "062000000",
-                            GradID = 7,
-                            Ime = "Adil",
-                            Password = "user",
-                            Prezime = "Joldić",
-                            Slika = "assets/5kor.jpg",
-                            SpolID = 1,
-                            TeretanaID = 2,
-                            Tezina = 75f,
-                            Username = "adilj",
-                            Visina = 184f
-                        });
+                    b.HasDiscriminator<string>("Discriminator").HasValue("KorisnickiNalog");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Korisnik_Clanarina", b =>
@@ -604,41 +490,27 @@ namespace GMS.Migrations
                         new
                         {
                             ClanarinaID = 2,
-                            KorisnikID = 1,
+                            KorisnikID = 3,
                             DatumUplate = new DateTime(2023, 9, 1, 9, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 10, 1, 9, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ClanarinaID = 2,
-                            KorisnikID = 2,
+                            KorisnikID = 4,
                             DatumUplate = new DateTime(2023, 9, 1, 9, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 10, 1, 9, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ClanarinaID = 2,
-                            KorisnikID = 1,
-                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
-                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ClanarinaID = 2,
-                            KorisnikID = 2,
-                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
-                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ClanarinaID = 1,
                             KorisnikID = 3,
                             DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            ClanarinaID = 1,
+                            ClanarinaID = 2,
                             KorisnikID = 4,
                             DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
@@ -652,15 +524,29 @@ namespace GMS.Migrations
                         },
                         new
                         {
+                            ClanarinaID = 1,
+                            KorisnikID = 6,
+                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ClanarinaID = 1,
+                            KorisnikID = 7,
+                            DatumUplate = new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
+                            DatumIsteka = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
                             ClanarinaID = 2,
-                            KorisnikID = 1,
+                            KorisnikID = 3,
                             DatumUplate = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 12, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ClanarinaID = 2,
-                            KorisnikID = 2,
+                            KorisnikID = 4,
                             DatumUplate = new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified),
                             DatumIsteka = new DateTime(2023, 12, 1, 7, 15, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -727,6 +613,42 @@ namespace GMS.Migrations
                     b.HasIndex("TrenerID");
 
                     b.ToTable("Korisnik_Trener");
+                });
+
+            modelBuilder.Entity("GMS.Entities.Models.LogKretanjePoSistemu", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<string>("exceptionMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ipAdresa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isException")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("korisnikID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("postData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("queryPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("vrijeme")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("korisnikID");
+
+                    b.ToTable("LogKretanjePoSistemu");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Nutricionist", b =>
@@ -1445,31 +1367,174 @@ namespace GMS.Migrations
                         });
                 });
 
+            modelBuilder.Entity("GMS.Entities.Models.Administrator", b =>
+                {
+                    b.HasBaseType("GMS.Entities.Models.KorisnickiNalog");
+
+                    b.Property<string>("Ime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prezime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("KorisnickiNalog");
+
+                    b.HasDiscriminator().HasValue("Administrator");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Password = "admin",
+                            Username = "admin",
+                            Ime = "Vedad",
+                            Prezime = "Keskin"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Password = "host",
+                            Username = "host",
+                            Ime = "Džejla",
+                            Prezime = "Palalić"
+                        });
+                });
+
             modelBuilder.Entity("GMS.Entities.Models.Korisnik", b =>
                 {
-                    b.HasOne("GMS.Entities.Models.Grad", "Grad")
+                    b.HasBaseType("GMS.Entities.Models.KorisnickiNalog");
+
+                    b.Property<string>("BrojTelefona")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GradID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Korisnik_Ime");
+
+                    b.Property<string>("Prezime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Korisnik_Prezime");
+
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SpolID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeretanaID")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Tezina")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Visina")
+                        .HasColumnType("real");
+
+                    b.HasIndex("GradID");
+
+                    b.HasIndex("SpolID");
+
+                    b.HasIndex("TeretanaID");
+
+                    b.ToTable("KorisnickiNalog");
+
+                    b.HasDiscriminator().HasValue("Korisnik");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 3,
+                            Password = "bayern123",
+                            Username = "vedadke",
+                            BrojTelefona = "0644076290",
+                            GradID = 18,
+                            Ime = "Vedad",
+                            Prezime = "Keskin",
+                            Slika = "assets/1kor.png",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 80f,
+                            Visina = 170f
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Password = "fit2023",
+                            Username = "dzejlap",
+                            BrojTelefona = "062709689",
+                            GradID = 26,
+                            Ime = "Džejla",
+                            Prezime = "Palalić",
+                            Slika = "assets/2kor.jpg",
+                            SpolID = 2,
+                            TeretanaID = 2,
+                            Tezina = 57f,
+                            Visina = 164f
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Password = "fit2023",
+                            Username = "saidke",
+                            BrojTelefona = "0644065144",
+                            GradID = 18,
+                            Ime = "Said",
+                            Prezime = "Keskin",
+                            Slika = "assets/3kor.jpg",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 62f,
+                            Visina = 180f
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Password = "user",
+                            Username = "denism",
+                            BrojTelefona = "061000000",
+                            GradID = 5,
+                            Ime = "Denis",
+                            Prezime = "Mušić",
+                            Slika = "assets/4kor.jpg",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 79f,
+                            Visina = 186f
+                        },
+                        new
+                        {
+                            ID = 7,
+                            Password = "user",
+                            Username = "adilj",
+                            BrojTelefona = "062000000",
+                            GradID = 7,
+                            Ime = "Adil",
+                            Prezime = "Joldić",
+                            Slika = "assets/5kor.jpg",
+                            SpolID = 1,
+                            TeretanaID = 2,
+                            Tezina = 75f,
+                            Visina = 184f
+                        });
+                });
+
+            modelBuilder.Entity("GMS.Entities.Models.AutentifikacijaToken", b =>
+                {
+                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", "korisnickiNalog")
                         .WithMany()
-                        .HasForeignKey("GradID")
+                        .HasForeignKey("KorisnickiNalogId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("GMS.Entities.Models.Spol", "Spol")
-                        .WithMany()
-                        .HasForeignKey("SpolID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("GMS.Entities.Models.Teretana", "Teretana")
-                        .WithMany()
-                        .HasForeignKey("TeretanaID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Grad");
-
-                    b.Navigation("Spol");
-
-                    b.Navigation("Teretana");
+                    b.Navigation("korisnickiNalog");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Korisnik_Clanarina", b =>
@@ -1548,6 +1613,17 @@ namespace GMS.Migrations
                     b.Navigation("Trener");
                 });
 
+            modelBuilder.Entity("GMS.Entities.Models.LogKretanjePoSistemu", b =>
+                {
+                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", "korisnik")
+                        .WithMany()
+                        .HasForeignKey("korisnikID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("korisnik");
+                });
+
             modelBuilder.Entity("GMS.Entities.Models.Nutricionist_Seminar", b =>
                 {
                     b.HasOne("GMS.Entities.Models.Nutricionist", "Nutricionist")
@@ -1614,6 +1690,33 @@ namespace GMS.Migrations
                     b.Navigation("Seminar");
 
                     b.Navigation("Trener");
+                });
+
+            modelBuilder.Entity("GMS.Entities.Models.Korisnik", b =>
+                {
+                    b.HasOne("GMS.Entities.Models.Grad", "Grad")
+                        .WithMany()
+                        .HasForeignKey("GradID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("GMS.Entities.Models.Spol", "Spol")
+                        .WithMany()
+                        .HasForeignKey("SpolID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("GMS.Entities.Models.Teretana", "Teretana")
+                        .WithMany()
+                        .HasForeignKey("TeretanaID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Grad");
+
+                    b.Navigation("Spol");
+
+                    b.Navigation("Teretana");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,20 @@
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+
+@Injectable({providedIn: 'root'})
+export class MyAuthService{
+  constructor(private httpClient: HttpClient) {
+  }
+  jelLogiran():boolean{
+    let token = window.localStorage.getItem("my-auth-token");
+
+    return token != "";
+  }
+  nijelLogiran():boolean{
+    let token = window.localStorage.getItem("my-auth-token");
+
+    return token == "";
+  }
+
+
+}

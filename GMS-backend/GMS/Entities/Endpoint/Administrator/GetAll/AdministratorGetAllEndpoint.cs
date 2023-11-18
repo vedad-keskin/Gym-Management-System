@@ -24,7 +24,9 @@ namespace GMS.Entities.Endpoint.Administrator.GetAll
                 {
                     ID = x.ID,
                     Username=x.Username,
-                    Password=x.Password
+                    Password=x.Password,
+                    Ime = x.Ime,
+                    Prezime = x.Prezime
                     
                 }).ToListAsync(cancellationToken : cancellationToken);
 

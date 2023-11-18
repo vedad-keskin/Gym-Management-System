@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import {AuthenticationLoginRequest} from "./AuthenticationLoginRequest";
+import {config} from "rxjs";
+import {Config} from "../config";
+import {HttpClient} from "@angular/common/http";
+import {AuthLoginResponse} from "./AuthLoginResponse";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
@@ -7,4 +13,27 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
 
+  constructor(public httpclient : HttpClient, private router : Router) {
+
+  }
+
+
+  public LoginRequest : AuthenticationLoginRequest = {
+    password :"",
+    username:""
+  };
+  SignIn() {
+    let url = Config.adresa + 'Autentifikacija/Login';
+    this.httpclient.post<AuthLoginResponse>(url, this.LoginRequest).subscribe((x)=>{
+      if (!x.isLogiran){
+        alert("Ne postoji taj username ili password");
+      }
+      else{
+        let token = x.autentifikacijaToken.vrijednost;
+        window.localStorage.setItem("my-auth-token",token)
+        this.router.navigate(['/HomePage']);
+
+      }
+    })
+  }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Config} from "./config";
 import { Router} from "@angular/router";
+import {MyAuthService} from "./services/MyAuthService";
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router} from "@angular/router";
 })
 export class AppComponent implements OnInit{
 
-  constructor(public router:Router) {
+  constructor(public router:Router, public httpClient: HttpClient,public MyAuthService : MyAuthService) {
     // this.router.navigate(['/HomePage']);
 
   }
@@ -20,4 +21,19 @@ export class AppComponent implements OnInit{
 
   }
 
+  Logout() {
+    let token = window.localStorage.getItem("my-auth-token")??"";
+    window.localStorage.setItem("my-auth-token","");
+
+    let url=Config.adresa+`Autentifikacija/Logout`
+    this.httpClient.post(url, {}, {
+      headers:{
+        "my-auth-token": token
+      }
+    }).subscribe(x=>{
+      alert("Uspješno ste odjavljeni");
+    })
+
+    this.router.navigate(["/Login"])
+  }
 }

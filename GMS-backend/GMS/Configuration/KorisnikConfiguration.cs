@@ -11,7 +11,7 @@ namespace GMS.Configuration
             builder.HasData(
                 new Korisnik
                 {
-                    ID = 1,
+                    ID = 3,
                     Ime = "Vedad",
                     Prezime = "Keskin",
                     Username = "vedadke",
@@ -26,7 +26,7 @@ namespace GMS.Configuration
                 },
                 new Korisnik
                 {
-                    ID = 2,
+                    ID = 4,
                     Ime = "Džejla",
                     Prezime = "Palalić",
                     Username = "dzejlap",
@@ -42,7 +42,7 @@ namespace GMS.Configuration
                 ,
                 new Korisnik
                 {
-                    ID = 3,
+                    ID = 5,
                     Ime = "Said",
                     Prezime = "Keskin",
                     Username = "saidke",
@@ -57,7 +57,7 @@ namespace GMS.Configuration
                 },
                 new Korisnik
                 {
-                    ID = 4,
+                    ID = 6,
                     Ime = "Denis",
                     Prezime = "Mušić",
                     Username = "denism",
@@ -73,7 +73,7 @@ namespace GMS.Configuration
                 ,
                 new Korisnik
                 {
-                    ID = 5,
+                    ID = 7,
                     Ime = "Adil",
                     Prezime = "Joldić",
                     Username = "adilj",
