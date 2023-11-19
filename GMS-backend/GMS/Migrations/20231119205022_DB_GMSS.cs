@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class KorisnickiNalozi : Migration
+    public partial class DB_GMSS : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

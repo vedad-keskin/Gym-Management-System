@@ -27,9 +27,7 @@ namespace GMS.Entities.Models
         [ForeignKey(nameof(Teretana))]
         public int TeretanaID { get; set; }
         public Teretana Teretana { get; set; }
-        public string NazivGrada { get; set; }
-        public string NazivSpol { get;  set; }
-        public string NazivTeretane { get; set; }
+       
 
         // public ICollection<Korisnik_Clanarina> Clanarine { get; set; }
 
