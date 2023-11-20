@@ -34,6 +34,6 @@ export class AppComponent implements OnInit{
       alert("Uspješno ste odjavljeni");
     })
 
-    this.router.navigate(["/Login"])
+    this.router.navigate(["/LoginPage"])
   }
 }
