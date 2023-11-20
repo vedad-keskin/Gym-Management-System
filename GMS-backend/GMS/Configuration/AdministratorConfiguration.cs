@@ -25,7 +25,7 @@ namespace GMS.Configuration
                     Username = "host",
                     Password = "host"
                 });
-                
+
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class GMS_dbTest : Migration
+    public partial class DB_GMS : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -461,7 +461,7 @@ namespace GMS.Migrations
                 columns: new[] { "ID", "Odgovor", "Pitanje" },
                 values: new object[,]
                 {
-                    { 1, "Cijene mjesečnih članarina variraju ovisno o paketu koji odaberete. Imamo različite opcije  prilagođene različitim potrebama i budžetima. Detaljne informacije o cijenama možete pronaći na homepage pod sekcijom 'cjenovnik članarina'.", "Koliko košta članarina u vašoj teretani?" },
+                    { 1, "Cijene mjesečnih članarina variraju ovisno o paketu koji odaberete. Imamo različite opcije  prilagođene različitim potrebama i budžetima. Detaljne informacije o cijenama možete pronaći na homepage pod sekcijom 'cjenovnik članarina'.", "Koja je cijena članarina u vašoj teretani?" },
                     { 2, "Da, imamo stručne trenere koji vam mogu pomoći u postizanju vaših fitness ciljeva. Oni će raditi s vama kako bi razvili personalizirani plan vježbanja. Pored njih, imamo i naš tim nutricionista.", "Da li u sklopu teretane imate personalne trenere?" },
                     { 3, "Vrlo jednostavno! Posjetite našu recepciju, odaberite željeni paket i dobit ćete svoju člansku karticu!", "Kako da postanem član vaše teretane?" },
                     { 4, "Tačnu lokaciju naše teretane možete pogledati na homepage pod rubrikom 'kako do nas?'.", "Gdje se nalazi vaša teretana?" },

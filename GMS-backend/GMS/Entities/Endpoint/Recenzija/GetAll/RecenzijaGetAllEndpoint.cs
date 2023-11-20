@@ -29,7 +29,7 @@ namespace GMS.Endpoint.Recenzija.GetAll
                      Zanimanje = x.Zanimanje,
                      Tekst = x.Tekst,
                      Slika = x.Slika
-                 }).ToListAsync(cancellationToken: cancellationToken);
+                 }).ToListAsync(cancellationToken : cancellationToken);
 
             return new RecenzijaGetAllResponse
             {

@@ -1,8 +1,9 @@
-﻿using GMS.Data;
+﻿using GMS.Controllers.Drzava.Add;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GMS.Entities.Endpoint.Nutricionst.Add
+namespace GMS.Entities.Endpoint.Nutricionist.Add
 {
     [Route("Nutricionist-Add")]
 
@@ -36,6 +37,7 @@ namespace GMS.Entities.Endpoint.Nutricionst.Add
                 Prezime=novi.Prezime,
                 Slika=novi.Slika,
                 BrojTelefona=novi.BrojTelefona
+               
             };
         }
     }

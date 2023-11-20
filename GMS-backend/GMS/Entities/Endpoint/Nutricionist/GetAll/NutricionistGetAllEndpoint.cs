@@ -7,7 +7,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.GetAll
 {
     [Route("Nutricionist-GetAll")]
 
-    public class NutricionistGetAllEndpoint : MyBaseEndpoint<NutricionistGetAllRequest, NutricionistGetAllResponse>
+    public class NutricionistGetAllEndpoint : MyBaseEndpoint<NutricionistiGetAllRequest, NutricionistGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.GetAll
         }
 
         [HttpGet]
-        public override async Task<NutricionistGetAllResponse> Handle([FromQuery]NutricionistGetAllRequest request, CancellationToken cancellationToken)
+        public override async Task<NutricionistGetAllResponse> Handle([FromQuery]NutricionistiGetAllRequest request, CancellationToken cancellationToken)
         {
             var nutricionisti = await db.Nutricionist
                 .Select(x => new NutricionistiGetAllResponseRow
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.GetAll
                     Prezime = x.Prezime,
                     BrojTelefona = x.BrojTelefona,
                     Slika=x.Slika
-                }).ToListAsync(cancellationToken: cancellationToken);
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new NutricionistGetAllResponse
             {

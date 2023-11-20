@@ -1,6 +1,6 @@
 ﻿namespace GMS.Entities.Endpoint.Nutricionist.GetAll
 {
-    public class NutricionistGetAllRequest
+    public class NutricionistiGetAllRequest
     {
     }
 }

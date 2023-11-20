@@ -1,5 +1,4 @@
 ﻿using GMS.Data;
-using GMS.Entities.Endpoint.Suplement.Add;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +24,6 @@ namespace GMS.Entities.Endpoint.Trener.Add
                 Prezime=request.Prezime,
                 BrojTelefona=request.BrojTelefona,
                 Slika=request.Slika
-                
             };
 
             db.Trener.Add(novi);
@@ -39,7 +37,6 @@ namespace GMS.Entities.Endpoint.Trener.Add
                 BrojTelefona=novi.BrojTelefona,
                 Slika=novi.Slika
             };
-
         }
     }
 }

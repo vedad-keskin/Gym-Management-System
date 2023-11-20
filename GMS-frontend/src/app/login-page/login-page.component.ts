@@ -26,13 +26,13 @@ export class LoginPageComponent {
     let url = Config.adresa + 'Autentifikacija/Login';
     this.httpclient.post<AuthLoginResponse>(url, this.LoginRequest).subscribe((x)=>{
       if (!x.isLogiran){
-        alert("Ne postoji taj username ili password");
+        alert("Unijeli ste pogrešno korisničko ime ili lozinku");
       }
       else{
         let token = x.autentifikacijaToken.vrijednost;
         window.localStorage.setItem("my-auth-token",token)
         this.router.navigate(['/HomePage']);
-
+        alert("Uspješno ste se prijavili");
       }
     })
   }

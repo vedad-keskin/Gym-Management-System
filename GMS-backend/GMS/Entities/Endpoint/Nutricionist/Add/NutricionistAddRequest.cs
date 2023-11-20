@@ -1,8 +1,7 @@
-﻿namespace GMS.Entities.Endpoint.Nutricionst.Add
+﻿namespace GMS.Entities.Endpoint.Nutricionist.Add
 {
-    public class NutricionistAddResponse
+    public class NutricionistAddRequest
     {
-        public int ID { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string BrojTelefona { get; set; }

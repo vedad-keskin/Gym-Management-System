@@ -86,7 +86,7 @@ namespace GMS.Configuration
                     TeretanaID = 2,
                     Slika = "assets/5kor.jpg"
                 });
-                
+
         }
     }
 }

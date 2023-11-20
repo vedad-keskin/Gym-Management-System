@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace GMS.Helpers;
-
 public static class Class
 {
     public static string RemoveTags(this string input)

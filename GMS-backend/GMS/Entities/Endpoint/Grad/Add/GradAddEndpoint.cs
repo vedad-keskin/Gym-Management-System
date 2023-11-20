@@ -4,10 +4,9 @@ using GMS.Entities.Models;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GMS.Entities.Endpoint.Grad.Add
+namespace GMS.Endpoint.Grad.Add
 {
     [Route("Grad-Add")]
-
     public class GradAddEndpoint : MyBaseEndpoint<GradAddRequest, GradAddResponse>
     {
         private readonly ApplicationDbContext db;
@@ -31,7 +30,6 @@ namespace GMS.Entities.Endpoint.Grad.Add
             return new GradAddResponse {
                 ID = novi.ID,
                 Naziv=novi.Naziv
-                
             };
         }
 

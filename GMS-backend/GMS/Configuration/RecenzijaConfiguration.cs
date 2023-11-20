@@ -49,7 +49,7 @@ namespace GMS.Configuration
                     Slika = "assets/4rec.jpg"
 
                 });
-                
+
         }
     }
 }

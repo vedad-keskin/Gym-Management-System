@@ -30,7 +30,7 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
                     Slika = x.Slika,
                     NazivDobavljaca = x.Dobavljac.Naziv,
                     NazivKategorija = x.Kategorija.Naziv
-                }).ToListAsync(cancellationToken : cancellationToken);
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new SuplementGetAllResponse
             {

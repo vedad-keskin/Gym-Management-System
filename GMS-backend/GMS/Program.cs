@@ -26,7 +26,7 @@ builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-// if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment()) ---> da se swagger otvara nakon deploya 
 {
     app.UseSwagger();
     app.UseSwaggerUI();

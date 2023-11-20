@@ -28,7 +28,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
                     OdrzanoSati = x.OdrzanoSati
 
 
-                }).ToListAsync(cancellationToken: cancellationToken);
+                }).ToListAsync(cancellationToken : cancellationToken);
 
             return new Korisnik_TrenerGetAllResponse
             {

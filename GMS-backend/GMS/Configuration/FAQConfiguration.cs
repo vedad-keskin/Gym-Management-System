@@ -12,7 +12,7 @@ namespace GMS.Configuration
                 new FAQ
                 {
                     ID = 1,
-                    Pitanje = "Koliko košta članarina u vašoj teretani?",
+                    Pitanje = "Koja je cijena članarina u vašoj teretani?",
                     Odgovor = "Cijene mjesečnih članarina variraju ovisno o paketu koji odaberete. Imamo različite opcije  prilagođene različitim potrebama i budžetima. Detaljne informacije o cijenama možete pronaći na homepage pod sekcijom 'cjenovnik članarina'."
                 },
                 new FAQ

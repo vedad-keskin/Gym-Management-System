@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
                    DatumTermina=x.DatumTermina,
                    OdrzanoSati=x.OdrzanoSati
 
-                }).ToListAsync(cancellationToken : cancellationToken);
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new Korisnik_NutricionistGetAllResponse
             {

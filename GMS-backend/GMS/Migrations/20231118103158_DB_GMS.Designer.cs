@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231120125736_GMS_dbTest")]
-    partial class GMS_dbTest
+    [Migration("20231118103158_DB_GMS")]
+    partial class DB_GMS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -193,7 +193,7 @@ namespace GMS.Migrations
                         {
                             ID = 1,
                             Odgovor = "Cijene mjesečnih članarina variraju ovisno o paketu koji odaberete. Imamo različite opcije  prilagođene različitim potrebama i budžetima. Detaljne informacije o cijenama možete pronaći na homepage pod sekcijom 'cjenovnik članarina'.",
-                            Pitanje = "Koliko košta članarina u vašoj teretani?"
+                            Pitanje = "Koja je cijena članarina u vašoj teretani?"
                         },
                         new
                         {

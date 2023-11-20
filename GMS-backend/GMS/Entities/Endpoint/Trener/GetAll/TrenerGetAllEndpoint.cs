@@ -27,7 +27,8 @@ namespace GMS.Entities.Endpoint.Trener.GetAll
                     Prezime=x.Prezime,
                     BrojTelefona=x.BrojTelefona,
                     Slika=x.Slika
-                }).ToListAsync(cancellationToken : cancellationToken);
+                    
+                }).ToListAsync(cancellationToken: cancellationToken);
 
             return new TrenerGetAllResponse
             {

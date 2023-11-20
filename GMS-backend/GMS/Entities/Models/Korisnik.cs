@@ -1,12 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GMS.Entities.Models
 {
     public class Korisnik : KorisnickiNalog
     {
-      
         public string Ime { get; set; }
         public string Prezime { get; set; }
 
@@ -27,7 +25,6 @@ namespace GMS.Entities.Models
         [ForeignKey(nameof(Teretana))]
         public int TeretanaID { get; set; }
         public Teretana Teretana { get; set; }
-       
 
         // public ICollection<Korisnik_Clanarina> Clanarine { get; set; }
 
