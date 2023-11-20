@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class DB_GMSS : Migration
+    public partial class GMS_dbTest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

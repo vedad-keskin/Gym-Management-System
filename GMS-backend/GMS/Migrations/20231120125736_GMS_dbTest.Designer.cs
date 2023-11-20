@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231119205022_DB_GMSS")]
-    partial class DB_GMSS
+    [Migration("20231120125736_GMS_dbTest")]
+    partial class GMS_dbTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
