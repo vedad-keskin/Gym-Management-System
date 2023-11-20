@@ -36,7 +36,7 @@ namespace GMS.Entities.Endpoint.Trener.Add
                 ID = novi.ID,
                 Ime=novi.Ime,
                 Prezime=novi.Prezime,
-                BrojTelefona=novi.Prezime,
+                BrojTelefona=novi.BrojTelefona,
                 Slika=novi.Slika
             };
 
