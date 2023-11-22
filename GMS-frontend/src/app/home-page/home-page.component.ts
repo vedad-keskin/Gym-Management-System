@@ -1,9 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina} from "../ClanarinaGetAllResponse";
-import {RecenzijaGetAllResponse, RecenzijaGetAllResponseRecenzija} from "../RecenzijaGetAllResponse";
-import {Config} from "../config";
+import {
+  ClanarinaGetAllResponse,
+  ClanarinaGetAllResponseClanarina,
+  ClanarineGetallEndpoint
+} from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
+import {
+  RecenzijaGetAllResponse,
+  RecenzijaGetAllResponseRecenzija,
+  RecenzijeGetallEndpoint
+} from "../endpoints/recenzije-endpoints/recenzije-getall-endpoint";
 
 @Component({
   selector: 'app-home-page',
@@ -12,28 +17,18 @@ import {Config} from "../config";
 })
 export class HomePageComponent implements OnInit{
 
-  constructor(public httpclient : HttpClient) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint, private RecenzijegetAllEndpoint:RecenzijeGetallEndpoint) {
 
   }
-
-
-
-
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
   recenzije: RecenzijaGetAllResponseRecenzija[] = [];
-
-
-
   ngOnInit():void {
 
 
-    let url1 = Config.adresa + 'Clanarina-GetAll';
-    let url2 = Config.adresa + 'Recenzija-GetAll';
-
-    this.httpclient.get<ClanarinaGetAllResponse>(url1).subscribe((x:ClanarinaGetAllResponse )=>{
+    this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
       this.clanarine = x.clanarine;
     })
-    this.httpclient.get<RecenzijaGetAllResponse>(url2).subscribe((x:RecenzijaGetAllResponse )=>{
+    this.RecenzijegetAllEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
       this.recenzije = x.recenzije;
     })
 

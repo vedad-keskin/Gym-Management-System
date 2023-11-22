@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina} from "../ClanarinaGetAllResponse";
-import {Config} from "../config";
-import {FAQGetAllResponse, FAQGetAllResponseFAQ} from "./FAQGetAllResponse";
+import {
+  FaqGetallEndpoint,
+  FAQGetAllResponse,
+  FAQGetAllResponseFAQ
+} from "../endpoints/faq-endpoints/faq-getall-endpoint";
 
 @Component({
   selector: 'app-faq-page',
@@ -10,7 +11,7 @@ import {FAQGetAllResponse, FAQGetAllResponseFAQ} from "./FAQGetAllResponse";
   styleUrls: ['./faq-page.component.css']
 })
 export class FaqPageComponent implements OnInit{
-  constructor(public httpclient : HttpClient) {
+  constructor(private FAQgetAllEndpoint:FaqGetallEndpoint) {
 
   }
 
@@ -18,10 +19,7 @@ export class FaqPageComponent implements OnInit{
 
   ngOnInit():void {
 
-
-    let url = Config.adresa + 'FAQ-GetAll';
-
-    this.httpclient.get<FAQGetAllResponse>(url).subscribe((x:FAQGetAllResponse )=>{
+     this.FAQgetAllEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
       this.faq = x.faq;
     })
 

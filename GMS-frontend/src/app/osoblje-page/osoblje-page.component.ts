@@ -1,8 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {TrenerGetAllResponse, TrenerGetAllResponseTrener} from "./TrenerGetAllResponse";
-import {NutricionstGetAllResponse, NutricionstGetAllResponseNutricionst} from "./NutricionstGetAllResponse";
-import {Config} from "../config";
+import {
+  TrenerGetallEndpoint,
+  TrenerGetAllResponse,
+  TrenerGetAllResponseTrener
+} from "../endpoints/treneri-endpoints/treneri-getall-endpoint";
+import {
+  NutricionstGetAllResponse,
+  NutricionstGetAllResponseNutricionst,
+  NutricionstiGetallEndpoint
+} from "../endpoints/nutricionsti-endpoints/nutricionsti-getall-endpoint";
 
 @Component({
   selector: 'app-osoblje-page',
@@ -11,7 +17,7 @@ import {Config} from "../config";
 })
 export class OsobljePageComponent implements OnInit{
 
-  constructor(public httpclient : HttpClient) {
+  constructor(private TrenergetAllEndpoint:TrenerGetallEndpoint, private NutricionstgetAllEndpoint:NutricionstiGetallEndpoint) {
 
   }
   treneri: TrenerGetAllResponseTrener[] = [];
@@ -20,16 +26,12 @@ export class OsobljePageComponent implements OnInit{
   ngOnInit():void {
 
 
-    let url1 = Config.adresa + 'Trener-GetAll';
-    let url2 = Config.adresa + 'Nutricionist-GetAll';
 
-
-
-    this.httpclient.get<TrenerGetAllResponse>(url1).subscribe((x:TrenerGetAllResponse )=>{
+    this.TrenergetAllEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
       this.treneri = x.treneri;
     })
 
-    this.httpclient.get<NutricionstGetAllResponse>(url2).subscribe((x:NutricionstGetAllResponse )=>{
+    this.NutricionstgetAllEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
       this.nutricionsti = x.nutricionisti;
     })
 

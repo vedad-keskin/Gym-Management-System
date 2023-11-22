@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {SuplementGetAllResponse, SuplementGetAllResponseSuplement} from "./SuplementGetAllResponse";
-import {Config} from "../config";
+import {
+  SuplementGetAllResponse,
+  SuplementGetAllResponseSuplement,
+  SuplementiGetallEndpoint
+} from "../endpoints/suplementi-endpoints/suplementi-getall-endpoint";
 
 @Component({
   selector: 'app-suplementi-page',
@@ -10,7 +12,7 @@ import {Config} from "../config";
 })
 export class SuplementiPageComponent implements OnInit{
 
-  constructor(public httpclient : HttpClient) {
+  constructor(private SuplementigetAllEndpoint:SuplementiGetallEndpoint) {
 
   }
 
@@ -18,9 +20,8 @@ export class SuplementiPageComponent implements OnInit{
   PretragaNaziv: string = "";
 
   ngOnInit():void {
-    let url = Config.adresa + 'Suplement-GetAll';
 
-    this.httpclient.get<SuplementGetAllResponse>(url).subscribe((x:SuplementGetAllResponse )=>{
+    this.SuplementigetAllEndpoint.Handle().subscribe((x:SuplementGetAllResponse )=>{
       this.suplementi = x.suplementi;
     })
 
