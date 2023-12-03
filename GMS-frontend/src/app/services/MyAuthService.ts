@@ -1,5 +1,6 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {AutentifikacijaToken} from "../login-page/AuthLoginResponse";
 
 @Injectable({providedIn: 'root'})
 export class MyAuthService{
@@ -17,4 +18,13 @@ export class MyAuthService{
   }
 
 
+  getAuthorizationToken():AutentifikacijaToken | null {
+    let tokenString = window.localStorage.getItem("my-auth-token")??"";
+    try {
+      return JSON.parse(tokenString);
+    }
+    catch (e){
+      return null;
+    }
+  }
 }

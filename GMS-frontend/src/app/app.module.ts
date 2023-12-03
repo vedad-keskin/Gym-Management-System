@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FaqPageComponent } from './faq-page/faq-page.component';
 import {OsobljePageComponent} from "./osoblje-page/osoblje-page.component";
 import {SuplementiPageComponent} from "./suplementi-page/suplementi-page.component";
@@ -11,6 +11,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { LoginPageComponent } from './login-page/login-page.component';
+import {MyAuthInterceptor} from "./helpers/auth/my-auth-interceptor-service";
 
 
 
@@ -36,7 +37,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
       {path:'LoginPage', component: LoginPageComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyAuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
