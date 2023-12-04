@@ -5,6 +5,7 @@ import {Config} from "../config";
 import {HttpClient} from "@angular/common/http";
 import {AuthLoginResponse} from "./AuthLoginResponse";
 import {Router} from "@angular/router";
+import {MyAuthService} from "../services/MyAuthService";
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +14,10 @@ import {Router} from "@angular/router";
 })
 export class LoginPageComponent {
 
-  constructor(public httpclient : HttpClient, private router : Router) {
+  constructor(public httpclient : HttpClient,
+              private router : Router,
+              private myAuthService: MyAuthService
+              ) {
 
   }
 
@@ -29,8 +33,10 @@ export class LoginPageComponent {
         alert("Unijeli ste pogrešno korisničko ime ili lozinku");
       }
       else{
-        let token = x.autentifikacijaToken.vrijednost;
-        window.localStorage.setItem("my-auth-token",token)
+
+
+        this.myAuthService.setLogiraniKorisnik(x.autentifikacijaToken);
+
         this.router.navigate(['/HomePage']);
         alert("Uspješno ste se prijavili");
       }

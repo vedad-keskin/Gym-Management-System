@@ -24,6 +24,15 @@
     <!-- Navigacijski page-ovi -->
     <div class="collapse navbar-collapse justify-content-end align-center " id="main-nav">
       <ul class="navbar-nav">
+
+        <li class="nav-item mx-2" *ngIf="MyAuthService.isAdmin()">
+          <a class="nav-link" routerLink='/FAQPage'>Administrator</a>
+        </li>
+
+        <li class="nav-item mx-2" *ngIf="MyAuthService.isKorisnik()">
+          <a class="nav-link"  routerLink='/OsobljePage'>Korisnik</a>
+        </li>
+
         <li class="nav-item mx-2">
           <a class="nav-link" routerLink='/OsobljePage'>Osoblje</a>
         </li>
@@ -33,11 +42,11 @@
         <li class="nav-item mx-2">
           <a class="nav-link" routerLink='/FAQPage'>FAQ</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="MyAuthService.nijelLogiran()" routerLink='/LoginPage'>Prijava</a>
+        <li class="nav-item mx-2" *ngIf="MyAuthService.nijelLogiran()">
+          <a class="nav-link"  routerLink='/LoginPage'>Prijava</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="MyAuthService.jelLogiran()" (click)="Logout()" >Odjava</a>
+        <li class="nav-item mx-2" *ngIf="MyAuthService.jelLogiran()">
+          <a class="nav-link" (click)="Logout()" >Odjava</a>
         </li>
 
       </ul>
