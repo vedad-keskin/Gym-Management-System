@@ -20,6 +20,17 @@ namespace GMS.Helpers.Services
             return GetAuthInfo().isLogiran;
         }
 
+        public bool isAdmin()
+        {
+            return GetAuthInfo().korisnickiNalog?.isAdministrator ?? false;
+        }
+
+        public bool isKorisnik()
+        {
+            return GetAuthInfo().korisnickiNalog?.isKorisnik ?? false;
+        }
+
+
         public MyAuthInfo GetAuthInfo()
         {
             string? authToken = _httpContextAccessor.HttpContext!.Request.Headers["my-auth-token"];
