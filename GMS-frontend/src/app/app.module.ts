@@ -12,6 +12,8 @@ import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { LoginPageComponent } from './login-page/login-page.component';
 import {MyAuthInterceptor} from "./helpers/auth/my-auth-interceptor-service";
+import {KorisnikPageComponent} from "./korisnik-page/korisnik-page.component";
+import {AdministratorPageComponent} from "./administrator-page/administrator-page.component";
 
 
 
@@ -22,7 +24,10 @@ import {MyAuthInterceptor} from "./helpers/auth/my-auth-interceptor-service";
         OsobljePageComponent,
         SuplementiPageComponent,
         HomePageComponent,
-        LoginPageComponent
+        LoginPageComponent,
+        KorisnikPageComponent,
+        AdministratorPageComponent
+
     ],
   imports: [
     BrowserModule,
@@ -34,7 +39,9 @@ import {MyAuthInterceptor} from "./helpers/auth/my-auth-interceptor-service";
       {path:'FAQPage', component: FaqPageComponent },
       {path:'OsobljePage', component: OsobljePageComponent },
       {path:'SuplementiPage', component: SuplementiPageComponent },
-      {path:'LoginPage', component: LoginPageComponent }
+      {path:'LoginPage', component: LoginPageComponent },
+      {path:'KorisnikPage', component: KorisnikPageComponent },
+      {path:'AdministratorPage', component: AdministratorPageComponent }
     ])
   ],
   providers: [
