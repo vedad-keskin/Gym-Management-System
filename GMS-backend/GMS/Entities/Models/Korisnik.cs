@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GMS.Entities.Models
 {
+    [Table("Korisnik")]
     public class Korisnik : KorisnickiNalog
     {
         public string Ime { get; set; }

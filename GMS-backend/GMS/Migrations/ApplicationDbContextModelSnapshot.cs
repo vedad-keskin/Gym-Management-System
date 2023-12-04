@@ -445,10 +445,6 @@ namespace GMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -460,8 +456,6 @@ namespace GMS.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("KorisnickiNalog");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("KorisnickiNalog");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Korisnik_Clanarina", b =>
@@ -1377,9 +1371,7 @@ namespace GMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("KorisnickiNalog");
-
-                    b.HasDiscriminator().HasValue("Administrator");
+                    b.ToTable("Administrator");
 
                     b.HasData(
                         new
@@ -1413,13 +1405,11 @@ namespace GMS.Migrations
 
                     b.Property<string>("Ime")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Korisnik_Ime");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prezime")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Korisnik_Prezime");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slika")
                         .HasColumnType("nvarchar(max)");
@@ -1442,9 +1432,7 @@ namespace GMS.Migrations
 
                     b.HasIndex("TeretanaID");
 
-                    b.ToTable("KorisnickiNalog");
-
-                    b.HasDiscriminator().HasValue("Korisnik");
+                    b.ToTable("Korisnik");
 
                     b.HasData(
                         new
@@ -1690,12 +1678,27 @@ namespace GMS.Migrations
                     b.Navigation("Trener");
                 });
 
+            modelBuilder.Entity("GMS.Entities.Models.Administrator", b =>
+                {
+                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", null)
+                        .WithOne()
+                        .HasForeignKey("GMS.Entities.Models.Administrator", "ID")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("GMS.Entities.Models.Korisnik", b =>
                 {
                     b.HasOne("GMS.Entities.Models.Grad", "Grad")
                         .WithMany()
                         .HasForeignKey("GradID")
                         .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", null)
+                        .WithOne()
+                        .HasForeignKey("GMS.Entities.Models.Korisnik", "ID")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("GMS.Entities.Models.Spol", "Spol")

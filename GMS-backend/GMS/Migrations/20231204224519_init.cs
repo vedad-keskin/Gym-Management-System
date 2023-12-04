@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class DB_GMS : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,6 +75,20 @@ namespace GMS.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Kategorija", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "KorisnickiNalog",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KorisnickiNalog", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,6 +218,69 @@ namespace GMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Administrator",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false),
+                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrator", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Administrator_KorisnickiNalog_ID",
+                        column: x => x.ID,
+                        principalTable: "KorisnickiNalog",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AutentifikacijaToken",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    vrijednost = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KorisnickiNalogId = table.Column<int>(type: "int", nullable: false),
+                    vrijemeEvidentiranja = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AutentifikacijaToken", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_AutentifikacijaToken_KorisnickiNalog_KorisnickiNalogId",
+                        column: x => x.KorisnickiNalogId,
+                        principalTable: "KorisnickiNalog",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LogKretanjePoSistemu",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    korisnikID = table.Column<int>(type: "int", nullable: false),
+                    queryPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    postData = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    vrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    exceptionMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    isException = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LogKretanjePoSistemu", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_LogKretanjePoSistemu_KorisnickiNalog_korisnikID",
+                        column: x => x.korisnikID,
+                        principalTable: "KorisnickiNalog",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Nutricionist_Seminar",
                 columns: table => new
                 {
@@ -248,64 +325,42 @@ namespace GMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "KorisnickiNalog",
+                name: "Korisnik",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Korisnik_Ime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Korisnik_Prezime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ID = table.Column<int>(type: "int", nullable: false),
+                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Slika = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Visina = table.Column<float>(type: "real", nullable: true),
-                    Tezina = table.Column<float>(type: "real", nullable: true),
-                    GradID = table.Column<int>(type: "int", nullable: true),
-                    SpolID = table.Column<int>(type: "int", nullable: true),
-                    TeretanaID = table.Column<int>(type: "int", nullable: true)
+                    BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Visina = table.Column<float>(type: "real", nullable: false),
+                    Tezina = table.Column<float>(type: "real", nullable: false),
+                    GradID = table.Column<int>(type: "int", nullable: false),
+                    SpolID = table.Column<int>(type: "int", nullable: false),
+                    TeretanaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_KorisnickiNalog", x => x.ID);
+                    table.PrimaryKey("PK_Korisnik", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_KorisnickiNalog_Grad_GradID",
+                        name: "FK_Korisnik_Grad_GradID",
                         column: x => x.GradID,
                         principalTable: "Grad",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_KorisnickiNalog_Spol_SpolID",
+                        name: "FK_Korisnik_KorisnickiNalog_ID",
+                        column: x => x.ID,
+                        principalTable: "KorisnickiNalog",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Korisnik_Spol_SpolID",
                         column: x => x.SpolID,
                         principalTable: "Spol",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_KorisnickiNalog_Teretana_TeretanaID",
+                        name: "FK_Korisnik_Teretana_TeretanaID",
                         column: x => x.TeretanaID,
                         principalTable: "Teretana",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AutentifikacijaToken",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    vrijednost = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KorisnickiNalogId = table.Column<int>(type: "int", nullable: false),
-                    vrijemeEvidentiranja = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AutentifikacijaToken", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_AutentifikacijaToken_KorisnickiNalog_KorisnickiNalogId",
-                        column: x => x.KorisnickiNalogId,
-                        principalTable: "KorisnickiNalog",
                         principalColumn: "ID");
                 });
 
@@ -327,9 +382,9 @@ namespace GMS.Migrations
                         principalTable: "Clanarina",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Korisnik_Clanarina_KorisnickiNalog_KorisnikID",
+                        name: "FK_Korisnik_Clanarina_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
-                        principalTable: "KorisnickiNalog",
+                        principalTable: "Korisnik",
                         principalColumn: "ID");
                 });
 
@@ -346,9 +401,9 @@ namespace GMS.Migrations
                 {
                     table.PrimaryKey("PK_Korisnik_Nutricionst", x => new { x.KorisnikID, x.NutricionistID, x.DatumTermina });
                     table.ForeignKey(
-                        name: "FK_Korisnik_Nutricionst_KorisnickiNalog_KorisnikID",
+                        name: "FK_Korisnik_Nutricionst_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
-                        principalTable: "KorisnickiNalog",
+                        principalTable: "Korisnik",
                         principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Nutricionst_Nutricionist_NutricionistID",
@@ -370,9 +425,9 @@ namespace GMS.Migrations
                 {
                     table.PrimaryKey("PK_Korisnik_Suplement", x => new { x.SuplementID, x.KorisnikID, x.DatumVrijemeNarudzbe });
                     table.ForeignKey(
-                        name: "FK_Korisnik_Suplement_KorisnickiNalog_KorisnikID",
+                        name: "FK_Korisnik_Suplement_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
-                        principalTable: "KorisnickiNalog",
+                        principalTable: "Korisnik",
                         principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Suplement_Suplement_SuplementID",
@@ -394,38 +449,14 @@ namespace GMS.Migrations
                 {
                     table.PrimaryKey("PK_Korisnik_Trener", x => new { x.KorisnikID, x.TrenerID, x.DatumTermina });
                     table.ForeignKey(
-                        name: "FK_Korisnik_Trener_KorisnickiNalog_KorisnikID",
+                        name: "FK_Korisnik_Trener_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
-                        principalTable: "KorisnickiNalog",
+                        principalTable: "Korisnik",
                         principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Korisnik_Trener_Trener_TrenerID",
                         column: x => x.TrenerID,
                         principalTable: "Trener",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LogKretanjePoSistemu",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    korisnikID = table.Column<int>(type: "int", nullable: false),
-                    queryPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    postData = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    vrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    exceptionMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isException = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LogKretanjePoSistemu", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_LogKretanjePoSistemu_KorisnickiNalog_korisnikID",
-                        column: x => x.korisnikID,
-                        principalTable: "KorisnickiNalog",
                         principalColumn: "ID");
                 });
 
@@ -527,11 +558,16 @@ namespace GMS.Migrations
 
             migrationBuilder.InsertData(
                 table: "KorisnickiNalog",
-                columns: new[] { "ID", "Discriminator", "Ime", "Password", "Prezime", "Username" },
+                columns: new[] { "ID", "Password", "Username" },
                 values: new object[,]
                 {
-                    { 1, "Administrator", "Vedad", "admin", "Keskin", "admin" },
-                    { 2, "Administrator", "Džejla", "host", "Palalić", "host" }
+                    { 1, "admin", "admin" },
+                    { 2, "host", "host" },
+                    { 3, "bayern123", "vedadke" },
+                    { 4, "fit2023", "dzejlap" },
+                    { 5, "fit2023", "saidke" },
+                    { 6, "user", "denism" },
+                    { 7, "user", "adilj" }
                 });
 
             migrationBuilder.InsertData(
@@ -583,6 +619,15 @@ namespace GMS.Migrations
                 {
                     { 1, "0644076290", "Kadir", "Keskin", "assets/1tre.jpg" },
                     { 2, "0644076290", "Azur", "Kahriman", "assets/2tre.jpg" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Administrator",
+                columns: new[] { "ID", "Ime", "Prezime" },
+                values: new object[,]
+                {
+                    { 1, "Vedad", "Keskin" },
+                    { 2, "Džejla", "Palalić" }
                 });
 
             migrationBuilder.InsertData(
@@ -653,15 +698,15 @@ namespace GMS.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "KorisnickiNalog",
-                columns: new[] { "ID", "BrojTelefona", "Discriminator", "GradID", "Korisnik_Ime", "Password", "Korisnik_Prezime", "Slika", "SpolID", "TeretanaID", "Tezina", "Username", "Visina" },
+                table: "Korisnik",
+                columns: new[] { "ID", "BrojTelefona", "GradID", "Ime", "Prezime", "Slika", "SpolID", "TeretanaID", "Tezina", "Visina" },
                 values: new object[,]
                 {
-                    { 3, "0644076290", "Korisnik", 18, "Vedad", "bayern123", "Keskin", "assets/1kor.png", 1, 2, 80f, "vedadke", 170f },
-                    { 4, "062709689", "Korisnik", 26, "Džejla", "fit2023", "Palalić", "assets/2kor.jpg", 2, 2, 57f, "dzejlap", 164f },
-                    { 5, "0644065144", "Korisnik", 18, "Said", "fit2023", "Keskin", "assets/3kor.jpg", 1, 2, 62f, "saidke", 180f },
-                    { 6, "061000000", "Korisnik", 5, "Denis", "user", "Mušić", "assets/4kor.jpg", 1, 2, 79f, "denism", 186f },
-                    { 7, "062000000", "Korisnik", 7, "Adil", "user", "Joldić", "assets/5kor.jpg", 1, 2, 75f, "adilj", 184f }
+                    { 3, "0644076290", 18, "Vedad", "Keskin", "assets/1kor.png", 1, 2, 80f, 170f },
+                    { 4, "062709689", 26, "Džejla", "Palalić", "assets/2kor.jpg", 2, 2, 57f, 164f },
+                    { 5, "0644065144", 18, "Said", "Keskin", "assets/3kor.jpg", 1, 2, 62f, 180f },
+                    { 6, "061000000", 5, "Denis", "Mušić", "assets/4kor.jpg", 1, 2, 79f, 186f },
+                    { 7, "062000000", 7, "Adil", "Joldić", "assets/5kor.jpg", 1, 2, 75f, 184f }
                 });
 
             migrationBuilder.InsertData(
@@ -686,18 +731,18 @@ namespace GMS.Migrations
                 column: "KorisnickiNalogId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_KorisnickiNalog_GradID",
-                table: "KorisnickiNalog",
+                name: "IX_Korisnik_GradID",
+                table: "Korisnik",
                 column: "GradID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_KorisnickiNalog_SpolID",
-                table: "KorisnickiNalog",
+                name: "IX_Korisnik_SpolID",
+                table: "Korisnik",
                 column: "SpolID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_KorisnickiNalog_TeretanaID",
-                table: "KorisnickiNalog",
+                name: "IX_Korisnik_TeretanaID",
+                table: "Korisnik",
                 column: "TeretanaID");
 
             migrationBuilder.CreateIndex(
@@ -754,6 +799,9 @@ namespace GMS.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Administrator");
+
+            migrationBuilder.DropTable(
                 name: "AutentifikacijaToken");
 
             migrationBuilder.DropTable(
@@ -790,7 +838,7 @@ namespace GMS.Migrations
                 name: "Suplement");
 
             migrationBuilder.DropTable(
-                name: "KorisnickiNalog");
+                name: "Korisnik");
 
             migrationBuilder.DropTable(
                 name: "Nutricionist");
@@ -806,6 +854,9 @@ namespace GMS.Migrations
 
             migrationBuilder.DropTable(
                 name: "Kategorija");
+
+            migrationBuilder.DropTable(
+                name: "KorisnickiNalog");
 
             migrationBuilder.DropTable(
                 name: "Spol");

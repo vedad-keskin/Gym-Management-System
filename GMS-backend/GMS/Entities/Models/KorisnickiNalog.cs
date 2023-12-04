@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace GMS.Entities.Models
 {
     [Table("KorisnickiNalog")]
-    public class KorisnickiNalog
+    public abstract class KorisnickiNalog
     {
         [Key]
         public int ID { get; set; }
