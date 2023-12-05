@@ -36,9 +36,14 @@ export class LoginPageComponent {
 
 
         this.myAuthService.setLogiraniKorisnik(x.autentifikacijaToken);
+        if(this.myAuthService.isKorisnik()){
+          this.router.navigate(['KorisnikPage']);
+        }
+        else{
+          this.router.navigate(['AdministratorPage']);
+        }
 
-        this.router.navigate(['/HomePage']);
-        alert("Uspješno ste se prijavili");
+
       }
     })
   }

@@ -1,6 +1,6 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {AutentifikacijaToken} from "../login-page/AuthLoginResponse";
+import {AutentifikacijaToken} from "../helpers/auth/AutentifikacijaToken";
 
 @Injectable({providedIn: 'root'})
 export class MyAuthService{
