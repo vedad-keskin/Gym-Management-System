@@ -1,5 +1,4 @@
-﻿
-namespace GMS.Entities.Endpoint.Grad.GetAll
+﻿namespace GMS.Entities.Endpoint.Grad.GetAll
 {
     public class GradGetAllResponse
     {

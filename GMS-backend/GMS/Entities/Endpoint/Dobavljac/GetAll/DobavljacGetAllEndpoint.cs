@@ -17,7 +17,7 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
         }
 
         [HttpGet]
-        public override async Task<DobavljacGetAllResponse> Handle([FromQuery] DobavljacGetAllRequest request, CancellationToken cancellationToken)
+        public override async Task<DobavljacGetAllResponse> Handle([FromQuery]DobavljacGetAllRequest request, CancellationToken cancellationToken)
         {
             var dobavljac = await db.Dobavljac
                .Select(x => new DobavljacGetAllResponseRow

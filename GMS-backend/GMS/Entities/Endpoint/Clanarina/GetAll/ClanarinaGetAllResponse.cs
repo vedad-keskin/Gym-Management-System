@@ -1,4 +1,4 @@
-﻿namespace GMS.Entities.Endpoint.FAQ.GetAll
+﻿namespace GMS.Entities.Endpoint.Clanarina.GetAll
 {
     public class ClanarinaGetAllResponse
     {
