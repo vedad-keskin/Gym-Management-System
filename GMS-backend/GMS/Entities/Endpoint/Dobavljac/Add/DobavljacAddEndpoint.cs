@@ -1,9 +1,8 @@
-﻿using GMS.Controllers.Drzava.Add;
-using GMS.Data;
+﻿using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GMS.Entities.Endpoint.Dobavljac.GetAll
+namespace GMS.Entities.Endpoint.Dobavljac.Add
 {
     [Route("Dobavljac-Add")]
 

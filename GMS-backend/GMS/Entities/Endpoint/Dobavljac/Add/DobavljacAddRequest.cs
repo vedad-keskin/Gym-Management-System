@@ -1,4 +1,4 @@
-﻿namespace GMS.Entities.Endpoint.Dobavljac.GetAll
+﻿namespace GMS.Entities.Endpoint.Dobavljac.Add
 {
     public class DobavljacAddRequest
     {
