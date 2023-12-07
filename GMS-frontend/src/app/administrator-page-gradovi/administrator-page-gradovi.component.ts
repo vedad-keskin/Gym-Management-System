@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {
-  GradoviGetallEndpoint,
   GradGetAllResponse,
-  GradGetAllResponseGrad
+  GradGetAllResponseGrad,
+  GradoviGetallEndpoint
 } from "../endpoints/gradovi-endpoints/gradovi-getall-endpoint";
 
 @Component({
@@ -12,16 +12,23 @@ import {
 })
 export class AdministratorPageGradoviComponent implements OnInit{
 
-  constructor(private GradgetAllEndpoint:GradoviGetallEndpoint) {
+  constructor(private GradovigetAllEndpoint:GradoviGetallEndpoint) {
 
   }
   gradovi: GradGetAllResponseGrad[] = [];
+
   ngOnInit():void {
 
-    this.GradgetAllEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
+
+    this.GradovigetAllEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
       this.gradovi = x.gradovi;
-    })
+    });
+
 
   }
+
+
+
+
 
 }

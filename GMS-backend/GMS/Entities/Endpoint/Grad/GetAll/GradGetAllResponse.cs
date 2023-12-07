@@ -2,7 +2,7 @@
 {
     public class GradGetAllResponse
     {
-        public List<GradGetAllResponseRow> Grad { get; set; }
+        public List<GradGetAllResponseRow> Gradovi { get; set; }
     }
 
     public class GradGetAllResponseRow // samo se radi kada je rezultat lista a ne jedan zapis 

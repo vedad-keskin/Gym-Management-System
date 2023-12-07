@@ -19,7 +19,7 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
         [HttpGet]
         public override async Task<DobavljacGetAllResponse> Handle([FromQuery]DobavljacGetAllRequest request, CancellationToken cancellationToken)
         {
-            var dobavljac = await db.Dobavljac
+            var dobavljaci = await db.Dobavljac
                .Select(x => new DobavljacGetAllResponseRow
                {
                    ID = x.ID,
@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
 
             return new DobavljacGetAllResponse
             {
-                Dobavljac = dobavljac
+                Dobavljaci = dobavljaci
             };
         }
     }

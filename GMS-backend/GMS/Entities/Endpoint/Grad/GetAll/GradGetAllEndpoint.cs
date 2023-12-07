@@ -19,7 +19,7 @@ namespace GMS.Entities.Endpoint.Grad.GetAll
         [HttpGet]
         public override async Task<GradGetAllResponse> Handle([FromQuery]GradGetAllRequest request, CancellationToken cancellationToken)
         {
-            var grad = await db.Grad
+            var gradovi = await db.Grad
                 .Select(x => new GradGetAllResponseRow
                 {
                     ID = x.ID,
@@ -31,7 +31,7 @@ namespace GMS.Entities.Endpoint.Grad.GetAll
 
             return new GradGetAllResponse
             {
-                Grad = grad
+                Gradovi = gradovi
             };
         }
     }

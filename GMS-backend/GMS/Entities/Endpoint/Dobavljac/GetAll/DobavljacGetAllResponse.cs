@@ -2,7 +2,7 @@
 {
     public class DobavljacGetAllResponse
     {
-        public List<DobavljacGetAllResponseRow> Dobavljac { get; set; }
+        public List<DobavljacGetAllResponseRow> Dobavljaci { get; set; }
     }
 
     public class DobavljacGetAllResponseRow // samo se radi kada je rezultat lista a ne jedan zapis 

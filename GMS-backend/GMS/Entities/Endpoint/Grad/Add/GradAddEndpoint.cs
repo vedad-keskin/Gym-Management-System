@@ -1,5 +1,6 @@
 ﻿using GMS.Data;
 using GMS.Entities.Endpoint.Drzava.Add;
+using GMS.Entities.Models;
 using GMS.Helpers;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace GMS.Endpoint.Grad.Add
         private readonly ApplicationDbContext db;
         private readonly MyAuthService auth;
 
-        public GradAddEndpoint(ApplicationDbContext db)
+        public GradAddEndpoint(ApplicationDbContext db, MyAuthService auth)
         {
             this.db = db;
             this.auth = auth;
@@ -23,11 +24,11 @@ namespace GMS.Endpoint.Grad.Add
         {
             //if (!auth.JelLogiran())
             //{
-            //    throw new Exception("Niste logirani");
+            //    throw new Exception("Niste se logirali");
             //}
 
             //KorisnickiNalog korisnickiNalog = auth.GetAuthInfo().korisnickiNalog!;
-            //if (!(korisnickiNalog.isAdministrator || korisnickiNalog.isKorisnik))
+            //if (!(korisnickiNalog.isAdministrator))
             //{
             //    throw new Exception("Niste ostvarili pravo pristupa");
             //}

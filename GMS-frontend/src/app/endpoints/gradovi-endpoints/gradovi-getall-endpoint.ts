@@ -22,10 +22,11 @@ export class GradoviGetallEndpoint implements MyBaseEndpoint<void, GradGetAllRes
 
 export interface GradGetAllResponse{
   gradovi : GradGetAllResponseGrad[];
+
 }
 
 export interface GradGetAllResponseGrad {
   id: number
   naziv: string
-}
 
+}
