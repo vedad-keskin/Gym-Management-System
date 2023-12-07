@@ -1,0 +1,25 @@
+<section id="faq">
+  <div class="container-md">
+
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of gradovi">
+        <td>{{ item.id }}</td>
+        <td>{{ item.naziv }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+    </div>
+</section>

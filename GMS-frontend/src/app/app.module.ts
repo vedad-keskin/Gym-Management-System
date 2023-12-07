@@ -18,6 +18,9 @@ import {AutorizacijaGuardKorisnik} from "./helpers/auth/autorizacija-guard-koris
 import {
     AutorizacijaGuardAdministrator
 } from "./helpers/auth/autorizacija-guard-administrator.service";
+import { AdministratorPageGradoviComponent } from './administrator-page-gradovi/administrator-page-gradovi.component';
+import { AdministratorPageClanarineComponent } from './administrator-page-clanarine/administrator-page-clanarine.component';
+import { AdministratorPageDobavljaciComponent } from './administrator-page-dobavljaci/administrator-page-dobavljaci.component';
 
 
 
@@ -30,8 +33,10 @@ import {
         HomePageComponent,
         LoginPageComponent,
         KorisnikPageComponent,
-        AdministratorPageComponent
-
+        AdministratorPageComponent,
+        AdministratorPageGradoviComponent,
+        AdministratorPageClanarineComponent,
+        AdministratorPageDobavljaciComponent
     ],
   imports: [
     BrowserModule,
@@ -45,7 +50,10 @@ import {
       {path:'SuplementiPage', component: SuplementiPageComponent },
       {path:'LoginPage', component: LoginPageComponent },
       {path:'KorisnikPage', component: KorisnikPageComponent, canActivate: [AutorizacijaGuardKorisnik] },
-      {path:'AdministratorPage', component: AdministratorPageComponent, canActivate: [AutorizacijaGuardAdministrator]  }
+      {path:'AdministratorPage', component: AdministratorPageComponent, canActivate: [AutorizacijaGuardAdministrator]  },
+      {path:'AdministratorPageGradovi', component: AdministratorPageGradoviComponent  },
+      {path:'AdministratorPageClanarine', component: AdministratorPageClanarineComponent  },
+      {path:'AdministratorPageDobavljaci', component: AdministratorPageDobavljaciComponent  },
     ])
   ],
   providers: [
