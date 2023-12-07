@@ -2,22 +2,27 @@
   <div class="container-md">
 
 
+    <div class="row my-5 d-flex justify-content-center" >
+      <div class="col-6">
+        <input type="text" spellcheck="false" placeholder="Unesite naziv" class="form-control secondary" [(ngModel)]="PretragaNaziv">
+      </div>
+    </div>
+
     <table class="table table-striped">
       <thead>
       <tr>
         <th>Naziv</th>
         <th>Cijena</th>
         <th>Opis</th>
-        <th>Modifikuj</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let x of clanarine">
+      <tr *ngFor="let x of GetFiltiraniSuplementi()">
         <td>{{ x.naziv }}</td>
         <td>{{ x.cijena }}</td>
         <td>{{ x.opis }}</td>
         <td>
-          <button type="button" class="btn btn-danger">Edituj</button>
+          <button type="button" class="btn btn-danger">Modifikuj</button>
         </td>
       </tr>
       </tbody>
