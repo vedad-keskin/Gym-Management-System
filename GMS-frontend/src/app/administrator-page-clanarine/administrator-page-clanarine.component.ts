@@ -16,7 +16,7 @@ export class AdministratorPageClanarineComponent implements OnInit{
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
-
+  PretragaNaziv: string = "";
   ngOnInit():void {
 
 
@@ -24,11 +24,12 @@ export class AdministratorPageClanarineComponent implements OnInit{
       this.clanarine = x.clanarine;
     })
 
-
   }
 
 
-
+  GetFiltiraniSuplementi() {
+    return this.clanarine.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
+  }
 
 
 }
