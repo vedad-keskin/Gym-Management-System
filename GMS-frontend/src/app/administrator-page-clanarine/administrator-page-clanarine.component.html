@@ -1,0 +1,30 @@
+<section id="faq">
+  <div class="container-md">
+
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Naziv</th>
+        <th>Cijena</th>
+        <th>Opis</th>
+        <th>Modifikuj</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let x of clanarine">
+        <td>{{ x.naziv }}</td>
+        <td>{{ x.cijena }}</td>
+        <td>{{ x.opis }}</td>
+        <td>
+          <button type="button" class="btn btn-danger">Edituj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+</section>
