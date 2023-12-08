@@ -14,7 +14,7 @@ import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarin
 })
 export class AdministratorPageClanarineComponent implements OnInit{
 
-  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,private ClanarineEditEndpoint:ClanarineEditEndpoint,public httpclient : HttpClient) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,private ClanarineEditEndpoint:ClanarineEditEndpoint) {
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
