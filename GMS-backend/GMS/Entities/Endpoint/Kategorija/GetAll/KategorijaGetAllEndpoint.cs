@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Kategorija.GetAll
 
             return new KategorijaGetAllResponse
             {
-                Kategorija=kategorija
+                Kategorija = kategorija
             };
         }
     }

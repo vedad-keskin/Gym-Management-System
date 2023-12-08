@@ -7,11 +7,11 @@ namespace GMS.Entities.Endpoint.Dobavljac.GetAll
 {
     [Route("Dobavljac-GetAll")]
 
-    public class DobavljacGetAllEndpoint : MyBaseEndpoint<DobavljacGetAllRequest, DobavljacGetAllResponse>
+    public class DobavljaciGetAllEndpoint : MyBaseEndpoint<DobavljacGetAllRequest, DobavljacGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public DobavljacGetAllEndpoint(ApplicationDbContext db)
+        public DobavljaciGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
