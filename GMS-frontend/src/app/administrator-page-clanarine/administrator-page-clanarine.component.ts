@@ -4,7 +4,6 @@ import {
   ClanarinaGetAllResponseClanarina,
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
-import {HttpClient} from "@angular/common/http";
 import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
 
 @Component({
