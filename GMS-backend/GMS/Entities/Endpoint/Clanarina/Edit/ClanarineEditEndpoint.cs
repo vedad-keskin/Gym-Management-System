@@ -1,9 +1,10 @@
 ﻿using GMS.Data;
+using GMS.Entities.Endpoint.Clanarina.Save;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GMS.Entities.Endpoint.Clanarina.Save
+namespace GMS.Entities.Endpoint.Clanarina.Edit
 {
 
     [Route("Clanarina-Edit")]
@@ -37,7 +38,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Save
             clanarina.Naziv = request.Naziv.RemoveTags();
             clanarina.Cijena = request.Cijena;
             clanarina.Opis = request.Opis.RemoveTags();
-            
+
 
 
             await db.SaveChangesAsync(cancellationToken);
