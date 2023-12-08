@@ -1,6 +1,6 @@
-﻿namespace GMS.Entities.Endpoint.Clanarina.Save
+﻿namespace GMS.Entities.Endpoint.Clanarina.Edit
 {
-    public class ClanarinaEditRequest
+    public class ClanarineEditRequest
     {
         public int ID { get; set; }
         public string Naziv { get; set; }

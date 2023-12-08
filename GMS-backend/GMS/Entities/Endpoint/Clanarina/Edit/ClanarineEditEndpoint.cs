@@ -1,5 +1,4 @@
 ﻿using GMS.Data;
-using GMS.Entities.Endpoint.Clanarina.Save;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
