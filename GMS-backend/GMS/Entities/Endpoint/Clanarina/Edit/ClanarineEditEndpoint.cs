@@ -7,17 +7,17 @@ namespace GMS.Entities.Endpoint.Clanarina.Save
 {
 
     [Route("Clanarina-Edit")]
-    public class ClanarineSaveEndpoint : MyBaseEndpoint<ClanarinaSaveRequest, int>
+    public class ClanarineEditEndpoint : MyBaseEndpoint<ClanarineEditRequest, int>
     {
         private readonly ApplicationDbContext db;
 
-        public ClanarineSaveEndpoint(ApplicationDbContext db)
+        public ClanarineEditEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
 
         [HttpPost]
-        public override async Task<int> Handle([FromBody] ClanarinaSaveRequest request, CancellationToken cancellationToken)
+        public override async Task<int> Handle([FromBody] ClanarineEditRequest request, CancellationToken cancellationToken)
         {
             Models.Clanarina? clanarina;
             if (request.ID == 0)

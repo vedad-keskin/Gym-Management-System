@@ -1,12 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {
   ClanarinaGetAllResponse,
   ClanarinaGetAllResponseClanarina,
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
-import {ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-request";
-import {Config} from "../config";
 import {HttpClient} from "@angular/common/http";
+import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
 
 @Component({
   selector: 'app-administrator-page-clanarine',
@@ -15,7 +14,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AdministratorPageClanarineComponent implements OnInit{
 
-  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,public httpclient : HttpClient) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,private ClanarineEditEndpoint:ClanarineEditEndpoint,public httpclient : HttpClient) {
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
@@ -46,12 +45,9 @@ export class AdministratorPageClanarineComponent implements OnInit{
   }
 
   Save() {
-    let url=Config.adresa+`Clanarina-Edit`;
-    this.httpclient.post(url, this.odabranaClanarina).subscribe((x)=>{
+    this.ClanarineEditEndpoint.Handle(this.odabranaClanarina!).subscribe((x)=>{
       this.ngOnInit();
-      // this.odabraniStudent!.ime=""; ako hocemo da se isprazni textbox
-      // this.odabraniStudent!.prezime="";
-      this.odabranaClanarina = null;
+      this.odabranaClanarina = null
     })
   }
 }
