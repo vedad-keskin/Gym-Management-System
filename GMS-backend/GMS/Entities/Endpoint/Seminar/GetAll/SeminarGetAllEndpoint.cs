@@ -7,11 +7,11 @@ namespace GMS.Entities.Endpoint.Seminar.GetAll
 {
     [Route("Seminar-GetAll")]
 
-    public class SeminarGetAllEndpoint : MyBaseEndpoint<SeminarGetAllRequest, SeminarGetAllResponse>
+    public class SeminariGetAllEndpoint : MyBaseEndpoint<SeminarGetAllRequest, SeminarGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public SeminarGetAllEndpoint(ApplicationDbContext db)
+        public SeminariGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
@@ -19,7 +19,7 @@ namespace GMS.Entities.Endpoint.Seminar.GetAll
         [HttpGet]
         public override async Task<SeminarGetAllResponse> Handle([FromQuery]SeminarGetAllRequest request, CancellationToken cancellationToken)
         {
-            var seminar = await db.Seminar
+            var seminari = await db.Seminar
                  .Select(x => new SeminarGetAllResponseRow
                  {
                      ID = x.ID,
@@ -31,7 +31,7 @@ namespace GMS.Entities.Endpoint.Seminar.GetAll
 
             return new SeminarGetAllResponse
             {
-                Seminar = seminar
+                Seminari = seminari
             };
         }
     }

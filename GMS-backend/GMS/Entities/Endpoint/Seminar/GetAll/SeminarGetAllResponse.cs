@@ -2,7 +2,7 @@
 {
     public class SeminarGetAllResponse
     {
-        public List<SeminarGetAllResponseRow> Seminar { get; set; }
+        public List<SeminarGetAllResponseRow> Seminari { get; set; }
     }
 
     public class SeminarGetAllResponseRow // samo se radi kada je rezultat lista a ne jedan zapis 

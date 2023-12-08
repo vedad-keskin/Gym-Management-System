@@ -7,11 +7,11 @@ namespace GMS.Entities.Endpoint.Kategorija.GetAll
 {
     [Route("Kategorija-GetAll")]
 
-    public class KategorijaGetAllEndpoint : MyBaseEndpoint<KategorijaGetAllRequest, KategorijaGetAllResponse>
+    public class KategorijeGetAllEndpoint : MyBaseEndpoint<KategorijaGetAllRequest, KategorijaGetAllResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public KategorijaGetAllEndpoint(ApplicationDbContext db)
+        public KategorijeGetAllEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
@@ -19,7 +19,7 @@ namespace GMS.Entities.Endpoint.Kategorija.GetAll
         [HttpGet]
         public override async Task<KategorijaGetAllResponse> Handle([FromQuery]KategorijaGetAllRequest request, CancellationToken cancellationToken)
         {
-            var kategorija = await db.Kategorija
+            var kategorije = await db.Kategorija
                 .Select(x => new KategorijaGetAllResponseRow
                 {
                     ID = x.ID,
@@ -29,7 +29,7 @@ namespace GMS.Entities.Endpoint.Kategorija.GetAll
 
             return new KategorijaGetAllResponse
             {
-                Kategorija = kategorija
+                Kategorije = kategorije
             };
         }
     }
