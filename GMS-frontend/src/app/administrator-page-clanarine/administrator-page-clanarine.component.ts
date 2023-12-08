@@ -4,6 +4,9 @@ import {
   ClanarinaGetAllResponseClanarina,
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
+import {ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-request";
+import {Config} from "../config";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-administrator-page-clanarine',
@@ -12,11 +15,12 @@ import {
 })
 export class AdministratorPageClanarineComponent implements OnInit{
 
-  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,public httpclient : HttpClient) {
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
   PretragaNaziv: string = "";
+  public odabranaClanarina: ClanarineEditRequest | null = null;
   ngOnInit():void {
 
 
@@ -32,4 +36,22 @@ export class AdministratorPageClanarineComponent implements OnInit{
   }
 
 
+  Odaberi(x: ClanarinaGetAllResponseClanarina) {
+    this.odabranaClanarina = {
+      id: x.id,
+      naziv: x.naziv,
+      cijena: x.cijena,
+      opis:x.opis
+    } ;
+  }
+
+  Save() {
+    let url=Config.adresa+`Clanarina-Edit`;
+    this.httpclient.post(url, this.odabranaClanarina).subscribe((x)=>{
+      this.ngOnInit();
+      // this.odabraniStudent!.ime=""; ako hocemo da se isprazni textbox
+      // this.odabraniStudent!.prezime="";
+      this.odabranaClanarina = null;
+    })
+  }
 }

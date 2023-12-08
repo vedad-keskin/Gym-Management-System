@@ -8,6 +8,35 @@
       </div>
     </div>
 
+
+    <div *ngIf="odabranaClanarina">
+
+      <div>
+        <label> ID: </label>
+        <input [value]="odabranaClanarina.id" disabled>
+      </div>
+
+      <div>
+        <label> Naziv: </label>
+        <input [(ngModel)]="odabranaClanarina.naziv">
+      </div>
+
+      <div>
+        <label> Cijena: </label>
+        <input [(ngModel)]="odabranaClanarina.cijena">
+      </div>
+
+      <div>
+        <label> Opis: </label>
+        <input [(ngModel)]="odabranaClanarina.opis">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="Save()">Spasi promjene</button>
+
+
+    </div>
+
+
     <table class="table table-striped">
       <thead>
       <tr>
@@ -22,7 +51,7 @@
         <td>{{ x.cijena }}</td>
         <td>{{ x.opis }}</td>
         <td>
-          <button type="button" class="btn btn-danger">Modifikuj</button>
+          <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
         </td>
       </tr>
       </tbody>
