@@ -50,4 +50,9 @@ export class AdministratorPageClanarineComponent implements OnInit{
       this.odabranaClanarina = null
     })
   }
+
+  Close() {
+    this.odabranaClanarina = null
+    this.ngOnInit();
+  }
 }

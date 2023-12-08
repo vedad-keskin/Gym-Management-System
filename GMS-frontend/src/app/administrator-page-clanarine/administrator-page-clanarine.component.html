@@ -2,6 +2,27 @@
   <div class="container-md">
 
 
+    <!--  Back button i Tekst-->
+    <div class="row">
+      <div class="col-3">
+        <button type="button" routerLink='/AdministratorPage' class="btn btn-outline-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
+          </svg>
+          Nazad
+        </button>
+        <button type="button" class="btn btn-outline-primary mx-2">Dodaj grad</button>
+      </div>
+      <div class="col-6">
+        <div class="text-center">
+          <h2>Konfiguracija gradova</h2>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Pretraga po nazivu-->
     <div class="row my-5 d-flex justify-content-center" >
       <div class="col-6">
         <input type="text" spellcheck="false" placeholder="Unesite naziv" class="form-control secondary" [(ngModel)]="PretragaNaziv">
@@ -9,33 +30,43 @@
     </div>
 
 
-    <div *ngIf="odabranaClanarina">
+    <!-- div za edit -->
+
+    <div class="border rounded px-4 py-3" *ngIf="odabranaClanarina">
+
+      <div class="d-flex justify-content-end">
+        <button type="button" (click)="Close()" class="btn-close"></button>
+      </div>
+
 
       <div>
         <label> ID: </label>
-        <input [value]="odabranaClanarina.id" disabled>
+        <input type="text" class="form-control mb-2" [value]="odabranaClanarina.id" disabled>
       </div>
 
       <div>
         <label> Naziv: </label>
-        <input [(ngModel)]="odabranaClanarina.naziv">
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabranaClanarina.naziv">
       </div>
 
       <div>
         <label> Cijena: </label>
-        <input [(ngModel)]="odabranaClanarina.cijena">
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabranaClanarina.cijena">
       </div>
 
       <div>
         <label> Opis: </label>
-        <input [(ngModel)]="odabranaClanarina.opis">
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabranaClanarina.opis">
       </div>
 
-      <button type="submit" class="btn btn-primary" (click)="Save()">Spasi promjene</button>
-
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary mt-2" (click)="Save()">Spasi promjene</button>
+   </div>
 
     </div>
 
+
+    <!-- tabela -->
 
     <table class="table table-striped">
       <thead>
