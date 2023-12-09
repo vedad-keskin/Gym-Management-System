@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.Korisnik.Add
 {
     [Route("Korisnik-Add")]
-    [MyAuthorization]
+    //[MyAuthorization]
 
     public class KorisnikAddEndpoint : MyBaseEndpoint<KorisnikAddRequest, KorisnikAddResponse>
     {

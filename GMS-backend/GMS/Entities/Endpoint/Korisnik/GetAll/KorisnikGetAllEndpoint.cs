@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.Korisnik.GetAll
 {
     [Route("Korisnik-GetAll")]
-    [MyAuthorization]
+    //[MyAuthorization]
 
     public class KorisnikGetAllEndpoint : MyBaseEndpoint<KorisnikGetAllRequest, KorisnikGetAllResponse>
     {
