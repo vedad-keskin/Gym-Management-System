@@ -52,7 +52,7 @@ import { AdministratorPageDobavljaciComponent } from './administrator-page-dobav
       {path:'KorisnikPage', component: KorisnikPageComponent, canActivate: [AutorizacijaGuardKorisnik] },
       {path:'AdministratorPage', component: AdministratorPageComponent, canActivate: [AutorizacijaGuardAdministrator]  },
       {path:'AdministratorPageGradovi', component: AdministratorPageGradoviComponent  },
-      {path:'AdministratorPageClanarine', component: AdministratorPageClanarineComponent  },
+      {path:'AdministratorPageClanarine', component: AdministratorPageClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageDobavljaci', component: AdministratorPageDobavljaciComponent  },
     ])
   ],
