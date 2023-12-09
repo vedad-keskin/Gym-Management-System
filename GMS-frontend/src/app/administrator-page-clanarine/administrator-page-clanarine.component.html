@@ -11,7 +11,7 @@
           </svg>
           Nazad
         </button>
-        <button type="button" class="btn btn-outline-primary mx-2">Dodaj članarinu</button>
+        <button type="button" class="btn btn-outline-primary mx-2" (click)="prikaziAdd = !prikaziAdd">Dodaj članarinu</button>
       </div>
       <div class="col-6">
         <div class="text-center">
@@ -25,9 +25,42 @@
     <!-- Pretraga po nazivu-->
     <div class="row my-5 d-flex justify-content-center" >
       <div class="col-6">
-        <input type="text" spellcheck="false" placeholder="Unesite naziv" class="form-control secondary" [(ngModel)]="PretragaNaziv">
+        <input type="text" spellcheck="false" placeholder="Pretražite po nazivu" class="form-control secondary" [(ngModel)]="PretragaNaziv">
       </div>
     </div>
+
+
+    <!-- div za add -->
+
+    <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
+
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
+      </div>
+
+      <div>
+        <label> Naziv: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="novaClanarina.naziv" required>
+      </div>
+
+      <div>
+        <label> Cijena: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="novaClanarina.cijena" required>
+      </div>
+
+      <div>
+        <label> Opis: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="novaClanarina.opis" required>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj članarinu</button>
+      </div>
+
+    </div>
+
+
+
 
 
     <!-- div za edit -->

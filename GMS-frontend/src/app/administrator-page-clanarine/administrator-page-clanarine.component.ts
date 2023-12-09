@@ -5,6 +5,11 @@ import {
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
 import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
+import {
+  ClanarinaAddEndpoint,
+  ClanarinaAddRequest,
+  ClanarinaAddResponse
+} from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
 
 @Component({
   selector: 'app-administrator-page-clanarine',
@@ -13,12 +18,22 @@ import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarin
 })
 export class AdministratorPageClanarineComponent implements OnInit{
 
-  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,private ClanarineEditEndpoint:ClanarineEditEndpoint) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,
+              private ClanarineEditEndpoint:ClanarineEditEndpoint,
+              private ClanarinaAddEndpoint:ClanarinaAddEndpoint) {
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
   PretragaNaziv: string = "";
   public odabranaClanarina: ClanarineEditRequest | null = null;
+
+  prikaziAdd:boolean = false;
+  public novaClanarina:ClanarinaAddRequest = {
+    naziv: "",
+    cijena: 50,
+    opis: ""
+  };
+
   ngOnInit():void {
 
 
@@ -53,5 +68,11 @@ export class AdministratorPageClanarineComponent implements OnInit{
   Close() {
     this.odabranaClanarina = null
     this.ngOnInit();
+  }
+
+  SaveNew() {
+     this.ClanarinaAddEndpoint.Handle(this.novaClanarina).subscribe((x)=>{
+       this.ngOnInit();
+    })
   }
 }
