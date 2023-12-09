@@ -21,16 +21,6 @@ namespace GMS.Entities.Endpoint.Kategorija.Add
         [HttpPost]
         public override async Task<KategorijaAddResponse> Handle([FromBody]KategorijaAddRequest request, CancellationToken cancellationToken)
         {
-            //if (!auth.JelLogiran())
-            //{
-            //    throw new Exception("Niste se logirali");
-            //}
-
-            //KorisnickiNalog korisnickiNalog = auth.GetAuthInfo().korisnickiNalog!;
-            //if (!(korisnickiNalog.isAdministrator))
-            //{
-            //    throw new Exception("Niste ostvarili pravo pristupa");
-            //}
 
             var novi = new Entities.Models.Kategorija
             {

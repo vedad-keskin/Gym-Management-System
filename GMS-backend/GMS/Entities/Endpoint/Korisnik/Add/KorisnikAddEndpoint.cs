@@ -1,4 +1,5 @@
 ﻿
+using FIT_Api_Example.Helper.Auth;
 using GMS.Data;
 using GMS.Helpers;
 using GMS.Helpers.Services;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.Korisnik.Add
 {
     [Route("Korisnik-Add")]
+    [MyAuthorization]
 
     public class KorisnikAddEndpoint : MyBaseEndpoint<KorisnikAddRequest, KorisnikAddResponse>
     {
@@ -23,16 +25,7 @@ namespace GMS.Entities.Endpoint.Korisnik.Add
         [HttpPost]
         public override async Task<KorisnikAddResponse> Handle([FromBody]KorisnikAddRequest request, CancellationToken cancellationToken)
         {
-            //if (!auth.JelLogiran())
-            //{
-            //    throw new Exception("Niste se logirali");
-            //}
-
-            //KorisnickiNalog korisnickiNalog = auth.GetAuthInfo().korisnickiNalog!;
-            //if (!(korisnickiNalog.isAdministrator || korisnickiNalog.isKorisnik))
-            //{
-            //    throw new Exception("Niste ostvarili pravo pristupa");
-            //}
+            
             var novi = new Entities.Models.Korisnik
             {
                 Ime=request.Ime,
