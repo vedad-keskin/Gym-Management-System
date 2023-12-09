@@ -27,7 +27,7 @@ export class AdministratorPageClanarineComponent implements OnInit{
   PretragaNaziv: string = "";
   public odabranaClanarina: ClanarineEditRequest | null = null;
 
-  prikaziAdd:boolean = false;
+  public prikaziAdd:boolean = false;
   public novaClanarina:ClanarinaAddRequest = {
     naziv: "",
     cijena: 50,
@@ -73,6 +73,10 @@ export class AdministratorPageClanarineComponent implements OnInit{
   SaveNew() {
      this.ClanarinaAddEndpoint.Handle(this.novaClanarina).subscribe((x)=>{
        this.ngOnInit();
+       this.prikaziAdd = false;
+       this.novaClanarina.naziv ="";
+       this.novaClanarina.opis ="";
+       this.novaClanarina.cijena =50;
     })
   }
 }
