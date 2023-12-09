@@ -51,7 +51,7 @@ import { AdministratorPageDobavljaciComponent } from './administrator-page-dobav
       {path:'LoginPage', component: LoginPageComponent },
       {path:'KorisnikPage', component: KorisnikPageComponent, canActivate: [AutorizacijaGuardKorisnik] },
       {path:'AdministratorPage', component: AdministratorPageComponent, canActivate: [AutorizacijaGuardAdministrator]  },
-      {path:'AdministratorPageGradovi', component: AdministratorPageGradoviComponent  },
+      {path:'AdministratorPageGradovi', component: AdministratorPageGradoviComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageClanarine', component: AdministratorPageClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageDobavljaci', component: AdministratorPageDobavljaciComponent  },
     ])
