@@ -19,7 +19,7 @@ namespace GMS.Entities.Endpoint.Administrator.GetAll
         [HttpGet]
         public override async Task<AdministratorGetAllResponse> Handle([FromQuery] AdministratorGetAllRequest request, CancellationToken cancellationToken)
         {
-            var administrator = await db.Administrator
+            var administratori = await db.Administrator
                 .Select(x => new AdministratorGetAllResponseRow
                 {
                     ID = x.ID,
@@ -32,7 +32,7 @@ namespace GMS.Entities.Endpoint.Administrator.GetAll
 
             return new AdministratorGetAllResponse
             {
-                Administrator = administrator
+                Administratori = administratori
             };
         }
     }
