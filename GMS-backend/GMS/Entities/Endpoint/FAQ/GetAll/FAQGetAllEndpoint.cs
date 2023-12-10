@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.FAQ.GetAll
 {
     [Route("FAQ-GetAll")]
-    [MyAuthorization]
 
     public class FAQGetAllEndpoint : MyBaseEndpoint<FAQGetAllRequest, FAQGetAllResponse>
     {
