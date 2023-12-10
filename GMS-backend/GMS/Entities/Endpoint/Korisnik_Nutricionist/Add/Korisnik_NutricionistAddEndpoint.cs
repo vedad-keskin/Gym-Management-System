@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.Add
 {
     [Route("Korisnik_Nutricionist-Add")]
+    [MyAuthorization]
 
     public class Korisnik_NutricionistAddEndpoint : MyBaseEndpoint<Korisnik_NutricionistAddRequest, Korisnik_NutricionistAddResponse>
     {

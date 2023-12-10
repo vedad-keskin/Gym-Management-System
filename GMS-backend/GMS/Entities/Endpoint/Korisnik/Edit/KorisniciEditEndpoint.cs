@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GMS.Entities.Endpoint.Korisnik.Edit
 {
     [Route("Korisnik-Edit")]
-    //[MyAuthorization]
+    [MyAuthorization]
 
     public class KorisniciEditEndpoint : MyBaseEndpoint<KorisniciEditRequest, int>
     {

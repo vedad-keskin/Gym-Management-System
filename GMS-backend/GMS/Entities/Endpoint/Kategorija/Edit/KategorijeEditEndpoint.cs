@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Kategorija.Edit
 {
     [Route("Kategorija-Edit")]
+    [MyAuthorization]
 
     public class KategorijeEditEndpoint : MyBaseEndpoint<KategorijeEditRequest, int>
     {
