@@ -260,22 +260,22 @@ namespace GMS.Migrations
                 name: "LogKretanjePoSistemu",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    korisnikID = table.Column<int>(type: "int", nullable: false),
-                    queryPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    postData = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    vrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    exceptionMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isException = table.Column<bool>(type: "bit", nullable: false)
+                    KorisnikID = table.Column<int>(type: "int", nullable: false),
+                    QueryPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostData = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Vrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IpAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExceptionMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsException = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LogKretanjePoSistemu", x => x.id);
+                    table.PrimaryKey("PK_LogKretanjePoSistemu", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_LogKretanjePoSistemu_KorisnickiNalog_korisnikID",
-                        column: x => x.korisnikID,
+                        name: "FK_LogKretanjePoSistemu_KorisnickiNalog_KorisnikID",
+                        column: x => x.KorisnikID,
                         principalTable: "KorisnickiNalog",
                         principalColumn: "ID");
                 });
@@ -766,9 +766,9 @@ namespace GMS.Migrations
                 column: "TrenerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LogKretanjePoSistemu_korisnikID",
+                name: "IX_LogKretanjePoSistemu_KorisnikID",
                 table: "LogKretanjePoSistemu",
-                column: "korisnikID");
+                column: "KorisnikID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Nutricionist_Seminar_SeminarID",

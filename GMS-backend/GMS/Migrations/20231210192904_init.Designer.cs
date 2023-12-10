@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231204224519_init")]
+    [Migration("20231210192904_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -611,36 +611,36 @@ namespace GMS.Migrations
 
             modelBuilder.Entity("GMS.Entities.Models.LogKretanjePoSistemu", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("exceptionMessage")
+                    b.Property<string>("ExceptionMessage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ipAdresa")
+                    b.Property<string>("IpAdresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("isException")
+                    b.Property<bool>("IsException")
                         .HasColumnType("bit");
 
-                    b.Property<int>("korisnikID")
+                    b.Property<int>("KorisnikID")
                         .HasColumnType("int");
 
-                    b.Property<string>("postData")
+                    b.Property<string>("PostData")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("queryPath")
+                    b.Property<string>("QueryPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("vrijeme")
+                    b.Property<DateTime>("Vrijeme")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("id");
+                    b.HasKey("ID");
 
-                    b.HasIndex("korisnikID");
+                    b.HasIndex("KorisnikID");
 
                     b.ToTable("LogKretanjePoSistemu");
                 });
@@ -1603,13 +1603,13 @@ namespace GMS.Migrations
 
             modelBuilder.Entity("GMS.Entities.Models.LogKretanjePoSistemu", b =>
                 {
-                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", "korisnik")
+                    b.HasOne("GMS.Entities.Models.KorisnickiNalog", "Korisnik")
                         .WithMany()
-                        .HasForeignKey("korisnikID")
+                        .HasForeignKey("KorisnikID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("korisnik");
+                    b.Navigation("Korisnik");
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Nutricionist_Seminar", b =>
