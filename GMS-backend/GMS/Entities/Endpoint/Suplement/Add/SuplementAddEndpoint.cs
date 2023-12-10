@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Suplement.Add
 {
     [Route("Suplement-Add")]
+    [MyAuthorization]
 
     public class SuplementAddEndpoint : MyBaseEndpoint<SuplementAddRequest, SuplementAddResponse>
     {

@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Trener.Edit
 {
     [Route("Trener-Edit")]
+    [MyAuthorization]
 
     public class TreneriEditEndpoint : MyBaseEndpoint<TreneriEditRequest, int>
     {

@@ -1,4 +1,5 @@
 ﻿//using GMS.Controllers.Drzava.Add;
+using FIT_Api_Example.Helper.Auth;
 using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GMS.Entities.Endpoint.Nutricionist.Add
 {
     [Route("Nutricionist-Add")]
+    [MyAuthorization]
 
     public class NutricionistAddEndpoint : MyBaseEndpoint<NutricionistAddRequest, NutricionistAddResponse>
     {

@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Add
 {
     [Route("Korisnik_Clanarina-Add")]
+    [MyAuthorization]
 
     public class Korisnik_ClanarinaAddEndpoint : MyBaseEndpoint<Korisnik_ClanarinaAddRequest, Korisnik_ClanarinaAddResponse>
     {

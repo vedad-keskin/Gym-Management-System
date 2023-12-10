@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Nutricionist.Edit
 {
     [Route("Nutricionist-Edit")]
+    [MyAuthorization]
 
     public class NutricionistiEditEndpoint : MyBaseEndpoint<NutricionistiEditRequest, int>
     {

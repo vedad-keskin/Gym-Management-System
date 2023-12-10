@@ -1,4 +1,5 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
 {
     [Route("Korisnik_Trener-GetAll")]
+    [MyAuthorization]
 
     public class Korisnik_TrenerGetAllEndpoint : MyBaseEndpoint<Korisnik_TrenerGetAllRequest, Korisnik_TrenerGetAllResponse>
     {

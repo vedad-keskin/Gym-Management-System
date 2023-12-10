@@ -1,4 +1,5 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GMS.Entities.Endpoint.Kategorija.Add
 {
     [Route("Kategorija-Add")]
+    [MyAuthorization]
 
     public class KategorijaAddEndpoint : MyBaseEndpoint<KategorijaAddRequest, KategorijaAddResponse>
     {

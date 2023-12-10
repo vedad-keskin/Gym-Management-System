@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik_Trener.Add
 {
     [Route("Korisnik_Trener-Add")]
+    [MyAuthorization]
 
     public class Korisnik_TrenerAddEndpoint : MyBaseEndpoint<Korisnik_TrenerAddRequest, Korisnik_TrenerAddResponse>
     {

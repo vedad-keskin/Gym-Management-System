@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Edit
 {
     [Route("Korisnik_Clanarina-Edit")]
+    [MyAuthorization]
 
     public class Korisnik_ClanarinaEditEndpoint : MyBaseEndpoint<Korisnik_ClanarinaEditRequest, int>
     {
