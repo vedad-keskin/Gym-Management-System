@@ -6,6 +6,8 @@ using Microsoft.Identity.Web;
 
 using Microsoft.Extensions.Configuration;
 using GMS.Helpers.Services;
+using GMS.Helpers.Auth;
+using GMS.Services;
 
 var config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", false)
@@ -16,11 +18,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(config.GetConnectionString("db1")));
 
+//builder.Services.AddDbContext<LogDbContext>(options =>
+//    options.UseSqlServer(config.GetConnectionString("dblog")));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(x => x.OperationFilter<AutorizacijaSwaggerHeader>());
 builder.Services.AddTransient<MyAuthService>();
+builder.Services.AddTransient<MyActionLogService>();
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();

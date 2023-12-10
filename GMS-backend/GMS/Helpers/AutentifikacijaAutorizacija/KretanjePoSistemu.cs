@@ -30,17 +30,17 @@ namespace GMS.Helpers.AutentifikacijaAutorizacija
 
             var x = new LogKretanjePoSistemu
             {
-                korisnik = korisnik,
-                vrijeme = DateTime.Now,
-                queryPath = request.GetEncodedPathAndQuery(),
-                postData = detalji,
-                ipAdresa = request.HttpContext.Connection.RemoteIpAddress?.ToString(),
+                Korisnik = korisnik,
+                Vrijeme = DateTime.Now,
+                QueryPath = request.GetEncodedPathAndQuery(),
+                PostData = detalji,
+                IpAdresa = request.HttpContext.Connection.RemoteIpAddress?.ToString(),
             };
 
             if (exceptionMessage != null)
             {
-                x.isException = true;
-                x.exceptionMessage = exceptionMessage.Error.Message + " |" + exceptionMessage.Error.InnerException;
+                x.IsException = true;
+                x.ExceptionMessage = exceptionMessage.Error.Message + " |" + exceptionMessage.Error.InnerException;
             }
 
             ApplicationDbContext? db = httpContext.RequestServices.GetService<ApplicationDbContext>();
@@ -48,7 +48,7 @@ namespace GMS.Helpers.AutentifikacijaAutorizacija
             db.Add(x);
             db.SaveChanges();
 
-            return x.id;
+            return x.ID;
         }
 
 

@@ -1,4 +1,5 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Entities.Endpoint.FAQ.GetAll;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.FAQ.GetAll
 {
     [Route("FAQ-GetAll")]
+    [MyAuthorization]
 
     public class FAQGetAllEndpoint : MyBaseEndpoint<FAQGetAllRequest, FAQGetAllResponse>
     {

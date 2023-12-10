@@ -1,10 +1,12 @@
-﻿using GMS.Data;
+﻿using FIT_Api_Example.Helper.Auth;
+using GMS.Data;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik.Edit
 {
     [Route("Korisnik-Edit")]
+    //[MyAuthorization]
 
     public class KorisniciEditEndpoint : MyBaseEndpoint<KorisniciEditRequest, int>
     {

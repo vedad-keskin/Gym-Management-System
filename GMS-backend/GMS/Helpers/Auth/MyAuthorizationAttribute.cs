@@ -1,5 +1,10 @@
 ﻿using System.Diagnostics;
+using GMS.Data;
+using GMS.Entities.Models;
 using GMS.Helpers.Services;
+using GMS.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -17,6 +22,7 @@ namespace FIT_Api_Example.Helper.Auth
             ActionExecutingContext context, ActionExecutionDelegate next)
         {
             var authService = context.HttpContext.RequestServices.GetService<MyAuthService>()!;
+            var actionLogService = context.HttpContext.RequestServices.GetService<MyActionLogService>()!;
 
             if (!authService.JelLogiran())
             {
@@ -25,16 +31,10 @@ namespace FIT_Api_Example.Helper.Auth
             }
 
             await next();
+            await actionLogService.Create(context.HttpContext);
+            
+          
 
-            Log("OnActionExecutionAsync", context.RouteData);
-        }
-
-        private void Log(string methodName, RouteData routeData)
-        {
-            var controllerName = routeData.Values["controller"];
-            var actionName = routeData.Values["action"];
-            var message = $"{methodName} controller:{controllerName} action:{actionName}";
-            Debug.WriteLine(message, "Action Filter Log");
         }
     }
 }
