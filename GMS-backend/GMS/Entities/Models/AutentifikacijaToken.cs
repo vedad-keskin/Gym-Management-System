@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace GMS.Entities.Models
 {
@@ -13,6 +14,8 @@ namespace GMS.Entities.Models
         public KorisnickiNalog korisnickiNalog { get; set; }
         public DateTime vrijemeEvidentiranja { get; set; }
         public string? ipAdresa { get; set; }
-
+        [JsonIgnore]
+        public string? TwoFKey { get; set; }
+        public bool IsOtkljucano { get; set; }
     }
 }

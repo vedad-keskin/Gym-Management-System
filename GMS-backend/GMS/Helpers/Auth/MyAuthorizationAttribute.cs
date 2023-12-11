@@ -30,6 +30,14 @@ namespace FIT_Api_Example.Helper.Auth
                 return;
             }
 
+            MyAuthInfo myAuthInfo = authService.GetAuthInfo();
+
+            if (authService.GetAuthInfo().korisnickiNalog.is2FActive && myAuthInfo.autentifikacijaToken.IsOtkljucano)
+            {
+                context.Result = new UnauthorizedObjectResult("Niste otključali 2F!");
+                return;
+            }
+
             await next();
             await actionLogService.Create(context.HttpContext);
             

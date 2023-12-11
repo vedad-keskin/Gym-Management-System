@@ -6,6 +6,7 @@ using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GMS.Entities.Endpoint.Authentication.Login;
+using GMS.Helpers.Auth;
 
 namespace FIT_Api_Example.Endpoints.AuthEndpoints.Login;
 
@@ -13,10 +14,12 @@ namespace FIT_Api_Example.Endpoints.AuthEndpoints.Login;
 public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginRequest, MyAuthInfo>
 {
     private readonly ApplicationDbContext _applicationDbContext;
+    private readonly MyEmailSenderService _emailSenderService;
 
-    public AutentifikacijaLoginEndpoint(ApplicationDbContext applicationDbContext)
+    public AutentifikacijaLoginEndpoint(ApplicationDbContext applicationDbContext, MyEmailSenderService emailSenderService)
     {
         _applicationDbContext = applicationDbContext;
+        _emailSenderService = emailSenderService;
     }
 
     [HttpPost("Login")]
@@ -33,6 +36,14 @@ public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginReq
             return new MyAuthInfo(null);
         }
 
+        string? TwoFKey = null;
+
+        if (logiraniKorisnik.is2FActive)
+        {
+             TwoFKey = TokenGenerator.Generate(4);
+            _emailSenderService.Posalji("cisase1449@lanxi8.com", "2f", $"Vaš 2F ključ je {TwoFKey}", false);
+        }
+
         //2- generisati random string
         string randomString = TokenGenerator.Generate(10);
 
@@ -42,7 +53,8 @@ public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginReq
             ipAdresa = Request.HttpContext.Connection.RemoteIpAddress?.ToString(),
             vrijednost = randomString,
             korisnickiNalog = logiraniKorisnik,
-            vrijemeEvidentiranja = DateTime.Now
+            vrijemeEvidentiranja = DateTime.Now,
+            TwoFKey = TwoFKey
         };
 
         _applicationDbContext.Add(noviToken);
