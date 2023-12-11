@@ -2,7 +2,7 @@
 {
     public class AdministratorGetAllResponse
     {
-        public List<AdministratorGetAllResponseRow> Administratori { get; set; }
+        public List<AdministratorGetAllResponseRow> Administrator { get; set; }
     }
 
     public class AdministratorGetAllResponseRow // samo se radi kada je rezultat lista a ne jedan zapis 

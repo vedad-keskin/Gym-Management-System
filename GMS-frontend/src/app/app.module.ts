@@ -24,6 +24,8 @@ import { AdministratorPageDobavljaciComponent } from './administrator-page-dobav
 import {
   AdministratorPageKategorijeComponent
 } from "./administrator-page-kategorije/administrator-page-kategorije.component";
+import {AdministratorPageFaqComponent} from "./administrator-page-faq/administrator-page-faq.component";
+import {AdministratorPageAdminComponent} from "./administrator-page-admin/administrator-page-admin.component";
 
 
 
@@ -40,7 +42,9 @@ import {
         AdministratorPageGradoviComponent,
         AdministratorPageClanarineComponent,
         AdministratorPageDobavljaciComponent,
-        AdministratorPageKategorijeComponent
+        AdministratorPageKategorijeComponent,
+        AdministratorPageFaqComponent,
+        AdministratorPageAdminComponent
     ],
   imports: [
     BrowserModule,
@@ -59,6 +63,8 @@ import {
       {path:'AdministratorPageClanarine', component: AdministratorPageClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageDobavljaci', component: AdministratorPageDobavljaciComponent , canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageKategorije', component: AdministratorPageKategorijeComponent, canActivate: [AutorizacijaGuardAdministrator]  },
+      {path:'AdministratorPageFAQ', component: AdministratorPageFaqComponent, canActivate: [AutorizacijaGuardAdministrator]  },
+      {path:'AdministratorPageAdmin', component: AdministratorPageAdminComponent, canActivate: [AutorizacijaGuardAdministrator]  },
     ])
   ],
   providers: [

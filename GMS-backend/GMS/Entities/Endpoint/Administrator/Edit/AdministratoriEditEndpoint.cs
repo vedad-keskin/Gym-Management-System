@@ -1,5 +1,4 @@
 ﻿using GMS.Data;
-using GMS.Entities.Endpoint.Administrator.Add;
 using GMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +6,7 @@ namespace GMS.Entities.Endpoint.Administrator.Edit
 {
     [Route("Administrator-Edit")]
 
-    public class AdministratoriEditEndpoint : MyBaseEndpoint<AdministratorAddRequest, int>
+    public class AdministratoriEditEndpoint : MyBaseEndpoint<AdministratoriEditRequest, int>
     {
         private readonly ApplicationDbContext db;
 
@@ -17,7 +16,7 @@ namespace GMS.Entities.Endpoint.Administrator.Edit
         }
 
         [HttpPost]
-        public override async Task<int> Handle([FromBody]AdministratorAddRequest request, CancellationToken cancellationToken)
+        public override async Task<int> Handle([FromBody] AdministratoriEditRequest request, CancellationToken cancellationToken)
         {
             Models.Administrator? administrator;
             if (request.ID == 0)
