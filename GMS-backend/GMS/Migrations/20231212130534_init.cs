@@ -84,7 +84,8 @@ namespace GMS.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is2FActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -244,7 +245,9 @@ namespace GMS.Migrations
                     vrijednost = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KorisnickiNalogId = table.Column<int>(type: "int", nullable: false),
                     vrijemeEvidentiranja = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TwoFKey = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsOtkljucano = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -558,16 +561,16 @@ namespace GMS.Migrations
 
             migrationBuilder.InsertData(
                 table: "KorisnickiNalog",
-                columns: new[] { "ID", "Password", "Username" },
+                columns: new[] { "ID", "Password", "Username", "is2FActive" },
                 values: new object[,]
                 {
-                    { 1, "admin", "admin" },
-                    { 2, "host", "host" },
-                    { 3, "bayern123", "vedadke" },
-                    { 4, "fit2023", "dzejlap" },
-                    { 5, "fit2023", "saidke" },
-                    { 6, "user", "denism" },
-                    { 7, "user", "adilj" }
+                    { 1, "admin", "admin", false },
+                    { 2, "host", "host", false },
+                    { 3, "bayern123", "vedadke", true },
+                    { 4, "fit2023", "dzejlap", true },
+                    { 5, "fit2023", "saidke", true },
+                    { 6, "user", "denism", true },
+                    { 7, "user", "adilj", true }
                 });
 
             migrationBuilder.InsertData(

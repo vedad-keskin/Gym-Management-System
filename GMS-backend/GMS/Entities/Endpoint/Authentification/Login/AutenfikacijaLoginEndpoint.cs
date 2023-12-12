@@ -41,7 +41,7 @@ public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginReq
         if (logiraniKorisnik.is2FActive)
         {
              TwoFKey = TokenGenerator.Generate(4);
-            _emailSenderService.Posalji("cisase1449@lanxi8.com", "2f", $"Vaš 2F ključ je {TwoFKey}", false);
+            _emailSenderService.Posalji("karaki8595@newcupon.com", "2f", $"Vaš 2F ključ je {TwoFKey}", false);
         }
 
         //2- generisati random string

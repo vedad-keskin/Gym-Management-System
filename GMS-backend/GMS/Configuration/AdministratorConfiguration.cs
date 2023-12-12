@@ -15,7 +15,8 @@ namespace GMS.Configuration
                     Ime = "Vedad",
                     Prezime = "Keskin",
                     Username = "admin",
-                    Password = "admin"
+                    Password = "admin",
+                    is2FActive = false
                 },
                 new Administrator
                 {
@@ -23,7 +24,8 @@ namespace GMS.Configuration
                     Ime = "Džejla",
                     Prezime = "Palalić",
                     Username = "host",
-                    Password = "host"
+                    Password = "host",
+                    is2FActive = false
                 });
 
         }

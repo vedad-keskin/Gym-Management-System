@@ -32,7 +32,8 @@ namespace FIT_Api_Example.Helper.Auth
 
             MyAuthInfo myAuthInfo = authService.GetAuthInfo();
 
-            if (authService.GetAuthInfo().korisnickiNalog.is2FActive && myAuthInfo.autentifikacijaToken.IsOtkljucano)
+            if (authService.GetAuthInfo().korisnickiNalog.is2FActive 
+                && !myAuthInfo.autentifikacijaToken.IsOtkljucano)
             {
                 context.Result = new UnauthorizedObjectResult("Niste otključali 2F!");
                 return;
