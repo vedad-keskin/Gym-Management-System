@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GMS.Entities.Endpoint.Authentication.Login;
 using GMS.Helpers.Auth;
 
-namespace FIT_Api_Example.Endpoints.AuthEndpoints.Login;
+namespace GMS.Entities.Endpoint.Authentification.Login;
 
 [Route("Autentifikacija")]
 public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginRequest, MyAuthInfo>
@@ -40,8 +40,8 @@ public class AutentifikacijaLoginEndpoint : MyBaseEndpoint<AutenfikacijaLoginReq
 
         if (logiraniKorisnik.is2FActive)
         {
-             TwoFKey = TokenGenerator.Generate(4);
-            _emailSenderService.Posalji("karaki8595@newcupon.com", "2f", $"Vaš 2F ključ je {TwoFKey}", false);
+            TwoFKey = TokenGenerator.Generate(4);
+            _emailSenderService.Posalji("testiram.gms@gmail.com", "2 faktor autentifikacija", $"Vaš 2F ključ je {TwoFKey}", false);
         }
 
         //2- generisati random string

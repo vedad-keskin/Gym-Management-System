@@ -3,4 +3,5 @@ export interface KorisnickiNalog {
   username: string
   isAdministrator: boolean
   isKorisnik: boolean
+  is2FActive: boolean
 }

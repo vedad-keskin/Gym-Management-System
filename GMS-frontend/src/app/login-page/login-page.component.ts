@@ -36,9 +36,15 @@ export class LoginPageComponent {
 
 
         this.myAuthService.setLogiraniKorisnik(x.autentifikacijaToken);
-        if(this.myAuthService.isKorisnik()){
+
+        if(this.myAuthService.is2FActive()){
+          this.router.navigate(['2FPage']);
+        }
+        else if(this.myAuthService.isKorisnik()){
           this.router.navigate(['KorisnikPage']);
         }
+
+
         else{
           this.router.navigate(['AdministratorPage']);
         }
