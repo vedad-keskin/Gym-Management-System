@@ -4,9 +4,8 @@ import {
   SeminarGetAllResponseSeminari,
   SeminariGetAllEndpoint
 } from "../endpoints/seminari-endpoints/seminari-getall-endpoint";
-import {ClanarinaGetAllResponse} from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
-import {ClanarinaAddRequest} from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
 import {SeminarAddEndpoint, SeminarAddRequest} from "../endpoints/seminari-endpoints/seminari-add-endpoint";
+import {SeminariEditEndpoint, SeminariEditRequest} from "../endpoints/seminari-endpoints/seminari-edit-endpoint";
 
 @Component({
   selector: 'app-administrator-page-seminari',
@@ -16,12 +15,14 @@ import {SeminarAddEndpoint, SeminarAddRequest} from "../endpoints/seminari-endpo
 export class AdministratorPageSeminariComponent implements OnInit{
 
   constructor(private SeminariGetAllEndpoint:SeminariGetAllEndpoint,
-              private SeminarAddEndpoint:SeminarAddEndpoint) {
+              private SeminarAddEndpoint:SeminarAddEndpoint,
+              private SeminariEditEndpoint:SeminariEditEndpoint) {
 
   }
 
   seminari: SeminarGetAllResponseSeminari[] = [];
   PretragaNaziv: string = "";
+  public odabraniSeminar: SeminariEditRequest | null = null;
 
 
   public prikaziAdd:boolean = false;
@@ -42,9 +43,7 @@ export class AdministratorPageSeminariComponent implements OnInit{
 
   }
 
-  Odaberi(x: any) {
 
-  }
 
   SaveNew() {
     this.SeminarAddEndpoint.Handle(this.noviSeminar).subscribe((x)=>{
@@ -53,5 +52,26 @@ export class AdministratorPageSeminariComponent implements OnInit{
       this.noviSeminar.tema ="";
       this.noviSeminar.predavac ="";
     })
+  }
+
+  Close() {
+    this.odabraniSeminar = null
+    this.ngOnInit();
+  }
+
+  Save() {
+    this.SeminariEditEndpoint.Handle(this.odabraniSeminar!).subscribe((x)=>{
+      this.ngOnInit();
+      this.odabraniSeminar = null
+    })
+  }
+
+  Odaberi(x: SeminarGetAllResponseSeminari) {
+    this.odabraniSeminar = {
+      id: x.id,
+      tema: x.tema,
+      predavac: x.predavac,
+      datum:x.datum
+    } ;
   }
 }
