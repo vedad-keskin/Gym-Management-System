@@ -11,5 +11,6 @@ namespace GMS.Entities.Models
         public Suplement Suplement { get; set; }
         public DateTime DatumVrijemeNarudzbe { get; set; }
         public int Kolicina { get; set; }
+        public bool Isporuceno { get; set; }
     }
 }
