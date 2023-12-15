@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace FIT_Api_Example.Helper.Auth
+namespace GMS.Helpers.Auth
 {
     public class MyAuthorizationAttribute : TypeFilterAttribute
     {
