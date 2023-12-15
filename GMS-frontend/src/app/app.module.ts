@@ -30,6 +30,7 @@ import { TwofPageComponent } from './twof-page/twof-page.component';
 import {
   AdministratorPageKorisnikClanarineComponent
 } from "./administrator-page-korisnik-clanarine/administrator-page-korisnik-clanarine.component";
+import {AdministratorPageSeminariComponent} from "./administrator-page-seminari/administrator-page-seminari.component";
 
 
 
@@ -51,6 +52,7 @@ import {
         AdministratorPageAdminComponent,
         TwofPageComponent,
         AdministratorPageKorisnikClanarineComponent,
+        AdministratorPageSeminariComponent
 
     ],
   imports: [
@@ -74,6 +76,7 @@ import {
       {path:'AdministratorPageAdmin', component: AdministratorPageAdminComponent, canActivate: [AutorizacijaGuardAdministrator]  },
       {path:'2FPage', component: TwofPageComponent, canActivate: [AutorizacijaGuardKorisnik] },
       {path:'AdministratorPageKorisnikClanarine', component: AdministratorPageKorisnikClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageSeminari', component: AdministratorPageSeminariComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [
