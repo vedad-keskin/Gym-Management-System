@@ -32,6 +32,12 @@ import {
 } from "./administrator-page-korisnik-clanarine/administrator-page-korisnik-clanarine.component";
 import {AdministratorPageSeminariComponent} from "./administrator-page-seminari/administrator-page-seminari.component";
 import { AdministratorPageTeretaneComponent } from './administrator-page-teretane/administrator-page-teretane.component';
+import {
+  AdministratorPageSuplementiComponent
+} from "./administrator-page-suplementi/administrator-page-suplementi.component";
+import {
+  AdministratorPageRecenzijeComponent
+} from "./administrator-page-recenzije/administrator-page-recenzije.component";
 
 
 
@@ -54,7 +60,9 @@ import { AdministratorPageTeretaneComponent } from './administrator-page-teretan
         TwofPageComponent,
         AdministratorPageKorisnikClanarineComponent,
         AdministratorPageSeminariComponent,
-        AdministratorPageTeretaneComponent
+        AdministratorPageTeretaneComponent,
+        AdministratorPageSuplementiComponent,
+        AdministratorPageRecenzijeComponent
 
     ],
   imports: [
@@ -80,6 +88,8 @@ import { AdministratorPageTeretaneComponent } from './administrator-page-teretan
       {path:'AdministratorPageKorisnikClanarine', component: AdministratorPageKorisnikClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageSeminari', component: AdministratorPageSeminariComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageTeretane', component: AdministratorPageTeretaneComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageSuplementi', component: AdministratorPageSuplementiComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageRecenzije', component: AdministratorPageRecenzijeComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [
