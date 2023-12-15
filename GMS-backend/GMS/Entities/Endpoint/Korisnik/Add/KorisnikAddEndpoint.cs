@@ -1,7 +1,6 @@
-﻿
-using FIT_Api_Example.Helper.Auth;
-using GMS.Data;
+﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
