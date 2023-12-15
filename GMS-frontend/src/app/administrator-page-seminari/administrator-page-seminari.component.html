@@ -107,9 +107,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let x of GetFiltiraniSeminari()">
-        <td>{{ x.tema }}</td>
-        <td>{{ x.predavac }}</td>
-        <td>{{ x.datum | date }}</td>
+        <td class="w-50">{{ x.tema }}</td>
+        <td class="w-25">{{ x.predavac }}</td>
+        <td class="w-25">{{ x.datum | date }}</td>
         <td>
           <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
         </td>
