@@ -23,7 +23,7 @@ namespace GMS.Configuration
                     GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/1kor.png",
-                    is2FActive = true
+                    is2FActive = false
                 },
                 new Korisnik
                 {

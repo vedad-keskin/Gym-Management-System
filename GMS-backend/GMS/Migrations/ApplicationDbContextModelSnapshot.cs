@@ -1451,7 +1451,7 @@ namespace GMS.Migrations
                             ID = 3,
                             Password = "bayern123",
                             Username = "vedadke",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "0644076290",
                             GradID = 18,
                             Ime = "Vedad",

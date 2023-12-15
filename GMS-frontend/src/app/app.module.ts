@@ -27,6 +27,9 @@ import {
 import {AdministratorPageFaqComponent} from "./administrator-page-faq/administrator-page-faq.component";
 import {AdministratorPageAdminComponent} from "./administrator-page-admin/administrator-page-admin.component";
 import { TwofPageComponent } from './twof-page/twof-page.component';
+import {
+  AdministratorPageKorisnikClanarineComponent
+} from "./administrator-page-korisnik-clanarine/administrator-page-korisnik-clanarine.component";
 
 
 
@@ -46,7 +49,9 @@ import { TwofPageComponent } from './twof-page/twof-page.component';
         AdministratorPageKategorijeComponent,
         AdministratorPageFaqComponent,
         AdministratorPageAdminComponent,
-        TwofPageComponent
+        TwofPageComponent,
+        AdministratorPageKorisnikClanarineComponent,
+
     ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ import { TwofPageComponent } from './twof-page/twof-page.component';
       {path:'AdministratorPageFAQ', component: AdministratorPageFaqComponent, canActivate: [AutorizacijaGuardAdministrator]  },
       {path:'AdministratorPageAdmin', component: AdministratorPageAdminComponent, canActivate: [AutorizacijaGuardAdministrator]  },
       {path:'2FPage', component: TwofPageComponent, canActivate: [AutorizacijaGuardKorisnik] },
+      {path:'AdministratorPageKorisnikClanarine', component: AdministratorPageKorisnikClanarineComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [

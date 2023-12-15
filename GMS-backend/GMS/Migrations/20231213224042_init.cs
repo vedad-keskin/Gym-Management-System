@@ -566,7 +566,7 @@ namespace GMS.Migrations
                 {
                     { 1, "admin", "admin", false },
                     { 2, "host", "host", false },
-                    { 3, "bayern123", "vedadke", true },
+                    { 3, "bayern123", "vedadke", false },
                     { 4, "fit2023", "dzejlap", true },
                     { 5, "fit2023", "saidke", true },
                     { 6, "user", "denism", true },

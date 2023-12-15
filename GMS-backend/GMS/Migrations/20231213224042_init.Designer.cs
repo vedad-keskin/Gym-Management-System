@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231212130534_init")]
+    [Migration("20231213224042_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1453,7 +1453,7 @@ namespace GMS.Migrations
                             ID = 3,
                             Password = "bayern123",
                             Username = "vedadke",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "0644076290",
                             GradID = 18,
                             Ime = "Vedad",

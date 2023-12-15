@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Add
 {
     [Route("Korisnik_Clanarina-Add")]
-    [MyAuthorization]
+    //[MyAuthorization]
 
     public class Korisnik_ClanarinaAddEndpoint : MyBaseEndpoint<Korisnik_ClanarinaAddRequest, Korisnik_ClanarinaAddResponse>
     {
@@ -22,7 +22,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Add
         {
             var novi = new Entities.Models.Korisnik_Clanarina
             {
-                ClanarinaID=request.ČlanarinaID,
+                ClanarinaID= request.ClanarinaID,
                 KorisnikID=request.KorisnikID,
                 DatumUplate=request.DatumUplate,
                 DatumIsteka=request.DatumIsteka
@@ -33,6 +33,8 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Add
 
             return new Korisnik_ClanarinaAddResponse
             {
+                ClanarinaID = novi.ClanarinaID,
+                KorisnikID = novi.KorisnikID,
                 DatumUplate=novi.DatumUplate,
                 DatumIsteka=novi.DatumIsteka
             };

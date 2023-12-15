@@ -1,0 +1,10 @@
+section{
+  padding: 30px 0;
+}
+.slike{
+  width: 50px;
+}
+
+select{
+  cursor: pointer;
+}
