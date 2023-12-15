@@ -1,0 +1,72 @@
+<section id="adminkorisnici">
+  <div class="container-md">
+
+    <!--  Back button i Tekst-->
+    <div class="row">
+      <div class="col-3">
+        <button type="button" routerLink='/AdministratorPage' class="btn btn-outline-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
+          </svg>
+          Nazad
+        </button>
+        <button type="button" class="btn btn-outline-primary mx-2" (click)="prikaziAdd = !prikaziAdd">Dodaj korisnika</button>
+      </div>
+      <div class="col-6">
+        <div class="text-center">
+          <h2>Konfiguracija korisnika</h2>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Pretraga po imenu-->
+    <div class="row my-5 d-flex justify-content-center" >
+      <div class="col-6">
+        <input type="text" spellcheck="false" placeholder="Pretražite po imenu, prezimenu ili username-u" class="form-control secondary" [(ngModel)]="PretragaNaziv">
+      </div>
+    </div>
+
+
+
+    <!-- tabela -->
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Slika</th>
+        <th>Ime i prezime</th>
+        <th>Username</th>
+        <th>Broj telefona</th>
+        <th>Težina</th>
+        <th>Visina</th>
+        <th>Grad</th>
+        <th>Teretana</th>
+        <th>Spol</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let x of GetFiltiraniKorisnici()">
+        <td>
+          <img class="slike" src="{{x.slika}}">
+        </td>
+        <td>{{ x.ime }} {{x.prezime}}</td>
+        <td>{{ x.username }}</td>
+        <td>{{ x.brojTelefona }}</td>
+        <td>{{ x.tezina }} kg</td>
+        <td>{{ x.visina }} cm</td>
+        <td>{{ x.nazivGrada }}</td>
+        <td>{{ x.nazivTeretane }}</td>
+        <td>{{ x.nazivSpol }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+</section>

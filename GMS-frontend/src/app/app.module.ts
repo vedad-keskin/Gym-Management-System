@@ -38,6 +38,9 @@ import {
 import {
   AdministratorPageRecenzijeComponent
 } from "./administrator-page-recenzije/administrator-page-recenzije.component";
+import {
+  AdministratorPageKorisniciComponent
+} from "./administrator-page-korisnici/administrator-page-korisnici.component";
 
 
 
@@ -62,7 +65,8 @@ import {
         AdministratorPageSeminariComponent,
         AdministratorPageTeretaneComponent,
         AdministratorPageSuplementiComponent,
-        AdministratorPageRecenzijeComponent
+        AdministratorPageRecenzijeComponent,
+        AdministratorPageKorisniciComponent
 
     ],
   imports: [
@@ -90,6 +94,7 @@ import {
       {path:'AdministratorPageTeretane', component: AdministratorPageTeretaneComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageSuplementi', component: AdministratorPageSuplementiComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageRecenzije', component: AdministratorPageRecenzijeComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageKorisnici', component: AdministratorPageKorisniciComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [
