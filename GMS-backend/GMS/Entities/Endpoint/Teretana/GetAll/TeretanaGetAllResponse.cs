@@ -10,6 +10,7 @@
         public int ID { get; set; }
         public string Naziv { get; set; }
         public int GradID { get; set; }
+        public string NazivGrada { get; set; }
         public string Adresa { get; set; }
     }
 }

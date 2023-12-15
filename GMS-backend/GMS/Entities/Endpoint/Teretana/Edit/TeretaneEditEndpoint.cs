@@ -35,6 +35,7 @@ namespace GMS.Entities.Endpoint.Teretana.Edit
 
             teretana.Naziv = request.Naziv.RemoveTags();
             teretana.Adresa = request.Adresa.RemoveTags();
+            teretana.GradID = request.GradID;
 
 
             await db.SaveChangesAsync(cancellationToken);

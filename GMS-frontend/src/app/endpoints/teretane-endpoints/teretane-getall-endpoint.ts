@@ -30,4 +30,5 @@ export interface TeretanaGetAllResponseTeretana {
   naziv: string
   adresa: string
   nazivGrada: string
+  gradID:number
 }

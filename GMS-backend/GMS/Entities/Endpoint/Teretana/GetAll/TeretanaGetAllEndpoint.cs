@@ -25,7 +25,8 @@ namespace GMS.Entities.Endpoint.Teretana.GetAll
                    ID = x.ID,
                    Naziv=x.Naziv,
                    Adresa=x.Adresa,
-                   GradID=x.GradID
+                   GradID = x.GradID,
+                   NazivGrada=x.Grad.Naziv
 
                }).ToListAsync(cancellationToken: cancellationToken);
 

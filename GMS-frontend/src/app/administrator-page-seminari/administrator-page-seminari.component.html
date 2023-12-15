@@ -30,67 +30,70 @@
 
     <!-- div za add -->
 
-    <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
+    <div class="container-sm w-75" >
 
-      <div class="d-flex justify-content-end">
-        <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
-      </div>
+      <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
 
-      <div>
-        <label> Naziv teme: </label>
-        <input type="text" class="form-control mb-2" [(ngModel)]="noviSeminar.tema" required>
-      </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
+        </div>
 
-      <div>
-        <label> Predavač: </label>
-        <input type="text" class="form-control mb-2" [(ngModel)]="noviSeminar.predavac" required>
-      </div>
+        <div>
+          <label> Naziv teme: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="noviSeminar.tema" required>
+        </div>
 
-      <div class="form-outline datetimepicker">
-        <label class="form-label"> Datum seminara: </label>
-        <input type="text" class="form-control"  [(ngModel)]="noviSeminar.datum"  >
-      </div>
+        <div>
+          <label> Predavač: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="noviSeminar.predavac" required>
+        </div>
 
-      <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj seminar</button>
-      </div>
+        <div class="form-outline datetimepicker">
+          <label class="form-label"> Datum seminara: </label>
+          <input type="text" class="form-control"  [(ngModel)]="noviSeminar.datum"  >
+        </div>
 
-    </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj seminar</button>
+        </div>
 
-
-    <!-- div za edit -->
-
-    <div class="border rounded px-4 py-3" *ngIf="odabraniSeminar">
-
-      <div class="d-flex justify-content-end">
-        <button type="button" (click)="Close()" class="btn-close"></button>
       </div>
 
 
-      <div>
-        <label> ID: </label>
-        <input type="text" class="form-control mb-2" [value]="odabraniSeminar.id" disabled>
-      </div>
+      <!-- div za edit -->
 
-      <div>
-        <label> Tema: </label>
-        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniSeminar.tema">
-      </div>
+      <div class="border rounded px-4 py-3" *ngIf="odabraniSeminar">
 
-      <div>
-        <label> Predavač: </label>
-        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniSeminar.predavac">
-      </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" (click)="Close()" class="btn-close"></button>
+        </div>
 
-      <div class="form-outline datetimepicker">
-        <label class="form-label"> Datum seminara: </label>
-        <input type="text" class="form-control"  [(ngModel)]="odabraniSeminar.datum"  >
-      </div>
 
-      <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
-      </div>
+        <div>
+          <label> ID: </label>
+          <input type="text" class="form-control mb-2" [value]="odabraniSeminar.id" disabled>
+        </div>
 
+        <div>
+          <label> Tema: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="odabraniSeminar.tema">
+        </div>
+
+        <div>
+          <label> Predavač: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="odabraniSeminar.predavac">
+        </div>
+
+        <div class="form-outline datetimepicker">
+          <label class="form-label"> Datum seminara: </label>
+          <input type="text" class="form-control"  [(ngModel)]="odabraniSeminar.datum"  >
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
+        </div>
+
+      </div>
     </div>
 
 

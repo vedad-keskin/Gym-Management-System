@@ -26,7 +26,79 @@
       </div>
     </div>
 
+    <!-- div za add -->
 
+    <div class="container-sm w-75" >
+
+      <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
+
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
+        </div>
+
+        <div>
+          <label> Naziv teretane: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="novaTeretana.naziv" required>
+        </div>
+
+        <div>
+          <label> Adresa teretane: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="novaTeretana.adresa" required>
+        </div>
+
+        <div>
+          <label class="form-label"> Grad teretane: </label>
+          <select class="form-select" [(ngModel)]="novaTeretana.gradID">
+            <option *ngFor="let x of gradovi" [value]="x.id">{{x.naziv}}</option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj seminar</button>
+        </div>
+
+      </div>
+
+
+
+      <!-- div za edit -->
+
+      <div class="border rounded px-4 py-3" *ngIf="odabranaTeretana">
+
+        <div class="d-flex justify-content-end">
+          <button type="button" (click)="Close()" class="btn-close"></button>
+        </div>
+
+
+        <div>
+          <label> ID: </label>
+          <input type="text" class="form-control mb-2" [value]="odabranaTeretana.id" disabled>
+        </div>
+
+        <div>
+          <label> Naziv: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="odabranaTeretana.naziv">
+        </div>
+
+        <div>
+          <label> Adresa: </label>
+          <input type="text" class="form-control mb-2" [(ngModel)]="odabranaTeretana.adresa">
+        </div>
+
+
+        <div>
+          <label class="form-label"> Grad: </label>
+          <select class="form-select" [(ngModel)]="odabranaTeretana.gradID">
+            <option *ngFor="let x of gradovi" [value]="x.id">{{x.naziv}}</option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
+        </div>
+
+      </div>
+    </div>
     <!-- tabela -->
 
     <table class="table table-striped">
@@ -48,6 +120,7 @@
       </tr>
       </tbody>
     </table>
+
 
 
 

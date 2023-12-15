@@ -1,13 +1,11 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
-using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GMS.Entities.Endpoint.Seminar.GetAll
 {
     [Route("Seminar-GetAll")]
-    [MyAuthorization]
 
     public class SeminariGetAllEndpoint : MyBaseEndpoint<SeminarGetAllRequest, SeminarGetAllResponse>
     {
