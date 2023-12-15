@@ -585,6 +585,9 @@ namespace GMS.Migrations
                     b.Property<DateTime>("DatumVrijemeNarudzbe")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Isporuceno")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Kolicina")
                         .HasColumnType("int");
 

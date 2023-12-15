@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231213224042_init")]
-    partial class init
+    [Migration("20231215153136_config")]
+    partial class config
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -586,6 +586,9 @@ namespace GMS.Migrations
 
                     b.Property<DateTime>("DatumVrijemeNarudzbe")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Isporuceno")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Kolicina")
                         .HasColumnType("int");
