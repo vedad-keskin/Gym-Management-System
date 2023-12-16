@@ -1,6 +1,6 @@
 ﻿namespace GMS.Entities.Endpoint.Trener_Seminar.Add
 {
-    public class Trener_SeminarAddResponse
+    public class TrenerSeminarAddResponse
     {
         public int TrenerID { get; set; }
 

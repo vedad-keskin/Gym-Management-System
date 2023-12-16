@@ -2,17 +2,21 @@
 
 namespace GMS.Entities.Endpoint.Trener_Seminar.GetById
 {
-    public class Trener_SeminarGetResponse
+    public class TrenerSeminarGetResponse
     {
         public int TrenerID { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public List<Trener_SeminarGetResponseOdrzanSeminar> OdrzanSeminar { get; set; }
+        public List<TrenerSeminarGetResponseOdrzanSeminar> OdrzanSeminar { get; set; }
     }
 
-    public class Trener_SeminarGetResponseOdrzanSeminar
+    public class TrenerSeminarGetResponseOdrzanSeminar
     {
         public int TrenerID { get; set; }
         public int SeminarID { get; set; }
+
+        public string Tema { get; set; }
+        public string Predavac { get; set; }
+        public DateTime Datum { get; set; }
     }
 }

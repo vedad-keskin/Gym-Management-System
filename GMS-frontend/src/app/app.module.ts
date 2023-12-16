@@ -41,6 +41,7 @@ import {
 import {
   AdministratorPageKorisniciComponent
 } from "./administrator-page-korisnici/administrator-page-korisnici.component";
+import {AdministratorPageTreneriComponent} from "./administrator-page-treneri/administrator-page-treneri.component";
 
 
 
@@ -66,7 +67,8 @@ import {
         AdministratorPageTeretaneComponent,
         AdministratorPageSuplementiComponent,
         AdministratorPageRecenzijeComponent,
-        AdministratorPageKorisniciComponent
+        AdministratorPageKorisniciComponent,
+        AdministratorPageTreneriComponent
 
     ],
   imports: [
@@ -95,6 +97,7 @@ import {
       {path:'AdministratorPageSuplementi', component: AdministratorPageSuplementiComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageRecenzije', component: AdministratorPageRecenzijeComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageKorisnici', component: AdministratorPageKorisniciComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageTreneri', component: AdministratorPageTreneriComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [
