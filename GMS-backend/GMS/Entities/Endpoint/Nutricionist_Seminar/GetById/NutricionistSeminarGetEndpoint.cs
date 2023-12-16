@@ -38,7 +38,10 @@ namespace GMS.Entities.Endpoint.Nutricionist_Seminar.GetById
                     .Select(x => new NutricionistSeminarGetResponsePrisustvoSeminaru
                     {
                         NutricionistID=x.NutricionistID,
-                        SeminarID=x.SeminarID
+                        SeminarID=x.SeminarID,
+                        Tema = x.Seminar.Tema,
+                        Datum = x.Seminar.Datum,
+                        Predavac = x.Seminar.Predavac
                     })
                     .ToListAsync(cancellationToken)
             };

@@ -8,17 +8,17 @@ namespace GMS.Entities.Endpoint.Nutricionist_Seminar.Add
     [Route("Nutricionist_Seminar-Add")]
     [MyAuthorization]
 
-    public class Nutricionist_SeminarAddEndpoint : MyBaseEndpoint<Nutricionist_SeminarAddRequest, Nutricionist_SeminarAddResponse>
+    public class NutricionistSeminarAddEndpoint : MyBaseEndpoint<NutricionistSeminarAddRequest, NutricionistSeminarAddResponse>
     {
         private readonly ApplicationDbContext db;
 
-        public Nutricionist_SeminarAddEndpoint(ApplicationDbContext db)
+        public NutricionistSeminarAddEndpoint(ApplicationDbContext db)
         {
             this.db = db;
         }
 
         [HttpPost]
-        public override async Task<Nutricionist_SeminarAddResponse> Handle([FromBody]Nutricionist_SeminarAddRequest request, CancellationToken cancellationToken)
+        public override async Task<NutricionistSeminarAddResponse> Handle([FromBody] NutricionistSeminarAddRequest request, CancellationToken cancellationToken)
         {
             var novi = new Entities.Models.Nutricionist_Seminar
             {
@@ -29,10 +29,11 @@ namespace GMS.Entities.Endpoint.Nutricionist_Seminar.Add
             db.Nutricionist_Seminar.Add(novi);
             await db.SaveChangesAsync(cancellationToken: cancellationToken);
 
-            return new Nutricionist_SeminarAddResponse
+            return new NutricionistSeminarAddResponse
             {
                 NutricionistID=novi.NutricionistID,
                 SeminarID=novi.SeminarID
+                
             };
         }
     }

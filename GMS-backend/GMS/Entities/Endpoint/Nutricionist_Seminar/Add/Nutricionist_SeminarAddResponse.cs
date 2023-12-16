@@ -1,6 +1,6 @@
 ﻿namespace GMS.Entities.Endpoint.Nutricionist_Seminar.Add
 {
-    public class Nutricionist_SeminarAddResponse
+    public class NutricionistSeminarAddResponse
     {
         public int NutricionistID { get; set; }
 

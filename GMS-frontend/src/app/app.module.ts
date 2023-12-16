@@ -42,6 +42,9 @@ import {
   AdministratorPageKorisniciComponent
 } from "./administrator-page-korisnici/administrator-page-korisnici.component";
 import {AdministratorPageTreneriComponent} from "./administrator-page-treneri/administrator-page-treneri.component";
+import {
+  AdministratorPageNutricionstiComponent
+} from "./administrator-page-nutricionsti/administrator-page-nutricionsti.component";
 
 
 
@@ -68,7 +71,8 @@ import {AdministratorPageTreneriComponent} from "./administrator-page-treneri/ad
         AdministratorPageSuplementiComponent,
         AdministratorPageRecenzijeComponent,
         AdministratorPageKorisniciComponent,
-        AdministratorPageTreneriComponent
+        AdministratorPageTreneriComponent,
+        AdministratorPageNutricionstiComponent
 
     ],
   imports: [
@@ -98,6 +102,7 @@ import {AdministratorPageTreneriComponent} from "./administrator-page-treneri/ad
       {path:'AdministratorPageRecenzije', component: AdministratorPageRecenzijeComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageKorisnici', component: AdministratorPageKorisniciComponent, canActivate: [AutorizacijaGuardAdministrator] },
       {path:'AdministratorPageTreneri', component: AdministratorPageTreneriComponent, canActivate: [AutorizacijaGuardAdministrator] },
+      {path:'AdministratorPageNutricionsti', component: AdministratorPageNutricionstiComponent, canActivate: [AutorizacijaGuardAdministrator] },
     ])
   ],
   providers: [
