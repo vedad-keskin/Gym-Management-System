@@ -6,15 +6,12 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="assets/1kor.png" alt="avatar"
-                 class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">Vedad Keskin</h5>
-            <p class="text-muted mb-1">vedadke</p>
-            <p class="text-muted mb-4">Mostar</p>
-            <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-            </div>
+            <img src="{{odabraniKorisnik?.slika}}" alt="avatar"
+                 class="rounded-circle img-fluid" style="width: 180px;">
+            <h4 class="my-3">{{odabraniKorisnik?.ime}} {{odabraniKorisnik?.prezime}}</h4>
+            <p class="text-muted mb-1">{{odabraniKorisnik?.username}}</p>
+            <p class="text-muted mb-4">{{odabraniKorisnik?.nazivGrada}}</p>
+
           </div>
         </div>
 
@@ -28,7 +25,7 @@
                 <p class="mb-0">Ime i prezime</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Vedad Keskin</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.ime}} {{odabraniKorisnik?.prezime}}</p>
               </div>
             </div>
             <hr>
@@ -37,7 +34,7 @@
                 <p class="mb-0">Broj telefona</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">064-40-76-290</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.brojTelefona}}</p>
               </div>
             </div>
             <hr>
@@ -46,7 +43,7 @@
                 <p class="mb-0">Visina</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">170 cm</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.visina}} cm</p>
               </div>
             </div>
             <hr>
@@ -55,7 +52,7 @@
                 <p class="mb-0">Težina</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">79 kg</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.tezina}} kg</p>
               </div>
             </div>
             <hr>
@@ -65,7 +62,7 @@
                 <p class="mb-0">Spol</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Muški</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.nazivSpola}}</p>
               </div>
             </div>
             <hr>
@@ -75,7 +72,7 @@
                 <p class="mb-0">Teretana</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Bodyline</p>
+                <p class="text-muted mb-0">{{odabraniKorisnik?.nazivTeretane}}</p>
               </div>
             </div>
 

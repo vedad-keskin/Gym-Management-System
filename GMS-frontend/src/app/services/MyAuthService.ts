@@ -27,6 +27,9 @@ export class MyAuthService{
     return this.getAuthorizationToken()?.korisnickiNalog.is2FActive ?? false
   }
 
+  returnId() {
+    return this.getAuthorizationToken()?.korisnickiNalog.id;
+  }
   getAuthorizationToken():AutentifikacijaToken | null {
     let tokenString = window.localStorage.getItem("my-auth-token")??"";
     try {
