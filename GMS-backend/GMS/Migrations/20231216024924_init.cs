@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class config : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -727,6 +727,16 @@ namespace GMS.Migrations
                     { 2, new DateTime(2023, 9, 1, 9, 15, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(2023, 10, 1, 9, 15, 0, 0, DateTimeKind.Unspecified) },
                     { 2, new DateTime(2023, 10, 1, 7, 15, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified) },
                     { 2, new DateTime(2023, 11, 1, 7, 15, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(2023, 12, 1, 7, 15, 0, 0, DateTimeKind.Unspecified) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Korisnik_Suplement",
+                columns: new[] { "DatumVrijemeNarudzbe", "KorisnikID", "SuplementID", "Isporuceno", "Kolicina" },
+                values: new object[,]
+                {
+                    { new DateTime(2023, 9, 1, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 2, false, 3 },
+                    { new DateTime(2023, 4, 9, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 4, false, 2 },
+                    { new DateTime(2023, 8, 2, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 5, false, 4 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,13 +1,11 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
-using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GMS.Entities.Endpoint.KorisnikSuplement.GetAll
 {
     [Route("Korisnik_Suplement-GetAll")]
-    [MyAuthorization]
 
     public class Korisnik_SuplementGetAllEndpoint : MyBaseEndpoint<Korisnik_SuplementGetAllRequest, Korisnik_SuplementGetAllResponse>
     {
@@ -28,6 +26,12 @@ namespace GMS.Entities.Endpoint.KorisnikSuplement.GetAll
                     KorisnikID=x.KorisnikID,
                     DatumVrijemeNarudzbe=x.DatumVrijemeNarudzbe,
                     Kolicina=x.Kolicina,
+                    Cijena = x.Suplement.Cijena,
+                    ImePrezime = x.Korisnik.Ime +" "+ x.Korisnik.Prezime,
+                    NazivSuplementa = x.Suplement.Naziv,
+                    Ukupno = x.Suplement.Cijena * x.Kolicina,
+                    Isporuceno = x.Isporuceno
+
                   
                 }).ToListAsync(cancellationToken: cancellationToken);
 

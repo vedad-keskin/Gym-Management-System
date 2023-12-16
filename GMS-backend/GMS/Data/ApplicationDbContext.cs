@@ -50,6 +50,7 @@ namespace GMS.Data
             modelBuilder.ApplyConfiguration(new Nutricionst_SeminarConfiguration());
             modelBuilder.ApplyConfiguration(new Trener_SeminarConfiguration());
             modelBuilder.ApplyConfiguration(new FAQConfiguration());
+            modelBuilder.ApplyConfiguration(new Korisnik_SuplementConfiguration());
         }
 
         internal Task SaveChanges(CancellationToken cancellationToken)

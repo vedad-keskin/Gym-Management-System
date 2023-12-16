@@ -596,6 +596,32 @@ namespace GMS.Migrations
                     b.HasIndex("KorisnikID");
 
                     b.ToTable("Korisnik_Suplement");
+
+                    b.HasData(
+                        new
+                        {
+                            SuplementID = 2,
+                            KorisnikID = 3,
+                            DatumVrijemeNarudzbe = new DateTime(2023, 9, 1, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            Isporuceno = false,
+                            Kolicina = 3
+                        },
+                        new
+                        {
+                            SuplementID = 5,
+                            KorisnikID = 3,
+                            DatumVrijemeNarudzbe = new DateTime(2023, 8, 2, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            Isporuceno = false,
+                            Kolicina = 4
+                        },
+                        new
+                        {
+                            SuplementID = 4,
+                            KorisnikID = 3,
+                            DatumVrijemeNarudzbe = new DateTime(2023, 4, 9, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            Isporuceno = false,
+                            Kolicina = 2
+                        });
                 });
 
             modelBuilder.Entity("GMS.Entities.Models.Korisnik_Trener", b =>
