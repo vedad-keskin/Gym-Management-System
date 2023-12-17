@@ -7,6 +7,5 @@
         public int SeminarID { get; set; }
         public Seminar Seminar { get; set; }
 
-
     }
 }

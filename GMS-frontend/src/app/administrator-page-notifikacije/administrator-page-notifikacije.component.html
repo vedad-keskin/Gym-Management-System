@@ -39,6 +39,7 @@
         <th>Ukupno</th>
         <th class="isporucenoClass">Isporučeno</th>
 
+
       </tr>
       </thead>
       <tbody>
@@ -49,6 +50,7 @@
         <td>{{x.cijena}} KM</td>
         <td>{{x.ukupno}} KM</td>
         <td class="isporucenoClass"><input type="checkbox" [checked]="x.isporuceno"></td>
+
         <td>
           <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Označi isporučeno</button>
         </td>

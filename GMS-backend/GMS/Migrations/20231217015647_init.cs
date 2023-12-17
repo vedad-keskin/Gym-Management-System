@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class db_gms : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -398,7 +398,7 @@ namespace GMS.Migrations
                     KorisnikID = table.Column<int>(type: "int", nullable: false),
                     NutricionistID = table.Column<int>(type: "int", nullable: false),
                     DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OdrzanoSati = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ZakazanoSati = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -447,7 +447,7 @@ namespace GMS.Migrations
                     KorisnikID = table.Column<int>(type: "int", nullable: false),
                     TrenerID = table.Column<int>(type: "int", nullable: false),
                     DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OdrzanoSati = table.Column<int>(type: "int", nullable: false)
+                    ZakazanoSati = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -546,7 +546,9 @@ namespace GMS.Migrations
                     { 29, "Zavidovići" },
                     { 30, "Zenica" },
                     { 31, "Zvornik" },
-                    { 32, "Živinice" }
+                    { 32, "Živinice" },
+                    { 33, "Donji Vakuf" },
+                    { 34, "Zavidovići" }
                 });
 
             migrationBuilder.InsertData(
@@ -568,10 +570,10 @@ namespace GMS.Migrations
                     { 1, "admin", "admin", false },
                     { 2, "host", "host", false },
                     { 3, "bayern123", "vedadke", false },
-                    { 4, "fit2023", "dzejlap", true },
-                    { 5, "fit2023", "saidke", true },
-                    { 6, "user", "denism", true },
-                    { 7, "user", "adilj", true }
+                    { 4, "dzejla123", "dzejlap", false },
+                    { 5, "fit2023", "saidke", false },
+                    { 6, "fit2023", "denism", false },
+                    { 7, "fit2023", "adilj", false }
                 });
 
             migrationBuilder.InsertData(
@@ -707,10 +709,10 @@ namespace GMS.Migrations
                 values: new object[,]
                 {
                     { 3, "0644076290", 18, "Vedad", "Keskin", "assets/1kor.png", 1, 2, 80f, 170f },
-                    { 4, "062709689", 26, "Džejla", "Palalić", "assets/2kor.jpg", 2, 2, 57f, 164f },
+                    { 4, "062709689", 33, "Džejla", "Palalić", "assets/2kor.jpg", 2, 2, 58f, 165f },
                     { 5, "0644065144", 18, "Said", "Keskin", "assets/3kor.jpg", 1, 2, 62f, 180f },
-                    { 6, "061000000", 5, "Denis", "Mušić", "assets/4kor.jpg", 1, 2, 79f, 186f },
-                    { 7, "062000000", 7, "Adil", "Joldić", "assets/5kor.jpg", 1, 2, 75f, 184f }
+                    { 6, "061000000", 18, "Denis", "Mušić", "assets/4kor.jpg", 1, 2, 79f, 186f },
+                    { 7, "062000000", 34, "Adil", "Joldić", "assets/5kor.jpg", 1, 2, 75f, 189f }
                 });
 
             migrationBuilder.InsertData(

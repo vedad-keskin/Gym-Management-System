@@ -31,15 +31,15 @@ namespace GMS.Configuration
                     Ime = "Džejla",
                     Prezime = "Palalić",
                     Username = "dzejlap",
-                    Password = "fit2023",
+                    Password = "dzejla123",
                     BrojTelefona = "062709689",
-                    Visina = 164,
-                    Tezina = 57,
+                    Visina = 165,
+                    Tezina = 58,
                     SpolID = 2,
-                    GradID = 26,
+                    GradID = 33,
                     TeretanaID = 2,
                     Slika = "assets/2kor.jpg",
-                    is2FActive = true
+                    is2FActive = false
                 }
                 ,
                 new Korisnik
@@ -56,7 +56,7 @@ namespace GMS.Configuration
                     GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/3kor.jpg",
-                    is2FActive = true
+                    is2FActive = false
                 },
                 new Korisnik
                 {
@@ -64,15 +64,15 @@ namespace GMS.Configuration
                     Ime = "Denis",
                     Prezime = "Mušić",
                     Username = "denism",
-                    Password = "user",
+                    Password = "fit2023",
                     BrojTelefona = "061000000",
                     Visina = 186,
                     Tezina = 79,
                     SpolID = 1,
-                    GradID = 5,
+                    GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/4kor.jpg",
-                    is2FActive = true
+                    is2FActive = false
                 }
                 ,
                 new Korisnik
@@ -81,15 +81,15 @@ namespace GMS.Configuration
                     Ime = "Adil",
                     Prezime = "Joldić",
                     Username = "adilj",
-                    Password = "user",
+                    Password = "fit2023",
                     BrojTelefona = "062000000",
-                    Visina = 184,
+                    Visina = 189,
                     Tezina = 75,
                     SpolID = 1,
-                    GradID = 7,
+                    GradID = 34,
                     TeretanaID = 2,
                     Slika = "assets/5kor.jpg",
-                    is2FActive = true
+                    is2FActive = false
                 });
 
         }

@@ -1,4 +1,5 @@
-﻿using GMS.Data;
+﻿
+using GMS.Data;
 using GMS.Helpers;
 using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.Add
                 KorisnikID = request.KorisnikID,
                 TrenerID=request.TrenerID,
                 DatumTermina = request.DatumTermina,
-                OdrzanoSati = request.OdrzanoSati
+                ZakazanoSati = request.ZakazanoSati
             };
 
             db.Korisnik_Trener.Add(novi);
@@ -34,7 +35,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.Add
             return new Korisnik_TrenerAddResponse
             {
                 DatumTermina = novi.DatumTermina,
-                OdrzanoSati = novi.OdrzanoSati
+                ZakazanoSati = novi.ZakazanoSati
             };
         }
     }

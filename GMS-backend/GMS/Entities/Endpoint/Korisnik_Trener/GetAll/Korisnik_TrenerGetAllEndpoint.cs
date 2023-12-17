@@ -1,13 +1,11 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
-using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
 {
     [Route("Korisnik_Trener-GetAll")]
-    [MyAuthorization]
 
     public class Korisnik_TrenerGetAllEndpoint : MyBaseEndpoint<Korisnik_TrenerGetAllRequest, Korisnik_TrenerGetAllResponse>
     {
@@ -27,7 +25,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
                     KorisnikID = x.KorisnikID,
                     TrenerID = x.TrenerID,
                     DatumiVrijemeOdrzavanja = x.DatumTermina,
-                    OdrzanoSati = x.OdrzanoSati
+                    ZakazanoSati = x.ZakazanoSati
 
 
                 }).ToListAsync(cancellationToken : cancellationToken);

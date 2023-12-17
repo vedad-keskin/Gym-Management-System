@@ -22,7 +22,7 @@ namespace GMS.Entities.Endpoint.KorisnikSuplement.GetAll
             var korisniksuplement = await db.Korisnik_Suplement
                 .Select(x => new KorisnikSuplementGetAllResponseRow
                 {
-                    SuplementiID=x.SuplementID,
+                    SuplementID=x.SuplementID,
                     KorisnikID=x.KorisnikID,
                     DatumVrijemeNarudzbe=x.DatumVrijemeNarudzbe,
                     Kolicina=x.Kolicina,

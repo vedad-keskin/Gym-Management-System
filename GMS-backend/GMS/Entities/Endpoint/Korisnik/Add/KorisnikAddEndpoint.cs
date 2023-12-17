@@ -1,7 +1,6 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
 using GMS.Helpers.Auth;
-using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,18 +12,15 @@ namespace GMS.Entities.Endpoint.Korisnik.Add
     public class KorisnikAddEndpoint : MyBaseEndpoint<KorisnikAddRequest, KorisnikAddResponse>
     {
         private readonly ApplicationDbContext db;
-        private readonly MyAuthService auth;
 
-        public KorisnikAddEndpoint(ApplicationDbContext db, MyAuthService auth)
+        public KorisnikAddEndpoint(ApplicationDbContext db)
         {
             this.db = db;
-            this.auth = auth;
         }
 
         [HttpPost]
         public override async Task<KorisnikAddResponse> Handle([FromBody]KorisnikAddRequest request, CancellationToken cancellationToken)
         {
-            
             var novi = new Entities.Models.Korisnik
             {
                 Ime=request.Ime,

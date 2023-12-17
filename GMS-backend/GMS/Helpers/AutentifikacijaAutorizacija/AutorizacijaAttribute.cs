@@ -8,7 +8,7 @@ namespace GMS.Helpers.AutentifikacijaAutorizacija
         public AutorizacijaAttribute(bool admin, bool korisnik)
             : base(typeof(MyAuthorizeImpl))
         {
-            Arguments = new object[] {  };
+            Arguments = new object[] { };
         }
     }
 
@@ -22,7 +22,7 @@ namespace GMS.Helpers.AutentifikacijaAutorizacija
         {
             _admin = admin;
             _korisnik = korisnik;
-            
+
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
@@ -40,12 +40,12 @@ namespace GMS.Helpers.AutentifikacijaAutorizacija
             }
 
             KretanjePoSistemu.Save(filterContext.HttpContext);
-            
+
             if (filterContext.HttpContext.GetLoginInfo().isLogiran)
             {
                 return;//ok - ima pravo pristupa
             }
-           
+
 
             //else nema pravo pristupa
             filterContext.Result = new UnauthorizedResult();

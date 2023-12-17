@@ -40,7 +40,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetById
                         KorisnikID=x.KorisnikID,
                         TrenerID=x.TrenerID,
                         DatumTermina=x.DatumTermina,
-                        OdrzanoSati=x.OdrzanoSati
+                        ZakazanoSati = x.ZakazanoSati
 
                     })
                     .ToListAsync(cancellationToken)

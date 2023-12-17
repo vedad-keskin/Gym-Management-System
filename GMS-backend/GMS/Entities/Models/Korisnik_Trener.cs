@@ -7,6 +7,6 @@
         public int TrenerID { get; set; }
         public Trener Trener { get; set; }
         public DateTime DatumTermina { get; set; }
-        public int OdrzanoSati { get; set; }
+        public int ZakazanoSati { get; set; }
     }
 }

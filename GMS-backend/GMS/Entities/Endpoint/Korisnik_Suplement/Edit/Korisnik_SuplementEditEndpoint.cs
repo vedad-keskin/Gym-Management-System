@@ -31,14 +31,14 @@ namespace GMS.Entities.Endpoint.Korisnik_Suplement.Edit
             }
             else
             {
-                korisnik_suplement = db.Korisnik_Suplement.FirstOrDefault(s => s.KorisnikID == request.KorisnikID);
+                korisnik_suplement = db.Korisnik_Suplement.FirstOrDefault(s => s.KorisnikID == request.KorisnikID && s.SuplementID == request.SuplementID && s.DatumVrijemeNarudzbe == request.DatumVrijemeNarudzbe);
                 if (korisnik_suplement == null)
                     throw new Exception("pogresan ID");
             }
 
-            korisnik_suplement.DatumVrijemeNarudzbe = request.DatumVrijemeNarudzbe;
+ 
             korisnik_suplement.Isporuceno = request.Isporuceno;
-            korisnik_suplement.Kolicina = request.Kolicina;
+
            
             
 

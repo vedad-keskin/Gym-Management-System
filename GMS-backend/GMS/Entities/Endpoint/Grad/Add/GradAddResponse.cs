@@ -1,4 +1,4 @@
-﻿namespace GMS.Entities.Endpoint.Drzava.Add
+﻿namespace GMS.Entities.Endpoint.Grad.Add
 {
     public class GradAddResponse
     {

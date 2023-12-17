@@ -29,7 +29,7 @@ export interface Korisnik_SuplementGetAllResponse{
 export interface Korisnik_SuplementGetAllResponseKorisnik_Suplement {
   korisnikID: number
   imePrezime: string
-  suplementiID: number
+  suplementID: number
   nazivSuplementa: string
   datumVrijemeNarudzbe: string
   kolicina: number

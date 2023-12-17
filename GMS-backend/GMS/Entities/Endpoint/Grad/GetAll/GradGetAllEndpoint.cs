@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Grad.GetAll
                     
 
 
-                }).ToListAsync(cancellationToken: cancellationToken);
+                }).OrderBy(x=> x.Naziv).ToListAsync(cancellationToken: cancellationToken);
 
             return new GradGetAllResponse
             {

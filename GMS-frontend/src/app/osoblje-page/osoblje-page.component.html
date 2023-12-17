@@ -3,22 +3,104 @@
   <div class="py-1">
     <div class="container-fluid">
 
-  <div class="row d-flex gy-4 services justify-content-center" >
-    <div class="card m-2 p-0" *ngFor="let x of treneri" style="width: 19rem;">
-      <img src="{{x.slika}}" class="card-img-top"  />
-      <div class="card-body">
-        <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
-        <p class="card-text text-center" style="font-size: 14px;">Trener</p>
-        <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
-      </div>
-    </div>
+      <!-- modal za trenere -->
+      <div *ngIf="prikaziAddZaTrenera">
 
+        <div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLiveLabel">Zakažite personalni trening</h1>
+                <button  class="btn-close" data-bs-dismiss="modal" (click)="CloseZaTrenera()" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+
+                <h4  class="form-label text-center mb-3">{{odabraniTrener?.ime}} {{odabraniTrener?.prezime}}, trener </h4>
+
+
+                <div class="form-outline datetimepicker mb-2">
+                  <label class="form-label"> Zakažite datum termina: </label>
+                  <input type="datetime-local" class="form-control"  [(ngModel)]="noviKorisnikTrener.datumTermina"  >
+                </div>
+
+                <div class="mb-2">
+                  <label class="form-label"> Odredite broj sati: </label>
+                  <input class="form-control" [(ngModel)]="noviKorisnikTrener.zakazanoSati" >
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="CloseZaTrenera()" data-bs-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-primary" (click)="SaveZaTrenera()">Potvrdite termin</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- modal za nutricionste -->
+      <div *ngIf="prikaziAddZaNutricionistu">
+
+        <div class="modal fade show" id="exampleModalLive2" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" >Zakažite personalni trening</h1>
+                <button  class="btn-close" data-bs-dismiss="modal" (click)="CloseZaNutricionstu()" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+
+                <h4  class="form-label text-center mb-3">{{odabraniNutricionist?.ime}} {{odabraniNutricionist?.prezime}}, nutricionista </h4>
+
+
+                <div class="form-outline datetimepicker mb-2">
+                  <label class="form-label"> Zakažite datum termina: </label>
+                  <input type="datetime-local" class="form-control"  [(ngModel)]="noviKorisnikNutricionist.datumTermina"  >
+                </div>
+
+                <div class="mb-2">
+                  <label class="form-label"> Odredite broj sati: </label>
+                  <input class="form-control" [(ngModel)]="noviKorisnikNutricionist.zakazanoSati" >
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="CloseZaNutricionstu()" data-bs-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-primary" (click)="SaveZaNutricionistu()">Potvrdite termin</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Red osoblja-->
+      <div class="row d-flex gy-4 services justify-content-center" >
+
+        <!-- Karte trenera -->
+        <div class="card m-2 p-0" *ngFor="let x of treneri" style="width: 19rem;">
+          <img src="{{x.slika}}" class="card-img-top"  />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
+            <p class="card-text text-center" style="font-size: 14px;">Trener</p>
+            <button type="button" class="btn btn-danger w-100" (click)="OdaberiTrenera(x)">Rezerviši termin</button>
+          </div>
+        </div>
+
+        <!-- Karte nutricionista -->
         <div class="card m-2 p-0" *ngFor="let x of nutricionsti" style="width: 19rem;">
           <img src="{{x.slika}}" class="card-img-top"  />
           <div class="card-body">
             <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
             <p class="card-text text-center" style="font-size: 14px;">Nutricionista</p>
-            <button type="button" class="btn btn-danger w-100">Rezerviši termin</button>
+            <button type="button" class="btn btn-danger w-100" (click)="OdaberiNutricionistu(x)">Rezerviši termin</button>
           </div>
         </div>
       </div>

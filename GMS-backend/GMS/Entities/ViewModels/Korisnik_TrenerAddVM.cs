@@ -7,6 +7,6 @@ namespace GMS.Entities.ViewModels
         public int KorisnikID { get; set; }
         public int TrenerID { get; set; }
         public DateTime DatumTermina { get; set; }
-        public int OdrzanoSati { get; set; }
+        public int ZakazanoSati { get; set; }
     }
 }

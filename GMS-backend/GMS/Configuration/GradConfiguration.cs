@@ -168,6 +168,16 @@ namespace GMS.Configuration
                 {
                     ID = 32,
                     Naziv = "Živinice",
+                },
+                new Grad
+                {
+                    ID = 33,
+                    Naziv = "Donji Vakuf",
+                },
+                new Grad
+                {
+                    ID = 34,
+                    Naziv = "Zavidovići",
                 });
         }
     }

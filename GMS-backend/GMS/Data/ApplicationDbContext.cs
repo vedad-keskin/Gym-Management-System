@@ -52,12 +52,6 @@ namespace GMS.Data
             modelBuilder.ApplyConfiguration(new FAQConfiguration());
             modelBuilder.ApplyConfiguration(new Korisnik_SuplementConfiguration());
         }
-
-        internal Task SaveChanges(CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
         public DbSet<Grad> Grad { get; set; }
         public DbSet<Spol> Spol { get; set; }
         public DbSet<Teretana> Teretana { get; set; }

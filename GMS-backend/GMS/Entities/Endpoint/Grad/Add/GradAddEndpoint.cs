@@ -1,6 +1,5 @@
 ﻿using GMS.Data;
-using GMS.Entities.Endpoint.Drzava.Add;
-using GMS.Entities.Models;
+using GMS.Entities.Endpoint.Grad.Add;
 using GMS.Helpers;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -39,11 +38,12 @@ namespace GMS.Endpoint.Grad.Add
             };
 
             db.Grad.Add(novi);
-            await db.SaveChangesAsync(cancellationToken : cancellationToken);
+            await db.SaveChangesAsync(cancellationToken: cancellationToken);
 
-            return new GradAddResponse {
+            return new GradAddResponse
+            {
                 ID = novi.ID,
-                Naziv=novi.Naziv
+                Naziv = novi.Naziv
             };
         }
 

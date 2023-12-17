@@ -9,9 +9,9 @@ namespace GMS.Helpers.Auth
         {
             operation.Parameters.Add(new OpenApiParameter
             {
-                Name= "my-auth-token",
-                In=ParameterLocation.Header,
-                Description="Iz autentifikacije upisati preuzeti token"
+                Name = "my-auth-token",
+                In = ParameterLocation.Header,
+                Description = "Iz autentifikacije upisati preuzeti token"
 
             });
         }

@@ -1,7 +1,6 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
 using GMS.Helpers.Auth;
-using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Kategorija.Add
@@ -12,18 +11,15 @@ namespace GMS.Entities.Endpoint.Kategorija.Add
     public class KategorijaAddEndpoint : MyBaseEndpoint<KategorijaAddRequest, KategorijaAddResponse>
     {
         private readonly ApplicationDbContext db;
-        private readonly MyAuthService auth;
 
-        public KategorijaAddEndpoint(ApplicationDbContext db, MyAuthService auth)
+        public KategorijaAddEndpoint(ApplicationDbContext db)
         {
             this.db = db;
-            this.auth = auth;
         }
 
         [HttpPost]
         public override async Task<KategorijaAddResponse> Handle([FromBody]KategorijaAddRequest request, CancellationToken cancellationToken)
         {
-
             var novi = new Entities.Models.Kategorija
             {
                 Naziv = request.Naziv

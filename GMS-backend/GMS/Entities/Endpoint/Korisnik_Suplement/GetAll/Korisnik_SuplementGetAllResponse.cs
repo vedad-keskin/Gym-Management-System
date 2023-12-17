@@ -9,7 +9,7 @@
     {
         public int KorisnikID { get; set; }
         public string ImePrezime { get; set; }
-        public int SuplementiID { get; set; }
+        public int SuplementID { get; set; }
         public string NazivSuplementa { get; set; }
         public DateTime DatumVrijemeNarudzbe { get; set; }
         public int Kolicina { get; set; }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
 {
     [Route("Korisnik_Nutricionist-GetAll")]
-    [MyAuthorization]
+   
 
     public class Korisnik_NutricionistGetAllEndpoint : MyBaseEndpoint<Korisnik_NutricionistGetAllRequest, Korisnik_NutricionistGetAllResponse>
     {
@@ -27,7 +27,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
                    KorisnikID=x.KorisnikID,
                    NutricionistID=x.NutricionistID,
                    DatumTermina=x.DatumTermina,
-                   OdrzanoSati=x.OdrzanoSati
+                    ZakazanoSati = x.ZakazanoSati
 
                 }).ToListAsync(cancellationToken: cancellationToken);
 

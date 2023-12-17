@@ -401,6 +401,16 @@ namespace GMS.Migrations
                         {
                             ID = 32,
                             Naziv = "Živinice"
+                        },
+                        new
+                        {
+                            ID = 33,
+                            Naziv = "Donji Vakuf"
+                        },
+                        new
+                        {
+                            ID = 34,
+                            Naziv = "Zavidovići"
                         });
                 });
 
@@ -564,8 +574,8 @@ namespace GMS.Migrations
                     b.Property<DateTime>("DatumTermina")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("OdrzanoSati")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ZakazanoSati")
+                        .HasColumnType("int");
 
                     b.HasKey("KorisnikID", "NutricionistID", "DatumTermina");
 
@@ -635,7 +645,7 @@ namespace GMS.Migrations
                     b.Property<DateTime>("DatumTermina")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OdrzanoSati")
+                    b.Property<int>("ZakazanoSati")
                         .HasColumnType("int");
 
                     b.HasKey("KorisnikID", "TrenerID", "DatumTermina");
@@ -1494,25 +1504,25 @@ namespace GMS.Migrations
                         new
                         {
                             ID = 4,
-                            Password = "fit2023",
+                            Password = "dzejla123",
                             Username = "dzejlap",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "062709689",
-                            GradID = 26,
+                            GradID = 33,
                             Ime = "Džejla",
                             Prezime = "Palalić",
                             Slika = "assets/2kor.jpg",
                             SpolID = 2,
                             TeretanaID = 2,
-                            Tezina = 57f,
-                            Visina = 164f
+                            Tezina = 58f,
+                            Visina = 165f
                         },
                         new
                         {
                             ID = 5,
                             Password = "fit2023",
                             Username = "saidke",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "0644065144",
                             GradID = 18,
                             Ime = "Said",
@@ -1526,11 +1536,11 @@ namespace GMS.Migrations
                         new
                         {
                             ID = 6,
-                            Password = "user",
+                            Password = "fit2023",
                             Username = "denism",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "061000000",
-                            GradID = 5,
+                            GradID = 18,
                             Ime = "Denis",
                             Prezime = "Mušić",
                             Slika = "assets/4kor.jpg",
@@ -1542,18 +1552,18 @@ namespace GMS.Migrations
                         new
                         {
                             ID = 7,
-                            Password = "user",
+                            Password = "fit2023",
                             Username = "adilj",
-                            is2FActive = true,
+                            is2FActive = false,
                             BrojTelefona = "062000000",
-                            GradID = 7,
+                            GradID = 34,
                             Ime = "Adil",
                             Prezime = "Joldić",
                             Slika = "assets/5kor.jpg",
                             SpolID = 1,
                             TeretanaID = 2,
                             Tezina = 75f,
-                            Visina = 184f
+                            Visina = 189f
                         });
                 });
 

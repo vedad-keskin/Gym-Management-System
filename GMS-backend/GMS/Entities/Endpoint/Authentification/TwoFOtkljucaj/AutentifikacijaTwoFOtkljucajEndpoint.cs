@@ -28,7 +28,7 @@ public class AutentifikacijaTwoFOtkljucajEndpoint : MyBaseEndpoint<Autentifikaci
     {
         if (!_authService.GetAuthInfo().isLogiran)
         {
-            throw new Exception("nije logirani");
+            throw new Exception("Niste logirani.");
         }
         var token = _authService.GetAuthInfo().autentifikacijaToken;
 

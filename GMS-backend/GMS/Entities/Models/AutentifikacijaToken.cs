@@ -15,6 +15,7 @@ namespace GMS.Entities.Models
         public DateTime vrijemeEvidentiranja { get; set; }
         public string? ipAdresa { get; set; }
         [JsonIgnore]
+
         public string? TwoFKey { get; set; }
         public bool IsOtkljucano { get; set; }
     }

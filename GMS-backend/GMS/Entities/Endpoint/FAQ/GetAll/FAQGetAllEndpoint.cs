@@ -1,6 +1,8 @@
-﻿using GMS.Data;
+﻿
+using GMS.Data;
 using GMS.Entities.Endpoint.FAQ.GetAll;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

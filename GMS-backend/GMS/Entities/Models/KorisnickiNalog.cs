@@ -22,9 +22,7 @@ namespace GMS.Entities.Models
         public bool isAdministrator => Administrator != null;
         public bool isKorisnik => Korisnik != null;
 
-
         public bool is2FActive { get; set; }
-     
 
 
     }

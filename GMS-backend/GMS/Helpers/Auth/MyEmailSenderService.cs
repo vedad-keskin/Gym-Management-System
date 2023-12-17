@@ -9,7 +9,7 @@ namespace GMS.Helpers.Auth
 
         public MyEmailSenderService(IConfiguration configuration)
         {
-            _configuration = configuration; 
+            _configuration = configuration;
         }
 
         public void Posalji(string to, string messageSubject, string messageBody, bool isBodyHtml = false)

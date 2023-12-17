@@ -25,7 +25,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.Add
                 KorisnikID=request.KorisnikID,
                 NutricionistID=request.NutricionistID,
                 DatumTermina=request.DatumTermina,
-                OdrzanoSati=request.OdrzanoSati
+                ZakazanoSati = request.ZakazanoSati
             };
 
             db.Korisnik_Nutricionst.Add(novi);
@@ -34,7 +34,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.Add
             return new Korisnik_NutricionistAddResponse
             {
                 DatumTermina=novi.DatumTermina,
-                OdrzanoSati=novi.OdrzanoSati
+                ZakazanoSati = novi.ZakazanoSati
             };
         }
     }

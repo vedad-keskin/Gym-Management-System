@@ -25,7 +25,7 @@ namespace GMS.Entities.Controllers
                     Korisnik = x.Korisnik,
                     Trener = x.Trener,
                     DatumTermina = x.DatumTermina,
-                    OdrzanoSati = x.OdrzanoSati
+                    ZakazanoSati = x.ZakazanoSati
                 }
                 ).ToList();
 
@@ -41,7 +41,7 @@ namespace GMS.Entities.Controllers
                 KorisnikID = x.KorisnikID,
                 TrenerID = x.TrenerID,
                 DatumTermina = x.DatumTermina,
-                OdrzanoSati = x.OdrzanoSati
+                ZakazanoSati = x.ZakazanoSati
 
             };
 
