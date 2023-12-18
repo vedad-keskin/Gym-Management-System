@@ -101,6 +101,7 @@ export class OsobljePageComponent implements OnInit{
     else if(this.myAuthService.isKorisnik()){
       this.prikaziAddZaTrenera = true;
       this.odabraniTrener = x;
+      this.noviKorisnikTrener.trenerID = this.odabraniTrener.id;
     }
 
 
@@ -125,6 +126,8 @@ export class OsobljePageComponent implements OnInit{
     else if(this.myAuthService.isKorisnik()){
       this.prikaziAddZaNutricionistu = true;
       this.odabraniNutricionist = x;
+      this.noviKorisnikNutricionist.nutricionistID = this.odabraniNutricionist.id;
+
     }
   }
 

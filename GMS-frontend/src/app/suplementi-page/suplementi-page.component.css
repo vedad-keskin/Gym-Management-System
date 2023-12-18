@@ -4,4 +4,7 @@ section{
 .slike{
   width: 50px;
 }
+#exampleModalLive{
+  background-color: rgba(0,0,0,70%);
+}
 
