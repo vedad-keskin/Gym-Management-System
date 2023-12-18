@@ -25,7 +25,8 @@ namespace GMS.Entities.Endpoint.Korisnik_Suplement.Add
                 SuplementID=request.SuplementID,
                 KorisnikID=request.KorisnikID,
                 DatumVrijemeNarudzbe=request.DatumVrijemeNarudzbe,
-                Kolicina=request.Kolicina
+                Kolicina=request.Kolicina,
+                Isporuceno = request.Isporuceno
             };
 
             db.Korisnik_Suplement.Add(novi);
@@ -34,7 +35,9 @@ namespace GMS.Entities.Endpoint.Korisnik_Suplement.Add
             return new Korisnik_SuplementAddResponse
             {
                DatumVrijemeNarudzbe=novi.DatumVrijemeNarudzbe,
-               Kolicina=novi.Kolicina
+               Kolicina=novi.Kolicina,
+               SuplementID= novi.SuplementID,
+               KorisnikID = novi.KorisnikID
             };
         }
     }

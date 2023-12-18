@@ -34,6 +34,7 @@
       <tr>
         <th>Ime i prezime</th>
         <th>Suplement</th>
+        <th>Datum kupovine</th>
         <th>Količina</th>
         <th>Cijena</th>
         <th>Ukupno</th>
@@ -44,8 +45,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let x of GetFiltiranaKupovina()">
-        <td class="w-25">{{ x.imePrezime }}</td>
+        <td>{{ x.imePrezime }}</td>
         <td class="w-25">{{x.nazivSuplementa}}</td>
+        <td>{{x.datumVrijemeNarudzbe | date}}</td>
         <td>{{x.kolicina}} kom</td>
         <td>{{x.cijena}} KM</td>
         <td>{{x.ukupno}} KM</td>

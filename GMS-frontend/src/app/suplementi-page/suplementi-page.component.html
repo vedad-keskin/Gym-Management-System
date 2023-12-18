@@ -27,7 +27,7 @@
 
             <div class="mb-2">
               <h6 class="form-label mt-3"> Količina : </h6>
-              <input class="form-control" [(ngModel)]="noviSuplement.kolicina" (change)="IzracunajUkupno()">
+              <input class="form-control" [(ngModel)]="noviSuplement.kolicina" (ngModelChange)="IzracunajUkupno()">
             </div>
             </div>
 
