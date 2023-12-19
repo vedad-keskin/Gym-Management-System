@@ -10,6 +10,9 @@ export class MyAuthService{
     return this.getAuthorizationToken() != null;
   }
   nijelLogiran():boolean{
+    return this.getAuthorizationToken() == null;
+  }
+  nijelLogiran2():boolean{
     let token = window.localStorage.getItem("my-auth-token");
 
     return token == "";

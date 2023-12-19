@@ -8,6 +8,16 @@ import {
   Korisnik_SuplementAddEndpoint, Korisnik_SuplementAddRequest
 } from "../endpoints/korisnik-endpoints/korisnik-suplementi-endpoints/korisnik-suplement-add-endpoint";
 import {MyAuthService} from "../services/MyAuthService";
+import {
+  DobavljacGetAllResponse,
+  DobavljacGetAllResponseDobavljaci,
+  DobavljaciGetAllEndpoint
+} from "../endpoints/dobavljaci-endpoints/dobavljaci-getall-endpoint";
+import {
+  KategorijaGetAllResponse,
+  KategorijaGetAllResponseKategorija,
+  KategorijeGetAllEndpoint
+} from "../endpoints/kategorije-endpoints/kategorije-getall-endpoint";
 
 
 @Component({
@@ -19,7 +29,9 @@ export class SuplementiPageComponent implements OnInit{
 
   constructor(private SuplementigetAllEndpoint:SuplementiGetallEndpoint,
               private Korisnik_SuplementAddEndpoint:Korisnik_SuplementAddEndpoint,
-              private MyAuthService:MyAuthService) {
+              private MyAuthService:MyAuthService,
+              private DobavljaciGetAllEndpoint:DobavljaciGetAllEndpoint,
+              private KategorijeGetAllEndpoint:KategorijeGetAllEndpoint) {
 
   }
 
@@ -29,7 +41,14 @@ export class SuplementiPageComponent implements OnInit{
 
   odabraniSuplement : SuplementGetAllResponseSuplement | null = null;
   suplementi: SuplementGetAllResponseSuplement[] = [];
+  dobavljaci: DobavljacGetAllResponseDobavljaci[] = [];
+  kategorije: KategorijaGetAllResponseKategorija[] = [];
+
+
   PretragaNaziv: string = "";
+  PretragaDobavljac: string = "";
+  PretragaKategorija: string = "";
+
 
   public noviSuplement:Korisnik_SuplementAddRequest = {
     korisnikID: this.id,
@@ -47,9 +66,18 @@ export class SuplementiPageComponent implements OnInit{
       this.suplementi = x.suplementi;
     })
 
+    this.DobavljaciGetAllEndpoint.Handle().subscribe((x:DobavljacGetAllResponse )=>{
+      this.dobavljaci = x.dobavljaci;
+    })
+
+    this.KategorijeGetAllEndpoint.Handle().subscribe((x:KategorijaGetAllResponse )=>{
+      this.kategorije = x.kategorije;
+    })
   }
   GetFiltiraniSuplementi() {
-    return this.suplementi.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
+    return this.suplementi.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) &&
+      (x.nazivDobavljaca.toLowerCase().includes(this.PretragaDobavljac.toLowerCase()) || this.PretragaDobavljac == "Svi" ) &&
+      (x.nazivKategorija.toLowerCase().includes(this.PretragaKategorija.toLowerCase()) || this.PretragaKategorija =="Sve" ));
   }
 
   Save() {
@@ -62,7 +90,7 @@ export class SuplementiPageComponent implements OnInit{
 
   Close() {
     this.prikaziAdd = false;
-     this.noviSuplement.kolicina = 1;
+    this.noviSuplement.kolicina = 1;
   }
 
   Odaberi(x: SuplementGetAllResponseSuplement) {

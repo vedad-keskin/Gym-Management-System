@@ -1,7 +1,7 @@
 <section id="suplementi" >
 
 
-  <!-- modal za trenere -->
+  <!-- modal za suplemente -->
   <div *ngIf="prikaziAdd">
 
     <div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
@@ -17,19 +17,19 @@
 
             <div class="row">
               <div class="col-lg-6">
-            <h4  class="form-label text-center mb-3">{{odabraniSuplement?.naziv}}</h4>
+                <h4  class="form-label text-center mb-3">{{odabraniSuplement?.naziv}}</h4>
 
 
-            <div class="text-center">
-            <img src="{{odabraniSuplement?.slika}}" class="card-img-top" style="width: 15rem;" />
-            </div>
+                <div class="text-center">
+                  <img src="{{odabraniSuplement?.slika}}" class="card-img-top" style="width: 15rem;" />
+                </div>
 
 
-            <div class="mb-2">
-              <h6 class="form-label mt-3"> Količina : </h6>
-              <input class="form-control" [(ngModel)]="noviSuplement.kolicina" (ngModelChange)="IzracunajUkupno()">
-            </div>
-            </div>
+                <div class="mb-2">
+                  <h6 class="form-label mt-3"> Količina : </h6>
+                  <input class="form-control" [(ngModel)]="noviSuplement.kolicina" (ngModelChange)="IzracunajUkupno()">
+                </div>
+              </div>
 
               <div class="col-lg-6">
                 <div class="mb-2">
@@ -47,7 +47,7 @@
                 </div>
 
               </div>
-              </div>
+            </div>
 
 
 
@@ -64,25 +64,47 @@
 
   <!-- Input za naziv -->
 
-  <div class="row my-5 d-flex justify-content-center" >
-    <div class="col-6">
+  <div class="row mb-5 d-flex justify-content-center" >
+    <div class="col-4">
+      <label class="form-label"> Naziv suplementa: </label>
       <input type="text" spellcheck="false" placeholder="Unesite naziv" class="form-control secondary" [(ngModel)]="PretragaNaziv">
     </div>
+
+    <div class="col-3">
+      <div>
+        <label class="form-label"> Proizvođač: </label>
+        <select class="form-select" [(ngModel)]="PretragaDobavljac">
+          <option>Svi</option>
+          <option *ngFor="let x of dobavljaci" [value]="x.naziv">{{x.naziv}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div>
+        <label class="form-label"> Kategorija: </label>
+        <select class="form-select" [(ngModel)]="PretragaKategorija">
+          <option>Sve</option>
+          <option *ngFor="let x of kategorije" [value]="x.naziv">{{x.naziv}}</option>
+        </select>
+      </div>
+    </div>
+
   </div>
 
 
   <!-- Ispis suplemenata -->
 
-    <div class="row d-flex justify-content-center" >
-      <div class="card m-1" id="suplement" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
-        <img id="slike" src="{{x.slika}}" class="card-img-top"  />
-        <div class="card-body">
-          <h5 class="card-title text-center">{{x.naziv}}</h5>
-          <p class="card-text text-center" style="font-size: 14px;">{{x.nazivDobavljaca}}</p>
-          <button type="button" class="btn btn-danger w-100" (click)="Odaberi(x)">Rezerviši suplement</button>
-        </div>
+  <div class="row d-flex justify-content-center" >
+    <div class="card m-1" id="suplement" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
+      <img id="slike" src="{{x.slika}}" class="card-img-top"  />
+      <div class="card-body">
+        <h5 class="card-title text-center">{{x.naziv}}</h5>
+        <p class="card-text text-center" style="font-size: 14px;">{{x.nazivDobavljaca}}</p>
+        <button type="button" class="btn btn-danger w-100" (click)="Odaberi(x)">Rezerviši suplement</button>
       </div>
     </div>
+  </div>
 
 </section>
 
