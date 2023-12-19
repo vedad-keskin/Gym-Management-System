@@ -1,11 +1,13 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.FAQ.Add
 {
     [Route("FAQ-Add")]
+    [MyAuthorization]
 
     public class FAQAddEndpoint : MyBaseEndpoint<FAQAddRequest, FAQAddResponse>
     {

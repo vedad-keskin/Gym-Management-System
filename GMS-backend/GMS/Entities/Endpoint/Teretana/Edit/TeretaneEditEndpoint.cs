@@ -1,10 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Teretana.Edit
 {
     [Route("Teretana-Edit")]
+    [MyAuthorization]
 
     public class TeretaneEditEndpoint : MyBaseEndpoint<TeretaneEditRequest, int>
     {

@@ -1,11 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Korisnik_Clanarina.Add
 {
     [Route("Korisnik_Clanarina-Add")]
-    //[MyAuthorization]
+    [MyAuthorization]
 
     public class Korisnik_ClanarinaAddEndpoint : MyBaseEndpoint<Korisnik_ClanarinaAddRequest, Korisnik_ClanarinaAddResponse>
     {

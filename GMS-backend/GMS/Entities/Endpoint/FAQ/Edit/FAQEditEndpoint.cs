@@ -1,10 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.FAQ.Edit
 {
     [Route("FAQ-Edit")]
+    [MyAuthorization]
 
     public class FAQEditEndpoint : MyBaseEndpoint<FAQEditRequest, int>
     {

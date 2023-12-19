@@ -1,10 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Grad.Edit
 {
     [Route("Grad-Edit")]
+    [MyAuthorization]
 
     public class GradoviEditEndpoint : MyBaseEndpoint<GradoviEditRequest, int>
     {

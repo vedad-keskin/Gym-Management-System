@@ -1,5 +1,6 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Edit
 {
 
     [Route("Clanarina-Edit")]
+    [MyAuthorization]
     public class ClanarineEditEndpoint : MyBaseEndpoint<ClanarineEditRequest, int>
     {
         private readonly ApplicationDbContext db;

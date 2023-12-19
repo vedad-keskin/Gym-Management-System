@@ -1,11 +1,13 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using GMS.Helpers.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Clanarina.Add
 {
     [Route("Clanarina-Add")]
+    [MyAuthorization]
 
     public class ClanarinaAddEndpoint : MyBaseEndpoint<ClanarinaAddRequest, ClanarinaAddResponse>
     {

@@ -1,10 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Dobavljac.Edit
 {
     [Route("Dobavljac-Edit")]
+    [MyAuthorization]
 
     public class DobavljaciEditEndpoint : MyBaseEndpoint<DobavljaciEditRequest, int>
     {
