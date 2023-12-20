@@ -25,7 +25,9 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.GetAll
                   ClanarinaID=x.ClanarinaID,
                   KorisnikID=x.KorisnikID,
                   DatumUplate=x.DatumUplate,
-                  DatumIsteka=x.DatumIsteka
+                  DatumIsteka=x.DatumIsteka,
+                  NazivClanarine = x.Clanarina.Naziv
+                  
 
                 }).ToListAsync(cancellationToken : cancellationToken);
 

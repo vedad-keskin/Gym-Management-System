@@ -6,10 +6,10 @@ import {
 import {
   KorisnikClanarinaGetEndpoint,
   KorisnikClanarinaGetResponse
-} from "../endpoints/korisnik-endpoints/korisnik-clanarina-get-endpoint/korisnik-clanarina-get-endpoint";
+} from "../endpoints/korisnik-endpoints/korisnik-clanarina-endpoints/korisnik-clanarina-get-endpoint";
 import {
   Korisnik_ClanarinaAddEndpoint, Korisnik_ClanarinaAddRequest
-} from "../endpoints/korisnik-endpoints/korisnik-clanarina-get-endpoint/korisnik-clanarina-add-endpoint";
+} from "../endpoints/korisnik-endpoints/korisnik-clanarina-endpoints/korisnik-clanarina-add-endpoint";
 import {
   ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina,
   ClanarineGetallEndpoint
