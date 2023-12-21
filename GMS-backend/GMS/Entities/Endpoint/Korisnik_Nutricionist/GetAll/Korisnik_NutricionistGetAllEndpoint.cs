@@ -27,7 +27,8 @@ namespace GMS.Entities.Endpoint.Korisnik_Nutricionist.GetAll
                    KorisnikID=x.KorisnikID,
                    NutricionistID=x.NutricionistID,
                    DatumTermina=x.DatumTermina,
-                    ZakazanoSati = x.ZakazanoSati
+                    ZakazanoSati = x.ZakazanoSati,
+                    NazivNutricioniste = $"{x.Nutricionist.Ime} {x.Nutricionist.Prezime}"
 
                 }).ToListAsync(cancellationToken: cancellationToken);
 

@@ -11,5 +11,6 @@
         public int TrenerID { get; set; }
         public int ZakazanoSati { get; set; }
         public DateTime DatumiVrijemeOdrzavanja { get; set; }
+        public string NazivTrenera { get; set; }
     }
 }

@@ -120,7 +120,7 @@
                 </div>
               </div>
 
-              <!-- Repeat the structure for additional sections in Accordion 1 -->
+
 
             </div>
           </div>
@@ -157,7 +157,7 @@
                 </div>
               </div>
 
-              <!-- Repeat the structure for additional sections in Accordion 2 -->
+
 
             </div>
           </div>
@@ -165,7 +165,83 @@
       </div>
 
 
+      <div class="container mt-1">
+        <div class="row">
+          <div class="col-6">
+            <div class="accordion accordion-flush" id="accordionFlushExample3">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Personalni treninzi
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample3">
+                  <div class="accordion-body">
 
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th>Trener</th>
+                        <th>Datum termina</th>
+                        <th>Zakazano sati</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let x of GetFiltiraneTreninzi()">
+                        <td>{{ x.nazivTrenera }}</td>
+                        <td>{{ x.datumiVrijemeOdrzavanja | date }}</td>
+                        <td>{{ x.zakazanoSati }}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="accordion accordion-flush" id="accordionFlushExample4">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    Termini kod nutricioniste
+                  </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample4">
+                  <div class="accordion-body">
+
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th>Nutricionista</th>
+                        <th>Datum termina</th>
+                        <th>Zakazano sati</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let x of GetFiltiraneTerminiNutricioniste()">
+                        <td>{{ x.nazivNutricioniste }}</td>
+                        <td>{{ x.datumTermina | date }}</td>
+                        <td>{{ x.zakazanoSati }}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

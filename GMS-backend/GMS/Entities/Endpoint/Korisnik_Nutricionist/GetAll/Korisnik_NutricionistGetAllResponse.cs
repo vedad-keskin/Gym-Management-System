@@ -11,6 +11,7 @@
         public int NutricionistID { get; set; }
         public DateTime DatumTermina { get; set; }
         public int ZakazanoSati { get; set; }
+        public string NazivNutricioniste { get; set; }
 
     }
 }

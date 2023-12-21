@@ -25,7 +25,8 @@ namespace GMS.Entities.Endpoint.Korisnik_Trener.GetAll
                     KorisnikID = x.KorisnikID,
                     TrenerID = x.TrenerID,
                     DatumiVrijemeOdrzavanja = x.DatumTermina,
-                    ZakazanoSati = x.ZakazanoSati
+                    ZakazanoSati = x.ZakazanoSati,
+                    NazivTrenera = $"{x.Trener.Ime} {x.Trener.Prezime}"
 
 
                 }).ToListAsync(cancellationToken : cancellationToken);

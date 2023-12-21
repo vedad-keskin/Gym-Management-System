@@ -12,6 +12,14 @@ import {
   Korisnik_SuplementGetAllEndpoint, Korisnik_SuplementGetAllResponse,
   Korisnik_SuplementGetAllResponseKorisnik_Suplement
 } from "../endpoints/korisnik-endpoints/korisnik-suplementi-endpoints/korisnik-suplement-getall-endpoint";
+import {
+  Korisnik_TrenerGetAllEndpoint, Korisnik_TrenerGetAllResponse, Korisnik_TrenerGetAllResponseKorisnik_Trener
+} from "../endpoints/korisnik-endpoints/korisnik-treneri-endpoints/korisnik-trener-getall-endpoint";
+import {
+  Korisnik_NutricionistGetAllEndpoint,
+  Korisnik_NutricionistGetAllResponse,
+  Korisnik_NutricionistGetAllResponseKorisnik_Nutricionist
+} from "../endpoints/korisnik-endpoints/korisnik-nutricionst-endpoints/korisnik-nutricionist-getall-endpoint";
 
 
 @Component({
@@ -24,11 +32,15 @@ export class KorisnikPageComponent implements OnInit{
   constructor(private myAuthService: MyAuthService,
               private KorisnikGetByIdEndpoint:KorisnikGetByIdEndpoint,
               private Korisnik_ClanarinaGetAllEndpoint:Korisnik_ClanarinaGetAllEndpoint,
-              private Korisnik_SuplementGetAllEndpoint:Korisnik_SuplementGetAllEndpoint) {
+              private Korisnik_SuplementGetAllEndpoint:Korisnik_SuplementGetAllEndpoint,
+              private Korisnik_TrenerGetAllEndpoint:Korisnik_TrenerGetAllEndpoint,
+              private Korisnik_NutricionistGetAllEndpoint:Korisnik_NutricionistGetAllEndpoint) {
   }
 
   korisnik_clanarine: Korisnik_ClanarinaGetAllResponseKorisnikClanarina[] = [];
   korisnikSuplement: Korisnik_SuplementGetAllResponseKorisnik_Suplement[] = [];
+  korisnikTrener: Korisnik_TrenerGetAllResponseKorisnik_Trener[] = [];
+  korisnikNutricionist: Korisnik_NutricionistGetAllResponseKorisnik_Nutricionist[] = [];
 
 
   public odabraniKorisnik : KorisnikGetByIdResponse | null = null;
@@ -51,6 +63,14 @@ export class KorisnikPageComponent implements OnInit{
     this.Korisnik_SuplementGetAllEndpoint.Handle().subscribe((x:Korisnik_SuplementGetAllResponse )=>{
       this.korisnikSuplement = x.korisnikSuplement;
     })
+
+    this.Korisnik_TrenerGetAllEndpoint.Handle().subscribe((x:Korisnik_TrenerGetAllResponse )=>{
+      this.korisnikTrener = x.korisnikTrener;
+    })
+
+    this.Korisnik_NutricionistGetAllEndpoint.Handle().subscribe((x:Korisnik_NutricionistGetAllResponse )=>{
+      this.korisnikNutricionist = x.korisnikNutricionist;
+    })
   }
 
 
@@ -60,6 +80,13 @@ export class KorisnikPageComponent implements OnInit{
 
   GetFiltiraneSuplemente() {
     return this.korisnikSuplement.filter(x=> x.korisnikID == this.id );
+  }
+
+  GetFiltiraneTreninzi() {
+    return this.korisnikTrener.filter(x=> x.korisnikID == this.id );
+  }
+  GetFiltiraneTerminiNutricioniste() {
+    return this.korisnikNutricionist.filter(x=> x.korisnikID == this.id );
   }
 
 }
