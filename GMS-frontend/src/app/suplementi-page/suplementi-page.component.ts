@@ -53,7 +53,6 @@ export class SuplementiPageComponent implements OnInit{
   public noviSuplement:Korisnik_SuplementAddRequest = {
     korisnikID: this.id,
     suplementID: 1,
-    datumVrijemeNarudzbe: new Date(),
     kolicina: 1,
     isporuceno: false
   };

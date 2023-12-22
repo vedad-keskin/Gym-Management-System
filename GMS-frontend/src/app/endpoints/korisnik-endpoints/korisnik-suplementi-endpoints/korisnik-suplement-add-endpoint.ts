@@ -17,7 +17,6 @@ export class Korisnik_SuplementAddEndpoint implements  MyBaseEndpoint<Korisnik_S
 export interface Korisnik_SuplementAddRequest {
   korisnikID: number
   suplementID: number
-  datumVrijemeNarudzbe: Date
   kolicina: number
   isporuceno: boolean
 }

@@ -24,7 +24,7 @@ namespace GMS.Entities.Endpoint.Korisnik_Suplement.Add
             {
                 SuplementID=request.SuplementID,
                 KorisnikID=request.KorisnikID,
-                DatumVrijemeNarudzbe=request.DatumVrijemeNarudzbe,
+                DatumVrijemeNarudzbe= DateTime.Now.ToLocalTime(),
                 Kolicina=request.Kolicina,
                 Isporuceno = request.Isporuceno
             };
