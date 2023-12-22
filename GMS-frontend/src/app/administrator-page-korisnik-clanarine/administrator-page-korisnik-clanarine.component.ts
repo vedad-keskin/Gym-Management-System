@@ -46,14 +46,10 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
   };
   ngOnInit():void {
 
-    this.KorisnikGetAllEndpoint.Handle().subscribe((x:KorisnikGetAllResponse )=>{
-      this.korisnici = x.korisnici;
-    });
 
-    this.ClanarineGetallEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
-      this.clanarine = x.clanarine;
-    });
+    this.fetchKorisnici();
 
+    this.fetchClanarine();
   }
   GetFiltiriraneKorisnike() {
     return this.korisnici.filter(x=> x.ime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) ||  x.prezime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) ||  x.username.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
@@ -74,7 +70,8 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
   Close() {
     this.odabraniKorisnikClanarine = null
     this.prikaziPregled = false;
-    this.ngOnInit();
+    this.fetchClanarine();
+    this.fetchKorisnici();
   }
 
   OdaberizaNovi(id: number) {
@@ -85,11 +82,24 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
 
   SaveNew() {
     this.Korisnik_ClanarinaAddEndpoint.Handle(this.novaKorisnikClanarina).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchClanarine();
+      this.fetchKorisnici();
       this.prikaziAdd = false;
 
     })
 
 
+  }
+
+  private fetchClanarine() {
+    this.ClanarineGetallEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
+      this.clanarine = x.clanarine;
+    });
+  }
+
+  private fetchKorisnici() {
+    this.KorisnikGetAllEndpoint.Handle().subscribe((x:KorisnikGetAllResponse )=>{
+      this.korisnici = x.korisnici;
+    });
   }
 }

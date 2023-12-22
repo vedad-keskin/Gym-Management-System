@@ -23,9 +23,8 @@ export class AdministratorPageKorisniciComponent implements OnInit{
 
 
   ngOnInit() {
-    this.KorisnikGetAllEndpoint.Handle().subscribe((x:KorisnikGetAllResponse )=>{
-      this.korisnici = x.korisnici;
-    })
+
+    this.fetchKorisnici();
   }
 
   Odaberi(x: KorisnikGetAllResponseKorisnik) {
@@ -34,5 +33,11 @@ export class AdministratorPageKorisniciComponent implements OnInit{
 
   GetFiltiraniKorisnici() {
     return this.korisnici.filter(x=> x.ime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) || x.prezime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) || x.username.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) );
+  }
+
+  private fetchKorisnici() {
+    this.KorisnikGetAllEndpoint.Handle().subscribe((x:KorisnikGetAllResponse )=>{
+      this.korisnici = x.korisnici;
+    })
   }
 }

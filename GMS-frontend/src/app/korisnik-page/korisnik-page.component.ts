@@ -5,10 +5,6 @@ import {
   Korisnik_ClanarinaGetAllEndpoint, Korisnik_ClanarinaGetAllResponse, Korisnik_ClanarinaGetAllResponseKorisnikClanarina
 } from "../endpoints/korisnik-endpoints/korisnik-clanarina-endpoints/korisnik-clanarina-getall-endpoint";
 import {
-  SeminarGetAllResponse,
-  SeminarGetAllResponseSeminari
-} from "../endpoints/seminari-endpoints/seminari-getall-endpoint";
-import {
   Korisnik_SuplementGetAllEndpoint, Korisnik_SuplementGetAllResponse,
   Korisnik_SuplementGetAllResponseKorisnik_Suplement
 } from "../endpoints/korisnik-endpoints/korisnik-suplementi-endpoints/korisnik-suplement-getall-endpoint";
@@ -56,21 +52,10 @@ export class KorisnikPageComponent implements OnInit{
       }
     )
 
-    this.Korisnik_ClanarinaGetAllEndpoint.Handle().subscribe((x:Korisnik_ClanarinaGetAllResponse )=>{
-      this.korisnik_clanarine = x.korisnik_Clanarina;
-    })
-
-    this.Korisnik_SuplementGetAllEndpoint.Handle().subscribe((x:Korisnik_SuplementGetAllResponse )=>{
-      this.korisnikSuplement = x.korisnikSuplement;
-    })
-
-    this.Korisnik_TrenerGetAllEndpoint.Handle().subscribe((x:Korisnik_TrenerGetAllResponse )=>{
-      this.korisnikTrener = x.korisnikTrener;
-    })
-
-    this.Korisnik_NutricionistGetAllEndpoint.Handle().subscribe((x:Korisnik_NutricionistGetAllResponse )=>{
-      this.korisnikNutricionist = x.korisnikNutricionist;
-    })
+    this.fetchClanarine();
+    this.fetchSuplementi();
+    this.fetchTreneri();
+    this.fetchNutricionsti();
   }
 
 
@@ -89,4 +74,27 @@ export class KorisnikPageComponent implements OnInit{
     return this.korisnikNutricionist.filter(x=> x.korisnikID == this.id );
   }
 
+  private fetchNutricionsti() {
+    this.Korisnik_NutricionistGetAllEndpoint.Handle().subscribe((x:Korisnik_NutricionistGetAllResponse )=>{
+      this.korisnikNutricionist = x.korisnikNutricionist;
+    })
+  }
+
+  private fetchTreneri() {
+    this.Korisnik_TrenerGetAllEndpoint.Handle().subscribe((x:Korisnik_TrenerGetAllResponse )=>{
+      this.korisnikTrener = x.korisnikTrener;
+    })
+  }
+
+  private fetchSuplementi() {
+    this.Korisnik_SuplementGetAllEndpoint.Handle().subscribe((x:Korisnik_SuplementGetAllResponse )=>{
+      this.korisnikSuplement = x.korisnikSuplement;
+    })
+  }
+
+  private fetchClanarine() {
+    this.Korisnik_ClanarinaGetAllEndpoint.Handle().subscribe((x:Korisnik_ClanarinaGetAllResponse )=>{
+      this.korisnik_clanarine = x.korisnik_Clanarina;
+    })
+  }
 }

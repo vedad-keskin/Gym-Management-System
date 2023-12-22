@@ -45,13 +45,9 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
 
 
   ngOnInit() {
-    this.NutricionstiGetallEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
-      this.nutricionsti = x.nutricionisti;
-    })
 
-    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
-      this.seminari = x.seminari;
-    })
+    this.fetchNutricionisti();
+    this.fetchSeminari();
   }
 
 
@@ -85,7 +81,8 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
 
   SaveNewSeminar() {
     this.NutricionistSeminarAddEndpoint.Handle(this.noviNutricionstSeminar).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchNutricionisti();
+      this.fetchSeminari();
       this.prikaziAddSeminara = false;
 
     })
@@ -94,5 +91,17 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
 
   OdaberiZaModifikaciju(x: NutricionstGetAllResponseNutricionst) {
 
+  }
+
+  private fetchSeminari() {
+    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
+      this.seminari = x.seminari;
+    })
+  }
+
+  private fetchNutricionisti() {
+    this.NutricionstiGetallEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
+      this.nutricionsti = x.nutricionisti;
+    })
   }
 }

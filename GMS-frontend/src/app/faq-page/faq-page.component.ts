@@ -19,11 +19,13 @@ export class FaqPageComponent implements OnInit{
 
   ngOnInit():void {
 
-     this.FAQgetAllEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
+    this.fetchFAQ();
+  }
+
+
+  private fetchFAQ() {
+    this.FAQgetAllEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
       this.faq = x.faq;
     })
-
-
-
   }
 }

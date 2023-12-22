@@ -34,12 +34,7 @@ export class AdministratorPageClanarineComponent implements OnInit{
   };
 
   ngOnInit():void {
-
-
-    this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
-      this.clanarine = x.clanarine;
-    })
-
+     this.fetchClanarine();
   }
 
 
@@ -59,7 +54,7 @@ export class AdministratorPageClanarineComponent implements OnInit{
 
   Save() {
     this.ClanarineEditEndpoint.Handle(this.odabranaClanarina!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchClanarine();
       this.odabranaClanarina = null
     })
   }
@@ -71,11 +66,17 @@ export class AdministratorPageClanarineComponent implements OnInit{
 
   SaveNew() {
      this.ClanarinaAddEndpoint.Handle(this.novaClanarina).subscribe((x)=>{
-       this.ngOnInit();
+       this.fetchClanarine();
        this.prikaziAdd = false;
        this.novaClanarina.naziv ="";
        this.novaClanarina.opis ="";
        this.novaClanarina.cijena =50;
+    })
+  }
+
+  private fetchClanarine() {
+    this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
+      this.clanarine = x.clanarine;
     })
   }
 }

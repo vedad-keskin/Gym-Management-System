@@ -33,10 +33,8 @@ export class AdministratorPageDobavljaciComponent implements OnInit{
   };
   ngOnInit():void {
 
-    this.DobavljaciGetAllEndpoint.Handle().subscribe((x:DobavljacGetAllResponse )=>{
-      this.dobavljaci = x.dobavljaci;
-    });
 
+    this.fetchDobavljaci();
   }
 
   GetFiltiriraniDobavljaci() {
@@ -45,7 +43,7 @@ export class AdministratorPageDobavljaciComponent implements OnInit{
 
   Save() {
     this.DobavljaciEditEndpoint.Handle(this.odabraniDobavljac!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchDobavljaci();
       this.odabraniDobavljac = null
     })
   }
@@ -64,9 +62,15 @@ export class AdministratorPageDobavljaciComponent implements OnInit{
 
   SaveNew() {
     this.DobavljacAddEndpoint.Handle(this.noviDobavljac).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchDobavljaci();
       this.prikaziAdd = false;
       this.noviDobavljac.naziv ="";
     })
+  }
+
+  private fetchDobavljaci() {
+    this.DobavljaciGetAllEndpoint.Handle().subscribe((x:DobavljacGetAllResponse )=>{
+      this.dobavljaci = x.dobavljaci;
+    });
   }
 }

@@ -47,13 +47,9 @@ export class AdministratorPageTreneriComponent implements OnInit{
 
 
   ngOnInit() {
-    this.TrenerGetallEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
-      this.treneri = x.treneri;
-    })
 
-    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
-      this.seminari = x.seminari;
-    })
+    this.fetchTreneri();
+    this.fetchSeminari();
   }
 
 
@@ -87,7 +83,8 @@ export class AdministratorPageTreneriComponent implements OnInit{
 
   SaveNewSeminar() {
     this.TrenerSeminarAddEndpoint.Handle(this.noviTrenerSeminar).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchTreneri();
+      this.fetchSeminari();
       this.prikaziAddSeminara = false;
 
     })
@@ -95,5 +92,17 @@ export class AdministratorPageTreneriComponent implements OnInit{
 
   OdaberiZaModifikaciju(x: TrenerGetAllResponseTrener) {
 
+  }
+
+  private fetchSeminari() {
+    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
+      this.seminari = x.seminari;
+    })
+  }
+
+  private fetchTreneri() {
+    this.TrenerGetallEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
+      this.treneri = x.treneri;
+    })
   }
 }

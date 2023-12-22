@@ -41,10 +41,7 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   ngOnInit():void {
 
-
-    this.AdministratorGetAllEndpoint.Handle().subscribe((x:AdministratorGetAllResponse )=>{
-      this.administratori = x.administrator;
-    })
+    this.fetchAdmin();
 
   }
 
@@ -55,7 +52,7 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   Save() {
     this.AdministratoriEditEndpoint.Handle(this.odabraniAdmin!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchAdmin();
       this.odabraniAdmin = null
     })
   }
@@ -77,12 +74,19 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   SaveNew() {
     this.AdministratorAddEndpoint.Handle(this.noviAdmin).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchAdmin();
       this.prikaziAdd = false;
       this.noviAdmin.ime ="";
       this.noviAdmin.prezime ="";
       this.noviAdmin.username ="";
       this.noviAdmin.password ="";
     })
+  }
+
+  private fetchAdmin() {
+    this.AdministratorGetAllEndpoint.Handle().subscribe((x:AdministratorGetAllResponse )=>{
+      this.administratori = x.administrator;
+    })
+
   }
 }

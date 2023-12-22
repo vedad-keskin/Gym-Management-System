@@ -63,19 +63,11 @@ export class OsobljePageComponent implements OnInit{
     this.noviKorisnikTrener.korisnikID = this.id;
     this.noviKorisnikNutricionist.korisnikID = this.id;
 
-    this.TrenergetAllEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
-      this.treneri = x.treneri;
-    })
-
-    this.NutricionstgetAllEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
-      this.nutricionsti = x.nutricionisti;
-    })
 
 
 
-
-
-
+    this.fetchTreneri();
+    this.fetchNutricionsti();
   }
 
 
@@ -136,6 +128,18 @@ export class OsobljePageComponent implements OnInit{
       this.ngOnInit();
       this.prikaziAddZaNutricionistu = false;
       alert("Termin zakazan");
+    })
+  }
+
+  private fetchNutricionsti() {
+    this.NutricionstgetAllEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
+      this.nutricionsti = x.nutricionisti;
+    })
+  }
+
+  private fetchTreneri() {
+    this.TrenergetAllEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
+      this.treneri = x.treneri;
     })
   }
 }

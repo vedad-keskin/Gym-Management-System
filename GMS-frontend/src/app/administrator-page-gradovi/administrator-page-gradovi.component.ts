@@ -30,12 +30,7 @@ export class AdministratorPageGradoviComponent implements OnInit{
   };
   ngOnInit():void {
 
-
-    this.GradovigetAllEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
-      this.gradovi = x.gradovi;
-    });
-
-
+    this.fetchGradovi();
   }
 
   GetFiltiraniGradovi() {
@@ -45,7 +40,7 @@ export class AdministratorPageGradoviComponent implements OnInit{
 
   Save() {
     this.GradoviEditEndpoint.Handle(this.odabraniGrad!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchGradovi();
       this.odabraniGrad = null
     })
   }
@@ -64,9 +59,15 @@ export class AdministratorPageGradoviComponent implements OnInit{
 
   SaveNew() {
     this.GradAddEndpoint.Handle(this.noviGrad).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchGradovi();
       this.prikaziAdd = false;
       this.noviGrad.naziv ="";
     })
+  }
+
+  private fetchGradovi() {
+    this.GradovigetAllEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
+      this.gradovi = x.gradovi;
+    });
   }
 }

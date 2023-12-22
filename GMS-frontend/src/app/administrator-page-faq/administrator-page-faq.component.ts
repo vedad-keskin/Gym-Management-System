@@ -34,11 +34,7 @@ export class AdministratorPageFaqComponent implements OnInit{
 
   ngOnInit():void {
 
-
-    this.FaqGetallEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
-      this.faq = x.faq;
-    })
-
+    this.fetchFAQ();
   }
 
   GetFiltiraniFAQ() {
@@ -53,7 +49,7 @@ export class AdministratorPageFaqComponent implements OnInit{
 
   Save() {
     this.FAQEditEndpoint.Handle(this.odabraniFAQ!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchFAQ();
       this.odabraniFAQ = null
     })
   }
@@ -68,10 +64,16 @@ export class AdministratorPageFaqComponent implements OnInit{
 
   SaveNew() {
     this.FAQAddEndpoint.Handle(this.noviFAQ).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchFAQ();
       this.prikaziAdd = false;
       this.noviFAQ.pitanje ="";
       this.noviFAQ.odgovor ="";
+    })
+  }
+
+  private fetchFAQ() {
+    this.FaqGetallEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
+      this.faq = x.faq;
     })
   }
 }

@@ -4,7 +4,6 @@ import {
   SuplementGetAllResponseSuplement,
   SuplementiGetallEndpoint
 } from "../endpoints/suplementi-endpoints/suplementi-getall-endpoint";
-import {FAQGetAllResponse, FAQGetAllResponseFAQ} from "../endpoints/faq-endpoints/faq-getall-endpoint";
 
 @Component({
   selector: 'app-administrator-page-suplementi',
@@ -25,9 +24,8 @@ export class AdministratorPageSuplementiComponent implements OnInit{
 
 
   ngOnInit() {
-    this.SuplementiGetallEndpoint.Handle().subscribe((x:SuplementGetAllResponse )=>{
-      this.suplementi = x.suplementi;
-    })
+
+    this.fetchSuplementi();
   }
 
   Odaberi(x: SuplementGetAllResponseSuplement) {
@@ -37,5 +35,11 @@ export class AdministratorPageSuplementiComponent implements OnInit{
 
   GetFiltiraniSuplementi() {
     return this.suplementi.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) || x.nazivKategorija.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) || x.nazivDobavljaca.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) );
+  }
+
+  private fetchSuplementi() {
+    this.SuplementiGetallEndpoint.Handle().subscribe((x:SuplementGetAllResponse )=>{
+      this.suplementi = x.suplementi;
+    })
   }
 }

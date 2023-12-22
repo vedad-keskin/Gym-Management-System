@@ -34,10 +34,7 @@ export class AdministratorPageKategorijeComponent implements OnInit{
   };
   ngOnInit():void {
 
-    this.KategorijeGetAllEndpoint.Handle().subscribe((x:KategorijaGetAllResponse )=>{
-      this.kategorije = x.kategorije;
-    });
-
+    this.fetchKategorije();
   }
   GetFiltiriranuKategoriju() {
     return this.kategorije.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
@@ -51,7 +48,7 @@ export class AdministratorPageKategorijeComponent implements OnInit{
 
   Save() {
     this.KategorijeEditEndpoint.Handle(this.odabranaKategorija!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchKategorije();
       this.odabranaKategorija = null
     })
   }
@@ -65,9 +62,15 @@ export class AdministratorPageKategorijeComponent implements OnInit{
 
   SaveNew() {
     this.KategorijaAddEndpoint.Handle(this.novaKategorija).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchKategorije();
       this.prikaziAdd = false;
       this.novaKategorija.naziv ="";
     })
+  }
+
+  private fetchKategorije() {
+    this.KategorijeGetAllEndpoint.Handle().subscribe((x:KategorijaGetAllResponse )=>{
+      this.kategorije = x.kategorije;
+    });
   }
 }

@@ -21,9 +21,8 @@ export class AdministratorPageRecenzijeComponent implements OnInit{
   public prikaziAdd:boolean = false;
 
   ngOnInit() {
-    this.RecenzijeGetallEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
-      this.recenzije = x.recenzije;
-    })
+
+    this.fetchRecenzije();
   }
 
 
@@ -34,5 +33,11 @@ export class AdministratorPageRecenzijeComponent implements OnInit{
 
   GetFiltiraneRecenzije() {
     return this.recenzije.filter(x=> x.ime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) || x.prezime.toLowerCase().includes(this.PretragaNaziv.toLowerCase()) );
+  }
+
+  private fetchRecenzije() {
+    this.RecenzijeGetallEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
+      this.recenzije = x.recenzije;
+    })
   }
 }

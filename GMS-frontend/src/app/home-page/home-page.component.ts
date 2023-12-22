@@ -24,17 +24,21 @@ export class HomePageComponent implements OnInit{
   recenzije: RecenzijaGetAllResponseRecenzija[] = [];
   ngOnInit():void {
 
-
-    this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
-      this.clanarine = x.clanarine;
-    })
-    this.RecenzijegetAllEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
-      this.recenzije = x.recenzije;
-    })
-
+    this.fetchClanarine();
+    this.fetchRecenzije();
 
   }
 
 
+  private fetchRecenzije() {
+    this.RecenzijegetAllEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
+      this.recenzije = x.recenzije;
+    })
+  }
 
+  private fetchClanarine() {
+    this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
+      this.clanarine = x.clanarine;
+    })
+  }
 }

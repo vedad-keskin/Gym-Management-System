@@ -9,9 +9,7 @@ import {
   GradoviGetallEndpoint
 } from "../endpoints/gradovi-endpoints/gradovi-getall-endpoint";
 import {TeretaneEditEndpoint, TeretaneEditRequest} from "../endpoints/teretane-endpoints/teretane-edit-endpoint";
-import {SeminariEditRequest} from "../endpoints/seminari-endpoints/seminari-edit-endpoint";
 import {TeretanaAddEndpoint, TeretanaAddRequest} from "../endpoints/teretane-endpoints/teretane-add-endpoint";
-import {SeminarAddRequest} from "../endpoints/seminari-endpoints/seminari-add-endpoint";
 
 
 @Component({
@@ -41,13 +39,9 @@ export class AdministratorPageTeretaneComponent implements OnInit{
   };
 
   ngOnInit() {
-    this.TeretanaGetAllEndpoint.Handle().subscribe((x:TeretanaGetAllResponse )=>{
-      this.teretane = x.teretane;
-    })
 
-    this.GradoviGetallEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
-      this.gradovi = x.gradovi;
-    })
+    this.fetchTeretane();
+    this.fetchGradovi();
   }
 
   GetFiltiraneTeretane() {
@@ -69,18 +63,32 @@ export class AdministratorPageTeretaneComponent implements OnInit{
 
   Save() {
     this.TeretaneEditEndpoint.Handle(this.odabranaTeretana!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchTeretane();
+      this.fetchGradovi();
       this.odabranaTeretana = null
     })
   }
 
   SaveNew() {
     this.TeretanaAddEndpoint.Handle(this.novaTeretana).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchTeretane();
+      this.fetchGradovi();
       this.prikaziAdd = false;
       this.novaTeretana.naziv ="";
       this.novaTeretana.adresa ="";
       this.novaTeretana.gradID = 1;
+    })
+  }
+
+  private fetchGradovi() {
+    this.GradoviGetallEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
+      this.gradovi = x.gradovi;
+    })
+  }
+
+  private fetchTeretane() {
+    this.TeretanaGetAllEndpoint.Handle().subscribe((x:TeretanaGetAllResponse )=>{
+      this.teretane = x.teretane;
     })
   }
 }

@@ -37,17 +37,14 @@ export class AdministratorPageSeminariComponent implements OnInit{
   }
   ngOnInit():void {
 
-    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
-      this.seminari = x.seminari;
-    })
-
+    this.fetchSeminari();
   }
 
 
 
   SaveNew() {
     this.SeminarAddEndpoint.Handle(this.noviSeminar).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchSeminari();
       this.prikaziAdd = false;
       this.noviSeminar.tema ="";
       this.noviSeminar.predavac ="";
@@ -61,7 +58,7 @@ export class AdministratorPageSeminariComponent implements OnInit{
 
   Save() {
     this.SeminariEditEndpoint.Handle(this.odabraniSeminar!).subscribe((x)=>{
-      this.ngOnInit();
+      this.fetchSeminari();
       this.odabraniSeminar = null
     })
   }
@@ -73,5 +70,11 @@ export class AdministratorPageSeminariComponent implements OnInit{
       predavac: x.predavac,
       datum:x.datum
     } ;
+  }
+
+  private fetchSeminari() {
+    this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
+      this.seminari = x.seminari;
+    })
   }
 }
