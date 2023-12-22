@@ -5,20 +5,16 @@ import {Observable} from "rxjs";
 import {Config} from "../../config";
 
 @Injectable({providedIn: 'root'})
-export class FAQAddEndpoint implements  MyBaseEndpoint<FAQAddRequest, FAQAddResponse>{
+export class FAQAddEndpoint implements  MyBaseEndpoint<FAQAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: FAQAddRequest): Observable<FAQAddResponse> {
+  Handle(request: FAQAddRequest): Observable<void> {
     let url=Config.adresa + `FAQ-Add`;
 
-    return this.httpClient.post<FAQAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface FAQAddRequest {
   pitanje: string
   odgovor: string
 }
-export interface FAQAddResponse {
-  id: number
-  pitanje: string
-  odgovor: string
-}
+

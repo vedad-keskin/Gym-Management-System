@@ -5,18 +5,15 @@ import {Observable} from "rxjs";
 import {Config} from "../../config";
 
 @Injectable({providedIn: 'root'})
-export class DobavljacAddEndpoint implements  MyBaseEndpoint<DobavljacAddRequest, DobavljacAddResponse>{
+export class DobavljacAddEndpoint implements  MyBaseEndpoint<DobavljacAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: DobavljacAddRequest): Observable<DobavljacAddResponse> {
+  Handle(request: DobavljacAddRequest): Observable<void> {
     let url=Config.adresa + `Dobavljac-Add`;
 
-    return this.httpClient.post<DobavljacAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface DobavljacAddRequest {
   naziv: string
 }
-export interface DobavljacAddResponse {
-  id: number
-  naziv: string
-}
+

@@ -5,12 +5,12 @@ import {Observable} from "rxjs";
 import {Config} from "../../config";
 
 @Injectable({providedIn: 'root'})
-export class AdministratorAddEndpoint implements  MyBaseEndpoint<AdministratorAddRequest, AdministratorAddResponse>{
+export class AdministratorAddEndpoint implements  MyBaseEndpoint<AdministratorAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: AdministratorAddRequest): Observable<AdministratorAddResponse> {
+  Handle(request: AdministratorAddRequest): Observable<void> {
     let url=Config.adresa + `Administrator-Add`;
 
-    return this.httpClient.post<AdministratorAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface AdministratorAddRequest {
@@ -19,10 +19,4 @@ export interface AdministratorAddRequest {
   username: string
   password: string
 }
-export interface AdministratorAddResponse {
-  id: number
-  ime: string
-  prezime: string
-  username: string
-  password: string
-}
+

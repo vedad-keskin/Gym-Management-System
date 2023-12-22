@@ -7,8 +7,7 @@ import {
 import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
 import {
   ClanarinaAddEndpoint,
-  ClanarinaAddRequest,
-  ClanarinaAddResponse
+  ClanarinaAddRequest
 } from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
 
 @Component({

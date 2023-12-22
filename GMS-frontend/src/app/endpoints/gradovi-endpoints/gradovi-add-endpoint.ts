@@ -5,18 +5,15 @@ import {Observable} from "rxjs";
 import {Config} from "../../config";
 
 @Injectable({providedIn: 'root'})
-export class GradAddEndpoint implements  MyBaseEndpoint<GradAddRequest, GradAddResponse>{
+export class GradAddEndpoint implements  MyBaseEndpoint<GradAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: GradAddRequest): Observable<GradAddResponse> {
+  Handle(request: GradAddRequest): Observable<void> {
     let url=Config.adresa + `Grad-Add`;
 
-    return this.httpClient.post<GradAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface GradAddRequest {
   naziv: string
 }
-export interface GradAddResponse {
-  id: number
-  naziv: string
-}
+

@@ -6,12 +6,12 @@ import {MyBaseEndpoint} from "../../MyBaseEndpoint";
 
 
 @Injectable({providedIn: 'root'})
-export class NutricionistSeminarAddEndpoint implements  MyBaseEndpoint<NutricionistSeminarAddRequest, NutricionistSeminarAddResponse>{
+export class NutricionistSeminarAddEndpoint implements  MyBaseEndpoint<NutricionistSeminarAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: NutricionistSeminarAddRequest): Observable<NutricionistSeminarAddResponse> {
+  Handle(request: NutricionistSeminarAddRequest): Observable<void> {
     let url=Config.adresa + `Nutricionist_Seminar-Add`;
 
-    return this.httpClient.post<NutricionistSeminarAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface NutricionistSeminarAddRequest {
@@ -19,6 +19,4 @@ export interface NutricionistSeminarAddRequest {
   seminarID: number
 
 }
-export interface NutricionistSeminarAddResponse {
-  nutricionistID: number
-}
+

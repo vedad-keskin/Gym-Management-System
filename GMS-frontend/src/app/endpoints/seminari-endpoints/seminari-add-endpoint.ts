@@ -5,12 +5,12 @@ import {Observable} from "rxjs";
 import {Config} from "../../config";
 
 @Injectable({providedIn: 'root'})
-export class SeminarAddEndpoint implements  MyBaseEndpoint<SeminarAddRequest, SeminarAddResponse>{
+export class SeminarAddEndpoint implements  MyBaseEndpoint<SeminarAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: SeminarAddRequest): Observable<SeminarAddResponse> {
+  Handle(request: SeminarAddRequest): Observable<void> {
     let url=Config.adresa + `Seminar-Add`;
 
-    return this.httpClient.post<SeminarAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface SeminarAddRequest {
@@ -18,8 +18,4 @@ export interface SeminarAddRequest {
   datum: string
   tema: string
 }
-export interface SeminarAddResponse {
-  predavac: string
-  datum: string
-  tema: string
-}
+

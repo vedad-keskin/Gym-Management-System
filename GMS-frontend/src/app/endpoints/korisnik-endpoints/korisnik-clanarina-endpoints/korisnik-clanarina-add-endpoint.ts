@@ -6,12 +6,12 @@ import {MyBaseEndpoint} from "../../MyBaseEndpoint";
 
 
 @Injectable({providedIn: 'root'})
-export class Korisnik_ClanarinaAddEndpoint implements  MyBaseEndpoint<Korisnik_ClanarinaAddRequest, Korisnik_ClanarinaAddResponse>{
+export class Korisnik_ClanarinaAddEndpoint implements  MyBaseEndpoint<Korisnik_ClanarinaAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: Korisnik_ClanarinaAddRequest): Observable<Korisnik_ClanarinaAddResponse> {
+  Handle(request: Korisnik_ClanarinaAddRequest): Observable<void> {
     let url=Config.adresa + `Korisnik_Clanarina-Add`;
 
-    return this.httpClient.post<Korisnik_ClanarinaAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface Korisnik_ClanarinaAddRequest {
@@ -20,6 +20,4 @@ export interface Korisnik_ClanarinaAddRequest {
   datumUplate: string
   datumIsteka: string
 }
-export interface Korisnik_ClanarinaAddResponse {
-  korisnikID: number
-}
+

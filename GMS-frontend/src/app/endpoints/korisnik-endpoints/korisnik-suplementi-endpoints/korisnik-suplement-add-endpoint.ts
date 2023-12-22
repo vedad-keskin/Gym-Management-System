@@ -6,12 +6,12 @@ import {Injectable} from "@angular/core";
 
 
 @Injectable({providedIn: 'root'})
-export class Korisnik_SuplementAddEndpoint implements  MyBaseEndpoint<Korisnik_SuplementAddRequest, Korisnik_SuplementAddResponse>{
+export class Korisnik_SuplementAddEndpoint implements  MyBaseEndpoint<Korisnik_SuplementAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: Korisnik_SuplementAddRequest): Observable<Korisnik_SuplementAddResponse> {
+  Handle(request: Korisnik_SuplementAddRequest): Observable<void> {
     let url=Config.adresa + `Korisnik_Suplement-Add`;
 
-    return this.httpClient.post<Korisnik_SuplementAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface Korisnik_SuplementAddRequest {
@@ -21,10 +21,4 @@ export interface Korisnik_SuplementAddRequest {
   kolicina: number
   isporuceno: boolean
 }
-export interface Korisnik_SuplementAddResponse {
-  korisnikID: number
-  suplementID: number
-  datumVrijemeNarudzbe: Date
-  kolicina: number
-  isporuceno: boolean
-}
+

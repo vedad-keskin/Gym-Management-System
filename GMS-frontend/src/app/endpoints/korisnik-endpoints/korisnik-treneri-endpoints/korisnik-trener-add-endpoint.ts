@@ -6,12 +6,12 @@ import {MyBaseEndpoint} from "../../MyBaseEndpoint";
 
 
 @Injectable({providedIn: 'root'})
-export class Korisnik_TrenerAddEndpoint implements  MyBaseEndpoint<Korisnik_TrenerAddRequest, Korisnik_TrenerAddResponse>{
+export class Korisnik_TrenerAddEndpoint implements  MyBaseEndpoint<Korisnik_TrenerAddRequest, void>{
   constructor(public httpClient:HttpClient) { }
-  Handle(request: Korisnik_TrenerAddRequest): Observable<Korisnik_TrenerAddResponse> {
+  Handle(request: Korisnik_TrenerAddRequest): Observable<void> {
     let url=Config.adresa + `Korisnik_Trener-Add`;
 
-    return this.httpClient.post<Korisnik_TrenerAddResponse>(url, request);
+    return this.httpClient.post<void>(url, request);
   }
 }
 export interface Korisnik_TrenerAddRequest {
@@ -20,9 +20,4 @@ export interface Korisnik_TrenerAddRequest {
   datumTermina: string
   zakazanoSati: number
 }
-export interface Korisnik_TrenerAddResponse {
-  korisnikID: number
-  trenerID: number
-  datumTermina: string
-  zakazanoSati: number
-}
+
