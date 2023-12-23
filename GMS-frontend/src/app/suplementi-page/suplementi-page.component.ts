@@ -36,6 +36,12 @@ export class SuplementiPageComponent implements OnInit{
   }
 
   public prikaziAdd:boolean = false;
+
+  public SuccessPopUp:boolean = false;
+  public ErrorPopUp:boolean = false;
+  public ErrorPopUp2:boolean = false;
+
+
   id:number = 0
   ukupnaCijena: number = 0
 
@@ -75,7 +81,7 @@ export class SuplementiPageComponent implements OnInit{
     this.Korisnik_SuplementAddEndpoint.Handle(this.noviSuplement).subscribe((x)=>{
       this.ngOnInit();
       this.prikaziAdd = false;
-      alert("Suplement rezervisan");
+      this.SuccessPopUp = true;
     })
   }
 
@@ -86,10 +92,10 @@ export class SuplementiPageComponent implements OnInit{
 
   Odaberi(x: SuplementGetAllResponseSuplement) {
     if(this.MyAuthService.nijelLogiran()) {
-      alert("Morate biti prijavljeni da bi ste kupili suplement");
+      this.ErrorPopUp = true;
     }
     else if(this.MyAuthService.isAdmin()) {
-      alert("Samo korisnici mogu kupovati suplemente");
+      this.ErrorPopUp2 = true;
     }
     else if(this.MyAuthService.isKorisnik()){
       this.prikaziAdd = true;
@@ -121,5 +127,12 @@ export class SuplementiPageComponent implements OnInit{
     this.SuplementigetAllEndpoint.Handle().subscribe((x:SuplementGetAllResponse )=>{
       this.suplementi = x.suplementi;
     })
+  }
+
+  ZatvoriPopUp() {
+    this.SuccessPopUp = false;
+    this.ErrorPopUp = false;
+    this.ErrorPopUp2 = false;
+    this.ngOnInit();
   }
 }

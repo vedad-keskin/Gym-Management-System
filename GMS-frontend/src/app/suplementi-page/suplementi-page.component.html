@@ -1,5 +1,35 @@
 <section id="suplementi" >
 
+<!-- popup za uspjesno rezervisanje -->
+
+  <div  class="d-flex align-items-center justify-content-center" *ngIf="SuccessPopUp" >
+    <div class="alert alert-success alert-dismissible fade show w-50" role="alert" >
+      Uspješno ste rezervisali suplement
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
+      </button>
+    </div>
+  </div>
+
+  <!-- popup ako niste prijavljeni -->
+
+  <div class="d-flex align-items-center justify-content-center" *ngIf="ErrorPopUp" >
+    <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
+      Morate biti prijavljeni da bi ste rezervisali suplement
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
+      </button>
+    </div>
+  </div>
+
+  <!-- popup ako niste korisnik -->
+
+  <div class="d-flex align-items-center justify-content-center" *ngIf="ErrorPopUp2" >
+    <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
+      Samo korisnici mogu rezervisati suplemente
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
+      </button>
+    </div>
+  </div>
+
 
   <!-- modal za suplemente -->
   <div *ngIf="prikaziAdd">
