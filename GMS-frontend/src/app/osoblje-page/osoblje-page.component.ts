@@ -38,6 +38,10 @@ export class OsobljePageComponent implements OnInit{
   public prikaziAddZaTrenera:boolean = false;
   public prikaziAddZaNutricionistu:boolean = false;
 
+  public SuccessPopUp:boolean = false;
+  public ErrorPopUp:boolean = false;
+  public ErrorPopUp2:boolean = false;
+
 
   odabraniTrener : TrenerGetAllResponseTrener | null = null;
   odabraniNutricionist : NutricionstGetAllResponseNutricionst | null = null;
@@ -78,22 +82,23 @@ export class OsobljePageComponent implements OnInit{
     this.Korisnik_TrenerAddEndpoint.Handle(this.noviKorisnikTrener).subscribe((x)=>{
       this.ngOnInit();
       this.prikaziAddZaTrenera = false;
-      alert("Termin zakazan");
+      this.SuccessPopUp = true;
     })
   }
 
   OdaberiTrenera(x: TrenerGetAllResponseTrener) {
 
     if(this.myAuthService.nijelLogiran()) {
-      alert("Morate biti prijavljeni da bi zakazali termine");
+      this.ErrorPopUp = true;
     }
     else if(this.myAuthService.isAdmin()) {
-      alert("Samo korisnici mogu zakazivati termine");
+      this.ErrorPopUp2 = true;
     }
     else if(this.myAuthService.isKorisnik()){
       this.prikaziAddZaTrenera = true;
       this.odabraniTrener = x;
       this.noviKorisnikTrener.trenerID = this.odabraniTrener.id;
+      this.SuccessPopUp = true;
     }
 
 
@@ -110,10 +115,10 @@ export class OsobljePageComponent implements OnInit{
 
   OdaberiNutricionistu(x: NutricionstGetAllResponseNutricionst) {
     if(this.myAuthService.nijelLogiran()) {
-      alert("Morate biti prijavljeni da bi zakazali termine");
+      this.ErrorPopUp = true;
     }
     else if(this.myAuthService.isAdmin()) {
-      alert("Samo korisnici mogu zakazivati termine");
+      this.ErrorPopUp2 = true;
     }
     else if(this.myAuthService.isKorisnik()){
       this.prikaziAddZaNutricionistu = true;
@@ -127,7 +132,7 @@ export class OsobljePageComponent implements OnInit{
     this.Korisnik_NutricionistAddEndpoint.Handle(this.noviKorisnikNutricionist).subscribe((x)=>{
       this.ngOnInit();
       this.prikaziAddZaNutricionistu = false;
-      alert("Termin zakazan");
+      this.SuccessPopUp = true;
     })
   }
 
@@ -142,4 +147,12 @@ export class OsobljePageComponent implements OnInit{
       this.treneri = x.treneri;
     })
   }
+
+  ZatvoriPopUp() {
+    this.SuccessPopUp = false;
+    this.ErrorPopUp = false;
+    this.ErrorPopUp2 = false;
+    this.ngOnInit();
+  }
+
 }
