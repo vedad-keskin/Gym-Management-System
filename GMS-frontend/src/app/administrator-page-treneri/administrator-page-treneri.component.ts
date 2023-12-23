@@ -16,6 +16,8 @@ import {
   SeminarGetAllResponseSeminari,
   SeminariGetAllEndpoint
 } from "../endpoints/seminari-endpoints/seminari-getall-endpoint";
+import {SeminarAddRequest} from "../endpoints/seminari-endpoints/seminari-add-endpoint";
+import {TrenerAddEndpoint, TrenerAddRequest} from "../endpoints/treneri-endpoints/treneri-add-endpoint";
 
 
 @Component({
@@ -25,10 +27,12 @@ import {
 })
 export class AdministratorPageTreneriComponent implements OnInit{
 
+
   constructor(private TrenerGetallEndpoint:TrenerGetallEndpoint,
               private TrenerSeminarGetEndpoint:TrenerSeminarGetEndpoint,
               private TrenerSeminarAddEndpoint:TrenerSeminarAddEndpoint,
-              private SeminariGetAllEndpoint:SeminariGetAllEndpoint) {
+              private SeminariGetAllEndpoint:SeminariGetAllEndpoint,
+              private TrenerAddEndpoint:TrenerAddEndpoint) {
   }
 
   treneri: TrenerGetAllResponseTrener[] = [];
@@ -43,6 +47,14 @@ export class AdministratorPageTreneriComponent implements OnInit{
   public noviTrenerSeminar:TrenerSeminarAddRequest = {
     trenerID: 0,
     seminarID: 1,
+  };
+
+
+  public noviTrener:TrenerAddRequest = {
+    ime: "",
+    prezime: "",
+    brojTelefona: "",
+    slika: "",
   };
 
 
@@ -104,5 +116,33 @@ export class AdministratorPageTreneriComponent implements OnInit{
     this.TrenerGetallEndpoint.Handle().subscribe((x:TrenerGetAllResponse )=>{
       this.treneri = x.treneri;
     })
+  }
+
+  SaveNew() {
+    this.TrenerAddEndpoint.Handle(this.noviTrener).subscribe((x)=>{
+      this.fetchTreneri();
+      this.fetchSeminari();
+      this.prikaziAdd = false;
+      this.noviTrener.ime ="";
+      this.noviTrener.prezime ="";
+      this.noviTrener.slika ="";
+      this.noviTrener.brojTelefona ="";
+
+    })
+  }
+
+  Preview() {
+     // @ts-ignore
+    var file = document.getElementById("slika-input").files[0];
+    if(file){
+      var reader:FileReader = new FileReader();
+
+      reader.onload = () =>{
+        this.noviTrener!.slika = reader.result?.toString();
+
+      }
+      reader.readAsDataURL(file);
+    }
+
   }
 }

@@ -20,13 +20,20 @@ namespace GMS.Entities.Endpoint.Trener.Add
         [HttpPost]
         public override async Task<TrenerAddResponse> Handle([FromBody]TrenerAddRequest request, CancellationToken cancellationToken)
         {
-            var novi = new Entities.Models.Trener
+            var novi = new Entities.Models.Trener();
+
+            novi.BrojTelefona = request.BrojTelefona.RemoveTags();
+            novi.Ime = request.Ime.RemoveTags();
+            novi.Prezime = request.Prezime.RemoveTags();
+
+            if (!string.IsNullOrEmpty(request.Slika))
             {
-                Ime=request.Ime,
-                Prezime=request.Prezime,
-                BrojTelefona=request.BrojTelefona,
-                Slika=request.Slika
-            };
+                byte[]? slika_bajtovi = request.Slika?.ParseBase65();
+            }
+
+            // treba ovo zavrsiti 
+            novi.Slika = request.Slika;
+
 
             db.Trener.Add(novi);
             await db.SaveChangesAsync(cancellationToken: cancellationToken);

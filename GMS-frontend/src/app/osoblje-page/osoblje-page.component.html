@@ -119,8 +119,8 @@
       <div class="row d-flex gy-4 services justify-content-center" >
 
         <!-- Karte trenera -->
-        <div class="card m-2 p-0" *ngFor="let x of treneri" style="width: 19rem;">
-          <img src="{{x.slika}}" class="card-img-top"  />
+        <div class="card m-2 p-0" *ngFor="let x of treneri" style="width: 19rem">
+          <img id="slika1" src="{{x.slika}}" class="card-img-top"  />
           <div class="card-body">
             <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
             <p class="card-text text-center" style="font-size: 14px;">Trener</p>
@@ -130,7 +130,7 @@
 
         <!-- Karte nutricionista -->
         <div class="card m-2 p-0" *ngFor="let x of nutricionsti" style="width: 19rem;">
-          <img src="{{x.slika}}" class="card-img-top"  />
+          <img id="slika2" src="{{x.slika}}" class="card-img-top"  />
           <div class="card-body">
             <h5 class="card-title text-center">{{x.ime}} {{x.prezime}}</h5>
             <p class="card-text text-center" style="font-size: 14px;">Nutricionista</p>
