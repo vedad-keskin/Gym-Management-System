@@ -5,7 +5,7 @@
 
       <!-- popup za uspjesno rezervisanje -->
 
-      <div  class="d-flex align-items-center justify-content-center mb-2" *ngIf="SuccessPopUp" >
+      <div  class="d-flex align-items-center justify-content-center mb-3" *ngIf="SuccessPopUp" >
         <div class="alert alert-success alert-dismissible fade show w-50" role="alert" >
           Uspješno ste zakazali termin
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
@@ -15,7 +15,7 @@
 
       <!-- popup ako niste prijavljeni -->
 
-      <div class="d-flex align-items-center justify-content-center mb-2" *ngIf="ErrorPopUp" >
+      <div class="d-flex align-items-center justify-content-center mb-3" *ngIf="ErrorPopUp" >
         <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
           Morate biti prijavljeni da bi ste zakazali termin
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
@@ -25,7 +25,7 @@
 
       <!-- popup ako niste korisnik -->
 
-      <div class="d-flex align-items-center justify-content-center mb-2" *ngIf="ErrorPopUp2" >
+      <div class="d-flex align-items-center justify-content-center mb-3" *ngIf="ErrorPopUp2" >
         <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
           Samo korisnici mogu zakazivati termine
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
