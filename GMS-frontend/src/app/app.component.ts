@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
         "my-auth-token": token
       }
     }).subscribe(x=>{
-      alert("Uspješno ste se odjavili");
+      //alert("Uspješno ste se odjavili");
     })
 
     this.router.navigate(["/LoginPage"])

@@ -1,5 +1,16 @@
 <section id="login">
 
+  <!-- popup ako niste prijavljeni -->
+
+  <div class="d-flex align-items-center justify-content-center" *ngIf="ErrorPopUp" >
+    <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
+      Neispravni pristupni podaci
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
+      </button>
+    </div>
+  </div>
+
+
 <div class="text-center d-flex justify-content-around align-items-center m-5">
   <form class="form-signin">
     <img class="mb-4" src="assets/login.png" alt="" width="100" height="100">

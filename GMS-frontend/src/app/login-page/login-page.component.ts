@@ -18,6 +18,9 @@ export class LoginPageComponent {
               private myAuthService: MyAuthService) {}
 
 
+  public ErrorPopUp:boolean = false;
+
+
   public LoginRequest : AuthenticationLoginRequest = {
     password :"",
     username:""
@@ -26,7 +29,7 @@ export class LoginPageComponent {
     let url = Config.adresa + 'Autentifikacija/Login';
     this.httpclient.post<AuthLoginResponse>(url, this.LoginRequest).subscribe((x)=>{
       if (!x.isLogiran){
-        alert("Unijeli ste pogrešno korisničko ime ili lozinku");
+        this.ErrorPopUp = true;
       }
       else{
 
@@ -48,5 +51,9 @@ export class LoginPageComponent {
 
       }
     })
+  }
+
+  ZatvoriPopUp() {
+    this.ErrorPopUp = false;
   }
 }
