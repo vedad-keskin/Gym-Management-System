@@ -14,5 +14,16 @@ section{
 #slika2{
   height: 302px;
 }
+.w-50{
+  text-align: center;
+}
+
+.alert-danger{
+  position: fixed;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
 
 

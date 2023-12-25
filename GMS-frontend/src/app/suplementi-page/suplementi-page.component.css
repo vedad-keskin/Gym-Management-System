@@ -11,3 +11,19 @@ section{
 select{
   cursor: pointer;
 }
+.w-50{
+  text-align: center;
+  position: fixed;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.alert-danger{
+  position: fixed;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
