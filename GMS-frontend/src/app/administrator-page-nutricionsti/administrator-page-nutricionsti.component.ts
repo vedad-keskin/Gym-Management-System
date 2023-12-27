@@ -15,6 +15,11 @@ import {
 import {
   NutricionistSeminarAddEndpoint, NutricionistSeminarAddRequest
 } from "../endpoints/nutricionsti-endpoints/nutricionsti-seminar-endpoints/nutricionsti-seminari-add-endpoint";
+import {
+  NutricionistiEditEndpoint,
+  NutricionistiEditRequest
+} from "../endpoints/nutricionsti-endpoints/nutricionist-edit-endpoint";
+import {TreneriEditRequest} from "../endpoints/treneri-endpoints/treneri-edit-endpoint";
 
 @Component({
   selector: 'app-administrator-page-nutricionsti',
@@ -25,14 +30,15 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
   constructor(private NutricionstiGetallEndpoint:NutricionstiGetallEndpoint,
               private NutricionistSeminarGetEndpoint:NutricionistSeminarGetEndpoint,
               private NutricionistSeminarAddEndpoint:NutricionistSeminarAddEndpoint,
-              private SeminariGetAllEndpoint:SeminariGetAllEndpoint) {
+              private SeminariGetAllEndpoint:SeminariGetAllEndpoint,
+              private NutricionistiEditEndpoint:NutricionistiEditEndpoint) {
   }
 
   nutricionsti: NutricionstGetAllResponseNutricionst[] = [];
   seminari: SeminarGetAllResponseSeminari[] = [];
   PretragaNaziv: string = "";
   public odbraniSeminari : NutricionistSeminarGetResponse | null = null;
-
+  public odabraniNutricionist: NutricionistiEditRequest | null = null;
 
   public prikaziAdd:boolean = false;
   public prikaziPregled:boolean = false;
@@ -90,7 +96,13 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
 
 
   OdaberiZaModifikaciju(x: NutricionstGetAllResponseNutricionst) {
-
+    this.odabraniNutricionist = {
+      id: x.id,
+      ime: x.ime,
+      prezime: x.prezime,
+      brojTelefona:x.brojTelefona,
+      slika: x.slika
+    } ;
   }
 
   private fetchSeminari() {
@@ -103,5 +115,27 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
     this.NutricionstiGetallEndpoint.Handle().subscribe((x:NutricionstGetAllResponse )=>{
       this.nutricionsti = x.nutricionisti;
     })
+  }
+
+  Save() {
+    this.NutricionistiEditEndpoint.Handle(this.odabraniNutricionist!).subscribe((x)=>{
+      this.fetchNutricionisti();
+      this.fetchSeminari();
+      this.odabraniNutricionist = null
+    });
+  }
+
+  PreviewEdit() {
+    // @ts-ignore
+    var file = document.getElementById("slika-input-edit").files[0];
+    if(file){
+      var reader:FileReader = new FileReader();
+
+      reader.onload = () =>{
+        this.odabraniNutricionist!.slika = reader.result?.toString();
+
+      }
+      reader.readAsDataURL(file);
+    }
   }
 }

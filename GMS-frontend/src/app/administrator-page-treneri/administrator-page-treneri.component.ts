@@ -174,6 +174,6 @@ export class AdministratorPageTreneriComponent implements OnInit{
       this.fetchTreneri();
       this.fetchSeminari();
       this.odabraniTrener = null
-    })
+    });
   }
 }
