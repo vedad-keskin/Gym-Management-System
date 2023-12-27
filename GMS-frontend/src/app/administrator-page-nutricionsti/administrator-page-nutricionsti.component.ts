@@ -19,7 +19,11 @@ import {
   NutricionistiEditEndpoint,
   NutricionistiEditRequest
 } from "../endpoints/nutricionsti-endpoints/nutricionist-edit-endpoint";
-import {TreneriEditRequest} from "../endpoints/treneri-endpoints/treneri-edit-endpoint";
+import {
+  NutricionistAddEndpoint,
+  NutricionistAddRequest
+} from "../endpoints/nutricionsti-endpoints/nutricionisti-add-endpoint";
+import {TrenerAddRequest} from "../endpoints/treneri-endpoints/treneri-add-endpoint";
 
 @Component({
   selector: 'app-administrator-page-nutricionsti',
@@ -31,7 +35,8 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
               private NutricionistSeminarGetEndpoint:NutricionistSeminarGetEndpoint,
               private NutricionistSeminarAddEndpoint:NutricionistSeminarAddEndpoint,
               private SeminariGetAllEndpoint:SeminariGetAllEndpoint,
-              private NutricionistiEditEndpoint:NutricionistiEditEndpoint) {
+              private NutricionistiEditEndpoint:NutricionistiEditEndpoint,
+              private NutricionistAddEndpoint:NutricionistAddEndpoint) {
   }
 
   nutricionsti: NutricionstGetAllResponseNutricionst[] = [];
@@ -47,6 +52,13 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
   public noviNutricionstSeminar:NutricionistSeminarAddRequest = {
     nutricionistID: 0,
     seminarID: 1,
+  };
+
+  public noviNutricionist:NutricionistAddRequest = {
+    ime: "",
+    prezime: "",
+    brojTelefona: "",
+    slika: "",
   };
 
 
@@ -133,6 +145,33 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
 
       reader.onload = () =>{
         this.odabraniNutricionist!.slika = reader.result?.toString();
+
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+
+  SaveNew() {
+    this.NutricionistAddEndpoint.Handle(this.noviNutricionist).subscribe((x)=>{
+      this.fetchNutricionisti();
+      this.fetchSeminari();
+      this.prikaziAdd = false;
+      this.noviNutricionist.ime ="";
+      this.noviNutricionist.prezime ="";
+      this.noviNutricionist.slika ="";
+      this.noviNutricionist.brojTelefona ="";
+
+    });
+  }
+
+  Preview() {
+    // @ts-ignore
+    var file = document.getElementById("slika-input").files[0];
+    if(file){
+      var reader:FileReader = new FileReader();
+
+      reader.onload = () =>{
+        this.noviNutricionist!.slika = reader.result?.toString();
 
       }
       reader.readAsDataURL(file);

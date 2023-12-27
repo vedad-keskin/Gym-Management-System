@@ -137,7 +137,7 @@ export class AdministratorPageTreneriComponent implements OnInit{
       this.noviTrener.slika ="";
       this.noviTrener.brojTelefona ="";
 
-    })
+    });
   }
 
   Preview() {
