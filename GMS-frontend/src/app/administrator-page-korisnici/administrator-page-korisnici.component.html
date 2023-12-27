@@ -20,96 +20,197 @@
     </div>
 
 
+    <!-- div za edit -->
+
+
+
+    <div class="border rounded px-4 py-3" *ngIf="odabraniKorisnik">
+
+      <div class="d-flex justify-content-end">
+        <button type="button" (click)="Close()" class="btn-close"></button>
+      </div>
+
+
+      <div>
+        <label> ID: </label>
+        <input type="text" class="form-control mb-2" [value]="odabraniKorisnik.id" disabled>
+      </div>
+
+
+      <div>
+        <label> Slika: </label>
+        <input id="slika-input-edit" type="file" class="form-control" accept="image/*" (change)="PreviewEdit()" [(ngModel)]="odabraniKorisnik.slika" required>
+        <img class="rounded mx-auto d-block my-2 img-fluid img-thumbnail" style="max-width: 100%; height: 200px" src="{{this.odabraniKorisnik.slika}}" >
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <div>
+            <label> Ime: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.ime" required>
+          </div>
+
+          <div>
+            <label> Prezime: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.prezime" required>
+          </div>
+
+          <div>
+            <label> Username: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.username" required>
+          </div>
+
+          <div>
+            <label> Password: </label>
+            <input type="password" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.password" required>
+          </div>
+          <div>
+            <label> Broj telefona: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.brojTelefona" required>
+          </div>
+
+        </div>
+
+
+        <div class="col">
+
+
+          <div>
+            <label> Visina: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.visina" required>
+          </div>
+
+          <div>
+            <label> Težina: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="odabraniKorisnik.tezina" required>
+          </div>
+
+
+          <div>
+            <label class="form-label"> Grad prebivališta: </label>
+            <select class="form-select" [(ngModel)]="odabraniKorisnik.gradID">
+              <option *ngFor="let x of gradovi" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label"> Spol: </label>
+            <select class="form-select" [(ngModel)]="odabraniKorisnik.spolID">
+              <option *ngFor="let x of spolovi" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label"> Teretana: </label>
+            <select class="form-select" [(ngModel)]="odabraniKorisnik.teretanaID">
+              <option *ngFor="let x of teretane" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
+      </div>
+
+    </div>
+
+
+
     <!-- div za add -->
 
 
-      <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
+    <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
 
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
-        </div>
-
-
-
-        <div>
-          <label> Slika: </label>
-          <input id="slika-input" type="file" class="form-control" accept="image/*" (change)="Preview()" [(ngModel)]="noviKorisnik.slika" required>
-          <img class="rounded mx-auto d-block my-2 img-fluid img-thumbnail" style="max-width: 100%; height: 200px" src="{{this.noviKorisnik.slika}}" >
-        </div>
-
-
-        <div class="row">
-          <div class="col">
-        <div>
-          <label> Ime: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.ime" required>
-        </div>
-
-        <div>
-          <label> Prezime: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.prezime" required>
-        </div>
-
-        <div>
-          <label> Username: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.username" required>
-        </div>
-
-        <div>
-          <label> Password: </label>
-          <input type="password" class="form-control mb-2" [(ngModel)]="noviKorisnik.password" required>
-        </div>
-            <div>
-              <label> Broj telefona: </label>
-              <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.brojTelefona" required>
-            </div>
-
-        </div>
-
-
-          <div class="col">
-
-
-        <div>
-          <label> Visina: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.visina" required>
-        </div>
-
-        <div>
-          <label> Težina: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.tezina" required>
-        </div>
-
-
-        <div>
-          <label class="form-label"> Grad prebivališta: </label>
-          <select class="form-select" [(ngModel)]="noviKorisnik.gradID">
-            <option *ngFor="let x of gradovi" [value]="x.id">{{x.naziv}}</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="form-label"> Spol: </label>
-          <select class="form-select" [(ngModel)]="noviKorisnik.spolID">
-            <option *ngFor="let x of spolovi" [value]="x.id">{{x.naziv}}</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="form-label"> Teretana: </label>
-          <select class="form-select" [(ngModel)]="noviKorisnik.teretanaID">
-            <option *ngFor="let x of teretane" [value]="x.id">{{x.naziv}}</option>
-          </select>
-        </div>
-        </div>
-        </div>
-
-
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-danger mt-2" (click)="SaveNew()">Dodaj korisnika</button>
-        </div>
-
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
       </div>
+
+
+
+      <div>
+        <label> Slika: </label>
+        <input id="slika-input" type="file" class="form-control" accept="image/*" (change)="Preview()" [(ngModel)]="noviKorisnik.slika" required>
+        <img class="rounded mx-auto d-block my-2 img-fluid img-thumbnail" style="max-width: 100%; height: 200px" src="{{this.noviKorisnik.slika}}" >
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <div>
+            <label> Ime: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.ime" required>
+          </div>
+
+          <div>
+            <label> Prezime: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.prezime" required>
+          </div>
+
+          <div>
+            <label> Username: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.username" required>
+          </div>
+
+          <div>
+            <label> Password: </label>
+            <input type="password" class="form-control mb-2" [(ngModel)]="noviKorisnik.password" required>
+          </div>
+          <div>
+            <label> Broj telefona: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.brojTelefona" required>
+          </div>
+
+        </div>
+
+
+        <div class="col">
+
+
+          <div>
+            <label> Visina: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.visina" required>
+          </div>
+
+          <div>
+            <label> Težina: </label>
+            <input type="text" class="form-control mb-2" [(ngModel)]="noviKorisnik.tezina" required>
+          </div>
+
+
+          <div>
+            <label class="form-label"> Grad prebivališta: </label>
+            <select class="form-select" [(ngModel)]="noviKorisnik.gradID">
+              <option *ngFor="let x of gradovi" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label"> Spol: </label>
+            <select class="form-select" [(ngModel)]="noviKorisnik.spolID">
+              <option *ngFor="let x of spolovi" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label"> Teretana: </label>
+            <select class="form-select" [(ngModel)]="noviKorisnik.teretanaID">
+              <option *ngFor="let x of teretane" [value]="x.id">{{x.naziv}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-danger mt-2" (click)="SaveNew()">Dodaj korisnika</button>
+      </div>
+
+    </div>
 
 
 

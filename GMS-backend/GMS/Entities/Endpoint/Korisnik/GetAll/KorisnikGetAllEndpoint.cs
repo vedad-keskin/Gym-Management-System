@@ -33,7 +33,10 @@ namespace GMS.Entities.Endpoint.Korisnik.GetAll
                    NazivTeretane = x.Teretana.Naziv,
                    BrojTelefona = x.BrojTelefona,
                    Tezina = x.Tezina,
-                   Visina = x.Visina
+                   Visina = x.Visina,
+                   GradID = x.GradID,
+                   SpolID = x.SpolID,
+                   TeretanaID = x.TeretanaID
 
                 }).ToListAsync(cancellationToken : cancellationToken);
 

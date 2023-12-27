@@ -25,8 +25,12 @@ namespace GMS.Entities.Endpoint.Korisnik.GetAll
 
         public string NazivGrada { get; set; } 
         public string NazivSpol { get; set; } 
-        public string NazivTeretane { get; set; } 
+        public string NazivTeretane { get; set; }
 
-   
+        public int GradID { get; set; }
+        public int TeretanaID { get; set; }
+        public int SpolID { get; set; }
+
+
     }
 }

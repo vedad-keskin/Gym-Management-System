@@ -17,8 +17,9 @@ import {
   TeretanaGetAllEndpoint, TeretanaGetAllResponse,
   TeretanaGetAllResponseTeretana
 } from "../endpoints/teretane-endpoints/teretane-getall-endpoint";
-import {RecenzijaAddRequest} from "../endpoints/recenzije-endpoints/recenzije-add-endpoint";
 import {KorisnikAddEndpoint, KorisnikAddRequest} from "../endpoints/korisnik-endpoints/korisnik-add-endpoint";
+import {KorisniciEditEndpoint, KorisniciEditRequest} from "../endpoints/korisnik-endpoints/korisnik-edit-endpoint";
+import {TreneriEditRequest} from "../endpoints/treneri-endpoints/treneri-edit-endpoint";
 
 @Component({
   selector: 'app-administrator-page-korisnici',
@@ -31,7 +32,8 @@ export class AdministratorPageKorisniciComponent implements OnInit{
               private GradoviGetallEndpoint:GradoviGetallEndpoint,
               private SpolGetAllEndpoint:SpolGetAllEndpoint,
               private TeretanaGetAllEndpoint:TeretanaGetAllEndpoint,
-              private KorisnikAddEndpoint:KorisnikAddEndpoint) {
+              private KorisnikAddEndpoint:KorisnikAddEndpoint,
+              private KorisniciEditEndpoint:KorisniciEditEndpoint) {
   }
 
   korisnici: KorisnikGetAllResponseKorisnik[] = [];
@@ -40,7 +42,7 @@ export class AdministratorPageKorisniciComponent implements OnInit{
   teretane: TeretanaGetAllResponseTeretana[] = [];
   PretragaNaziv: string = "";
 
-
+  public odabraniKorisnik: KorisniciEditRequest | null = null;
   public prikaziAdd:boolean = false;
   public noviKorisnik:KorisnikAddRequest = {
     ime: "",
@@ -67,7 +69,20 @@ export class AdministratorPageKorisniciComponent implements OnInit{
   }
 
   Odaberi(x: KorisnikGetAllResponseKorisnik) {
-
+    this.odabraniKorisnik = {
+      id: x.id,
+      ime: x.ime,
+      prezime: x.prezime,
+      visina: x.visina,
+      tezina: x.tezina,
+      password: x.password,
+      username: x.username,
+      brojTelefona: x.brojTelefona,
+      slika: x.slika,
+      gradID: x.gradID,
+      spolID: x.spolID,
+      teretanaID: x.teretanaID
+    } ;
   }
 
   GetFiltiraniKorisnici() {
@@ -131,5 +146,32 @@ export class AdministratorPageKorisniciComponent implements OnInit{
 
 
     });
+  }
+
+  Close() {
+    this.odabraniKorisnik = null
+    this.prikaziAdd = false;
+    this.ngOnInit();
+  }
+
+  PreviewEdit() {
+    // @ts-ignore
+    var file = document.getElementById("slika-input-edit").files[0];
+    if(file){
+      var reader:FileReader = new FileReader();
+
+      reader.onload = () =>{
+        this.odabraniKorisnik!.slika = reader.result?.toString();
+
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+
+  Save() {
+    this.KorisniciEditEndpoint.Handle(this.odabraniKorisnik!).subscribe((x)=>{
+      this.fetchKorisnici();
+      this.odabraniKorisnik = null
+    })
   }
 }

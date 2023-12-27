@@ -75,7 +75,7 @@ export class AdministratorPageTreneriComponent implements OnInit{
         }
       }
     )
-  this.prikaziPregled = !this.prikaziPregled;
+    this.prikaziPregled = !this.prikaziPregled;
     this.prikaziAddSeminara = false;
   }
 
@@ -91,8 +91,11 @@ export class AdministratorPageTreneriComponent implements OnInit{
   }
 
   Close() {
-    this.odbraniSeminari = null
+    this.odbraniSeminari = null;
+    this.odabraniTrener = null;
+    this.prikaziAddSeminara = false;
     this.prikaziPregled = false;
+    this.prikaziAdd = false;
     this.ngOnInit();
   }
 
@@ -113,6 +116,7 @@ export class AdministratorPageTreneriComponent implements OnInit{
       brojTelefona:x.brojTelefona,
       slika: x.slika
     } ;
+    this.prikaziAdd = false;
   }
 
   private fetchSeminari() {
@@ -137,11 +141,11 @@ export class AdministratorPageTreneriComponent implements OnInit{
       this.noviTrener.slika ="";
       this.noviTrener.brojTelefona ="";
 
-    });
+    })
   }
 
   Preview() {
-     // @ts-ignore
+    // @ts-ignore
     var file = document.getElementById("slika-input").files[0];
     if(file){
       var reader:FileReader = new FileReader();

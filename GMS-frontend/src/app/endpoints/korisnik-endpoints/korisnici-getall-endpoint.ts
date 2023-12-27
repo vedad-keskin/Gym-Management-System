@@ -38,5 +38,7 @@ export interface KorisnikGetAllResponseKorisnik {
   nazivGrada: string
   nazivSpol: string
   nazivTeretane: string
-
+  gradID: number
+  teretanaID: number
+  spolID: number
 }

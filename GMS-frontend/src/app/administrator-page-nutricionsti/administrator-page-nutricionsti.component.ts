@@ -23,7 +23,7 @@ import {
   NutricionistAddEndpoint,
   NutricionistAddRequest
 } from "../endpoints/nutricionsti-endpoints/nutricionisti-add-endpoint";
-import {TrenerAddRequest} from "../endpoints/treneri-endpoints/treneri-add-endpoint";
+
 
 @Component({
   selector: 'app-administrator-page-nutricionsti',
@@ -92,8 +92,11 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
   }
 
   Close() {
-    this.odbraniSeminari = null
+    this.odbraniSeminari = null;
+    this.odabraniNutricionist = null;
+    this.prikaziAddSeminara = false;
     this.prikaziPregled = false;
+    this.prikaziAdd = false;
     this.ngOnInit();
   }
 
@@ -101,7 +104,7 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
     this.NutricionistSeminarAddEndpoint.Handle(this.noviNutricionstSeminar).subscribe((x)=>{
       this.fetchNutricionisti();
       this.fetchSeminari();
-      this.prikaziAddSeminara = false;
+      this.Close();
 
     })
   }
@@ -114,7 +117,8 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
       prezime: x.prezime,
       brojTelefona:x.brojTelefona,
       slika: x.slika
-    } ;
+    };
+    this.prikaziAdd = false;
   }
 
   private fetchSeminari() {
@@ -133,7 +137,7 @@ export class AdministratorPageNutricionstiComponent implements OnInit{
     this.NutricionistiEditEndpoint.Handle(this.odabraniNutricionist!).subscribe((x)=>{
       this.fetchNutricionisti();
       this.fetchSeminari();
-      this.odabraniNutricionist = null
+      this.Close();
     });
   }
 

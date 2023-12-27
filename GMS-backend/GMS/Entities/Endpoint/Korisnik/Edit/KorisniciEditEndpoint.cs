@@ -43,6 +43,9 @@ namespace GMS.Entities.Endpoint.Korisnik.Edit
             korisnik.BrojTelefona = request.BrojTelefona.RemoveTags();
             korisnik.Visina = request.Visina;
             korisnik.Tezina = request.Tezina;
+            korisnik.TeretanaID = request.TeretanaID;
+            korisnik.GradID = request.GradID;
+            korisnik.SpolID = request.SpolID;
            
 
             await db.SaveChangesAsync(cancellationToken);
