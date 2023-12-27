@@ -52,9 +52,59 @@
     </div>
 
 
-    <!-- div za add -->
+    <!-- div za edit -->
 
     <div class="container-sm w-50" >
+
+    <div class="border rounded px-4 py-3" *ngIf="odabraniTrener">
+
+      <div class="d-flex justify-content-end">
+        <button type="button" (click)="Close()" class="btn-close"></button>
+      </div>
+
+
+      <div>
+        <label> ID: </label>
+        <input type="text" class="form-control mb-2" [value]="odabraniTrener.id" disabled>
+      </div>
+
+
+      <div>
+        <label> Slika: </label>
+        <input id="slika-input-edit" type="file" class="form-control" accept="image/*" (change)="PreviewEdit()" [(ngModel)]="odabraniTrener.slika" required>
+        <img class="rounded mx-auto d-block my-2 img-fluid img-thumbnail" style="max-width: 100%; height: 200px" src="{{this.odabraniTrener?.slika}}" >
+      </div>
+
+
+      <div>
+        <label> Ime: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniTrener.ime">
+      </div>
+
+      <div>
+        <label> Prezime: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniTrener.prezime">
+      </div>
+
+      <div>
+        <label> Broj telefona: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniTrener.brojTelefona">
+      </div>
+
+
+
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
+      </div>
+
+    </div>
+
+
+
+    <!-- div za add -->
+
+
 
       <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
 

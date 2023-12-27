@@ -6,7 +6,7 @@ import {
   TrenerGetAllResponseTrener
 } from "../endpoints/treneri-endpoints/treneri-getall-endpoint";
 import {
-  TrenerSeminarGetEndpoint, TrenerSeminarGetResponse, TrenerSeminarGetResponseSeminar
+  TrenerSeminarGetEndpoint, TrenerSeminarGetResponse
 } from "../endpoints/treneri-endpoints/treneri-seminari-endpoints/treneri-seminari-get-endpoint";
 import {
   TrenerSeminarAddEndpoint, TrenerSeminarAddRequest
@@ -16,8 +16,8 @@ import {
   SeminarGetAllResponseSeminari,
   SeminariGetAllEndpoint
 } from "../endpoints/seminari-endpoints/seminari-getall-endpoint";
-import {SeminarAddRequest} from "../endpoints/seminari-endpoints/seminari-add-endpoint";
 import {TrenerAddEndpoint, TrenerAddRequest} from "../endpoints/treneri-endpoints/treneri-add-endpoint";
+import {TreneriEditEndpoint, TreneriEditRequest} from "../endpoints/treneri-endpoints/treneri-edit-endpoint";
 
 
 @Component({
@@ -32,13 +32,16 @@ export class AdministratorPageTreneriComponent implements OnInit{
               private TrenerSeminarGetEndpoint:TrenerSeminarGetEndpoint,
               private TrenerSeminarAddEndpoint:TrenerSeminarAddEndpoint,
               private SeminariGetAllEndpoint:SeminariGetAllEndpoint,
-              private TrenerAddEndpoint:TrenerAddEndpoint) {
+              private TrenerAddEndpoint:TrenerAddEndpoint,
+              private TreneriEditEndpoint:TreneriEditEndpoint) {
   }
 
   treneri: TrenerGetAllResponseTrener[] = [];
   seminari: SeminarGetAllResponseSeminari[] = [];
   PretragaNaziv: string = "";
   public odbraniSeminari : TrenerSeminarGetResponse | null = null;
+  public odabraniTrener: TreneriEditRequest | null = null;
+
 
   public prikaziAdd:boolean = false;
   public prikaziPregled:boolean = false;
@@ -103,7 +106,13 @@ export class AdministratorPageTreneriComponent implements OnInit{
   }
 
   OdaberiZaModifikaciju(x: TrenerGetAllResponseTrener) {
-
+    this.odabraniTrener = {
+      id: x.id,
+      ime: x.ime,
+      prezime: x.prezime,
+      brojTelefona:x.brojTelefona,
+      slika: x.slika
+    } ;
   }
 
   private fetchSeminari() {
@@ -144,5 +153,27 @@ export class AdministratorPageTreneriComponent implements OnInit{
       reader.readAsDataURL(file);
     }
 
+  }
+
+  PreviewEdit() {
+    // @ts-ignore
+    var file = document.getElementById("slika-input-edit").files[0];
+    if(file){
+      var reader:FileReader = new FileReader();
+
+      reader.onload = () =>{
+        this.odabraniTrener!.slika = reader.result?.toString();
+
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+
+  Save() {
+    this.TreneriEditEndpoint.Handle(this.odabraniTrener!).subscribe((x)=>{
+      this.fetchTreneri();
+      this.fetchSeminari();
+      this.odabraniTrener = null
+    })
   }
 }
