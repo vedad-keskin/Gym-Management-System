@@ -38,7 +38,7 @@ namespace GMS.Entities.Endpoint.Nutricionist.Edit
             nutricionist.Ime = request.Ime.RemoveTags();
             nutricionist.Prezime = request.Prezime.RemoveTags();
             nutricionist.BrojTelefona = request.BrojTelefona.RemoveTags();
-            nutricionist.Slika = request.Slika.RemoveTags();
+            nutricionist.Slika = request.Slika?.RemoveTags();
 
             await db.SaveChangesAsync(cancellationToken);
 

@@ -39,7 +39,9 @@ namespace GMS.Entities.Endpoint.Suplement.Edit
             suplement.Cijena = request.Cijena;
             suplement.Gramaza = request.Gramaza;
             suplement.Opis = request.Opis.RemoveTags();
-            suplement.Slika = request.Slika.RemoveTags();
+            suplement.Slika = request.Slika?.RemoveTags();
+            suplement.DobavljacID = request.DobavljacID;
+            suplement.KategorijaID = request.KategorijaID;
 
 
             await db.SaveChangesAsync(cancellationToken);

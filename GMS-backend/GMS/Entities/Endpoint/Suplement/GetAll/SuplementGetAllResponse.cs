@@ -16,5 +16,7 @@
         public string? Slika { get; set; }
         public string NazivDobavljaca { get; set; }
         public string NazivKategorija { get; set; }
+        public int DobavljacID { get; set; }
+        public int KategorijaID { get; set; }
     }
 }

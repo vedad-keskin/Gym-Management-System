@@ -32,6 +32,8 @@ export interface SuplementGetAllResponseSuplement {
   slika: string
   nazivDobavljaca: string
   nazivKategorija: string
+  kategorijaID: number
+  dobavljacID: number
 }
 
 

@@ -39,7 +39,7 @@ namespace GMS.Entities.Endpoint.Recenzija.Edit
             recenzija.Prezime = request.Prezime.RemoveTags();
             recenzija.Zanimanje = request.Zanimanje.RemoveTags();
             recenzija.Tekst = request.Tekst.RemoveTags();
-            recenzija.Slika = request.Slika.RemoveTags();
+            recenzija.Slika = request.Slika?.RemoveTags();
 
 
             await db.SaveChangesAsync(cancellationToken);

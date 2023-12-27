@@ -29,7 +29,9 @@ namespace GMS.Entities.Endpoint.Suplement.GetAll
                     Opis = x.Opis,
                     Slika = x.Slika,
                     NazivDobavljaca = x.Dobavljac.Naziv,
-                    NazivKategorija = x.Kategorija.Naziv
+                    NazivKategorija = x.Kategorija.Naziv,
+                    DobavljacID = x.DobavljacID,
+                    KategorijaID = x.KategorijaID
                 }).ToListAsync(cancellationToken: cancellationToken);
 
             return new SuplementGetAllResponse

@@ -39,7 +39,7 @@ namespace GMS.Entities.Endpoint.Korisnik.Edit
             korisnik.Prezime = request.Prezime.RemoveTags();
             korisnik.Username = request.Username.RemoveTags();
             korisnik.Password = request.Password.RemoveTags();
-            korisnik.Slika = request.Slika.RemoveTags();
+            korisnik.Slika = request.Slika?.RemoveTags();
             korisnik.BrojTelefona = request.BrojTelefona.RemoveTags();
             korisnik.Visina = request.Visina;
             korisnik.Tezina = request.Tezina;
