@@ -26,11 +26,9 @@ public static class Class
         return builder.ToString();
     }
 
-
     public static byte[] ParseBase65(this string base64string)
     {
         base64string = base64string.Split(',')[1];
         return System.Convert.FromBase64String(base64string);
     }
-
 }

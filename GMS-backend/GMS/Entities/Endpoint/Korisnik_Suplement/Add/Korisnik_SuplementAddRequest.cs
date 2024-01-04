@@ -6,6 +6,5 @@
         public int SuplementID { get; set; }
         public int Kolicina { get; set; }
         public bool Isporuceno { get; set; }
-
     }
 }

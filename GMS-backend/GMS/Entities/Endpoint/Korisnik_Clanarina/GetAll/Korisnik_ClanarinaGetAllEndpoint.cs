@@ -27,7 +27,6 @@ namespace GMS.Entities.Endpoint.Korisnik_Clanarina.GetAll
                   DatumUplate=x.DatumUplate,
                   DatumIsteka=x.DatumIsteka,
                   NazivClanarine = x.Clanarina.Naziv
-                  
 
                 }).ToListAsync(cancellationToken : cancellationToken);
 

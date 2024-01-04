@@ -9,6 +9,7 @@ namespace GMS.Entities.Endpoint.Clanarina.Edit
 
     [Route("Clanarina-Edit")]
     [MyAuthorization]
+
     public class ClanarineEditEndpoint : MyBaseEndpoint<ClanarineEditRequest, int>
     {
         private readonly ApplicationDbContext db;

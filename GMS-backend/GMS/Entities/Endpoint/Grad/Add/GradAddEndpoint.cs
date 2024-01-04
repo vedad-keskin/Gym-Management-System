@@ -9,6 +9,7 @@ namespace GMS.Endpoint.Grad.Add
 {
     [Route("Grad-Add")]
     [MyAuthorization]
+
     public class GradAddEndpoint : MyBaseEndpoint<GradAddRequest, GradAddResponse>
     {
         private readonly ApplicationDbContext db;

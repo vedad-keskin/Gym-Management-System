@@ -23,7 +23,7 @@ namespace GMS.Configuration
                     GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/1kor.png",
-                    is2FActive = false
+                    is2FActive = true
                 },
                 new Korisnik
                 {
@@ -39,7 +39,7 @@ namespace GMS.Configuration
                     GradID = 33,
                     TeretanaID = 2,
                     Slika = "assets/2kor.jpg",
-                    is2FActive = false
+                    is2FActive = true
                 }
                 ,
                 new Korisnik
@@ -56,7 +56,7 @@ namespace GMS.Configuration
                     GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/3kor.jpg",
-                    is2FActive = false
+                    is2FActive = true
                 },
                 new Korisnik
                 {
@@ -72,7 +72,7 @@ namespace GMS.Configuration
                     GradID = 18,
                     TeretanaID = 2,
                     Slika = "assets/4kor.jpg",
-                    is2FActive = false
+                    is2FActive = true
                 }
                 ,
                 new Korisnik
@@ -89,7 +89,7 @@ namespace GMS.Configuration
                     GradID = 34,
                     TeretanaID = 2,
                     Slika = "assets/5kor.jpg",
-                    is2FActive = false
+                    is2FActive = true
                 });
 
         }

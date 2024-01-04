@@ -1,10 +1,12 @@
 ﻿using GMS.Data;
 using GMS.Helpers;
+using GMS.Helpers.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GMS.Entities.Endpoint.Teretana.Add
 {
     [Route("Teretana-Add")]
+    [MyAuthorization]
 
     public class TeretanaAddEndpoint : MyBaseEndpoint<TeretanaAddRequest, TeretanaAddResponse>
     {

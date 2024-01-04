@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231217134343_db_test")]
-    partial class db_test
+    [Migration("20240104112001_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1492,7 +1492,7 @@ namespace GMS.Migrations
                             ID = 3,
                             Password = "bayern123",
                             Username = "vedadke",
-                            is2FActive = false,
+                            is2FActive = true,
                             BrojTelefona = "0644076290",
                             GradID = 18,
                             Ime = "Vedad",
@@ -1508,7 +1508,7 @@ namespace GMS.Migrations
                             ID = 4,
                             Password = "dzejla123",
                             Username = "dzejlap",
-                            is2FActive = false,
+                            is2FActive = true,
                             BrojTelefona = "062709689",
                             GradID = 33,
                             Ime = "Džejla",
@@ -1524,7 +1524,7 @@ namespace GMS.Migrations
                             ID = 5,
                             Password = "fit2023",
                             Username = "saidke",
-                            is2FActive = false,
+                            is2FActive = true,
                             BrojTelefona = "0644065144",
                             GradID = 18,
                             Ime = "Said",
@@ -1540,7 +1540,7 @@ namespace GMS.Migrations
                             ID = 6,
                             Password = "fit2023",
                             Username = "denism",
-                            is2FActive = false,
+                            is2FActive = true,
                             BrojTelefona = "061000000",
                             GradID = 18,
                             Ime = "Denis",
@@ -1556,7 +1556,7 @@ namespace GMS.Migrations
                             ID = 7,
                             Password = "fit2023",
                             Username = "adilj",
-                            is2FActive = false,
+                            is2FActive = true,
                             BrojTelefona = "062000000",
                             GradID = 34,
                             Ime = "Adil",

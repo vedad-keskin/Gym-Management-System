@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GMS.Migrations
 {
-    public partial class db_test : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -569,11 +569,11 @@ namespace GMS.Migrations
                 {
                     { 1, "admin", "admin", false },
                     { 2, "host", "host", false },
-                    { 3, "bayern123", "vedadke", false },
-                    { 4, "dzejla123", "dzejlap", false },
-                    { 5, "fit2023", "saidke", false },
-                    { 6, "fit2023", "denism", false },
-                    { 7, "fit2023", "adilj", false }
+                    { 3, "bayern123", "vedadke", true },
+                    { 4, "dzejla123", "dzejlap", true },
+                    { 5, "fit2023", "saidke", true },
+                    { 6, "fit2023", "denism", true },
+                    { 7, "fit2023", "adilj", true }
                 });
 
             migrationBuilder.InsertData(
