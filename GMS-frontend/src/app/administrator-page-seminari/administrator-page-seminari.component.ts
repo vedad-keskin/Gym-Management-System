@@ -75,6 +75,6 @@ export class AdministratorPageSeminariComponent implements OnInit{
   private fetchSeminari() {
     this.SeminariGetAllEndpoint.Handle().subscribe((x:SeminarGetAllResponse )=>{
       this.seminari = x.seminari;
-    })
+    });
   }
 }

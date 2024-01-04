@@ -1,13 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-
+import {
+  ClanarinaGetAllResponse, ClanarinaGetAllResponseClanarina,
+  ClanarineGetallEndpoint
+} from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
 import {
   AdministratorGetAllEndpoint, AdministratorGetAllResponse,
   AdministratorGetAllResponseAdministrator
 } from "../endpoints/administratori-endpoints/admin-getall-endpoint";
+import {ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
 import {
   AdministratoriEditEndpoint,
   AdministratoriEditRequest
 } from "../endpoints/administratori-endpoints/admin-edit-endpoint";
+import {ClanarinaAddRequest} from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
 import {
   AdministratorAddEndpoint,
   AdministratorAddRequest
@@ -41,8 +46,7 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   ngOnInit():void {
 
-    this.fetchAdmin();
-
+    this.fetchAdministrator();
   }
 
   GetFiltiraniAdministratori() {
@@ -52,7 +56,7 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   Save() {
     this.AdministratoriEditEndpoint.Handle(this.odabraniAdmin!).subscribe((x)=>{
-      this.fetchAdmin();
+      this.fetchAdministrator();
       this.odabraniAdmin = null
     })
   }
@@ -74,7 +78,7 @@ export class AdministratorPageAdminComponent implements OnInit{
 
   SaveNew() {
     this.AdministratorAddEndpoint.Handle(this.noviAdmin).subscribe((x)=>{
-      this.fetchAdmin();
+      this.fetchAdministrator();
       this.prikaziAdd = false;
       this.noviAdmin.ime ="";
       this.noviAdmin.prezime ="";
@@ -83,10 +87,9 @@ export class AdministratorPageAdminComponent implements OnInit{
     })
   }
 
-  private fetchAdmin() {
+  private fetchAdministrator() {
     this.AdministratorGetAllEndpoint.Handle().subscribe((x:AdministratorGetAllResponse )=>{
       this.administratori = x.administrator;
     })
-
   }
 }

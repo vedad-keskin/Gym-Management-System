@@ -5,6 +5,7 @@ import {
   FAQGetAllResponseFAQ
 } from "../endpoints/faq-endpoints/faq-getall-endpoint";
 
+
 @Component({
   selector: 'app-faq-page',
   templateUrl: './faq-page.component.html',
@@ -22,10 +23,9 @@ export class FaqPageComponent implements OnInit{
     this.fetchFAQ();
   }
 
-
   private fetchFAQ() {
     this.FAQgetAllEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
       this.faq = x.faq;
-    })
+    });
   }
 }

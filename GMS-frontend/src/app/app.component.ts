@@ -23,11 +23,9 @@ export class AppComponent implements OnInit{
 
   Logout() {
     let token = window.localStorage.getItem("my-auth-token")??"";
-
     window.localStorage.setItem("my-auth-token","");
 
     let url=Config.adresa+`Autentifikacija/Logout`
-
     this.httpClient.post(url, {}, {
       headers:{
         "my-auth-token": token

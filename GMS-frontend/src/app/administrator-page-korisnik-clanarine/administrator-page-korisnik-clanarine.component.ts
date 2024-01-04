@@ -15,7 +15,6 @@ import {
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
 
-
 @Component({
   selector: 'app-administrator-page-korisnik-clanarine',
   templateUrl: './administrator-page-korisnik-clanarine.component.html',
@@ -46,9 +45,7 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
   };
   ngOnInit():void {
 
-
     this.fetchKorisnici();
-
     this.fetchClanarine();
   }
   GetFiltiriraneKorisnike() {
@@ -70,8 +67,7 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
   Close() {
     this.odabraniKorisnikClanarine = null
     this.prikaziPregled = false;
-    this.fetchClanarine();
-    this.fetchKorisnici();
+    this.ngOnInit();
   }
 
   OdaberizaNovi(id: number) {
@@ -82,8 +78,8 @@ export class AdministratorPageKorisnikClanarineComponent implements OnInit{
 
   SaveNew() {
     this.Korisnik_ClanarinaAddEndpoint.Handle(this.novaKorisnikClanarina).subscribe((x)=>{
-      this.fetchClanarine();
       this.fetchKorisnici();
+      this.fetchClanarine();
       this.prikaziAdd = false;
 
     })

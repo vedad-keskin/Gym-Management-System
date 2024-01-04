@@ -27,7 +27,7 @@ export class AdministratorPageNotifikacijeComponent implements OnInit{
 
   ngOnInit():void {
 
-    this.fetchKorisnikSuplement();
+    this.fetchSuplementi();
   }
 
   GetFiltiranaKupovina() {
@@ -46,14 +46,14 @@ export class AdministratorPageNotifikacijeComponent implements OnInit{
     } ;
 
     this.Korisnik_SuplementEditEndpoint.Handle(this.odabranaNotifikacija!).subscribe((x)=>{
-      this.fetchKorisnikSuplement();
+      this.ngOnInit();
       this.odabranaNotifikacija = null
     })
 
 
   }
 
-  private fetchKorisnikSuplement() {
+  private fetchSuplementi() {
     this.Korisnik_SuplementGetAllEndpoint.Handle().subscribe((x:Korisnik_SuplementGetAllResponse )=>{
       this.korisnikSuplementi = x.korisnikSuplement;
     });

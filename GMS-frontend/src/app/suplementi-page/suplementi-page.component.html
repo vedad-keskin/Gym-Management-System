@@ -1,10 +1,10 @@
 <section id="suplementi" >
 
-<!-- popup za uspjesno rezervisanje -->
+  <!-- popup za uspjesno rezervisanje -->
 
   <div  class="d-flex align-items-center justify-content-center" *ngIf="SuccessPopUp" >
     <div class="alert alert-success alert-dismissible fade show w-50" role="alert" >
-      Uspješno ste rezervisali suplement
+      Uspješno ste rezervisali željeni suplement!
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
       </button>
     </div>
@@ -14,7 +14,7 @@
 
   <div class="d-flex align-items-center justify-content-center" *ngIf="ErrorPopUp" >
     <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
-      Morate biti prijavljeni da bi ste rezervisali suplement
+      Morate biti prijavljeni da biste rezervisali suplement!
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
       </button>
     </div>
@@ -24,12 +24,11 @@
 
   <div class="d-flex align-items-center justify-content-center" *ngIf="ErrorPopUp2" >
     <div class="alert alert-danger alert-dismissible fade show w-50" role="alert" >
-      Samo korisnici mogu rezervisati suplemente
+      Samo korisnici mogu rezervisati suplemente!
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="ZatvoriPopUp()">
       </button>
     </div>
   </div>
-
 
   <!-- modal za suplemente -->
   <div *ngIf="prikaziAdd">
@@ -126,8 +125,8 @@
   <!-- Ispis suplemenata -->
 
   <div class="row d-flex justify-content-center" >
-    <div class="card m-1" id="suplement" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem;">
-      <img id="slike" src="{{x.slika}}" class="card-img-top" style="height: 262px; width: 262px"  />
+    <div class="card m-1" id="suplement" *ngFor="let x of GetFiltiraniSuplementi()" style="width: 18rem">
+      <img id="slike" src="{{x.slika}}" class="card-img-top" style="height: 262px; width: 262px" />
       <div class="card-body">
         <h5 class="card-title text-center">{{x.naziv}}</h5>
         <p class="card-text text-center" style="font-size: 14px;">{{x.nazivDobavljaca}}</p>

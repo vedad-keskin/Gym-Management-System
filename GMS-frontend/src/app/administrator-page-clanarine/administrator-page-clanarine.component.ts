@@ -1,14 +1,11 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 import {
   ClanarinaGetAllResponse,
   ClanarinaGetAllResponseClanarina,
   ClanarineGetallEndpoint
 } from "../endpoints/clanarine-endpoints/clanarine-getall-endpoint";
 import {ClanarineEditEndpoint, ClanarineEditRequest} from "../endpoints/clanarine-endpoints/clanarine-edit-endpoint";
-import {
-  ClanarinaAddEndpoint,
-  ClanarinaAddRequest
-} from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
+import {ClanarinaAddEndpoint, ClanarinaAddRequest} from "../endpoints/clanarine-endpoints/clanarina-add-endpoint";
 
 @Component({
   selector: 'app-administrator-page-clanarine',
@@ -34,11 +31,12 @@ export class AdministratorPageClanarineComponent implements OnInit{
   };
 
   ngOnInit():void {
-     this.fetchClanarine();
+
+    this.fetchClanarine();
   }
 
 
-  GetFiltiraniSuplementi() {
+  GetFiltiraneClanarine() {
     return this.clanarine.filter(x=> x.naziv.toLowerCase().includes(this.PretragaNaziv.toLowerCase()));
   }
 
@@ -65,12 +63,12 @@ export class AdministratorPageClanarineComponent implements OnInit{
   }
 
   SaveNew() {
-     this.ClanarinaAddEndpoint.Handle(this.novaClanarina).subscribe((x)=>{
-       this.fetchClanarine();
-       this.prikaziAdd = false;
-       this.novaClanarina.naziv ="";
-       this.novaClanarina.opis ="";
-       this.novaClanarina.cijena =50;
+    this.ClanarinaAddEndpoint.Handle(this.novaClanarina).subscribe((x)=>{
+      this.fetchClanarine();
+      this.prikaziAdd = false;
+      this.novaClanarina.naziv ="";
+      this.novaClanarina.opis ="";
+      this.novaClanarina.cijena =50;
     })
   }
 

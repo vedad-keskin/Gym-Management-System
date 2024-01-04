@@ -44,18 +44,17 @@ export class KorisnikPageComponent implements OnInit{
   ngOnInit() {
     this.id = this.myAuthService.returnId()!;
 
-
     this.KorisnikGetByIdEndpoint.Handle(this.id).subscribe({
-        next: x => {
-          this.odabraniKorisnik = x;
+          next: x => {
+            this.odabraniKorisnik = x;
+          }
         }
-      }
     )
 
-    this.fetchClanarine();
-    this.fetchSuplementi();
-    this.fetchTreneri();
-    this.fetchNutricionsti();
+    this.fetchKorisniciClanarine();
+    this.fetchKorisniciSuplementi();
+    this.fetchKorisniciTreneri();
+    this.fetchKorisniciNutricionsti();
   }
 
 
@@ -74,27 +73,27 @@ export class KorisnikPageComponent implements OnInit{
     return this.korisnikNutricionist.filter(x=> x.korisnikID == this.id );
   }
 
-  private fetchNutricionsti() {
+  private fetchKorisniciNutricionsti() {
     this.Korisnik_NutricionistGetAllEndpoint.Handle().subscribe((x:Korisnik_NutricionistGetAllResponse )=>{
       this.korisnikNutricionist = x.korisnikNutricionist;
-    })
+    });
   }
 
-  private fetchTreneri() {
+  private fetchKorisniciTreneri() {
     this.Korisnik_TrenerGetAllEndpoint.Handle().subscribe((x:Korisnik_TrenerGetAllResponse )=>{
       this.korisnikTrener = x.korisnikTrener;
-    })
+    });
   }
 
-  private fetchSuplementi() {
+  private fetchKorisniciSuplementi() {
     this.Korisnik_SuplementGetAllEndpoint.Handle().subscribe((x:Korisnik_SuplementGetAllResponse )=>{
       this.korisnikSuplement = x.korisnikSuplement;
-    })
+    });
   }
 
-  private fetchClanarine() {
+  private fetchKorisniciClanarine() {
     this.Korisnik_ClanarinaGetAllEndpoint.Handle().subscribe((x:Korisnik_ClanarinaGetAllResponse )=>{
       this.korisnik_clanarine = x.korisnik_Clanarina;
-    })
+    });
   }
 }

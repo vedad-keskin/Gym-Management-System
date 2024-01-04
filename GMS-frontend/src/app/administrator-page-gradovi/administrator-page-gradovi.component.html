@@ -31,73 +31,73 @@
     <!-- div za add -->
     <div class="container-sm w-75" >
 
-      <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
+    <div class="border rounded px-4 py-3" *ngIf="prikaziAdd">
 
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
-        </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" (click)="prikaziAdd = !prikaziAdd"></button>
+      </div>
 
-        <div>
-          <label> Naziv: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="noviGrad.naziv" required>
-        </div>
+      <div>
+        <label> Naziv: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="noviGrad.naziv" required>
+      </div>
 
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj grad</button>
-        </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary mt-2" (click)="SaveNew()">Dodaj grad</button>
+      </div>
 
+    </div>
+
+
+
+
+
+    <!-- div za edit -->
+
+
+    <div class="border rounded px-4 py-3" *ngIf="odabraniGrad">
+
+      <div class="d-flex justify-content-end">
+        <button type="button" (click)="Close()" class="btn-close"></button>
       </div>
 
 
+      <div>
+        <label> ID: </label>
+        <input type="text" class="form-control mb-2" [value]="odabraniGrad.id" disabled>
+      </div>
 
-
-
-      <!-- div za edit -->
-
-
-      <div class="border rounded px-4 py-3" *ngIf="odabraniGrad">
-
-        <div class="d-flex justify-content-end">
-          <button type="button" (click)="Close()" class="btn-close"></button>
-        </div>
-
-
-        <div>
-          <label> ID: </label>
-          <input type="text" class="form-control mb-2" [value]="odabraniGrad.id" disabled>
-        </div>
-
-        <div>
-          <label> Naziv: </label>
-          <input type="text" class="form-control mb-2" [(ngModel)]="odabraniGrad.naziv">
-        </div>
-
-
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
-        </div>
-
+      <div>
+        <label> Naziv: </label>
+        <input type="text" class="form-control mb-2" [(ngModel)]="odabraniGrad.naziv">
       </div>
 
 
-      <!-- tabela -->
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-danger mt-2" (click)="Save()">Spasi promjene</button>
+      </div>
 
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Naziv</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let x of GetFiltiraniGradovi()">
-          <td class="w-25">{{ x.naziv }}</td>
-          <td class="w-75"></td>
-          <td>
-            <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    </div>
+
+
+    <!-- tabela -->
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Naziv</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let x of GetFiltiraniGradovi()">
+        <td class="w-25">{{ x.naziv }}</td>
+        <td class="w-75"></td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
 
 

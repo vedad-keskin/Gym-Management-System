@@ -9,7 +9,9 @@ import {
   GradoviGetallEndpoint
 } from "../endpoints/gradovi-endpoints/gradovi-getall-endpoint";
 import {TeretaneEditEndpoint, TeretaneEditRequest} from "../endpoints/teretane-endpoints/teretane-edit-endpoint";
+import {SeminariEditRequest} from "../endpoints/seminari-endpoints/seminari-edit-endpoint";
 import {TeretanaAddEndpoint, TeretanaAddRequest} from "../endpoints/teretane-endpoints/teretane-add-endpoint";
+import {SeminarAddRequest} from "../endpoints/seminari-endpoints/seminari-add-endpoint";
 
 
 @Component({
@@ -83,12 +85,12 @@ export class AdministratorPageTeretaneComponent implements OnInit{
   private fetchGradovi() {
     this.GradoviGetallEndpoint.Handle().subscribe((x:GradGetAllResponse )=>{
       this.gradovi = x.gradovi;
-    })
+    });
   }
 
   private fetchTeretane() {
     this.TeretanaGetAllEndpoint.Handle().subscribe((x:TeretanaGetAllResponse )=>{
       this.teretane = x.teretane;
-    })
+    });
   }
 }

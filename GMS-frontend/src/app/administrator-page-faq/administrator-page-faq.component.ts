@@ -74,6 +74,6 @@ export class AdministratorPageFaqComponent implements OnInit{
   private fetchFAQ() {
     this.FaqGetallEndpoint.Handle().subscribe((x:FAQGetAllResponse )=>{
       this.faq = x.faq;
-    })
+    });
   }
 }

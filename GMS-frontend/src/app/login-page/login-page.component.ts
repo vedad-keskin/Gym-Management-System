@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthenticationLoginRequest} from "./AuthenticationLoginRequest";
+import {config} from "rxjs";
 import {Config} from "../config";
 import {HttpClient} from "@angular/common/http";
 import {AuthLoginResponse} from "./AuthLoginResponse";
@@ -16,7 +17,6 @@ export class LoginPageComponent {
   constructor(public httpclient : HttpClient,
               private router : Router,
               private myAuthService: MyAuthService) {}
-
 
   public ErrorPopUp:boolean = false;
 
@@ -45,7 +45,7 @@ export class LoginPageComponent {
 
 
         else{
-          this.router.navigate(['AdministratorPage']);
+          this.router.navigate(['HomePage']);
         }
 
 

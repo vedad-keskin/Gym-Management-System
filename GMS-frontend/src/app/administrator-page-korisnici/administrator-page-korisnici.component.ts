@@ -172,6 +172,6 @@ export class AdministratorPageKorisniciComponent implements OnInit{
     this.KorisniciEditEndpoint.Handle(this.odabraniKorisnik!).subscribe((x)=>{
       this.fetchKorisnici();
       this.odabraniKorisnik = null
-    })
+    });
   }
 }

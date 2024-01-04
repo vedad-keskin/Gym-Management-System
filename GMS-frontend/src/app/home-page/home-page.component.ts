@@ -17,7 +17,8 @@ import {
 })
 export class HomePageComponent implements OnInit{
 
-  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint, private RecenzijegetAllEndpoint:RecenzijeGetallEndpoint) {
+  constructor(private ClanarinegetAllEndpoint:ClanarineGetallEndpoint,
+              private RecenzijegetAllEndpoint:RecenzijeGetallEndpoint) {
 
   }
   clanarine: ClanarinaGetAllResponseClanarina[] = [];
@@ -26,19 +27,18 @@ export class HomePageComponent implements OnInit{
 
     this.fetchClanarine();
     this.fetchRecenzije();
-
   }
 
 
   private fetchRecenzije() {
     this.RecenzijegetAllEndpoint.Handle().subscribe((x:RecenzijaGetAllResponse )=>{
       this.recenzije = x.recenzije;
-    })
+    });
   }
 
   private fetchClanarine() {
     this.ClanarinegetAllEndpoint.Handle().subscribe((x:ClanarinaGetAllResponse )=>{
       this.clanarine = x.clanarine;
-    })
+    });
   }
 }

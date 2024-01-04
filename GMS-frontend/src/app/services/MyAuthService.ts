@@ -9,6 +9,7 @@ export class MyAuthService{
   jelLogiran():boolean{
     return this.getAuthorizationToken() != null;
   }
+
   nijelLogiran():boolean{
     return this.getAuthorizationToken() == null;
   }
@@ -26,13 +27,14 @@ export class MyAuthService{
     return this.getAuthorizationToken()?.korisnickiNalog.isKorisnik ?? false
   }
 
-  is2FActive(): boolean{
+  is2FActive() {
     return this.getAuthorizationToken()?.korisnickiNalog.is2FActive ?? false
   }
 
   returnId() {
     return this.getAuthorizationToken()?.korisnickiNalog.id;
   }
+
   getAuthorizationToken():AutentifikacijaToken | null {
     let tokenString = window.localStorage.getItem("my-auth-token")??"";
     try {
@@ -52,6 +54,7 @@ export class MyAuthService{
       window.localStorage.setItem("my-auth-token", JSON.stringify(x));
     }
   }
+
 
 
 }

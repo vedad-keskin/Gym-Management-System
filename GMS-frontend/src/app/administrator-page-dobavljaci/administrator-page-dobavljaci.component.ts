@@ -33,7 +33,6 @@ export class AdministratorPageDobavljaciComponent implements OnInit{
   };
   ngOnInit():void {
 
-
     this.fetchDobavljaci();
   }
 

@@ -41,7 +41,6 @@ export class SuplementiPageComponent implements OnInit{
   public ErrorPopUp:boolean = false;
   public ErrorPopUp2:boolean = false;
 
-
   id:number = 0
   ukupnaCijena: number = 0
 
@@ -67,7 +66,7 @@ export class SuplementiPageComponent implements OnInit{
     this.id = this.MyAuthService.returnId()!;
     this.noviSuplement.korisnikID = this.id;
 
-    this.fetchsuplementi();
+    this.fetchSuplementi();
     this.fetchDobavljaci();
     this.fetchKategorije();
   }
@@ -114,19 +113,19 @@ export class SuplementiPageComponent implements OnInit{
   private fetchKategorije() {
     this.KategorijeGetAllEndpoint.Handle().subscribe((x:KategorijaGetAllResponse )=>{
       this.kategorije = x.kategorije;
-    })
+    });
   }
 
   private fetchDobavljaci() {
     this.DobavljaciGetAllEndpoint.Handle().subscribe((x:DobavljacGetAllResponse )=>{
       this.dobavljaci = x.dobavljaci;
-    })
+    });
   }
 
-  private fetchsuplementi() {
+  private fetchSuplementi() {
     this.SuplementigetAllEndpoint.Handle().subscribe((x:SuplementGetAllResponse )=>{
       this.suplementi = x.suplementi;
-    })
+    });
   }
 
   ZatvoriPopUp() {

@@ -81,28 +81,28 @@
 
 
 
-      <!-- tabela -->
+    <!-- tabela -->
 
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Naziv</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let x of GetFiltiriraniDobavljaci()">
-          <td class="w-50">{{ x.naziv }}</td>
-          <td class="w-50"></td>
-          <td>
-            <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
-
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Naziv</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let x of GetFiltiriraniDobavljaci()">
+        <td class="w-50">{{ x.naziv }}</td>
+        <td class="w-50"></td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="Odaberi(x)">Modifikuj</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
 
-    </div>
+
+
+  </div>
   </div>
 </section>
