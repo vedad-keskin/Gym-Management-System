@@ -36,6 +36,7 @@ import { AdministratorPageKorisniciComponent } from './administrator-page-korisn
 import { AdministratorPageTreneriComponent } from './administrator-page-treneri/administrator-page-treneri.component';
 import { AdministratorPageNutricionstiComponent } from './administrator-page-nutricionsti/administrator-page-nutricionsti.component';
 import { AdministratorPageNotifikacijeComponent } from './administrator-page-notifikacije/administrator-page-notifikacije.component';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 
 
 @NgModule({
@@ -101,6 +102,7 @@ import { AdministratorPageNotifikacijeComponent } from './administrator-page-not
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyAuthInterceptor, multi: true },
+    {provide : LocationStrategy , useClass: HashLocationStrategy},
     AutorizacijaGuardKorisnik,
     AutorizacijaGuardAdministrator
   ],

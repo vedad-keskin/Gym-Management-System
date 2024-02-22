@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TfaGetAllResponse, TfaGetAllResponseTfa, TfasGetallEndpoint } from "../endpoints/tfas-endpoints/tfas-getall-endpoint";
 import { MyAuthService } from "../services/MyAuthService";
+import {
+  AutentifikacijaTwoFOtkljucajEndpoint,
+  AutentifikacijaTwoFOtkljucajRequest
+} from "../endpoints/auth-endpoints/2FA-otkljucaj-endpoint";
 
 @Component({
   selector: 'app-twof-page',
@@ -13,8 +17,13 @@ export class TwofPageComponent implements OnInit {
   constructor(
     private TfagetAllEndpoint: TfasGetallEndpoint,
     private myAuthService: MyAuthService,
-    private router: Router
+    private router: Router,
+    private AutentifikacijaTwoFOtkljucajEndpoint:AutentifikacijaTwoFOtkljucajEndpoint
   ) {}
+
+  public kljuc:AutentifikacijaTwoFOtkljucajRequest = {
+    kljuc:''
+  }
 
   tfas: TfaGetAllResponseTfa[] = [];
   id: number = 0;
@@ -39,6 +48,11 @@ export class TwofPageComponent implements OnInit {
 
     if (provjeriKod) {
       this.uspjesnaVerifikacija = true;
+      this.kljuc.kljuc = this.verifikacijskiKod;
+
+      this.AutentifikacijaTwoFOtkljucajEndpoint.Handle(this.kljuc!).subscribe((x)=>{
+
+      });
 
       this.showDots = true;
       setTimeout(() => {

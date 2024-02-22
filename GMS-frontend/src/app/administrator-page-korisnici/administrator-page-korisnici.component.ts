@@ -20,6 +20,8 @@ import {
 import {KorisnikAddEndpoint, KorisnikAddRequest} from "../endpoints/korisnik-endpoints/korisnik-add-endpoint";
 import {KorisniciEditEndpoint, KorisniciEditRequest} from "../endpoints/korisnik-endpoints/korisnik-edit-endpoint";
 import {TreneriEditRequest} from "../endpoints/treneri-endpoints/treneri-edit-endpoint";
+import {HttpClient} from "@angular/common/http";
+import {Config} from "../config";
 
 @Component({
   selector: 'app-administrator-page-korisnici',
@@ -33,7 +35,8 @@ export class AdministratorPageKorisniciComponent implements OnInit{
               private SpolGetAllEndpoint:SpolGetAllEndpoint,
               private TeretanaGetAllEndpoint:TeretanaGetAllEndpoint,
               private KorisnikAddEndpoint:KorisnikAddEndpoint,
-              private KorisniciEditEndpoint:KorisniciEditEndpoint) {
+              private KorisniciEditEndpoint:KorisniciEditEndpoint,
+              private HttpClient:HttpClient) {
   }
 
   korisnici: KorisnikGetAllResponseKorisnik[] = [];
@@ -41,6 +44,8 @@ export class AdministratorPageKorisniciComponent implements OnInit{
   gradovi: GradGetAllResponseGrad[] = [];
   teretane: TeretanaGetAllResponseTeretana[] = [];
   PretragaNaziv: string = "";
+
+  pdfIzvjestaj:any;
 
   public odabraniKorisnik: KorisniciEditRequest | null = null;
   public prikaziAdd:boolean = false;
@@ -173,5 +178,17 @@ export class AdministratorPageKorisniciComponent implements OnInit{
       this.fetchKorisnici();
       this.odabraniKorisnik = null
     });
+  }
+
+
+  GenerisiIzvjesaj() {
+    const urlIzvjestaj = Config.adresa+'Report1/Index/PDFReport';
+    window.open(urlIzvjestaj, '_blank');
+
+  }
+
+  GenerisiIzvjestaj2() {
+    const urlIzvjestaj = Config.adresa+'Report1/Index2/ExcelReport';
+    window.open(urlIzvjestaj, '_blank');
   }
 }

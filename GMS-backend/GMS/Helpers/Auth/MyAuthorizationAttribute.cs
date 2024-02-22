@@ -32,7 +32,7 @@ namespace GMS.Helpers.Auth
 
             MyAuthInfo myAuthInfo = authService.GetAuthInfo();
 
-            if (!authService.GetAuthInfo().korisnickiNalog.is2FActive
+            if (authService.GetAuthInfo().korisnickiNalog.is2FActive
                 && !myAuthInfo.autentifikacijaToken.IsOtkljucano)
             {
                 context.Result = new UnauthorizedObjectResult("Niste otključali 2F!");

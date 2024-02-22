@@ -19,12 +19,20 @@ namespace GMS.Entities.Endpoint.Tfa.GetAll
         [HttpGet]
         public override async Task<TfaGetAllResponse> Handle([FromQuery] TfasGetAllRequest request, CancellationToken cancellationToken)
         {
-            var tfas = await db.AutentifikacijaToken
-                .Select(x => new TfasGetAllResponseRow
+            var lastTwoFKeys = await db.AutentifikacijaToken
+                .GroupBy(x => x.KorisnickiNalogId)
+                .Select(group => new
                 {
-                    ID = x.KorisnickiNalogId,
-                    TwoFKey = x.TwoFKey
-                }).ToListAsync(cancellationToken: cancellationToken);
+                    KorisnickiNalogId = group.Key,
+                    LastTwoFKey = group.OrderByDescending(x => x.id).Select(x => x.TwoFKey).FirstOrDefault()
+                })
+                .ToListAsync(cancellationToken);
+
+            var tfas = lastTwoFKeys.Select(x => new TfasGetAllResponseRow
+            {
+                ID = x.KorisnickiNalogId,
+                TwoFKey = x.LastTwoFKey
+            }).ToList();
 
             return new TfaGetAllResponse
             {

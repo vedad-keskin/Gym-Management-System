@@ -10,12 +10,18 @@ import {
   NutricionstiGetallEndpoint
 } from "../endpoints/nutricionsti-endpoints/nutricionsti-getall-endpoint";
 import {
-  Korisnik_TrenerAddEndpoint, Korisnik_TrenerAddRequest
+  Korisnik_TrenerAddEndpoint,
+  Korisnik_TrenerAddRequest
 } from "../endpoints/korisnik-endpoints/korisnik-treneri-endpoints/korisnik-trener-add-endpoint";
 import {MyAuthService} from "../services/MyAuthService";
 import {
-  Korisnik_NutricionistAddEndpoint, Korisnik_NutricionistAddRequest
+  Korisnik_NutricionistAddEndpoint,
+  Korisnik_NutricionistAddRequest
 } from "../endpoints/korisnik-endpoints/korisnik-nutricionst-endpoints/korisnik-nutricionist-add-endpoint";
+import {Route, Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {Config} from "../config";
+import {SmsSendEndpoint} from "../endpoints/sms-endpoints/sms-send-endpoint";
 
 @Component({
   selector: 'app-osoblje-page',
@@ -28,7 +34,8 @@ export class OsobljePageComponent implements OnInit{
               private NutricionstgetAllEndpoint:NutricionstiGetallEndpoint,
               private Korisnik_TrenerAddEndpoint:Korisnik_TrenerAddEndpoint,
               private myAuthService: MyAuthService,
-              private Korisnik_NutricionistAddEndpoint:Korisnik_NutricionistAddEndpoint) {
+              private Korisnik_NutricionistAddEndpoint:Korisnik_NutricionistAddEndpoint,
+              private SmsSendEndpoint:SmsSendEndpoint) {
 
   }
   treneri: TrenerGetAllResponseTrener[] = [];
@@ -83,8 +90,13 @@ export class OsobljePageComponent implements OnInit{
       this.ngOnInit();
       this.prikaziAddZaTrenera = false;
       this.SuccessPopUp = true;
+
+      this.SmsSendEndpoint.Handle().subscribe((x)=> {
+      });
+
     })
   }
+
 
   OdaberiTrenera(x: TrenerGetAllResponseTrener) {
 
@@ -133,7 +145,11 @@ export class OsobljePageComponent implements OnInit{
       this.ngOnInit();
       this.prikaziAddZaNutricionistu = false;
       this.SuccessPopUp = true;
-    })
+
+      this.SmsSendEndpoint.Handle().subscribe((x)=> {
+      });
+
+      })
   }
 
   private fetchNutricionsti() {
