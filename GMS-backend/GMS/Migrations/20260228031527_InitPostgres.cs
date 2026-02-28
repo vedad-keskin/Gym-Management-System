@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace GMS.Migrations
 {
-    public partial class init : Migration
+    public partial class InitPostgres : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,11 +14,11 @@ namespace GMS.Migrations
                 name: "Clanarina",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false),
                     Cijena = table.Column<float>(type: "real", nullable: false),
-                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Opis = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,9 +29,9 @@ namespace GMS.Migrations
                 name: "Dobavljac",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,10 +42,10 @@ namespace GMS.Migrations
                 name: "FAQ",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Pitanje = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Odgovor = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Pitanje = table.Column<string>(type: "text", nullable: false),
+                    Odgovor = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,9 +56,9 @@ namespace GMS.Migrations
                 name: "Grad",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,9 +69,9 @@ namespace GMS.Migrations
                 name: "Kategorija",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,11 +82,11 @@ namespace GMS.Migrations
                 name: "KorisnickiNalog",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    is2FActive = table.Column<bool>(type: "bit", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Username = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    is2FActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,12 +97,12 @@ namespace GMS.Migrations
                 name: "Nutricionist",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Slika = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Ime = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false),
+                    BrojTelefona = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -112,13 +113,13 @@ namespace GMS.Migrations
                 name: "Recenzija",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Zanimanje = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tekst = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Slika = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Ime = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false),
+                    Zanimanje = table.Column<string>(type: "text", nullable: false),
+                    Tekst = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -129,11 +130,11 @@ namespace GMS.Migrations
                 name: "Seminar",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Tema = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Predavac = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Tema = table.Column<string>(type: "text", nullable: false),
+                    Predavac = table.Column<string>(type: "text", nullable: false),
+                    Datum = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,9 +145,9 @@ namespace GMS.Migrations
                 name: "Spol",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,12 +158,12 @@ namespace GMS.Migrations
                 name: "Trener",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Slika = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Ime = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false),
+                    BrojTelefona = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -173,11 +174,11 @@ namespace GMS.Migrations
                 name: "Teretana",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GradID = table.Column<int>(type: "int", nullable: false),
-                    Adresa = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false),
+                    GradID = table.Column<int>(type: "integer", nullable: false),
+                    Adresa = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -193,15 +194,15 @@ namespace GMS.Migrations
                 name: "Suplement",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Naziv = table.Column<string>(type: "text", nullable: false),
                     Cijena = table.Column<float>(type: "real", nullable: false),
                     Gramaza = table.Column<float>(type: "real", nullable: false),
-                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Slika = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DobavljacID = table.Column<int>(type: "int", nullable: false),
-                    KategorijaID = table.Column<int>(type: "int", nullable: false)
+                    Opis = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true),
+                    DobavljacID = table.Column<int>(type: "integer", nullable: false),
+                    KategorijaID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -222,9 +223,9 @@ namespace GMS.Migrations
                 name: "Administrator",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false),
+                    Ime = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,21 +234,22 @@ namespace GMS.Migrations
                         name: "FK_Administrator_KorisnickiNalog_ID",
                         column: x => x.ID,
                         principalTable: "KorisnickiNalog",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AutentifikacijaToken",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    vrijednost = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KorisnickiNalogId = table.Column<int>(type: "int", nullable: false),
-                    vrijemeEvidentiranja = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ipAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TwoFKey = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsOtkljucano = table.Column<bool>(type: "bit", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    vrijednost = table.Column<string>(type: "text", nullable: false),
+                    KorisnickiNalogId = table.Column<int>(type: "integer", nullable: false),
+                    vrijemeEvidentiranja = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ipAdresa = table.Column<string>(type: "text", nullable: true),
+                    TwoFKey = table.Column<string>(type: "text", nullable: true),
+                    IsOtkljucano = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -263,15 +265,15 @@ namespace GMS.Migrations
                 name: "LogKretanjePoSistemu",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    QueryPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostData = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Vrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IpAdresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ExceptionMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsException = table.Column<bool>(type: "bit", nullable: false)
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    QueryPath = table.Column<string>(type: "text", nullable: true),
+                    PostData = table.Column<string>(type: "text", nullable: true),
+                    Vrijeme = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    IpAdresa = table.Column<string>(type: "text", nullable: true),
+                    ExceptionMessage = table.Column<string>(type: "text", nullable: true),
+                    IsException = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -287,8 +289,8 @@ namespace GMS.Migrations
                 name: "Nutricionist_Seminar",
                 columns: table => new
                 {
-                    NutricionistID = table.Column<int>(type: "int", nullable: false),
-                    SeminarID = table.Column<int>(type: "int", nullable: false)
+                    NutricionistID = table.Column<int>(type: "integer", nullable: false),
+                    SeminarID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -309,8 +311,8 @@ namespace GMS.Migrations
                 name: "Trener_Seminar",
                 columns: table => new
                 {
-                    TrenerID = table.Column<int>(type: "int", nullable: false),
-                    SeminarID = table.Column<int>(type: "int", nullable: false)
+                    TrenerID = table.Column<int>(type: "integer", nullable: false),
+                    SeminarID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -331,16 +333,16 @@ namespace GMS.Migrations
                 name: "Korisnik",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Slika = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ID = table.Column<int>(type: "integer", nullable: false),
+                    Ime = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true),
+                    BrojTelefona = table.Column<string>(type: "text", nullable: false),
                     Visina = table.Column<float>(type: "real", nullable: false),
                     Tezina = table.Column<float>(type: "real", nullable: false),
-                    GradID = table.Column<int>(type: "int", nullable: false),
-                    SpolID = table.Column<int>(type: "int", nullable: false),
-                    TeretanaID = table.Column<int>(type: "int", nullable: false)
+                    GradID = table.Column<int>(type: "integer", nullable: false),
+                    SpolID = table.Column<int>(type: "integer", nullable: false),
+                    TeretanaID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -354,7 +356,8 @@ namespace GMS.Migrations
                         name: "FK_Korisnik_KorisnickiNalog_ID",
                         column: x => x.ID,
                         principalTable: "KorisnickiNalog",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Korisnik_Spol_SpolID",
                         column: x => x.SpolID,
@@ -371,10 +374,10 @@ namespace GMS.Migrations
                 name: "Korisnik_Clanarina",
                 columns: table => new
                 {
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    ClanarinaID = table.Column<int>(type: "int", nullable: false),
-                    DatumUplate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DatumIsteka = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    ClanarinaID = table.Column<int>(type: "integer", nullable: false),
+                    DatumUplate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DatumIsteka = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -395,10 +398,10 @@ namespace GMS.Migrations
                 name: "Korisnik_Nutricionst",
                 columns: table => new
                 {
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    NutricionistID = table.Column<int>(type: "int", nullable: false),
-                    DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ZakazanoSati = table.Column<int>(type: "int", nullable: false)
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    NutricionistID = table.Column<int>(type: "integer", nullable: false),
+                    DatumTermina = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ZakazanoSati = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -419,11 +422,11 @@ namespace GMS.Migrations
                 name: "Korisnik_Suplement",
                 columns: table => new
                 {
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    SuplementID = table.Column<int>(type: "int", nullable: false),
-                    DatumVrijemeNarudzbe = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Kolicina = table.Column<int>(type: "int", nullable: false),
-                    Isporuceno = table.Column<bool>(type: "bit", nullable: false)
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    SuplementID = table.Column<int>(type: "integer", nullable: false),
+                    DatumVrijemeNarudzbe = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Kolicina = table.Column<int>(type: "integer", nullable: false),
+                    Isporuceno = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -444,10 +447,10 @@ namespace GMS.Migrations
                 name: "Korisnik_Trener",
                 columns: table => new
                 {
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    TrenerID = table.Column<int>(type: "int", nullable: false),
-                    DatumTermina = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ZakazanoSati = table.Column<int>(type: "int", nullable: false)
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    TrenerID = table.Column<int>(type: "integer", nullable: false),
+                    DatumTermina = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ZakazanoSati = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -531,14 +534,7 @@ namespace GMS.Migrations
                     { 21, "Prnjavor" },
                     { 22, "Sarajevo" },
                     { 23, "Srebrenik" },
-                    { 24, "Stolac" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Grad",
-                columns: new[] { "ID", "Naziv" },
-                values: new object[,]
-                {
+                    { 24, "Stolac" },
                     { 25, "Široki Brijeg" },
                     { 26, "Travnik" },
                     { 27, "Tuzla" },
