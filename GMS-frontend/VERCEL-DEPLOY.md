@@ -33,10 +33,12 @@ Commit and push the frontend (including environments and config).
 | Field | Value |
 |-------|-------|
 | **Framework Preset** | Angular |
-| **Root Directory** | `GMS-frontend` |
+| **Root Directory** | `GMS-frontend` (or the folder that contains your Angular app in the repo) |
 | **Build Command** | `npm run build` |
 | **Output Directory** | `dist/gms-client` |
-| **Install Command** | `npm install` |
+| **Install Command** | `npm install --legacy-peer-deps` (or `npm install` if you don’t need it) |
+
+**Important:** Keep **Root Directory** and **Output Directory** correct. The repo must contain a `vercel.json` in the frontend folder so all routes are served by `index.html` (SPA). If you see 404 after deploy, check that Output Directory is exactly `dist/gms-client` and that `vercel.json` is committed.
 
 ### Step 5: Deploy
 
