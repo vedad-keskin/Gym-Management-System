@@ -6,7 +6,7 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="{{odabraniKorisnik?.slika}}" alt="avatar"
+            <img [src]="odabraniKorisnik?.slika" alt="avatar"
                  class="rounded-circle img-fluid" style="width: 180px;">
             <h4 class="my-3">{{odabraniKorisnik?.ime}} {{odabraniKorisnik?.prezime}}</h4>
             <p class="text-muted mb-1">{{odabraniKorisnik?.username}}</p>
