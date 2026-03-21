@@ -1,0 +1,70 @@
+name: GMS — Keep Render & Supabase Alive
+
+# Scheduled pings so the Render backend cold-starts less often and Supabase PostgreSQL sees activity.
+# BASE_URL must be your Render API host with NO trailing slash (curl uses $BASE_URL/swagger and $BASE_URL/Grad-GetAll).
+# Match the host in GMS-frontend/src/environments/environment.prod.ts (omit the trailing slash there for this value only).
+#
+# Schedule (UTC):
+#   12:00 — wake-up ping (Swagger; 503/502 OK while cold booting)
+#   12:05 — 3 DB pings on public GET endpoints (no [MyAuthorization])
+#   12:10 — same 3 pings again
+#
+# Endpoints: GMS-backend — GradGetAllEndpoint, ClanarinaGetAllEndpoint, RecenzijaGetAllEndpoint (hyphenated routes).
+#
+# Optional: set repository variable GMS_API_BASE_URL (no trailing slash). If unset, the default below is used.
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 12:00 UTC — wake Render
+    - cron: "5 12 * * *"   # 12:05 UTC — DB pings
+    - cron: "10 12 * * *"  # 12:10 UTC — DB pings
+  workflow_dispatch:
+
+env:
+  BASE_URL: ${{ vars.GMS_API_BASE_URL || 'https://gym-management-system-gdin.onrender.com' }}
+
+jobs:
+
+  wake:
+    name: "12:00 — Wake Render (Swagger)"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 12 * * *'
+    steps:
+      - name: Ping Swagger (cold start expected)
+        run: |
+          echo "Wake ping → $BASE_URL/swagger"
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "$BASE_URL/swagger" || true)
+          echo "Response: HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" = "503" ] || [ "$HTTP_CODE" = "502" ] || [ "$HTTP_CODE" = "000" ]; then
+            echo "Backend waking up (expected on free tier). Boot triggered."
+          else
+            echo "Backend responded — HTTP $HTTP_CODE"
+          fi
+
+  db-ping:
+    name: "DB ping — ${{ github.event.schedule || 'manual' }}"
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.schedule == '5 12 * * *' ||
+      github.event.schedule == '10 12 * * *'
+    steps:
+      - name: GET /Grad-GetAll (Grad table)
+        run: |
+          HTTP_CODE=$(curl -s -o response.json -w "%{http_code}" --max-time 60 "$BASE_URL/Grad-GetAll")
+          echo "HTTP $HTTP_CODE — $(head -c 200 response.json)"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] \
+            && echo "Grad-GetAll OK" || (echo "Grad-GetAll failed (HTTP $HTTP_CODE)" && exit 1)
+
+      - name: GET /Clanarina-GetAll (Clanarina table)
+        run: |
+          HTTP_CODE=$(curl -s -o response.json -w "%{http_code}" --max-time 60 "$BASE_URL/Clanarina-GetAll")
+          echo "HTTP $HTTP_CODE — $(head -c 200 response.json)"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] \
+            && echo "Clanarina-GetAll OK" || (echo "Clanarina-GetAll failed (HTTP $HTTP_CODE)" && exit 1)
+
+      - name: GET /Recenzija-GetAll (Recenzija table)
+        run: |
+          HTTP_CODE=$(curl -s -o response.json -w "%{http_code}" --max-time 60 "$BASE_URL/Recenzija-GetAll")
+          echo "HTTP $HTTP_CODE — $(head -c 200 response.json)"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] \
+            && echo "Recenzija-GetAll OK" || (echo "Recenzija-GetAll failed (HTTP $HTTP_CODE)" && exit 1)
